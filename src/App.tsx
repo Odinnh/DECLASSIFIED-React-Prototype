@@ -12,7 +12,7 @@ function App() {
     <BaseLayout>
       <IntelContextProvider>
         <MapContainer >
-          <Header test={"hello"} />
+          <Header />
         </MapContainer>
       </IntelContextProvider>
     </BaseLayout>
