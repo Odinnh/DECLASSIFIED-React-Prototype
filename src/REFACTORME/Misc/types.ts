@@ -1,13 +1,20 @@
-import L from "leaflet";
+import L, { PointTuple } from "leaflet";
 
 /////////////////////Misc/////////////////////////
-const miscIconInit = (id: string, type: string, bounds?: any) => {
-    let { iconSize = [30, 30], iconAnchor = [15, 15], popupAnchor = [0, -15] } = bounds;
+
+interface Bounds {
+    iconSize?: PointTuple;
+    iconAnchor?: PointTuple;
+    popupAnchor?: PointTuple;
+}
+
+const miscIconInit = (id: string, type: string, bounds?: Bounds) => {
+    const { iconSize, iconAnchor, popupAnchor } = bounds ?? {};
     return L.icon({
         iconUrl: `assets/img/icons/${type}/${id}.png`,
-        iconSize: iconSize,
-        iconAnchor: iconAnchor,
-        popupAnchor: popupAnchor,
+        iconSize: iconSize ?? [30, 30],
+        iconAnchor: iconAnchor ?? [15, 15],
+        popupAnchor: popupAnchor ?? [0, -15],
         className: 'misc-icon'
     });
 }

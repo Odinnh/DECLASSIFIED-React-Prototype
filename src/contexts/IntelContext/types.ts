@@ -4,11 +4,9 @@ import { generalIcon } from "../../REFACTORME/Misc/types";
 
 export interface IntelContextProps {
     currentMap: string;
+    setCurrentMap: Dispatch<SetStateAction<string>>
 }
 
-export const context: IntelContextProps = {
-    currentMap: "Hello World"
-}
 export interface IntelContextProviderProps {
     children: React.ReactNode
 }
