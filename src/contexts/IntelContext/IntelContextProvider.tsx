@@ -1,7 +1,7 @@
 import L from "leaflet";
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useMapEvents } from "react-leaflet";
-import { SetMap } from "../../helpers/mapUtils";
+import { useSetMap } from "../../helpers/mapUtils";
 import { IntelContextProps } from "./types";
 
 export const IntelContext = createContext<IntelContextProps>({
@@ -10,16 +10,11 @@ export const IntelContext = createContext<IntelContextProps>({
 });
 
 export const IntelContextProvider = ({ children }) => {
-    const [currentMap, setCurrentMapState] = useState("zoo");
-    const [mapInstance, setMapInstance] = useState(null);
-    const map = useMapEvents({});
+    const [currentMap, setCurrentMap] = useState("zoo");
+    
 
-    const setCurrentMap = (mapId) => {
-        setCurrentMapState(mapId);
-        // set layers in control
-        // set default layer for selected map in map instance
-        SetMap(IntelContext, mapId, map)
-    }
+    useSetMap(currentMap)
+
 
     const context = {
         currentMap,

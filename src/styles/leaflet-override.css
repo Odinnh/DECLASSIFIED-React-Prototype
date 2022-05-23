@@ -85,7 +85,6 @@
   z-index:1;
 }
 
-.leaflet-control-container{
+.leaflet-bottom.leaflet-right {
   visibility: hidden;
-  background-color: red;
 }

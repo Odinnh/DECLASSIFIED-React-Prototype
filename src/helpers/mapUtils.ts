@@ -1,24 +1,26 @@
-import { useContext } from "react";
+import { IntelContext } from './../contexts/IntelContext/IntelContextProvider';
+import { useContext, useEffect } from "react";
 import { MapLayers } from "./mapLayers";
 import { findMapById } from "./models";
+import { useMapEvents } from 'react-leaflet';
 
-export function SetMap(context, selectedMapId, mapInstance) {
-    const { currentMap, setCurrentMap, setMapInstance } = useContext(context);
+export function useSetMap(currentMap) {
+    const mapInstance = useMapEvents({}); 
+    useEffect(() => {
+        // set default layer for selected map in map instance
 
-    const { id: mapId } = findMapById(selectedMapId)!;
-    
-    if (mapId && currentMap !== mapId) {
-        mapInstance.removeLayer(MapLayers[currentMap].Layer)
-        mapInstance.addLayer(MapLayers[mapId].Layer)
+        if(currentMap){
+            console.log("MyLayers: ", MapLayers);
+            
+            mapInstance.eachLayer(function (layer) {
+                console.log("layer: ", layer);
+                
+                /* mapInstance.removeLayer(layer); */
+            });
+            mapInstance.addLayer(MapLayers[currentMap].Layer)
+        }
 
-        setCurrentMap(mapId);
-        /* setLastVisitedMap(mapId) */
-
-        Array.from(document.getElementsByClassName('current-map'))
-            .forEach((element) => {
-                element.classList.toggle("current-map");
-            })
-    }
+    }, [currentMap, mapInstance]);
 }
 
 /* export function changeMapTo(mapId, targetElement) {
