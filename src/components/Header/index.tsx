@@ -1,24 +1,22 @@
-import React, { useContext } from 'react';
-import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider';
+import classNames from 'classnames';
+import { useContext, useState } from 'react';
+import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
 import { MapDetails } from '../../contexts/IntelContext/types';
 import { HeaderItem } from '../HeaderItem';
-import { IHeaderProps } from './types';
 
 const MapList = [
   {
-    title: MapDetails.dieMaschine.title,
-    mapList: [MapDetails.dieMaschine, MapDetails.dieMaschineUnderground]
+    map: MapDetails.dieMaschine,
   },
   {
-    title: MapDetails.firebaseZ.title,
-    mapList: [MapDetails.firebaseZ, MapDetails.firebaseZSpawn]
+    map: MapDetails.firebaseZ,
   }
 
 ]
 
 const Header = () => {
   const { currentMap } = useContext(IntelContext);
-
+  const [isVisible, setIsVisible] = useState(false);
   /*   function changeMapTo(mapId) {
       setMap(mapId);
       setVisibilityFromPrefs();
@@ -26,13 +24,21 @@ const Header = () => {
       TriggerSearch();
   }
    */
+
+  const headerClasses = classNames({
+    visible: isVisible,
+  })
+  const toggleVisibility = () => {
+    setIsVisible((prevIsVisible) => !prevIsVisible);
+  }
+
   return (
-    <header>
-      <h1>{currentMap}<i className="fas fa-angle-down"></i></h1>
+    <header className={headerClasses}>
+      <h1 onClick={toggleVisibility}>{currentMap}<i className="fas fa-angle-down"></i></h1>
       <ul>
         {MapList.map(mapHeader => (
-          <HeaderItem {...mapHeader} />
-          ))}
+          <HeaderItem key={mapHeader.map.id} {...mapHeader.map} />
+        ))}
       </ul>
     </header>
   );
