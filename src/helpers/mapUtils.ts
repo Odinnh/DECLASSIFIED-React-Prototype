@@ -12,12 +12,12 @@ export function useSetMap(currentMap) {
         if(currentMap){
             console.log("MyLayers: ", MapLayers);
             
-            mapInstance.eachLayer(function (layer) {
+/*             mapInstance.eachLayer(function (layer) {
                 console.log("layer: ", layer);
                 
-                /* mapInstance.removeLayer(layer); */
+                mapInstance.removeLayer(layer);
             });
-            mapInstance.addLayer(MapLayers[currentMap].Layer)
+            mapInstance.addLayer(MapLayers[currentMap].Layer) */
         }
 
     }, [currentMap, mapInstance]);

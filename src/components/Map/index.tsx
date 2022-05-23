@@ -24,9 +24,9 @@ const MapProvider = () => {
             ]}
             maxZoom={5}
             minZoom={0.1}
-            layers={[
+/*             layers={[
                 MapLayers[currentMap].Layer
-            ]}
+            ]} */
             tap={true}
             tapTolerance={30}
             /* noWrap={true} */
