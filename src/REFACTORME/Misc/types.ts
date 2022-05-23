@@ -8,7 +8,7 @@ interface Bounds {
     popupAnchor?: PointTuple;
 }
 
-const miscIconInit = (id: string, type: string, bounds?: Bounds) => {
+export const miscIconInit = (id: string, type: string, bounds?: Bounds) => {
     const { iconSize, iconAnchor, popupAnchor } = bounds ?? {};
     return L.icon({
         iconUrl: `assets/img/icons/${type}/${id}.png`,
