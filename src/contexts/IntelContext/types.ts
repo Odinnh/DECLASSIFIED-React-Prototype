@@ -1,30 +1,13 @@
-import { Icon, IconOptions } from "leaflet";
 import { Dispatch, SetStateAction } from "react";
-import { generalIcon } from "../../REFACTORME/Misc/types";
+import { Item } from "../../helpers/models";
 
 export interface IntelContextProps {
     currentMap: string;
-    setCurrentMap: Dispatch<SetStateAction<string>>
+    setCurrentMap: Dispatch<SetStateAction<string>>;
 }
 
 export interface IntelContextProviderProps {
     children: React.ReactNode
-}
-
-export class Item {
-    id: string;
-    title: string;
-    desc?: string;
-    icon?: Icon<IconOptions>;
-    layer?: string;
-
-    constructor({ id, title, desc, icon, layer }: Item) {
-        this.id = id;
-        this.title = title ?? "";
-        this.desc = desc ?? "";
-        this.icon = icon ?? generalIcon;
-        this.layer = layer ?? "MiscMarkers"
-    }
 }
 
 export const MapDetails = {
@@ -68,3 +51,14 @@ export const MapDetails = {
     garrison: new Item({ id: "garrison", title: "Garrison" }),
     deprogram: new Item({ id: "deprogram", title: "Deprogram" }),
 };
+
+export const allOutbreakMapsArr = [
+    MapDetails.zoo.id,
+    MapDetails.ruka.id,
+    MapDetails.duga.id,
+    MapDetails.alpine.id,
+    MapDetails.golova.id,
+    MapDetails.sanatorium.id,
+    MapDetails.collateral.id,
+    MapDetails.armada.id
+]
