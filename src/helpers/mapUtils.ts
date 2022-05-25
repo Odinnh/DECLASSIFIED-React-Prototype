@@ -1,7 +1,4 @@
-import { IntelContext } from './../contexts/IntelContext/IntelContextProvider';
-import { useContext, useEffect } from "react";
-import { MapLayers } from "./mapLayers";
-import { findMapById } from "./models";
+import { useEffect } from "react";
 import { useMapEvents } from 'react-leaflet';
 
 export function useSetMap(currentMap) {
@@ -10,7 +7,6 @@ export function useSetMap(currentMap) {
         // set default layer for selected map in map instance
 
         if(currentMap){
-            console.log("MyLayers: ", MapLayers);
             
 /*             mapInstance.eachLayer(function (layer) {
                 console.log("layer: ", layer);

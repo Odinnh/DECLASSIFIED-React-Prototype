@@ -1,6 +1,7 @@
-import { Icon, IconOptions, PointTuple } from "leaflet";
-import { MapDetails } from "../contexts/IntelContext/types";
+import { Icon, IconOptions, LatLngExpression } from "leaflet";
 import { ammoCrateIcon, arsenalIcon, craftingTableIcon, dementedIcon, fishingIcon, generalIcon, miscIconInit, monkeyIcon, mysteryBoxIcon, papMachineIcon, radioIcon, redRiftIcon, riftIcon, trialComputerIcon, wallbuyIcon, wunderFizzIcon, ziplineIcon } from "../REFACTORME/Misc/types";
+import { Faction, intelStore, Season } from '../data/intel';
+import { IntelMapMarker } from '../components/MapMarker';
 
 /////////////////////Classes/////////////////////////
 export class Item {
@@ -15,43 +16,65 @@ export class Item {
         this.title = title ?? "";
         this.desc = desc ?? "";
         this.icon = icon ?? generalIcon;
-        this.layer = layer ?? "MiscMarkers"
+        this.layer = layer ?? "MiscMarkers";
     }
 }
 
-export class Marker {
-    id: string;
-    title?: string;
-    desc?: string;
-    icon?: Icon<IconOptions>;
-    layer?: string;
-    loc: PointTuple;
+export class BaseMarker extends Item {
+    typeDesc: string;
+    loc: LatLngExpression;
 
-    constructor(id, item, loc, uniqueDesc, layer) {
-        this.id = id;
-        if (item instanceof Item) {
-            this.title = item.title ?? "";
-            this.desc = item.desc ?? "";
-            this.icon = item.icon ?? generalIcon;
-            // TODO STANDARDISE STRING
-            this.layer = item.layer ?? "MiscMarkers"
-        }
-        //Override static description with unique description
-        if (uniqueDesc) this.desc = uniqueDesc;
-        // Could do map in the future depending on how the data structure needs to change
-        /* this.map = map; */
+    constructor({ id, title, desc, icon, layer, typeDesc, loc }: BaseMarker) {
+        super({ id, title, desc, icon, layer });
+        this.typeDesc = typeDesc;
         this.loc = loc ?? [0, 0];
     }
 }
 
+export class IntelMarker extends BaseMarker {
+    faction: Faction;
+    season: Season;
+    img?: string;
+
+    constructor({ id, title, desc, icon, layer, typeDesc, loc, faction, season, img }: IntelMarker) {
+        super({ id, title, desc, icon, layer, typeDesc, loc });
+        this.faction = faction;
+        this.season = season;
+        this.img = img;
+    }
+}
+
+export class MiscMarker extends BaseMarker {
+    constructor({ id, title, desc, icon, layer, typeDesc, loc }: BaseMarker) {
+        super({ id, title, desc, icon, layer, typeDesc, loc });
+    }
+}
+
+export class MiscType extends Item {
+    constructor({ id, title, desc, icon, layer }: Item) {
+        super({ id, title, desc, icon, layer });
+    }
+}
+
+export class MapItem extends Item {
+    mapOverlay?: JSX.Element;
+    mapMarkers?: JSX.Element[];
+    constructor({ id, title, desc, icon, layer, mapOverlay }: MapItem) {
+        super({ id, title, desc, icon, layer });
+        this.mapOverlay = mapOverlay;
+        this.mapMarkers = intelStore.map(intel => (
+            <IntelMapMarker {...intel} />
+        ));
+    }
+}
 
 /////////////////////Maps/////////////////////////
 
-export function findMapById(mapId) {
+/* export function findMapById(mapId) {
     const maps = Object.values(MapDetails);
     const foundMap = maps.find(map => map.id === mapId);
     return foundMap;
-}
+} */
 
 
 
@@ -81,22 +104,6 @@ export const ModalSet = {
     settingsDetail: ["settings", "settings-detail"],
 }
 
-/////////////////////Core Categories/////////////////////////
-export const Factions = {
-    requiem: "Requiem",
-    omega: "Omega",
-    maxis: "Maxis",
-    darkAether: "Dark Aether",
-}
-
-export const IntelTypes = {
-    audio: "Audio Logs",
-    docs: "Documents",
-    radio: "Radio Transmissions",
-    artifact: "Artifacts",
-}
-
-
 /////////////////////Perks/////////////////////////
 export const Perks = {
     staminup: new Item({ id: "staminUp", title: "Stamin-Up", icon: miscIconInit("staminUp", "perk") }),
@@ -118,13 +125,19 @@ export const MarkerTypes = {
     worldEvents: new Item({ id: "worldEvents", title: "World Events" }),
     easterEggs: new Item({ id: "easterEggs", title: "Easter Eggs" }),
 }
-
-export const DefaultPOIData = {
+interface IDefaultPOIData {
+    challenge: string;
+    special: string;
+    chests: string;
+    onslaught: string;
+    nullLoc: LatLngExpression;
+}
+export const DefaultPOIData: IDefaultPOIData = {
     challenge: "Obtained through the Challenge Machine",
     special: "Dropped from Special/Elite kills",
     chests: "Dropped from Special/Elite kills or golden chests",
     onslaught: "Dropped during the onslaught gamemode.",
-    nullLoc: "[0,0]"
+    nullLoc: [0, 0]
 }
 
 /////////////////////Misc/////////////////////////

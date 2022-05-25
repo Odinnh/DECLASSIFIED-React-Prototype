@@ -1,6 +1,3 @@
-import L, { LatLngBoundsExpression } from "leaflet";
-import { MapDetails } from "../contexts/IntelContext/types";
-import { mapSVGs } from "./mapsvg";
 import { RepoDomain } from "./models";
 
 const globalMapSettings = {
@@ -16,7 +13,7 @@ const globalMapSettings = {
     zoomSnap: 0.1
 }
 
-export const MapLayers = generateMapLayers();
+/* export const MapLayers = generateMapLayers();
 
 function generateMapLayers() {
     return {
@@ -63,4 +60,4 @@ function generateLayers(name, settings) {
     object.Markers.addTo(object.Layer);
     object.MiscMarkers.addTo(object.Layer);
     return object
-}
+} */

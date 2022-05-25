@@ -2,11 +2,11 @@ import L from 'leaflet'
 import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider'
-import { MapLayers } from '../../helpers/mapLayers'
 import Header from '../Header'
 import { IntelMenu } from '../IntelMenu'
 import { MapControls } from '../MapControls'
-import { MapMarkers } from '../MapMarkers'
+import { MapGroupings } from '../MapControls/types'
+import { IntelMapMarker } from '../MapMarker'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
@@ -24,9 +24,9 @@ const MapProvider = () => {
             ]}
             maxZoom={5}
             minZoom={0.1}
-/*             layers={[
-                MapLayers[currentMap].Layer
-            ]} */
+            /*             layers={[
+                            MapLayers[currentMap].Layer
+                        ]} */
             tap={true}
             tapTolerance={30}
             /* noWrap={true} */
@@ -38,8 +38,7 @@ const MapProvider = () => {
         >
             <IntelContextProvider>
                 <Header />
-                <MapMarkers />
-                <MapControls />
+                <MapControls MapLayers={MapGroupings[0].MapLayers} />
                 <IntelMenu />
             </IntelContextProvider>
         </MapContainer>

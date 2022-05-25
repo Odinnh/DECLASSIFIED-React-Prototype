@@ -1,18 +1,10 @@
 import classNames from 'classnames';
 import { useContext, useState } from 'react';
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
-import { MapDetails } from '../../contexts/IntelContext/types';
+import { MapDetails } from '../../data/mapDetails';
 import { HeaderItem } from '../HeaderItem';
+import { MapGroupings } from '../MapControls/types';
 
-const MapList = [
-  {
-    map: MapDetails.dieMaschine,
-  },
-  {
-    map: MapDetails.firebaseZ,
-  }
-
-]
 
 const Header = () => {
   const { currentMap } = useContext(IntelContext);
@@ -34,10 +26,10 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <h1 onClick={toggleVisibility}>{currentMap}<i className="fas fa-angle-down"></i></h1>
+      <h1 onClick={toggleVisibility}>{currentMap.desc}<i className="fas fa-angle-down"></i></h1>
       <ul>
-        {MapList.map(mapHeader => (
-          <HeaderItem key={mapHeader.map.id} {...mapHeader.map} />
+        {MapGroupings.map(mapMenuItem => (
+          <HeaderItem key={mapMenuItem.MapLayers[0].id} id={mapMenuItem.MapLayers[0].id} title={mapMenuItem.MapName} />
         ))}
       </ul>
     </header>
