@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { useContext, useState } from 'react';
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
-import { MapDetails } from '../../data/mapDetails';
 import { HeaderItem } from '../HeaderItem';
 import { MapGroupings } from '../MapControls/types';
 

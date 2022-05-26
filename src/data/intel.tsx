@@ -1,6 +1,59 @@
 import { LatLngExpression } from "leaflet";
-import { DefaultPOIData } from "../helpers/models";
-import { MapDetails } from "./mapDetails";
+
+interface IDefaultPOIData {
+    challenge: string;
+    special: string;
+    chests: string;
+    onslaught: string;
+    nullLoc: LatLngExpression;
+}
+
+export const DefaultPOIData: IDefaultPOIData = {
+    challenge: "Obtained through the Challenge Machine",
+    special: "Dropped from Special/Elite kills",
+    chests: "Dropped from Special/Elite kills or golden chests",
+    onslaught: "Dropped during the onslaught gamemode.",
+    nullLoc: [0, 0]
+}
+
+export enum MapIds {
+    allOutbreakMaps = "outbreak",
+    zoo = "zoo",
+    ruka = "ruka",
+    duga = "duga",
+    alpine = "alpine",
+    golova = "golova",
+    sanatorium = "sanatorium",
+    collateral = "collateral",
+    armada = "armada",
+    dieMaschine = "dieMaschine",
+    dieMaschineUnderground = "dieMaschine_underground",
+    firebaseZ = "firebaseZ",
+    firebaseZSpawn = "firebaseZ_spawn",
+    mauerDerToten = "mauerDerToten",
+    mauerDerTotenStreets = "mauerDerToten_streets",
+    forsaken = "forsaken",
+    forsakenUnderground = "forsaken_underground",
+    miami = "miami",
+    satellite = "satellite",
+    moscow = "moscow",
+    nuketown = "nuketown",
+    thePines = "thePines",
+    express = "express",
+    rush = "rush",
+    echelon = "echelon",
+    driveIn = "driveIn",
+    cartel = "cartel",
+    crossroads = "crossroads",
+    raid = "raid",
+    apocalypse = "apocalypse",
+    yamantau = "yamantau",
+    standoff = "standoff",
+    collateralOn = "collateralOn",
+    checkmate = "checkmate",
+    garrison = "garrison",
+    deprogram = "deprogram",
+};
 
 export enum Faction {
     Requiem = "Requiem",
@@ -38,7 +91,7 @@ interface IntelItem {
     desc: string;
     img?: string;
 }
-export const intelStore: IntelItem[] = [
+export const IntelStore: IntelItem[] = [
     /////////////////////Requiem/////////////////////////
     {
         id: "RS0Au1",
@@ -46,7 +99,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [117.48346338003188, 388],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "The Incident",
         desc: "Right next to power in the left corner on a shelf.",
         img: "EGqRNBA",
@@ -56,7 +109,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [150.77158419588412, 376.92896048971033],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Parallel World",
         desc: "Near PaP, behind the stairs leading up while in the Dark Aether.",
         img: "2LplDYe",
@@ -66,7 +119,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Endstation Approval Letter",
         desc: DefaultPOIData.special
     }, {
@@ -75,7 +128,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Spacetime Breach Sketch",
         desc: DefaultPOIData.special
     }, {
@@ -84,7 +137,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "D.I.E. Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -93,7 +146,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Der Wechsler Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -102,7 +155,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "V Cipher #1",
         desc: DefaultPOIData.special
     }, {
@@ -111,7 +164,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "V Cipher #2",
         desc: DefaultPOIData.special
     }, {
@@ -120,7 +173,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Officer Weaver",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -129,7 +182,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Doctor Grey",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -138,7 +191,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Dimension of Death",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -147,7 +200,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Doctor Strauss",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -156,7 +209,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Aetherium",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -165,7 +218,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Major Carver",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -174,7 +227,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "New Arms Race",
         desc: "You can only get one radio transmission per game.",
     }, {
@@ -183,7 +236,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [170.0631722113111, 201.81997835508457],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "D.I.E. Remote Control",
         desc: "Gotten as part of the free D.I.E Machine Quest",
         img: "7VkXI09",
@@ -193,7 +246,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [167.01550190613514, 257.8345330200728],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "D.I.E. Machine",
         desc: "Get the free D.I.E Machine from the quest",
         img: "CEAruXt",
@@ -203,7 +256,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [182.80600838865897, 350.61889795537377],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Aetherscope",
         desc: "Part of the main quest. You have to craft it.",
         img: "rgoEclM",
@@ -213,7 +266,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [340.1425322096326, 329.34435658392994],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Doctor Vogel's Diary",
         desc: "When you have crafted the Aetherscope, it can be found in the Dark Aether next to the computer in the med bay.",
         img: "yGC78xG",
@@ -223,7 +276,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [319.01055069265954, 351.936179716442],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Decontamination Agent",
         desc: "In a cabinet in the med bay. Obtained during the main quest.",
         img: "ci5KPI7",
@@ -233,7 +286,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [344.7238827806349, 363.5],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Exo-Element 1",
         desc: "Obtained from table in med bay, by easter egg computer. On the far wall, close to the box location.",
         img: "3kMPPiH",
@@ -243,7 +296,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [195.48976325589638, 200],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "New Orders",
         desc: "Obtained from a table in weapons lab, close to the dog gas collection point for the nova 5 WW upgrade.",
         img: "NMx9YSb",
@@ -253,7 +306,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [229.97149317254832, 351.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Ravenov",
         desc: "On a table in the outer ring of Data Center, first floor near a cabinet of data reels.",
         img: "XKHCELz",
@@ -263,7 +316,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [388.95457527930483, 247],
-        map: MapDetails.firebaseZSpawn.id,
+        map: MapIds.firebaseZSpawn,
         title: "They Took Her",
         desc: "On a bench above PaP.",
         img: "fU5ZGiA",
@@ -273,7 +326,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [208.9737276112786, 208],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Meeting Of Minds",
         desc: "In military Command, under the desk near the zombie barrier.",
         img: "QIZ1vFt",
@@ -283,7 +336,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Doctor Vogel Entry 203",
         desc: "Obtained from megaton drop.",
     }, {
@@ -292,7 +345,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Outbreak Zones Timeline",
         desc: DefaultPOIData.special
     }, {
@@ -301,7 +354,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Requiem Formation Memo",
         desc: DefaultPOIData.special
     }, {
@@ -310,7 +363,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Requiem Staffing Announcement",
         desc: DefaultPOIData.special
     }, {
@@ -319,7 +372,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "C Cipher",
         desc: DefaultPOIData.special
     }, {
@@ -328,7 +381,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Omega's Advantage",
         desc: "",
     }, {
@@ -337,7 +390,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "This Is Personal",
         desc: "",
     }, {
@@ -346,7 +399,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Peck",
         desc: "",
     }, {
@@ -355,7 +408,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Between Us",
         desc: "",
     }, {
@@ -364,7 +417,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "W.A.N.D.",
         desc: "",
     }, {
@@ -373,7 +426,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Stick",
         desc: "",
     }, {
@@ -382,7 +435,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Blacksmiths and Architects",
         desc: "",
     }, {
@@ -391,7 +444,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Not Unlike Oxygen",
         desc: "",
     }, {
@@ -400,7 +453,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "A Storied Career",
         desc: "",
     }, {
@@ -409,7 +462,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Thick Of It",
         desc: "",
     }, {
@@ -418,7 +471,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Transformative Properties",
         desc: "",
     }, {
@@ -427,7 +480,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Genetic Secrets",
         desc: "",
     }, {
@@ -436,7 +489,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [158.24646657208723, 287.25],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "RAI K-84 Blueprint",
         desc: "On the wall in Weapons Lab.",
         img: "AZfBKTe",
@@ -446,7 +499,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [346.4590973576875, 448],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Weapon Trial Folder",
         desc: "On the ground next to Kuhlklay's Body.",
         img: "3y6mDXU",
@@ -456,7 +509,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [292.4648430572796, 330.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Kuhlklay's Diary",
         desc: "Obtained from a locker, requires the locker key from the quest.",
     }, {
@@ -465,7 +518,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [159.3725006650115, 282.625],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "RAI K-84 Prototype",
         desc: "Obtain the ww. Needs to be the free one from the quest.",
         img: "HqQqEQ4",
@@ -475,7 +528,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [172.47761127859548, 358.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Focal Point",
         desc: "On the corner of the building on a ledge, near the satellite dish. Rocky Defence. Need to shoot it down.",
         img: "QzNt7tS",
@@ -485,7 +538,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [285.73321954247206, 271.75],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Like Flies To Honey",
         desc: "In the Base Headquarters location on a long table.",
         img: "itiaqDX",
@@ -495,7 +548,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [292.5, 56],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "A Grisly Affair",
         desc: "In Base Cabins on the back of a truck behind the cabins.",
         img: "Rd7VJUK",
@@ -505,7 +558,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [157.93177892918823, 261.90189231808966],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "I See A Hierarchy",
         desc: "On the top of the water tower near the gas station at the edge of the village proper.",
         img: "k7hhYfY",
@@ -515,7 +568,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [336, 265],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Quantum Entanglement",
         desc: "On the pier in the back room of the building at the end.",
         img: "GHNbEKJ",
@@ -525,7 +578,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [195.47532363894305, 92.5],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Recon Rover Blues",
         desc: "In the big building of the Old Farm location. When u enter the building, walk straight ahead, the audio log will be on top of a pink cabinet.",
         img: "reb4ftu",
@@ -535,7 +588,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [279, 285.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Killer Crystals",
         desc: "In Ski Patrol in the big building upstairs in the smaller side room on a table.",
         img: "KQcdy8S",
@@ -545,7 +598,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "RE: Funding Allocation 1",
         desc: "",
     }, {
@@ -554,7 +607,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "RE: Funding Allocation 2",
         desc: DefaultPOIData.special
     }, {
@@ -563,7 +616,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Berlin COMINT",
         desc: DefaultPOIData.special
     }, {
@@ -572,7 +625,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Operation Threshold Authorization",
         desc: DefaultPOIData.chests
     }, {
@@ -581,7 +634,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Domino Effect",
         desc: DefaultPOIData.chests
     }, {
@@ -590,7 +643,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Recon Rover Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -599,7 +652,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Disruptor Satellite Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -608,7 +661,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Nose To Nose",
         desc: "",
     }, {
@@ -617,7 +670,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Race Against Time",
         desc: "",
     }, {
@@ -626,7 +679,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "How We Win",
         desc: "",
     }, {
@@ -635,7 +688,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Under Observation",
         desc: "",
     }, {
@@ -644,7 +697,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Zombie Head",
         desc: "Collected through the Defence objective.",
         img: "c7IF0Yi",
@@ -654,7 +707,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [184.99267893868938, 142.25],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Aetherium Canister",
         desc: "Between the pipes connecting the Silo with the building.",
         img: "MIWOwX9",
@@ -664,7 +717,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [91.24241490800614, 323.625],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Aetherium Crystal Shard",
         desc: "In the burnt forest section, right up against the edge of the map about halfway down. It's on top of a big rock.",
         img: "z8ot1vM",
@@ -674,7 +727,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [256, 167.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Frost Blast Canister",
         desc: "Look on top of the circular ski lift station on the western side of the map near the Lodge and the Pro Shop.",
         img: "l1ryasI",
@@ -684,7 +737,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [369.5, 284],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "The Beacon",
         desc: "In the Chemical Processing area, on the desk in the office of the big building.",
         img: "FoHnqCT",
@@ -694,7 +747,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [344, 427.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Doubts",
         desc: "In the SAM site, in the big hanger on a box marked with a red star.",
         img: "xscpwPW",
@@ -704,7 +757,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [216.47308920021277, 87.5],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Death Squads",
         desc: "In the old farm area. In the green tent, under a table.",
         img: "0AFDpdP",
@@ -714,7 +767,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [174, 304],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Eyes Only",
         desc: "In the Worker Services building. On the second floor, on a desk in one of the offices.",
         img: "tDUcVSG",
@@ -724,7 +777,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [204.5, 274],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Operation Baldr",
         desc: "In Radar Control. Sitting on the table next to the couch in the Office on the second floor.",
         img: "SZNbR2I",
@@ -734,7 +787,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [286.5, 298.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Dissent And Division",
         desc: "On the monorail track in South Lake. It's in the support pillar in the middle of the lake.",
         img: "ggnGpuZ",
@@ -744,7 +797,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [303, 345.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "News From Upstairs",
         desc: "Under the bridge. Right at the end of the bridge just before you go out of the map, on a little platform just above the surface of the water.",
         img: "lffwsAV",
@@ -754,7 +807,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [219, 149.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Embarrassment of Riches",
         desc: "In the lodge. On the third floor sitting on the bar.",
         img: "4JEjpiH",
@@ -764,7 +817,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Extraction Rocket Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -773,7 +826,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Dark Aether Object Report",
         desc: DefaultPOIData.chests
     }, {
@@ -782,7 +835,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Crate Memo",
         desc: DefaultPOIData.chests
     }, {
@@ -791,7 +844,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "E.C.M. Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -800,7 +853,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Investigation Request",
         desc: DefaultPOIData.chests
     }, {
@@ -809,7 +862,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Zykov Assessment",
         desc: DefaultPOIData.chests
     }, {
@@ -818,7 +871,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Power Nodes Report",
         desc: DefaultPOIData.chests
     }, {
@@ -827,7 +880,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "J Cipher",
         desc: DefaultPOIData.chests
     }, {
@@ -836,7 +889,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Progress Update",
         desc: "",
     }, {
@@ -845,7 +898,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "A Visceral Process",
         desc: "",
     }, {
@@ -854,7 +907,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Fish Out Of Water",
         desc: "",
     }, {
@@ -863,7 +916,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Commander-In-Chief",
         desc: "",
     }, {
@@ -872,7 +925,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [278.5, 127.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Energy Mine Canister",
         desc: "On the roof of the 001 and 002 apartments in the Mechanic Shop area.",
         img: "kD0F78e",
@@ -882,7 +935,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [367, 233],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Essence Explosive",
         desc: "In the bunker area, in the top most guard station.",
         img: "jEIigTf",
@@ -892,7 +945,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [245.5, 332.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Requiem Patch",
         desc: "In the Lakeside Dell area. Its on a little dock to the left of the big bridge.",
         img: "lunLo0R",
@@ -902,7 +955,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [387.7990788716177, 353.95577832845237],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Transformed Apple Crate",
         desc: "In the barn of the lower farmstead. Should be pretty easy to spot.",
     }, {
@@ -911,7 +964,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [191.5, 398.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Beacon Device Component",
         desc: "In the Electrical Substation. On one of the two taller structures, is very easy to see.",
         img: "VRBaXVX",
@@ -921,7 +974,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [356.718080080043, 430.125],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Aether Shroud Canister",
         desc: "In the Maintenance section. It's inside one of the garages.",
         img: "vZ3UGhv",
@@ -931,7 +984,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [201.97447242418866, 286],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "You Knew Better",
         desc: "Next to the monorail up in the cages overpass.",
         img: "AO8Q7jy",
@@ -941,7 +994,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [332.61880985103744, 263.9375],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Aftermath",
         desc: "On the desks in the center of the room.",
         img: "AcAn4Fw",
@@ -951,7 +1004,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [256.1005169442849, 277.25],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "What Tomorrow Brings",
         desc: "On a bar counter.",
         img: "9kPQa9A",
@@ -961,7 +1014,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [360.21051120045945, 283.75],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "The Berlin Situation",
         desc: "The audio log is on top of a railway tanker.",
         img: "sDDbhJT",
@@ -971,7 +1024,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [221.11429054492226, 132.75],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Goes Without Saying",
         desc: "The audio log is inside one of the buildings at the Industrial Complex, on top of the the middle table.",
         img: "x3iVmM5",
@@ -981,7 +1034,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [303.05556562291264, 280.65884945678516],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Lost in Transit",
         desc: "In the Ghost Station. Laying next to a pillar on the side the Mule Kick machine is.",
     }, {
@@ -990,7 +1043,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [103.78745589513629, 472.14785263771023],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "A Handful",
         desc: "Inside the hidden area of Hotel Room 305.",
     }, {
@@ -999,7 +1052,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [329.9196021776218, 185.50607794719141],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Who's Laughing Now?",
         desc: "In the Safe House. On a desk to the left of a door.",
         img: "9GEjfTF",
@@ -1009,7 +1062,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [351.0639951945735, 164.25180305542324],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Bad Days",
         desc: "Inside the Safehouse inside a locker. Only appears after Klaus has been built.",
         img: "XiKCiQ3",
@@ -1019,7 +1072,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [182.3751168341555, 152.49714880759007],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Final Order",
         desc: "Inside the secret lab accessed during the main ee. On a table behind the pedestal used during the ee.",
         img: "m0tNm0t",
@@ -1029,7 +1082,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "DASA Station Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -1038,7 +1091,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "The Omega Eight",
         desc: DefaultPOIData.chests
     }, {
@@ -1047,7 +1100,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "The Child's Note",
         desc: "Obtained during the Outbreak EE#2",
     }, {
@@ -1056,7 +1109,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Operation Excision Report",
         desc: "",
     }, {
@@ -1065,7 +1118,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Where's My Robot?",
         desc: "",
     }, {
@@ -1074,7 +1127,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "CRBR-S Report",
         desc: "",
     }, {
@@ -1083,7 +1136,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "E Cipher",
         desc: "",
     }, {
@@ -1092,7 +1145,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "CRBR-S Blueprint",
         desc: "",
     }, {
@@ -1101,7 +1154,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Klaus Blueprint",
         desc: "",
     }, {
@@ -1110,7 +1163,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Berlin Outbreak Report",
         desc: "",
     }, {
@@ -1119,7 +1172,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Rico's Note",
         desc: "Part of the main EE, can be found on the train.",
     }, {
@@ -1128,7 +1181,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Subject: Strange Communique",
         desc: "Part of the main EE, can be found on the computer beside Klaus.",
     }, {
@@ -1137,7 +1190,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Subject: Urgent",
         desc: "Part of the main EE, can be found on the computer beside Klaus.",
     }, {
@@ -1146,7 +1199,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "J Cipher 2",
         desc: "Part of the main EE, can be found on the computer beside Klaus.",
     }, {
@@ -1155,7 +1208,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "EE-1 Harvester Blueprint",
         desc: "",
     }, {
@@ -1164,7 +1217,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "EE-1 Conversion Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -1173,7 +1226,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Vogel's Letter",
         desc: DefaultPOIData.chests
     }, {
@@ -1182,7 +1235,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Welcome Back",
         desc: "",
     }, {
@@ -1191,7 +1244,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Patterns",
         desc: "",
     }, {
@@ -1200,7 +1253,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Eye For An Eye",
         desc: "",
     }, {
@@ -1209,7 +1262,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Marked Man",
         desc: "",
     }, {
@@ -1218,7 +1271,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [246.4854805816634, 109.75],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Healing Aura Canister",
         desc: "Underneath the sink in the corner.",
         img: "NTI5zGr",
@@ -1228,7 +1281,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [416.95170242950877, 369.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Recon Rover Model",
         desc: "Behind the sink in the bathroom, second floor.",
         img: "iL1t8Le",
@@ -1238,7 +1291,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [304.976089010765, 73.875],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Ring of Fire Canister",
         desc: "In a yellow hanging coat inside the southernmost base cabin.",
         img: "Ukkarkd",
@@ -1248,7 +1301,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [244.11627888125105, 320.3125],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "ECM Model",
         desc: "The artifact is found on the shelf inside the Zoo Entrance office.",
         img: "uUyufz6",
@@ -1258,7 +1311,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [103.6017379770531, 462.17348530573224],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "Klaus's Hands",
         desc: "The hands are found around the neck of a scorched zombie in room 305.",
         img: "y0rk1MH",
@@ -1268,7 +1321,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [115.54337132643306, 451.52283934547444],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "CRBR-S",
         desc: "In the Safe in rroom 305.",
         img: "05AhecN",
@@ -1278,7 +1331,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [296.73609119124524, 317.747499559232],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Warhead",
         desc: "Part of the EE, can be found inside the train on an open chest",
         img: "waVs3Fr",
@@ -1288,7 +1341,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [290.359361317248, 317.5268297579435],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Rico's Keycard",
         desc: "Part of the EE, can be found inside the train on a burnt corpse",
         img: "8XlPsfD",
@@ -1298,7 +1351,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [336.8310351797605, 202.84884675145662],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Hacking Helm",
         desc: "Part of the EE, can be obtained by crafting onto Klaus. U must collect first the Antenna, Transistor and Electronic Boards",
         img: "iuuHVb2",
@@ -1308,7 +1361,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [286.0552817646633, 37.73111969127485],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "Improvised Collider",
         desc: "Part of the EE, can be obtained by picking up corrupted uranium and using it on the workbench",
         img: "BHetga7",
@@ -1318,7 +1371,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [152.10509347612606, 373.5],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Peacemakers",
         desc: "In the South dunes area. Near the Jump Pad, on the treads of the big machine, just to the west of the Jump pad.",
         img: "uJxF3Lu",
@@ -1328,7 +1381,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [365.68631426163495, 117.06689738832597],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Soul Searching",
         desc: "It's in the broken down building, in the back corner, close to the border of the region.",
         img: "HnU7IVF",
@@ -1338,7 +1391,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [344.28804705304697, 286],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Unto The Breach",
         desc: "In the Gun Boat area. it's just behind a crate, near the Wunderfizz.",
         img: "qgMsd9g",
@@ -1348,7 +1401,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [264.9770975746793, 279.27491131317663],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Butterscotch",
         desc: "In Launch Bay area #3. Top Right most one, if looking at the big map.",
         img: "sZeU3Xo",
@@ -1358,7 +1411,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [252.80602314205777, 249.9248150443894],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Desperate Measures",
         desc: "On a table in the center of the Control Room area of the main boat.",
         img: "8PsBCYx",
@@ -1368,7 +1421,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Dark Aether Vortex Report",
         desc: DefaultPOIData.chests
     }, {
@@ -1377,7 +1430,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Krafft Journal Page",
         desc: DefaultPOIData.chests
     }, {
@@ -1386,7 +1439,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Outbreak Expansions Report",
         desc: DefaultPOIData.chests
     }, {
@@ -1395,7 +1448,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Krafft Journal Page 2",
         desc: DefaultPOIData.chests
     }, {
@@ -1404,7 +1457,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Operation First Domino",
         desc: DefaultPOIData.chests
     }, {
@@ -1413,7 +1466,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Updates",
         desc: "",
     }, {
@@ -1422,7 +1475,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Busy Bees",
         desc: "",
     }, {
@@ -1431,7 +1484,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Walking Notso",
         desc: "",
     }, {
@@ -1440,7 +1493,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Act Three Time",
         desc: "",
     }, {
@@ -1449,7 +1502,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [339.4830418187545, 403.61980124770054],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Frenzied Guard Canister",
         desc: "On the roof of the Drapery.",
         img: "xzgByHn",
@@ -1459,7 +1512,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [183.96168312612326, 110],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Aetherium Rocket Model",
         desc: "In the Oil Tanks area. It's under a staircase, sitting on a yellow pipe embedded in the wall.",
         img: "mORszHJ",
@@ -1469,7 +1522,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [180.98899061533047, 278.0625],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Raptor One's Helmet",
         desc: "At the back of the Helipad Area. it's at the base of the helipad, at the bottom of a staircase.",
         img: "6KuLN8H",
@@ -1479,7 +1532,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [256.92710668692445, 121.5625],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Toxic Growth Canister",
         desc: "The western most Capsized area. it's under the water on a platform near the front of the ship.",
         img: "wQDzgYo",
@@ -1489,7 +1542,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [196.9832618443238, 133.5],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Requiem Helicopter Model",
         desc: "In the Maintenance section. Near one of the doors.",
         img: "I4f09pE",
@@ -1499,7 +1552,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [314.54777218320953, 397.74424238182837],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Agent Klaus Model",
         desc: "In the North-eastern most Hangar area. He's hanging off some pipes just above one of the staircases, climb on the nearby toolbox to grab him.",
         img: "Qn0dwLb",
@@ -1509,7 +1562,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [328.7872515067342, 221.11097924801237],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Symbiotic Relationship",
         desc: "In the storage zone rooftops area, on top of a wire spool next to the mystery box. It only spawns, after progressing through the main quest (more precisely, after the crystal core drops from the sky, which is part of the wonder weapon).",
         img: "PYbde8y",
@@ -1519,7 +1572,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [193.361937897806, 267.4743705907465],
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "Russian to Russian",
         desc: "In the office area, on the floor next to the desks and Wunderfizz machine.",
         img: "1kV6UPW",
@@ -1529,7 +1582,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [115.67661364380001, 222.11087874406564],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "For Health",
         desc: "In the bar, on top of the counter.",
         img: "N5FxkHZ",
@@ -1539,7 +1592,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [254.59109465195596, 73.70455695553227],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "The Zakarpatska Oblast",
         desc: "In the staging area, on top of a crate next to a truck.",
         img: "qlf1gId",
@@ -1549,7 +1602,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [192.94132033870045, 217],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Weaver's Eyepatch",
         desc: "Behind the desk at the gas station counter.",
         img: "1gYdyUD",
@@ -1559,7 +1612,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [233.49143289914954, 155],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Tesla Storm Canister",
         desc: "On top of the transformer.",
         img: "GCO1WXK",
@@ -1569,7 +1622,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [157.43164326675438, 121.59375],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Director Mug",
         desc: "On top of a small round table on the ground floor.",
         img: "rCf8A7L",
@@ -1579,7 +1632,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [112.54451034857252, 166.98547672827868],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Monitoring Device",
         desc: "In the TV store, part of the main quest.",
         img: "UlujB1r",
@@ -1589,7 +1642,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [212.23422995682867, 373.5],
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "Housing Unit",
         desc: "In the board room, part of the main quest.",
         img: "f2TL9eI",
@@ -1599,7 +1652,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [386.40504451376614, 260.86230015702665],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Aetherium Neutralizer",
         desc: "In the main street area, part of the main quest.",
         img: "TOHSDW0",
@@ -1609,7 +1662,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [224.84742021412936, 264.4752320531471],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Fuel Tank",
         desc: "In the fuel processing area, part of the main quest.",
         img: "fTtfpLM",
@@ -1619,7 +1672,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [407.51584368211905, 227.17645449055067],
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "The Chrysalax",
         desc: "Part Of the Main Quest, After all the crystals are in the tub Melee 10 zombies.",
         img: "HcykNAE",
@@ -1629,7 +1682,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Page Six",
         desc: DefaultPOIData.special
     }, {
@@ -1638,7 +1691,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "B-14 Wiretap Transcript",
         desc: DefaultPOIData.special
     }, {
@@ -1647,7 +1700,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Ancient Parchment",
         desc: DefaultPOIData.special
     }, {
@@ -1656,7 +1709,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Collapse Report",
         desc: DefaultPOIData.special
     }, {
@@ -1665,7 +1718,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Ancient Parchment 2",
         desc: DefaultPOIData.special
     }, {
@@ -1674,7 +1727,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Requiem Neutralizer Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -1683,7 +1736,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Memorandum For The Board",
         desc: DefaultPOIData.special
     }, {
@@ -1692,7 +1745,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Progress Report",
         desc: DefaultPOIData.special
     },
@@ -1703,7 +1756,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [326.96117219365135, 226],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "8th Guard's First Contact",
         desc: "Sitting on the ground next to the door to the bunker in Tunnel.",
         img: "J0jJvZT",
@@ -1713,7 +1766,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [295.48907164390846, 373],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "The Volunteer",
         desc: "In the room where the PaP part can spawn in med bay. It's the area where the aether tunnel droops you off.",
         img: "en1j0my",
@@ -1723,7 +1776,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [215.25042544443048, 178.37363698684229],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "For Mother Russia",
         desc: "In the room where the PaP part can spawn in the weapon lab.It's the area where the aether tunnel droops you off.",
         img: "SR4ia1L",
@@ -1733,7 +1786,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "An Explanation",
         desc: DefaultPOIData.special
     }, {
@@ -1742,7 +1795,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Before The Devil Arrives",
         desc: DefaultPOIData.special
     }, {
@@ -1751,7 +1804,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "K Cipher",
         desc: DefaultPOIData.special
     }, {
@@ -1760,7 +1813,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "G Cipher",
         desc: DefaultPOIData.special
     }, {
@@ -1769,7 +1822,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [253.24830253899938, 354.1305763783566],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Orlov Family Photo",
         desc: "Collected in the radio station in nacht at the end of the main quest.",
         img: "m4HN82i",
@@ -1779,7 +1832,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [279.46622628125556, 301.5],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Turning Point",
         desc: "In the bedroom on a table underneath the chalkboard.",
         img: "34pPvvg",
@@ -1789,7 +1842,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [408.452500443341, 376],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Next Phase",
         desc: "In a far corner at the crash site.",
         img: "H55Wl6J",
@@ -1799,7 +1852,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [425.9506384110658, 396.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Dimensional Fertility",
         desc: "In Scorched Defence, on top of the building with the minigun.",
         img: "fbOjJHc",
@@ -1809,7 +1862,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [381.95532009221495, 294.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Let It Ride",
         desc: "On top of some pipes in Engineering. Shoot it down.",
         img: "vqMaIuF",
@@ -1819,7 +1872,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [402.4531388544068, 263],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Aethernauts",
         desc: "In Planning Offices under the desk in the middle of the room.",
         img: "yCXoouw",
@@ -1829,7 +1882,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [294.46463025359105, 365.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Anatomy Lesson",
         desc: "In field Hospital, near the exit to the Mission control area.",
         img: "dfBGGM5",
@@ -1839,7 +1892,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [170.97777088136195, 290.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Kuhlklay's Payback",
         desc: "On a shelf in weapons lab , directly across from the RAI K-84 blueprint.",
         img: "ICiiVIE",
@@ -1849,7 +1902,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [275.4666518886327, 204],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Gorev",
         desc: "In colonels office, under the desk with the monitor bank.",
         img: "gpku3En",
@@ -1859,7 +1912,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "To Dust You Will Return",
         desc: "Inside the OPC(part of the main quest).",
         img: "mKgojHy",
@@ -1869,7 +1922,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [433.4498403972335, 329],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Outpost 25 Has Fallen",
         desc: "In Mission Control, on a table by a window, near the top most charge collector.",
         img: "Tp6UZhr",
@@ -1879,7 +1932,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Omega Group Formation",
         desc: DefaultPOIData.special
     }, {
@@ -1888,7 +1941,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Operation Undertaker",
         desc: DefaultPOIData.special
     }, {
@@ -1897,7 +1950,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Khe Sanh Site",
         desc: DefaultPOIData.special
     }, {
@@ -1906,7 +1959,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Authorization to Conscript",
         desc: DefaultPOIData.special
     }, {
@@ -1915,7 +1968,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Omega Teleporter Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -1924,7 +1977,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Aetherium Production Report",
         desc: DefaultPOIData.special
     }, {
@@ -1933,7 +1986,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Specimen K7-1924",
         desc: DefaultPOIData.special
     }, {
@@ -1942,7 +1995,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "P Cipher",
         desc: DefaultPOIData.special
     }, {
@@ -1951,7 +2004,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "G Cipher",
         desc: DefaultPOIData.special
     }, {
@@ -1960,7 +2013,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Good Little Lemmings",
         desc: "",
     }, {
@@ -1969,7 +2022,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Not Built To Last",
         desc: "",
     }, {
@@ -1978,7 +2031,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Do Try To Stay Alive",
         desc: "",
     }, {
@@ -1987,7 +2040,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Gorev's Disappointment",
         desc: "",
     }, {
@@ -1996,7 +2049,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [339.95978896967546, 447],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Kuhlklay's Eye",
         desc: "In scorched defence, in a dead body leaning up against a blown up tank.",
         img: "q5ZddoH",
@@ -2006,7 +2059,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [374.45611810604714, 265],
-        map: MapDetails.firebaseZSpawn.id,
+        map: MapIds.firebaseZSpawn,
         title: "Ravenov ID Badge",
         desc: "Obtained from Ravenov during the main quest.",
         img: "Q2zH0bd",
@@ -2016,7 +2069,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [288.46526866465683, 368],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Agent Delivery System",
         desc: "Obtained from the medic building during the main quest.",
         img: "qHRfsEJ",
@@ -2026,7 +2079,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [170.4778240822841, 354],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Essence Trap",
         desc: "Obtained from the datacenter during the main quest.",
         img: "gFj1WrM",
@@ -2036,7 +2089,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Aethermeter",
         desc: "Obtained during the main quest.",
         img: "f1MWrhy",
@@ -2046,7 +2099,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [346.95904415676534, 229],
-        map: MapDetails.firebaseZSpawn.id,
+        map: MapIds.firebaseZSpawn,
         title: "Half Of The Reason",
         desc: "Under a bunk bed in Scientist Quarters, in the starting area.",
         img: "WuV5c4u",
@@ -2056,7 +2109,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [109.45970063327576, 359.458999774724],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Ghost Stories",
         desc: "In the big building in the little cemetary's office room.",
         img: "oWOCJXd",
@@ -2066,7 +2119,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [272.5, 193],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Something I Can Use",
         desc: "In the sanatorium building on the second floor, on a coffee table in the room with the wall-buy.",
         img: "PPoROBv",
@@ -2076,7 +2129,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [250.87823834196888, 294.92122099571975],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Off The Hook",
         desc: "In front of the Wunderfizz, in one of the side rooms.",
         img: "TRiMC1O",
@@ -2086,7 +2139,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [245, 373.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Do What You Must",
         desc: "On a little table on the balcony terrace in the Chalet area.",
         img: "aHz6RQd",
@@ -2096,7 +2149,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [178.97691966660756, 202.5],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "In The Wild",
         desc: "In the middle of the Missile Silos on a shelf. near the ammo crate.",
         img: "Qr0rnCQ",
@@ -2106,7 +2159,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [242, 192.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Proposed Targets",
         desc: "In the sanatorium building on the first floor in a side room to the right of the statue.",
         img: "vhF0WcT",
@@ -2116,7 +2169,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [358.81943157106696, 214.25],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Lightning Bugs",
         desc: "On a table near the edge of the Mobile ICBM Site.",
         img: "y1Y9jZN",
@@ -2126,7 +2179,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "New Frontiers",
         desc: DefaultPOIData.chests
     }, {
@@ -2135,7 +2188,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Omega Staffing Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2144,7 +2197,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Omega Records Review",
         desc: DefaultPOIData.chests
     }, {
@@ -2153,7 +2206,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Colonel",
         desc: "",
     }, {
@@ -2162,7 +2215,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Up To Speed",
         desc: "",
     }, {
@@ -2171,7 +2224,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Fiasco",
         desc: "",
     }, {
@@ -2180,7 +2233,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Trespassers",
         desc: "",
     }, {
@@ -2189,7 +2242,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [144.98053732931368, 155.5],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Kravchenko's Knife",
         desc: "In a green lookout tower in the southwest corner of the Missile Silos.",
         img: "s2UT8Be",
@@ -2199,7 +2252,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [252.46909913105162, 213.5],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Omega Group Patch",
         desc: "On top of the climbable net in the obstacle course. (might currently be bugged)",
         img: "nAPQUJs",
@@ -2209,7 +2262,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [164.5, 355],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Leadership Techniques",
         desc: "On the third floor of the Admin Offices. In the room with a big oval table.",
         img: "Jqcx8Hm",
@@ -2219,7 +2272,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [211.5, 448.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "This Isn't My Work",
         desc: "In the Research Labs. In the right most building.",
         img: "et4z5nx",
@@ -2229,7 +2282,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [164.23960365312996, 187.75],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Witching Hour",
         desc: "At the missile silos by the A elevator. On the side of the building, next to the generators.",
         img: "htLtQqt",
@@ -2239,7 +2292,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [287.25, 195.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "His Plan, Our Plan",
         desc: "On the sanatorium Roof. It's on top of the spire with 2 satellite dishes. Requires a Jump pad to get to.",
         img: "RxOyQRb",
@@ -2249,7 +2302,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Boost Module Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2258,7 +2311,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Phase Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2267,7 +2320,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Krasny Soldat Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -2276,7 +2329,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Valentina Diary Entry",
         desc: DefaultPOIData.chests
     }, {
@@ -2285,7 +2338,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Operatsiya Inversiya Proposal",
         desc: DefaultPOIData.chests
     }, {
@@ -2294,7 +2347,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Aetherium Warhead Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -2303,7 +2356,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "R Cipher",
         desc: DefaultPOIData.chests
     }, {
@@ -2312,7 +2365,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Uncle",
         desc: "",
     }, {
@@ -2321,7 +2374,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Made Of Fire",
         desc: "",
     }, {
@@ -2330,7 +2383,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Chasing Ghosts",
         desc: "",
     }, {
@@ -2339,7 +2392,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Something Is Coming",
         desc: "",
     }, {
@@ -2348,7 +2401,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [281.96596027664475, 373],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Mangler Cannon",
         desc: "Near the base of the Train Trestle closest to the building. It's sitting at the base of a tree.",
         img: "ZVVaJ0M",
@@ -2358,7 +2411,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [129.25, 274],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Peck's ID Badge",
         desc: "In the middle of the large Bathhouse, on a shelf.",
         img: "dY2WA6X",
@@ -2368,7 +2421,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [164.5, 345.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Boost Module Monitor",
         desc: "In the admin offices on the third floor. In the room with all the computers.",
         img: "qORhNA6",
@@ -2378,7 +2431,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "ICBM Launch Key",
         desc: "Obtained during the outbreak EE.",
         img: "MCMcuOF",
@@ -2388,7 +2441,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Modified Essence Trap",
         desc: "In a hallway on the ground floor of Silo A, obtained during the outbreak EE.",
         img: "X6CceYX",
@@ -2398,7 +2451,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [383, 249],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Tempest Head",
         desc: "In the medevac area. Inside the large building, on top of a pile of crates and sandbags that need to be clambered up.",
         img: "gT0QBBh",
@@ -2408,7 +2461,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [167.97809008689484, 313.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Greater Threat",
         desc: "On a couch on the first floor of the Restaurant",
         img: "7o9yGgU",
@@ -2418,7 +2471,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [189.47580244724242, 329],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Day Of Victory",
         desc: "On top of the rectangular tower of the aquarium. Might need to use a jump pad..",
         img: "Yj7cMvH",
@@ -2428,7 +2481,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "The Survivors",
         desc: "Obtained during the Outbreak EE#2",
         img: "h7MQ5lh",
@@ -2438,7 +2491,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "The Device",
         desc: "Obtained during the Outbreak EE#2",
         img: "6c7VIeH",
@@ -2448,7 +2501,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "The Trap",
         desc: "Obtained during the Outbreak EE#2",
         img: "Ga4nSId",
@@ -2458,7 +2511,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [152.24382307164962, 260.125],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Peace Is Our Profession",
         desc: "Underground bunker in the south, under the bed.",
         img: "tTZCw3w",
@@ -2468,7 +2521,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [240.70833873747011, 61.25],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "A Trap Is Set",
         desc: "The audio log is in the attic of one of the cottages, on a table with a lampshade.",
         img: "zJOU7lM",
@@ -2478,7 +2531,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [372.4417928146597, 249],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Play Your Part",
         desc: "The audio log is in the warehouse in the middle of a table.",
         img: "EaCvraP",
@@ -2488,7 +2541,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [156.2484627011629, 160.65870156772797],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "A Decent Proposal",
         desc: "In the Sewer Access area. In between a Staircase and the rappel point to the West Berlin Streets.",
         img: "EDzYkkX",
@@ -2498,7 +2551,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [189.09552897404927, 55.037560465617595],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "The Letter",
         desc: "In the Blasted Suite. Under the bed.",
     }, {
@@ -2507,7 +2560,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [192.98132363950188, 166.56126147457007],
-        map: MapDetails.mauerDerTotenStreets.id,
+        map: MapIds.mauerDerTotenStreets,
         title: "The Turn",
         desc: "In the \"Death Strip\". Sitting on top of a guard tower, can be shot down from the Destroyed Penthouse.",
         img: "1SgRSRO",
@@ -2517,7 +2570,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Ravenov Burn Notice",
         desc: DefaultPOIData.chests
     }, {
@@ -2526,7 +2579,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Aetherium Neutralizer Blueprint.",
         desc: "Obtained during the Outbreak EE#2",
         img: "twcX4Yp",
@@ -2536,7 +2589,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Necro-Analytics",
         desc: DefaultPOIData.chests
     }, {
@@ -2545,7 +2598,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "LT53 Kazimir Blueprint",
         desc: DefaultPOIData.chests
     }, {
@@ -2554,7 +2607,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Angelika Vogel Summary",
         desc: DefaultPOIData.chests
     }, {
@@ -2563,7 +2616,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Operation Baldr Approval",
         desc: DefaultPOIData.chests
     }, {
@@ -2572,7 +2625,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Valentina Diary 15-07-83",
         desc: DefaultPOIData.chests
     }, {
@@ -2581,7 +2634,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Statement Of Intent",
         desc: DefaultPOIData.chests
     }, {
@@ -2590,7 +2643,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "F Cipher",
         desc: DefaultPOIData.chests
     }, {
@@ -2599,7 +2652,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Omega's Reputation",
         desc: "Collected through the Omega Radios in Outbreak",
     }, {
@@ -2608,7 +2661,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "The One-Eyed Cowboy",
         desc: "Collected through the Omega Radios in Outbreak",
     }, {
@@ -2617,7 +2670,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Your Problem Now",
         desc: "",
     }, {
@@ -2626,7 +2679,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Secrets Harbored",
         desc: "",
     }, {
@@ -2635,7 +2688,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "5-Star Treatment",
         desc: "",
     }, {
@@ -2644,7 +2697,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Not For Me",
         desc: "",
     }, {
@@ -2653,7 +2706,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Leverage",
         desc: "",
     }, {
@@ -2662,7 +2715,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [106.98458059939702, 268],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Aether Reactor Model.",
         desc: "Between the Rail holds on top of the support pillar.",
         img: "Qh5br3O",
@@ -2672,7 +2725,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [187.97787728320623, 345],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Inversion Warhead Model",
         desc: "Up on the roof between a wooden wall and the rocks.",
         img: "6zMWZHo",
@@ -2682,7 +2735,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [191.30800337218136, 277.62147784531714],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Dark Aether Photos",
         desc: "The artifact is on a side table inside one of the rooms of Upper Suites.",
         img: "1XxPFY0",
@@ -2692,7 +2745,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [243.48189768579425, 201.375],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Omega Flag",
         desc: "The artifact is inside the watchtower, in the wall besides the window.",
         img: "86s8tdI",
@@ -2702,7 +2755,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [175.67475241333307, 400],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Krasny Soldat Flamethrower",
         desc: "The artifact is in the backroom of the 'Wolf Exhibit', on a shelf.",
         img: "hQnoV1a",
@@ -2712,7 +2765,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [155.04142581255437, 150.71763984611835],
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Endstation Lure",
         desc: "Part of the EE, enter the Secret Lab and shoot the machine next to the portal frame. Can only be obtained after collecting and distributing the canisters",
         img: "S9WRizi",
@@ -2722,7 +2775,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Battery",
         desc: "Can be obtained by killing the first Krazny",
         img: "chnzEpa",
@@ -2732,7 +2785,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [342.85771988660576, 424.56079740862197],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Change Of Plans",
         desc: "On the top of the third building in a row in the Village area. The screen will say you are in the Roadside area when you are on the correct building. The correct building also has a white/blue parachute hanging over one if the corners.",
         img: "GZRhmoV",
@@ -2742,7 +2795,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [187.18029705767913, 120.42651763576742],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "New Frontiers",
         desc: "In the Hangar area. It's sitting on a blue Shelf.",
         img: "faMdLpd",
@@ -2752,7 +2805,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [329.23846255396415, 263.3665520275134],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Growing Concerns",
         desc: "In the Cliffs area. It's at the edge of the top most set of rocks, up against the lowermost rock in the set. The location overlooks the village area.",
         img: "0QL16lc",
@@ -2762,7 +2815,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Berlin Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2771,7 +2824,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Enemy Engagement Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2780,7 +2833,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Operatsiya Izbavitel Orders",
         desc: DefaultPOIData.chests
     }, {
@@ -2789,7 +2842,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Kravchenko Letter",
         desc: DefaultPOIData.chests
     }, {
@@ -2798,7 +2851,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Test Site Anna Report",
         desc: DefaultPOIData.chests
     }, {
@@ -2807,7 +2860,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [269.98189768579425, 134.2308166040151],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Boost Module Model",
         desc: "In the Cliffs West area. in between the 2 middle clumps on the minimap.",
         img: "6rcKx3H",
@@ -2817,7 +2870,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [287.7351841729818, 316.2450221946733],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Mimic Tentacle",
         desc: "Inside a pipe in the Village Dunes area, right next to a small oil drill. It's very close to the Parking Lot area.",
         img: "IIolBRD",
@@ -2827,7 +2880,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [205.37164750514165, 222.17909101815567],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Valentina's ID Badge",
         desc: "In the Oil Rig area. it's on the ground level, on a wall to the left when facing the Rappel Rope.",
         img: "pcSy4Rf",
@@ -2837,7 +2890,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [194.86678494006043, 336.2448402383428],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Gorev's ID Badge",
         desc: "In the Patrol Boat area. It's on top of the boat itself.",
         img: "YUxVmzm",
@@ -2847,7 +2900,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [239.7265290619036, 396.23804286971125],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Teleporter Model",
         desc: "In the eastern most Capsized area. It's underwater, along the guardrails of the deck.",
         img: "68j8tJD",
@@ -2857,7 +2910,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [141.11727408456636, 323.75],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Contaminated Crystal",
         desc: "Yellow/orange crystals in the toilet bowl in the westernmost of the four doors.",
         img: "8WsW1hG",
@@ -2867,7 +2920,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [182.24077282244167, 240.6875],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Jager's ID Badge",
         desc: "On the desk as you walk in.",
         img: "al9W49e",
@@ -2877,7 +2930,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [213.46177113635102, 360.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Codename Whiskers",
         desc: "Under the table inside the building.",
         img: "yams9th",
@@ -2887,7 +2940,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [392.92004386615037, 250.5625],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Lineage",
         desc: "In the bunker, on the floor in the computer room, behind the door.",
         img: "QkBpDd6",
@@ -2897,7 +2950,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [115.3396428835883, 167.2192018163428],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "The Agreement",
         desc: "In the TV store, drops after using the ARC-XD during the main quest step.",
         img: "Xtk9lSr",
@@ -2907,7 +2960,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [319.84422421300326, 160.75],
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "Fully Operational",
         desc: "In the amplifier area, leans against the railing on the right side before you go down the stairs.",
         img: "FSUOES7",
@@ -2917,7 +2970,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [247.70418142073183, 243.117709648726],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "The Magnificent Two",
         desc: "In the fuel processing area, leans against a wall left towards the teleporter.",
         img: "bhxXWIM",
@@ -2927,7 +2980,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [400.15504451376614, 68.22878603696722],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Deja Vu",
         desc: "Leans against the small checkpoint building.",
         img: "nQTOc2W",
@@ -2937,7 +2990,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Operatsiya Izbavitel Approval",
         desc: DefaultPOIData.special
     }, {
@@ -2946,7 +2999,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Order Of Operations",
         desc: DefaultPOIData.special
     }, {
@@ -2955,7 +3008,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Test Site Construction Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -2964,7 +3017,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "Containment Chamber Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -2973,7 +3026,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Location Targets",
         desc: DefaultPOIData.special
     }, {
@@ -2982,7 +3035,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Aetherium Gun Turret Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -2991,7 +3044,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "Forsaken Photograph",
         desc: DefaultPOIData.special
     }, {
@@ -3000,7 +3053,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "ARC-XD Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -3009,7 +3062,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Anton Note",
         desc: DefaultPOIData.special
     },
@@ -3020,7 +3073,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [155.47942010994853, 256],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Cold War Paranoia",
         desc: "On the couch next to the ee song cassette in first floor of nacht.",
         img: "meoam69",
@@ -3030,7 +3083,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [242.10603552472378, 250.03564086943598],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Game Changer",
         desc: "Drop the crate for the Cryo WW upgrade. The log will be near the destroyed crate and flask.",
         img: "lEbpEFo",
@@ -3040,7 +3093,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: [142.9807501330023, 282.5],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "The VHS Tape",
         desc: "same place as the canister for the nova 5 WW upgrade. Suck it with the WW.",
         img: "Z2AYL3P",
@@ -3050,7 +3103,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "KGB Videotape Note",
         desc: DefaultPOIData.special
     }, {
@@ -3059,7 +3112,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Dieter's Note",
         desc: DefaultPOIData.special
     }, {
@@ -3068,7 +3121,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Message For Weaver",
         desc: DefaultPOIData.special
     }, {
@@ -3077,7 +3130,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Agent Maxis",
         desc: "",
     }, {
@@ -3086,7 +3139,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Scorpions From Frogs",
         desc: "",
     }, {
@@ -3095,7 +3148,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Why You're Here",
         desc: "",
     }, {
@@ -3104,7 +3157,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [356.45803333924454, 166],
-        map: MapDetails.firebaseZSpawn.id,
+        map: MapIds.firebaseZSpawn,
         title: "Not Who We Are",
         desc: "In the scientist quarters, on the inaccessible floor above you the audio log will be sitting, shoot it and it will be on the floor in the Briefing room.",
         img: "DYy4bGn",
@@ -3114,7 +3167,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [133.4817609505231, 216.5],
-        map: MapDetails.firebaseZSpawn.id,
+        map: MapIds.firebaseZSpawn,
         title: "Workers Of The Worlds",
         desc: "In equipment storage, on the back wall of the ground floor, on a shelf.",
         img: "7HpX7fQ",
@@ -3124,7 +3177,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: [263.0644128266228, 323.67997920450915],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Worse Than Baton Rouge",
         desc: "Inside a locker in the barracks. Need the key from the free WW quest to unlock.",
         img: "y6lAhGF",
@@ -3134,7 +3187,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Omega Portal Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -3143,7 +3196,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Omega Propaganda Poster",
         desc: DefaultPOIData.special
     }, {
@@ -3152,7 +3205,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Aetherium Effects Report",
         desc: DefaultPOIData.special
     }, {
@@ -3161,7 +3214,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Aether Reactor Blueprint",
         desc: DefaultPOIData.special
     }, {
@@ -3170,7 +3223,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "The New Threat",
         desc: "",
     }, {
@@ -3179,7 +3232,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Divided Loyalties",
         desc: "",
     }, {
@@ -3188,7 +3241,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Shared History / Old Friends",
         desc: "",
     }, {
@@ -3197,7 +3250,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Code In",
         desc: "",
     }, {
@@ -3206,7 +3259,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Relentless",
         desc: "",
     }, {
@@ -3215,7 +3268,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Monsters Are Real",
         desc: "",
     }, {
@@ -3224,7 +3277,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Perpetual Night",
         desc: "",
     }, {
@@ -3233,7 +3286,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "The Light Within",
         desc: "",
     }, {
@@ -3242,7 +3295,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Blood On My Hands",
         desc: "",
     }, {
@@ -3251,7 +3304,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "A Bad Dream",
         desc: "",
     }, {
@@ -3260,7 +3313,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [379.9555328959035, 311.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "More Bad News",
         desc: "At the base of the OPC. Gotta climb over a barrier near the entrance to Mission Control.",
         img: "0S5juLS",
@@ -3270,7 +3323,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [147.25338269196664, 295.75],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Call Me Mac",
         desc: "In the small cabin in the Backwoods.",
         img: "zYSSX3i",
@@ -3280,7 +3333,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [370, 405],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "My Reputation Precedes Me",
         desc: "Inside the Red building's office area, in Maintenance.",
         img: "CKSFkgH",
@@ -3290,7 +3343,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [353.8189407023604, 375.46837125478714],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "It's All Relative",
         desc: "In the little barn next to the 4 silos in Lower Farmstead.",
         img: "SyDjLUw",
@@ -3300,7 +3353,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: [353.5, 146.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "We've Both Been To Hell",
         desc: "In the little reception area of the biggest building in the maintenance area.",
         img: "ug9LwTt",
@@ -3310,7 +3363,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Maxis Status Report",
         desc: DefaultPOIData.chests
     }, {
@@ -3319,7 +3372,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Maxis Diary Entry",
         desc: DefaultPOIData.chests
     }, {
@@ -3328,7 +3381,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "A Tangled Web",
         desc: "",
     }, {
@@ -3337,7 +3390,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "I Made A Promise",
         desc: "",
     }, {
@@ -3346,7 +3399,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lab Rat",
         desc: "",
     }, {
@@ -3355,7 +3408,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Three Out Of Four",
         desc: "",
     }, {
@@ -3364,7 +3417,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Both Ways",
         desc: "",
     }, {
@@ -3373,7 +3426,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "I've Changed",
         desc: "",
     }, {
@@ -3382,7 +3435,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Why I Fight",
         desc: "",
     }, {
@@ -3391,7 +3444,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "True Courage",
         desc: "",
     }, {
@@ -3400,7 +3453,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [213.3998272884283, 288.41741383194415],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Endstation Video Tape",
         desc: "Found in a room in Lower East Town on an end table by a bed.",
         img: "s5WyEKN",
@@ -3410,7 +3463,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [165.9271732872769, 420.9950214012165],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Maxis BND Badge",
         desc: "Behind some sandbags, very close to the edge of the map, in the Industrial Park location.",
         img: "92zeyEQ",
@@ -3420,7 +3473,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [338, 218],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "It's Always Dark",
         desc: "In the 3rd bunker down from the top in the Bunkers section of the map, on a box.",
         img: "SURTqur",
@@ -3430,7 +3483,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [346.5, 56],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Outbursts",
         desc: "In the farm area. In the big red house, on the bed on the upper floor.",
         img: "QXmHPEY",
@@ -3440,7 +3493,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [91.47006332757627, 339.4472854246452],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "A New Friend",
         desc: "On a desk in one of the Church's back rooms.",
         img: "OqzDIo6",
@@ -3450,7 +3503,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [171.92371905584338, 341.4484568596531],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Isolated",
         desc: "On a desk in the Police station(the armour station building)",
         img: "fzjssJr",
@@ -3460,7 +3513,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: [261.5, 193],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Someone We Can Trust",
         desc: "In the warehouses section. On the second floor of the top most warehouse, on a desk.",
         img: "sinLGcX",
@@ -3470,7 +3523,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Arrival",
         desc: DefaultPOIData.chests
     }, {
@@ -3479,7 +3532,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Maxis Progress Report",
         desc: DefaultPOIData.chests
     }, {
@@ -3488,7 +3541,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Quarantine Diary 1",
         desc: DefaultPOIData.chests
     }, {
@@ -3497,7 +3550,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Quarantine Diary 2",
         desc: DefaultPOIData.chests
     }, {
@@ -3506,7 +3559,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [296.5, 96],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Maxis's Katana",
         desc: "In the farm area. Stuck in a haybale in a shed near the back of the area, next to the stone wall.",
         img: "2GAqORT",
@@ -3516,7 +3569,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [220, 253.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Maxis's Scarf",
         desc: "In the listening post. In a room just to the left of the Wunderfizz, on a coathook.",
         img: "FBGUM1T",
@@ -3526,7 +3579,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [141.77868590098416, 139.47542205060716],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Maxis's Goggles",
         desc: "In the market square on one of the round tables.",
         img: "8Awvkl1",
@@ -3536,7 +3589,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Beacon Listening Device",
         desc: "Obtained whilst completing an Aether transmission during the outbreak EE.",
         img: "XabDmHW",
@@ -3546,7 +3599,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Microfilm Slides",
         desc: "Obtained by breaking a stone monkey during the outbreak EE.",
         img: "bO6yQZI",
@@ -3556,7 +3609,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [211.40097869890616, 322.9376210858302],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Maxis's Watch",
         desc: "In the Lower West town area. It's on the roof of the building with the crafting bench, requires a jump pad to get to. It's tucked in between the roof itself and one of the 4 spire things with a flag on it.",
         img: "OWQQFAy",
@@ -3566,7 +3619,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [119.48325057634332, 359.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Take Her",
         desc: "In the basement of the zoo facilities in a shelf of one of the work stations",
         img: "SQQbeyc",
@@ -3576,7 +3629,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [218.47271679375774, 319.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "The Confrontation",
         desc: "In one of the animal cages on some hay",
         img: "YJSLXmb",
@@ -3586,7 +3639,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: [359.30741377017205, 350.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "The Ally",
         desc: "In the little nook where the stone monkey is on a shelf.",
         img: "Jo00PhB",
@@ -3596,7 +3649,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Quarantine Diary 9",
         desc: DefaultPOIData.chests
     }, {
@@ -3605,7 +3658,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [368.98544820366493, 361.7437485003599],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Test",
         desc: "Inside the Building marked Carpets on a table.",
         img: "AYVdW15",
@@ -3615,7 +3668,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [149.6756765207241, 183.9313004878829],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Interrogation",
         desc: "Inside the Pump Room on a Shelf.",
         img: "aStmo8p",
@@ -3625,7 +3678,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [267.2369443775361, 254.55674238182837],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Fifteen Days",
         desc: "In the Warehouse. it's in a back room, up on a pipe. you need to shoot it down.",
         img: "0sJpUjw",
@@ -3635,7 +3688,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [213.54343767949456, 228.8739342557786],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Sixty-Two Days",
         desc: "In the Oil Rig area. This one is a bit difficult. Climb up to where PaP is. Then look up towards the yellow platform, and you can just barely see the edge of the tape recorder hanging over the edge. Shoot it down, and it will fall down to you.",
         img: "lmrBTMe",
@@ -3645,7 +3698,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: [190.6188531804117, 255.1136667199872],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Thirty Seconds",
         desc: "In the same room as Pap on a table.",
         img: "vTNZwPn",
@@ -3655,7 +3708,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Week 1 Summary",
         desc: DefaultPOIData.chests
     }, {
@@ -3664,7 +3717,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Subject Rules",
         desc: DefaultPOIData.chests
     }, {
@@ -3673,7 +3726,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Weaver Letter",
         desc: DefaultPOIData.chests
     }, {
@@ -3682,7 +3735,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Grey Letter",
         desc: DefaultPOIData.chests
     }, {
@@ -3691,7 +3744,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "New Frequency",
         desc: "",
     }, {
@@ -3700,7 +3753,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Understand Me",
         desc: "",
     }, {
@@ -3709,7 +3762,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Power",
         desc: "",
     }, {
@@ -3718,7 +3771,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [232.85298123066093, 312],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "I Am Alive",
         desc: "On the ledge of the top of the watchtower.",
         img: "w7NTeIJ",
@@ -3728,7 +3781,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [407.05853356142404, 229.72348041293253],
-        map: MapDetails.forsakenUnderground.id,
+        map: MapIds.forsakenUnderground,
         title: "My Choice",
         desc: "In the particle accelerator area, drops out of the aetherium tank after assembling the wonder weapon in there.",
         img: "44r3bWk",
@@ -3738,7 +3791,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [418.38774090659103, 179.5548004540857],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "My Orders",
         desc: "In the Beach Pizza restaurant, on top of the lamp bracket. You need to shoot it down.",
         img: "APub0rE",
@@ -3748,7 +3801,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: [50.866396900649534, 116.21334387201858],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "My Control",
         desc: "In the video store, on a shelf behind the Mule Kick machine.",
         img: "2fCWOQB",
@@ -3758,7 +3811,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Ability Assessment",
         desc: DefaultPOIData.special
     }, {
@@ -3767,7 +3820,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Samantha Letter",
         desc: DefaultPOIData.special
     }, {
@@ -3776,7 +3829,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Maxis Approval Memo",
         desc: DefaultPOIData.special
     }, {
@@ -3785,7 +3838,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "The Boy",
         desc: "",
     }, {
@@ -3794,7 +3847,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "The Promise",
         desc: ""
     },
@@ -3805,7 +3858,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Johannes",
         desc: DefaultPOIData.challenge
     }, {
@@ -3814,7 +3867,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Mariska",
         desc: DefaultPOIData.challenge
     }, {
@@ -3823,7 +3876,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: David",
         desc: DefaultPOIData.challenge
     }, {
@@ -3832,7 +3885,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Approach",
         desc: DefaultPOIData.challenge
     }, {
@@ -3841,7 +3894,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Alice",
         desc: DefaultPOIData.challenge
     }, {
@@ -3850,7 +3903,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Barbara",
         desc: DefaultPOIData.challenge
     }, {
@@ -3859,7 +3912,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "$!%()$3@!",
         desc: DefaultPOIData.challenge
     }, {
@@ -3868,7 +3921,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "I @N#B%D! O% T@#&",
         desc: DefaultPOIData.challenge
     }, {
@@ -3877,7 +3930,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 13,773",
         desc: DefaultPOIData.challenge
     }, {
@@ -3886,7 +3939,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 95",
         desc: DefaultPOIData.challenge
     }, {
@@ -3895,7 +3948,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 175",
         desc: DefaultPOIData.challenge
     }, {
@@ -3904,7 +3957,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 213",
         desc: DefaultPOIData.challenge
     }, {
@@ -3913,7 +3966,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 1,646",
         desc: DefaultPOIData.challenge
     }, {
@@ -3922,7 +3975,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 937",
         desc: DefaultPOIData.challenge
     }, {
@@ -3931,7 +3984,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "DAY 1,108",
         desc: DefaultPOIData.challenge
     }, {
@@ -3940,7 +3993,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "DAY 6,121",
         desc: DefaultPOIData.challenge
     }, {
@@ -3949,7 +4002,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "DAY 2,873",
         desc: DefaultPOIData.challenge
     }, {
@@ -3958,7 +4011,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "DAY 3,289",
         desc: DefaultPOIData.challenge
     }, {
@@ -3967,7 +4020,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [255.6040273179711, 209.5934508684848],
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Mutated Fungus",
         desc: "Obtained during the main quest, on a tree with purple table mushrooms.",
         img: "jiJAPUQ",
@@ -3977,7 +4030,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [200.7678322911951, 178.88682571261361],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Plaguehound Gas",
         desc: "Obtained during the main quest, next to Deadshot Daiquiri.",
         img: "EYww78N",
@@ -3987,7 +4040,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [114.01156059366146, 348.68855512651794],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Dark Aether Crystal",
         desc: "Obtained during the main quest, collected from the red Aether crystals.",
         img: "gSh6MRa",
@@ -3997,7 +4050,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [327.44734406193004, 318.7461250716169],
-        map: MapDetails.dieMaschineUnderground.id,
+        map: MapIds.dieMaschineUnderground,
         title: "Dark Aether Wrench",
         desc: "Obtained during the main quest, gotten from the ghostly figures in the med bay.",
         img: "ow2AEku",
@@ -4007,7 +4060,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Lost Souls: Fedorov",
         desc: DefaultPOIData.challenge
     }, {
@@ -4016,7 +4069,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Lost Souls: Koslov",
         desc: DefaultPOIData.challenge
     }, {
@@ -4025,7 +4078,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Lost Souls: Tobias",
         desc: DefaultPOIData.challenge
     }, {
@@ -4034,7 +4087,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Lost Souls: Olga",
         desc: DefaultPOIData.challenge
     }, {
@@ -4043,7 +4096,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Fritz",
         desc: DefaultPOIData.challenge
     }, {
@@ -4052,7 +4105,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Lost Souls: Pyotr",
         desc: DefaultPOIData.challenge
     }, {
@@ -4061,7 +4114,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "My Friend!",
         desc: DefaultPOIData.challenge
     }, {
@@ -4070,7 +4123,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 291",
         desc: DefaultPOIData.challenge
     }, {
@@ -4079,7 +4132,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 3,789",
         desc: DefaultPOIData.challenge
     }, {
@@ -4088,7 +4141,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 4,010",
         desc: DefaultPOIData.challenge
     }, {
@@ -4097,7 +4150,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,157",
         desc: DefaultPOIData.challenge
     }, {
@@ -4106,7 +4159,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,289",
         desc: DefaultPOIData.challenge
     }, {
@@ -4115,7 +4168,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 2,944",
         desc: DefaultPOIData.challenge
     }, {
@@ -4124,7 +4177,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,412",
         desc: DefaultPOIData.challenge
     }, {
@@ -4133,7 +4186,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,416",
         desc: DefaultPOIData.challenge
     }, {
@@ -4142,7 +4195,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,418",
         desc: DefaultPOIData.challenge
     }, {
@@ -4151,7 +4204,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Hello?",
         desc: DefaultPOIData.challenge
     }, {
@@ -4160,7 +4213,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 13,784",
         desc: DefaultPOIData.challenge
     }, {
@@ -4169,7 +4222,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "Day 4,100",
         desc: DefaultPOIData.challenge
     }, {
@@ -4178,7 +4231,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Without Orders",
         desc: DefaultPOIData.challenge
     }, {
@@ -4187,7 +4240,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "ALIVE",
         desc: DefaultPOIData.challenge
     }, {
@@ -4196,7 +4249,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "GATHERING",
         desc: DefaultPOIData.challenge
     }, {
@@ -4205,7 +4258,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "BEHEMOTH",
         desc: DefaultPOIData.challenge
     }, {
@@ -4214,7 +4267,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "DOMINION",
         desc: DefaultPOIData.challenge
     }, {
@@ -4223,7 +4276,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.dieMaschine.id,
+        map: MapIds.dieMaschine,
         title: "HORDE",
         desc: DefaultPOIData.challenge
     }, {
@@ -4232,7 +4285,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [354.96085298811846, 285.5],
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Omega Canister",
         desc: "Part of the Main quest. One of many possible canisters that are filled with white and black smoke, the correct one is pure white.",
         img: "tLJkx4S",
@@ -4242,7 +4295,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Lost Souls: Fedorov #2",
         desc: DefaultPOIData.challenge
     }, {
@@ -4251,7 +4304,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,421",
         desc: DefaultPOIData.challenge
     }, {
@@ -4260,7 +4313,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Day 6,457",
         desc: DefaultPOIData.challenge
     }, {
@@ -4269,7 +4322,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Much More To Tell You",
         desc: DefaultPOIData.challenge
     }, {
@@ -4278,7 +4331,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Hello Again",
         desc: DefaultPOIData.challenge
     }, {
@@ -4287,7 +4340,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Divided World",
         desc: DefaultPOIData.challenge
     }, {
@@ -4296,7 +4349,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Trust Me",
         desc: DefaultPOIData.challenge
     }, {
@@ -4305,7 +4358,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "More To Follow",
         desc: DefaultPOIData.challenge
     }, {
@@ -4314,7 +4367,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.firebaseZ.id,
+        map: MapIds.firebaseZ,
         title: "Crooked House",
         desc: DefaultPOIData.challenge
     }, {
@@ -4323,7 +4376,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Testing... Testing...",
         desc: DefaultPOIData.challenge
     }, {
@@ -4332,7 +4385,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "New Enemies",
         desc: DefaultPOIData.challenge
     }, {
@@ -4341,7 +4394,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [155, 212.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Empty Jugger-Nog",
         desc: "On the roof of the Large Sauna building",
         img: "GmKRLaf",
@@ -4351,7 +4404,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [104.96229130685089, 326.9399639558459],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Cymbal Monkey Toy",
         desc: "On the lip of the left most tower on the roof of the church.",
         img: "9dkegZY",
@@ -4361,7 +4414,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [260.1704238411489, 399.954296532133],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Ivan's Head",
         desc: "On a telephone pillar next to the train trestle bridge (use parachute).",
         img: "QwYbojZ",
@@ -4371,7 +4424,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [239.3576897778437, 74.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Mystery Box Bunny",
         desc: "In a bed in Base Suites section. It's the third building from the bottom.",
         img: "bU3zpG7",
@@ -4381,7 +4434,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Fedorov 1",
         desc: DefaultPOIData.challenge
     }, {
@@ -4390,7 +4443,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Fedorov 2",
         desc: DefaultPOIData.challenge
     }, {
@@ -4399,7 +4452,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Fedorov 3",
         desc: DefaultPOIData.challenge
     }, {
@@ -4408,7 +4461,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Great and Terrible",
         desc: DefaultPOIData.challenge
     }, {
@@ -4417,7 +4470,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 1",
         desc: DefaultPOIData.challenge
     }, {
@@ -4426,7 +4479,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 3",
         desc: DefaultPOIData.challenge
     }, {
@@ -4435,7 +4488,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 7",
         desc: DefaultPOIData.challenge
     }, {
@@ -4444,7 +4497,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 9",
         desc: DefaultPOIData.challenge
     }, {
@@ -4453,7 +4506,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 11",
         desc: DefaultPOIData.challenge
     }, {
@@ -4462,7 +4515,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 12",
         desc: DefaultPOIData.challenge
     }, {
@@ -4471,7 +4524,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Who I Am",
         desc: DefaultPOIData.challenge
     }, {
@@ -4480,7 +4533,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Great Patriotic",
         desc: DefaultPOIData.challenge
     }, {
@@ -4489,7 +4542,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Tethered",
         desc: DefaultPOIData.challenge
     }, {
@@ -4498,7 +4551,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Changes",
         desc: DefaultPOIData.challenge
     }, {
@@ -4507,7 +4560,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Junkyard",
         desc: DefaultPOIData.challenge
     }, {
@@ -4516,7 +4569,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Invasion",
         desc: DefaultPOIData.challenge
     }, {
@@ -4525,7 +4578,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Bring Me Home",
         desc: DefaultPOIData.challenge
     }, {
@@ -4534,7 +4587,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [162.5, 462],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Empty Speed Cola",
         desc: "On the counter on the kitchen of the higher of the two right most houses in the vacation homes section.",
         img: "uFhawNw",
@@ -4544,7 +4597,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [316, 286.5],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Broken Essence Capsule",
         desc: "In the Secondary Array. This location is kinda weird. Starting from the top of the left most array, go as far left as you can, then go down 3 layers. It will be sitting on a grey metal bar connecting the walkway to the side of the array. This is away from the Primary Array, not towards it.",
         img: "4FvTHz3",
@@ -4554,7 +4607,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [284.5, 238.5],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Empty Quick Revive",
         desc: "In the Beach Resort. Under the stairs of the White shack building.",
         img: "DUeehQn",
@@ -4564,7 +4617,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [279.4652284636858, 147.6332283257859],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Broken Essence Canister",
         desc: "Right next to the wall buy inside the barn.",
         img: "t5TwvLH",
@@ -4574,7 +4627,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Aetherium Crystal Chunks",
         desc: "Found by breaking crystals in Silo B during the outbreak EE",
         img: "xQFq6b1",
@@ -4584,7 +4637,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [226, 142.5],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Dragon Head Trophy",
         desc: "In the lodge. In Room 201, above the bed.",
         img: "QExvSGe",
@@ -4594,7 +4647,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "We Are Waiting",
         desc: DefaultPOIData.challenge
     }, {
@@ -4603,7 +4656,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Lost Souls: Valentina 1",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4612,7 +4665,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Lost Souls: Valentina 2",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4621,7 +4674,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Lost Souls: Valentina 3",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4630,7 +4683,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 4,513",
         desc: DefaultPOIData.challenge
     }, {
@@ -4639,7 +4692,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Day 4,729",
         desc: DefaultPOIData.challenge
     }, {
@@ -4648,7 +4701,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Day 4,527",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4657,7 +4710,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Day 4,771",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4666,7 +4719,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Day 5,169",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4675,7 +4728,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Secret Contact",
         desc: DefaultPOIData.challenge
     }, {
@@ -4684,7 +4737,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Bring Me Home 2",
         desc: DefaultPOIData.challenge
     }, {
@@ -4693,7 +4746,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "The Forsaken",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4702,7 +4755,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Consumed",
         desc: DefaultPOIData.challenge,
     }, {
@@ -4711,7 +4764,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [358.4578205355559, 261],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Empty Stamin-Up",
         desc: "Inside the diner under the white marble counter.",
         img: "DwJhhdl",
@@ -4721,7 +4774,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [206.47021635041676, 299.5],
-        map: MapDetails.zoo.id,
+        map: MapIds.zoo,
         title: "Fury Crystal",
         desc: "On the roof behind a pillar.",
         img: "0CRrWbl",
@@ -4731,7 +4784,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [186.3576897778437, 331.625],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Empty Elemental Pop",
         desc: "Resting on a food shelf inside the kitchen area.",
         img: "kiK2Rr8",
@@ -4741,7 +4794,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [236.8503849289433, 327.875],
-        map: MapDetails.duga.id,
+        map: MapIds.duga,
         title: "Elemental Pop Poster",
         desc: "The poster is inside the 'Maintenance Facilities' building, fixed on the wall.",
         img: "RKM8CE7",
@@ -4751,7 +4804,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Electrical Fuse",
         desc: "Obtained by killing the first tempest, used to restore power",
         img: "LcCTZ0F",
@@ -4761,7 +4814,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Tempest Essence",
         desc: "Part of the EE, can be obtained by placing a container on the essence harvester and filling it up by killing the spawning Tempest.",
         img: "nbh7Pym",
@@ -4771,7 +4824,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.mauerDerToten.id,
+        map: MapIds.mauerDerToten,
         title: "Corrupted Uranium",
         desc: "Part of the EE, can be obtained by spawning an HVT Megaton and killing the 2 halves",
         img: "UpeO5Dr",
@@ -4781,7 +4834,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Piotr 1",
         desc: DefaultPOIData.challenge
     }, {
@@ -4790,7 +4843,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Piotr 2",
         desc: DefaultPOIData.challenge
     }, {
@@ -4799,7 +4852,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "The Machine",
         desc: DefaultPOIData.challenge
     }, {
@@ -4808,7 +4861,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Broken Trust",
         desc: DefaultPOIData.challenge
     }, {
@@ -4817,7 +4870,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Make This Right",
         desc: DefaultPOIData.challenge
     }, {
@@ -4826,7 +4879,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [238.67594055140722, 68.30086779172998],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Empty Deadshot Daiquiri",
         desc: "Inside the building marked Hazardous.",
         img: "sqsllT0",
@@ -4836,7 +4889,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [364.92220011672936, 279.24477525393905],
-        map: MapDetails.collateral.id,
+        map: MapIds.collateral,
         title: "Demented Echo Head",
         desc: "In the Cliffs area. Tucked in the Base of the top most clump on the minimap. It's right where the line connects to the clump on the minimap.",
         img: "hz1FHKd",
@@ -4846,7 +4899,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [244.6159268403402, 188.73986243301607],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Empty Mule Kick",
         desc: "In the Machine Shop area. It's inside an overturned trash can.",
         img: "ctnz9Ae",
@@ -4856,7 +4909,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [309.8628684849271, 262.7430596656802],
-        map: MapDetails.armada.id,
+        map: MapIds.armada,
         title: "Empty Tombstone Soda",
         desc: "In the Gun boat Control Room. it's in-between one of the sonar panels and the wall.",
         img: "WoGXHqz",
@@ -4866,7 +4919,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Piotr 3",
         desc: DefaultPOIData.challenge
     }, {
@@ -4875,7 +4928,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.allOutbreakMaps.id,
+        map: MapIds.allOutbreakMaps,
         title: "Lost Souls: Piotr 4",
         desc: DefaultPOIData.challenge
     }, {
@@ -4884,7 +4937,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [393.3707361360731, 342],
-        map: MapDetails.ruka.id,
+        map: MapIds.ruka,
         title: "Archaic Goblet",
         desc: "On top of a cut tree stump.",
         img: "sYh4g2M",
@@ -4894,7 +4947,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [170.61009616275408, 319.75],
-        map: MapDetails.golova.id,
+        map: MapIds.golova,
         title: "Empty PhD Slider",
         desc: "On top of the desk in a second-floor room to the right of pack-a-punch.",
         img: "D8Pj7M5",
@@ -4904,7 +4957,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [327.842464008449, 304.25],
-        map: MapDetails.alpine.id,
+        map: MapIds.alpine,
         title: "Zykov's Mask",
         desc: "On the shelf.",
         img: "YnDjT7U",
@@ -4914,7 +4967,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [238.2379564951548, 255.125],
-        map: MapDetails.sanatorium.id,
+        map: MapIds.sanatorium,
         title: "Empty Death Perception",
         desc: "In the sink on the ground floor.",
         img: "y6hCATZ",
@@ -4924,7 +4977,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [421.0527264879534, 127.71176452428412],
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Polymorphic Crystal Core",
         desc: "In the Jim's Donuts building, the artifact is part of the wonder weapon quest.",
         img: "rVWYM4B",
@@ -4934,7 +4987,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Energetic Geode",
         desc: "Get an Abomination to Destroy a Dark aether Crystal(the Purple ones you can melee) with it's Laser.",
         img: "9pfNhpv",
@@ -4944,7 +4997,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Tempered Crystal Heart",
         desc: "Kill a Tormentor with a Flame Thrower.",
         img: "qVkZGEG",
@@ -4954,7 +5007,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.forsaken.id,
+        map: MapIds.forsaken,
         title: "Catalyzed Crystal Shard",
         desc: "Part of the EE, can be obtained by killing an Abomination that has eaten a Crystal Shard",
         img: "9VCpNkr",
@@ -4966,7 +5019,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.miami.id,
+        map: MapIds.miami,
         title: "Late Checkout",
         desc: DefaultPOIData.onslaught,
     },
@@ -4976,7 +5029,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.miami.id,
+        map: MapIds.miami,
         title: "Tourist Trap",
         desc: DefaultPOIData.onslaught,
     },
@@ -4986,7 +5039,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.miami.id,
+        map: MapIds.miami,
         title: "Eighty-Sixed",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -4995,7 +5048,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.satellite.id,
+        map: MapIds.satellite,
         title: "Angola Breach Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5005,7 +5058,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.satellite.id,
+        map: MapIds.satellite,
         title: "Morasko Satellite Capture 08.83",
         desc: DefaultPOIData.onslaught,
     },
@@ -5015,7 +5068,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.satellite.id,
+        map: MapIds.satellite,
         title: "Morasko Satellite Capture 09.83",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5024,7 +5077,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.moscow.id,
+        map: MapIds.moscow,
         title: "Memorandum from Moscow",
         desc: DefaultPOIData.onslaught,
     },
@@ -5034,7 +5087,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.moscow.id,
+        map: MapIds.moscow,
         title: "Redpoll Interview Excerpt",
         desc: DefaultPOIData.onslaught,
     },
@@ -5044,7 +5097,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.moscow.id,
+        map: MapIds.moscow,
         title: "A Formal Request",
         desc: DefaultPOIData.onslaught,
     },
@@ -5054,7 +5107,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.nuketown.id,
+        map: MapIds.nuketown,
         title: "To Whom It May Concern",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5063,7 +5116,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.nuketown.id,
+        map: MapIds.nuketown,
         title: "Punks Ain't Pacifists",
         desc: DefaultPOIData.onslaught,
     },
@@ -5073,7 +5126,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.nuketown.id,
+        map: MapIds.nuketown,
         title: "Cellar Dwellers",
         desc: DefaultPOIData.onslaught,
     },
@@ -5083,7 +5136,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.thePines.id,
+        map: MapIds.thePines,
         title: "Game Over",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5092,7 +5145,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.thePines.id,
+        map: MapIds.thePines,
         title: "Breakup",
         desc: DefaultPOIData.onslaught,
     },
@@ -5102,7 +5155,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.thePines.id,
+        map: MapIds.thePines,
         title: "Respect",
         desc: DefaultPOIData.onslaught,
     },
@@ -5112,7 +5165,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.express.id,
+        map: MapIds.express,
         title: "State Your Emergency",
         desc: DefaultPOIData.onslaught,
     },
@@ -5122,7 +5175,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.express.id,
+        map: MapIds.express,
         title: "Lightning Rod",
         desc: DefaultPOIData.onslaught,
     },
@@ -5132,7 +5185,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.express.id,
+        map: MapIds.express,
         title: "Los Angeles Outbreak AAR",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5141,7 +5194,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.rush.id,
+        map: MapIds.rush,
         title: "Comet-Cannibals",
         desc: DefaultPOIData.onslaught,
     },
@@ -5151,7 +5204,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.rush.id,
+        map: MapIds.rush,
         title: "Game Plan",
         desc: DefaultPOIData.onslaught,
     },
@@ -5161,7 +5214,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.rush.id,
+        map: MapIds.rush,
         title: "Done And Dusted",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5170,7 +5223,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.echelon.id,
+        map: MapIds.echelon,
         title: "The Devil's Mountain",
         desc: DefaultPOIData.onslaught,
     },
@@ -5180,7 +5233,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.echelon.id,
+        map: MapIds.echelon,
         title: "A Lovely Addition",
         desc: DefaultPOIData.onslaught,
     },
@@ -5190,7 +5243,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.echelon.id,
+        map: MapIds.echelon,
         title: "Echelon Breach Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5200,7 +5253,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.driveIn.id,
+        map: MapIds.driveIn,
         title: "Dear Dad",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5209,7 +5262,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.driveIn.id,
+        map: MapIds.driveIn,
         title: "The Beasts from Below",
         desc: DefaultPOIData.onslaught,
     },
@@ -5219,7 +5272,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.driveIn.id,
+        map: MapIds.driveIn,
         title: "Movie Night Flyer",
         desc: DefaultPOIData.onslaught,
     },
@@ -5229,7 +5282,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.cartel.id,
+        map: MapIds.cartel,
         title: "Querida Madre: Soldiers of Death",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5238,7 +5291,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.cartel.id,
+        map: MapIds.cartel,
         title: "Querida Madre: Raul's Wrath",
         desc: DefaultPOIData.onslaught,
     },
@@ -5248,7 +5301,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.cartel.id,
+        map: MapIds.cartel,
         title: "Querida Madre: Manuel's Fate",
         desc: DefaultPOIData.onslaught,
     },
@@ -5258,7 +5311,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.crossroads.id,
+        map: MapIds.crossroads,
         title: "The Last Post: Convoy",
         desc: DefaultPOIData.onslaught,
     },
@@ -5268,7 +5321,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.crossroads.id,
+        map: MapIds.crossroads,
         title: "The Last Post: Cursed",
         desc: DefaultPOIData.onslaught,
     },
@@ -5278,7 +5331,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.crossroads.id,
+        map: MapIds.crossroads,
         title: "The Last Post: Consequences",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5287,7 +5340,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.raid.id,
+        map: MapIds.raid,
         title: "Housewarming: Canyon Fire",
         desc: DefaultPOIData.onslaught,
     },
@@ -5297,7 +5350,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.raid.id,
+        map: MapIds.raid,
         title: "Housewarming: Stash Room",
         desc: DefaultPOIData.onslaught,
     },
@@ -5307,7 +5360,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.raid.id,
+        map: MapIds.raid,
         title: "Housewarming: Friends of the Owner",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5316,7 +5369,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.apocalypse.id,
+        map: MapIds.apocalypse,
         title: "Laos Breach Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5326,7 +5379,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.apocalypse.id,
+        map: MapIds.apocalypse,
         title: "A Luxury I Cannot Afford",
         desc: DefaultPOIData.onslaught,
     },
@@ -5336,7 +5389,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.apocalypse.id,
+        map: MapIds.apocalypse,
         title: "Laos Operation Map",
         desc: DefaultPOIData.onslaught,
     },
@@ -5346,7 +5399,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.yamantau.id,
+        map: MapIds.yamantau,
         title: "Exclusion Zone",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5355,7 +5408,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.yamantau.id,
+        map: MapIds.yamantau,
         title: "Field Promotion",
         desc: DefaultPOIData.onslaught,
     },
@@ -5365,7 +5418,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.yamantau.id,
+        map: MapIds.yamantau,
         title: "Yamantau Breach Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5375,7 +5428,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.standoff.id,
+        map: MapIds.standoff,
         title: "Eyes Only: Valentina",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5384,7 +5437,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.standoff.id,
+        map: MapIds.standoff,
         title: "3 Surprises",
         desc: DefaultPOIData.onslaught,
     },
@@ -5394,7 +5447,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.standoff.id,
+        map: MapIds.standoff,
         title: "Krgyzstan Breach Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5404,7 +5457,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.collateralOn.id,
+        map: MapIds.collateralOn,
         title: "Algeria Aid Request",
         desc: DefaultPOIData.onslaught,
     },
@@ -5414,7 +5467,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.collateralOn.id,
+        map: MapIds.collateralOn,
         title: "Krupin Field Report",
         desc: DefaultPOIData.onslaught,
     },
@@ -5424,7 +5477,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.collateralOn.id,
+        map: MapIds.collateralOn,
         title: "After-Action: Algeria",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5433,7 +5486,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.checkmate.id,
+        map: MapIds.checkmate,
         title: "Hausmeisterin: The Secret",
         desc: DefaultPOIData.onslaught,
     },
@@ -5443,7 +5496,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.checkmate.id,
+        map: MapIds.checkmate,
         title: "Hausmeisterin: The Lie",
         desc: DefaultPOIData.onslaught,
     },
@@ -5453,7 +5506,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.checkmate.id,
+        map: MapIds.checkmate,
         title: "Hausmeisterin: The Visitor",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5462,7 +5515,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.garrison.id,
+        map: MapIds.garrison,
         title: "KGB Contact Note",
         desc: DefaultPOIData.onslaught,
     },
@@ -5472,7 +5525,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.garrison.id,
+        map: MapIds.garrison,
         title: "Soviet ar Hero",
         desc: DefaultPOIData.onslaught,
     },
@@ -5482,7 +5535,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.garrison.id,
+        map: MapIds.garrison,
         title: "Red Army Encounter",
         desc: DefaultPOIData.onslaught,
     },
@@ -5492,7 +5545,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.deprogram.id,
+        map: MapIds.deprogram,
         title: "I Know",
         desc: DefaultPOIData.onslaught,
     }, {
@@ -5501,7 +5554,7 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.deprogram.id,
+        map: MapIds.deprogram,
         title: "I Dream",
         desc: DefaultPOIData.onslaught,
     },
@@ -5511,18 +5564,17 @@ export const intelStore: IntelItem[] = [
         season: Season.Onslaught,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
-        map: MapDetails.deprogram.id,
+        map: MapIds.deprogram,
         title: "I Live",
         desc: DefaultPOIData.onslaught,
     },
 ]
 
-/* //Needed to parse location back from a string.
-const intelCache = intelStoreV2.slice();
-let intelFiltered = intelCache.slice();
+//Needed to parse location back from a string.
+/* export const IntelCache = IntelStore.slice();
+let intelFiltered = IntelCache.slice(); */
 
-intelCache.map((item) => {
+/* intelCache.map((item) => {
     item.loc = JSON.parse(item.loc)
     return item;
-})
- */
+}) */

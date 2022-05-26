@@ -1,7 +1,7 @@
 import { bounds, LatLngBoundsExpression } from "leaflet"
 import { SVGOverlay } from "react-leaflet";
 
-const imageBounds: LatLngBoundsExpression = [
+export const ImageBounds: LatLngBoundsExpression = [
     [0, 0],
     [512, 512]
 ];
@@ -2505,7 +2505,7 @@ export const mapSVGs = {
 <polygon class="f building-fill" points="176.41 197.4 183.34 199.04 182.98 202.69 176.23 201.42 176.41 197.4" />
 <path class="g border-stroke no-fill" d="M35.12,202.21C59,177.63,111.55,140.14,214.5,129.44c94.37-9.82,190,5.26,243.63,33.83,12.77,6.8,35.13,25,36.5,49.4,2.19,39,8.41,84.76-47.33,128.81-46.13,36.45-170.62,63.65-277.1,52.27,0,0-59.16-3.83-120.84-37C38.61,351,23.86,340.73,21,316.6c-4.38-37.12-4.14-63.41,1-87.62C23.55,221.56,23.18,214.51,35.12,202.21Z" />
 `,
-    dieMaschine: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={imageBounds}>
+    dieMaschine: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
         <defs>
             <style>
                 {globalStyle}
@@ -2525,7 +2525,7 @@ export const mapSVGs = {
         <path className="d border-stroke no-fill" d="M208,129.94l7.84,4.53,4.59,6.21,2.84.93,6.53-1.45,9.58,6.67,14.87.9,6.39-3.13,5.66-14.15,6.39-5.57,8.61,0,7-6.15,6.55.15-.31-8.7-7.21-8L283.7,99.9l.26-3.08,4.75-9.43,29.66-15.82L344.9,85.25l1.56,14,3.12,6,11.22,5L376.23,102l2.08,3.3,2.23,3L396,127.78v22l-12.77,9.39L381,155.84l-7.72-3.21h-2.43l-6,3.23-2.22,1.88-.07,1.68L364,161l2.63,0,10.47,19.09-2.32,7.47,9.81,16.22-26.58,26,.07,33.76h1.11l15,33.31-5.38,10.4,0,9.23,5.06,3,11.85-.92,10.27,15,9.57,22.25v4.36s2.36,6.6,2.68,7,.7,7,.7,7l-.74,4.58-1.7,3.83L404.84,385l-2.77,3-4,3-6.94,3.44" />
 
     </SVGOverlay>,
-    dieMaschine_underground: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={imageBounds}>
+    dieMaschine_underground: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
         <defs>
             <style>
                 {globalStyle}

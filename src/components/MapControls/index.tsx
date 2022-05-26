@@ -1,8 +1,8 @@
 import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import { useContext } from 'react';
-import { Circle, FeatureGroup, LayerGroup, LayersControl, Popup, Rectangle } from 'react-leaflet'
+import { Circle, FeatureGroup, LayerGroup, LayersControl, Marker, Popup, Rectangle } from 'react-leaflet'
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
-import { IntelMapMarker } from '../MapMarker';
+import { DefaultIcon } from '../DefaultIcon';
 
 export const MapControls = ({ MapLayers }) => {
     const center: LatLngExpression = [0, 0]
@@ -10,16 +10,23 @@ export const MapControls = ({ MapLayers }) => {
         [0, 0],
         [0, 0],
     ]
-    const { intelAudioMarkers } = useContext(IntelContext)
+    const { intelArtifactMarkers, intelAudioMarkers } = useContext(IntelContext)
 
     return (
         <LayersControl position="topright">
             {MapLayers.map(mapLayer =>
-                <LayersControl.BaseLayer key={mapLayer.id} name={mapLayer.title}>
+                <LayersControl.BaseLayer key={mapLayer.id} checked={mapLayer === MapLayers[0]} name={mapLayer.title}>
                     {mapLayer.mapOverlay}
                 </LayersControl.BaseLayer>
             )}
-            
+            <LayersControl.Overlay checked name="Intel- Artifact Markers">
+                <LayerGroup>
+                    {intelArtifactMarkers}
+                </LayerGroup>
+            </LayersControl.Overlay>
+            <LayersControl.Overlay checked name="Intel- Artifact Markers">
+                {intelAudioMarkers}
+            </LayersControl.Overlay>
             <LayersControl.Overlay checked name="Misc Markers">
                 <LayerGroup>
                     <Circle

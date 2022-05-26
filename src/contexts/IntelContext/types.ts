@@ -3,7 +3,7 @@ import { mapSVGs } from "../../helpers/mapsvg";
 import { Item, MapItem } from "../../helpers/models";
 
 export interface IntelContextProps {
-    currentMap: Item;
+    currentMap: MapItem;
     setCurrentMap: Dispatch<SetStateAction<Item>>;
     intelAudioMarkers: JSX.Element[];
     setIntelAudioMarkers: Dispatch<SetStateAction<JSX.Element[]>>;

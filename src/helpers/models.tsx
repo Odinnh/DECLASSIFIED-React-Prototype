@@ -1,6 +1,6 @@
 import { Icon, IconOptions, LatLngExpression } from "leaflet";
 import { ammoCrateIcon, arsenalIcon, craftingTableIcon, dementedIcon, fishingIcon, generalIcon, miscIconInit, monkeyIcon, mysteryBoxIcon, papMachineIcon, radioIcon, redRiftIcon, riftIcon, trialComputerIcon, wallbuyIcon, wunderFizzIcon, ziplineIcon } from "../REFACTORME/Misc/types";
-import { Faction, intelStore, Season } from '../data/intel';
+import { Faction, IntelStore, Season } from '../data/intel';
 import { IntelMapMarker } from '../components/MapMarker';
 
 /////////////////////Classes/////////////////////////
@@ -59,12 +59,10 @@ export class MiscType extends Item {
 export class MapItem extends Item {
     mapOverlay?: JSX.Element;
     mapMarkers?: JSX.Element[];
-    constructor({ id, title, desc, icon, layer, mapOverlay }: MapItem) {
+    constructor(id, { title, desc, icon, layer, mapOverlay }: MapItem) {
         super({ id, title, desc, icon, layer });
         this.mapOverlay = mapOverlay;
-        this.mapMarkers = intelStore.map(intel => (
-            <IntelMapMarker {...intel} />
-        ));
+        this.mapMarkers = renderMapMarkers(id);
     }
 }
 
@@ -124,20 +122,6 @@ export const MarkerTypes = {
     misc: new Item({ id: "misc", title: "Misc" }),
     worldEvents: new Item({ id: "worldEvents", title: "World Events" }),
     easterEggs: new Item({ id: "easterEggs", title: "Easter Eggs" }),
-}
-interface IDefaultPOIData {
-    challenge: string;
-    special: string;
-    chests: string;
-    onslaught: string;
-    nullLoc: LatLngExpression;
-}
-export const DefaultPOIData: IDefaultPOIData = {
-    challenge: "Obtained through the Challenge Machine",
-    special: "Dropped from Special/Elite kills",
-    chests: "Dropped from Special/Elite kills or golden chests",
-    onslaught: "Dropped during the onslaught gamemode.",
-    nullLoc: [0, 0]
 }
 
 /////////////////////Misc/////////////////////////
@@ -233,3 +217,11 @@ export const OutbreakEE2Steps = {
     step2Helicopter: new Item({ title: "Crashed Helicopter", desc: `The transport chopper that the Omega Eight were using is located in the "Carved Hills", located south of the lone shack, having crashed by unknown means. Nearing it will spawn a horde needs to be eliminated, as one of the corpses is holding a message from Hugo Jager about where the surviving members of the crash went.` }),
     step3Orb: new Item({ title: "Red Aetherial Orb", desc: "The Aetherium Orb can spawn within three places and is visually distinct, having a darker hue of red and will not produce Essence upon being damaged. When damaged, it will flee like the standard variant for a total of three times before it will flee to hover over the Recon Rover to where it will stay above, unwilling to enter it." }),
 }
+function renderMapMarkers(mapId: string): JSX.Element[] {
+    return IntelStore
+        .filter(intel => (intel.map === mapId))
+        .map(intel => {
+            return (<IntelMapMarker {...intel} />);
+        });
+}
+

@@ -1,17 +1,26 @@
-import L from 'leaflet'
+import L, { SVGOverlay } from 'leaflet'
 import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider'
+import { ImageBounds } from '../../helpers/mapsvg'
 import Header from '../Header'
 import { IntelMenu } from '../IntelMenu'
 import { MapControls } from '../MapControls'
 import { MapGroupings } from '../MapControls/types'
-import { IntelMapMarker } from '../MapMarker'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
     console.log("currentMap", currentMap)
 
+/*     const currentLayer = new L.LayerGroup();
+
+
+    var svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svgElement.setAttribute('xmlns', "http://www.w3.org/2000/svg");
+    svgElement.setAttribute('viewBox', "0 0 200 200");
+
+    L.svgOverlay(svgElement, ImageBounds).addTo(currentLayer); */
+    
     return (
         <MapContainer id={"worldMap"}
             center={[256, 256]}
@@ -24,9 +33,10 @@ const MapProvider = () => {
             ]}
             maxZoom={5}
             minZoom={0.1}
-            /*             layers={[
-                            MapLayers[currentMap].Layer
-                        ]} */
+/*             layers={[
+                currentLayer
+
+            ]} */
             tap={true}
             tapTolerance={30}
             /* noWrap={true} */
