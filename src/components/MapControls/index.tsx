@@ -2,20 +2,22 @@ import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import { useContext } from 'react';
 import { Circle, FeatureGroup, LayerGroup, LayersControl, Marker, Popup, Rectangle } from 'react-leaflet'
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { MapItem } from '../../helpers/models';
 import { DefaultIcon } from '../DefaultIcon';
+import { MapControlsProps, MapMenuItem } from './types';
 
-export const MapControls = ({ MapLayers }) => {
+export const MapControls = () => {
     const center: LatLngExpression = [0, 0]
     const rectangle: LatLngBoundsExpression = [
         [0, 0],
         [0, 0],
     ]
-    const { intelArtifactMarkers, intelAudioMarkers } = useContext(IntelContext)
+    const { intelArtifactMarkers, intelAudioMarkers, currentMap, currentMapGroup } = useContext(IntelContext)
 
     return (
         <LayersControl position="topright">
-            {MapLayers.map(mapLayer =>
-                <LayersControl.BaseLayer key={mapLayer.id} checked={mapLayer === MapLayers[0]} name={mapLayer.title}>
+            {currentMapGroup.mapLayers.map(mapLayer =>
+                <LayersControl.BaseLayer key={`layer-${mapLayer.id}`} checked={mapLayer.id === currentMap.id} name={mapLayer.title}>
                     {mapLayer.mapOverlay}
                 </LayersControl.BaseLayer>
             )}

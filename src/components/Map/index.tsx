@@ -6,12 +6,13 @@ import { ImageBounds } from '../../helpers/mapsvg'
 import Header from '../Header'
 import { IntelMenu } from '../IntelMenu'
 import { MapControls } from '../MapControls'
-import { MapGroupings } from '../MapControls/types'
+import { MapGroupings, MapMenuItem } from '../MapControls/types'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
-    console.log("currentMap", currentMap)
+    console.log("currentMap: ", currentMap)
 
+    
 /*     const currentLayer = new L.LayerGroup();
 
 
@@ -48,7 +49,7 @@ const MapProvider = () => {
         >
             <IntelContextProvider>
                 <Header />
-                <MapControls MapLayers={MapGroupings[0].MapLayers} />
+                <MapControls />
                 <IntelMenu />
             </IntelContextProvider>
         </MapContainer>

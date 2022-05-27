@@ -1,19 +1,21 @@
+import { MapItem } from './models';
 import { useEffect } from "react";
 import { useMapEvents } from 'react-leaflet';
 
-export function useSetMap(currentMap) {
-    const mapInstance = useMapEvents({}); 
+export function useSetMap(currentMap: MapItem) {
+    const mapInstance = useMapEvents({});
     useEffect(() => {
         // set default layer for selected map in map instance
 
-        if(currentMap){
-            
-/*             mapInstance.eachLayer(function (layer) {
+        if (currentMap) {
+            console.log(currentMap);
+
+            mapInstance.eachLayer(function (layer) {
                 console.log("layer: ", layer);
-                
+
                 mapInstance.removeLayer(layer);
             });
-            mapInstance.addLayer(MapLayers[currentMap].Layer) */
+            // mapInstance.addLayer(currentMap.mapOverlay)
         }
 
     }, [currentMap, mapInstance]);
