@@ -2546,7 +2546,6 @@ export const mapSVGs = {
         <polygon className="d border-stroke no-fill" points="300.45 302.88 280.5 321.94 277.27 331.51 269.46 331.52 267.31 330.03 262.22 330.2 252.13 339.41 250.77 339.41 245.79 335.2 242.68 335.86 239.88 332.82 246.17 326.81 246.73 318.75 266.59 318.68 266.72 296.69 246.77 296.65 246.9 295.48 244.01 292.62 244.21 289.56 247.07 289.53 247.1 282.14 238.48 273.54 233.84 273.54 231.58 275 224.5 275.17 224.43 272.43 232.75 272.33 232.59 259.71 241.59 259.64 248.28 249.71 255.74 249.66 257.69 251.45 260.41 249.14 264.22 252.75 262.86 254.03 265.39 256.5 256.55 264.71 277.85 286.01 277.82 290.54 290.82 302.98 300.45 302.88" />
         <polygon className="d border-stroke no-fill" points="355.22 256.72 343.51 259.19 334.2 268.68 333.85 269.73 332.96 272.67 323.36 281.49 322.66 267.98 312.76 257.39 307.55 256.71 286.63 235.23 277.99 243.17 276.36 241.45 273.88 243.5 270.02 239.35 272.84 236.47 271.25 234.72 271.38 229.65 287.48 229.59 287.48 225.01 348.69 225.62 348.74 227.92 349.72 228.34 347.39 231.96 347.44 244.35 352.25 249.71 354.94 249.67 355.22 256.72" />
         <path className="d border-stroke no-fill" d="M299.48,303.81l3.74-2.93V289.44l6.6-6.33,11.46-.07,2.08-1.6" />
-
     </SVGOverlay>,
     firebaseZ: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
         <defs>
@@ -2801,425 +2800,447 @@ export const mapSVGs = {
         <path className="c building-fill" d="M330.16,263.48c0,.14-.24.25-.54.25a.55.55,0,0,1-.53-.56c0-.32.24-.43.53-.25S330.16,263.37,330.16,263.48Z" />
         <path className="d border-stroke no-fill" d="M186.92,399.81l.17-54.81-27.67-.2.74-9.16-15-2.71,0-90.36-7.12.07L137.85,221l3.41-.15V113.45l148.43,0-.05,2.89h42l.2,115-12,0,.05,12.78,55,66-42.95,35.62-26.34-31.66-31.81,27,.1,17.94-29.52-.11.1,40.92Z" />
     </SVGOverlay>,
-    mauerDerToten: `<style>
-    .c{isolation:isolate;}
-    .e{stroke-width:0.36px;}
-    .e,.f,.g{stroke-miterlimit:10;}
-    .f,.g{stroke-width:0.96px;}
-</style>
-</defs>
-<rect class="a background-fill" width="512" height="512" />
-<polygon class="b field-fill" points="32.17 358.45 78.14 358.45 78.14 391.92 111.61 391.92 111.61 389.59 147.2 389.59 147.2 359.72 160.33 359.72 160.33 372.01 190.83 372.01 190.83 354.64 203.75 354.64 203.75 362.26 267.94 362.26 267.94 313.76 276.41 313.76 277.68 311.85 285.1 322.02 285.1 365.02 325.77 365.02 325.77 334.51 346.53 334.51 346.53 324.98 380.84 324.98 380.84 356.33 475.95 356.33 475.95 323.92 446.3 323.92 446.3 343.62 425.33 343.62 425.33 312.49 340.38 312.49 340.38 303.8 325.56 303.8 325.56 255.29 346.53 255.29 346.53 198.73 383.6 198.73 383.6 222.88 395.25 222.88 395.25 186.66 346.31 186.66 338.26 177.34 325.56 177.34 325.56 124.38 256.08 124.38 256.08 151.28 242.94 151.28 242.94 126.92 210.75 126.92 210.75 130.1 182.36 130.1 182.36 127.14 170.29 127.14 170.29 129.89 148.26 129.89 148.26 176.92 163.08 176.92 163.08 183.69 166.9 183.69 166.9 194.71 183 194.71 183 183.69 188.08 183.69 188.08 273.93 192.95 273.93 192.95 297.66 208.63 313.12 205.87 315.66 205.87 332.19 190.62 332.19 183.42 327.1 147.41 327.1 147.41 297.23 109.26 297.23 109.26 294.67 78.28 294.67 78.28 328.98 32.17 328.98 32.17 358.45" />
-<rect class="c background-fill" x="206.08" y="144.08" width="5.08" height="39.4" />
-<rect class="c background-fill" x="206.08" y="175.38" width="7.71" height="8.1" />
-<rect class="d building-fill" x="234.26" y="327.84" width="10.49" height="10.49" />
-<rect class="d building-fill" x="241.67" y="297.55" width="3.18" height="3.18" />
-<rect class="d building-fill" x="281.92" y="225.21" width="3.18" height="3.18" />
-<rect class="d building-fill" x="281.92" y="207.26" width="3.18" height="3.18" />
-<rect class="d building-fill" x="281.92" y="190.26" width="3.18" height="3.18" />
-<rect class="d building-fill" x="270.27" y="150.86" width="3.18" height="3.18" />
-<rect class="d building-fill" x="306.38" y="126.04" width="3.18" height="39.25" />
-<rect class="d building-fill" x="306.38" y="200.93" width="3.71" height="38.19" />
-<rect class="d building-fill" x="306.38" y="252.08" width="3.92" height="7.06" />
-<rect class="d building-fill" x="306.38" y="280.36" width="4.02" height="12.78" />
-<rect class="d building-fill" x="306.38" y="313.83" width="3.81" height="6" />
-<rect class="d building-fill" x="306.38" y="339.25" width="3.81" height="11.29" />
-<rect class="d building-fill" x="224.2" y="149.12" width="3.18" height="4.96" />
-<rect class="d building-fill" x="329.1" y="210.12" width="3.18" height="3.18" />
-<rect class="d building-fill" x="329.1" y="233.31" width="3.18" height="3.18" />
-<rect class="d building-fill" x="241.35" y="313.86" width="3.18" height="3.18" />
-<rect class="d building-fill" x="252.79" y="313.86" width="3.18" height="3.18" />
-<rect class="d building-fill" x="252.79" y="335.68" width="3.18" height="3.18" />
-<rect class="d building-fill" x="252.79" y="347.22" width="3.18" height="3.18" />
-<rect class="d building-fill" x="241.51" y="347.22" width="3.18" height="3.18" />
-<rect class="d building-fill" x="219.64" y="347.22" width="3.18" height="3.18" />
-<rect class="d building-fill" x="219.64" y="335.79" width="3.18" height="3.18" />
-<rect class="d building-fill" x="393.13" y="326.25" width="17.48" height="11.76" />
-<rect class="d building-fill" x="222.82" y="225.85" width="8.26" height="16.84" />
-<rect class="d building-fill" x="197.72" y="243.01" width="7.31" height="12.07" />
-<rect class="d building-fill" x="213.92" y="252.86" width="7.31" height="10.49" />
-<rect class="d building-fill" x="207.89" y="213.14" width="7.63" height="23.2" />
-<rect class="d building-fill" x="189.46" y="183.27" width="7.63" height="26.05" />
-<polygon class="d building-fill" points="184.06 161.03 192.63 159.28 193.43 165.32 185.01 166.59 184.06 161.03" />
-<polyline class="e feature-stroke no-fill" points="162.66 172.68 162.66 183.48 169.01 183.48" />
-<polyline class="e feature-stroke no-fill" points="162.87 164.21 162.87 143.87 192.74 143.87" />
-<polyline class="e feature-stroke no-fill" points="202.91 144.08 211.59 144.08 211.59 175.01 214.13 175.01 214.13 183.48 205.87 183.48 187.66 183.48" />
-<line class="e feature-stroke no-fill" x1="205.66" y1="144.29" x2="205.66" y2="183.48" />
-<line class="e feature-stroke no-fill" x1="288.7" y1="125.23" x2="288.7" y2="252.11" />
-<line class="e feature-stroke no-fill" x1="282.77" y1="176.92" x2="288.7" y2="176.92" />
-<line class="e feature-stroke no-fill" x1="325.77" y1="177.55" x2="325.77" y2="255.5" />
-<line class="e feature-stroke no-fill" x1="325.55" y1="303.8" x2="325.55" y2="334.94" />
-<line class="e feature-stroke no-fill" x1="346.31" y1="321.38" x2="346.31" y2="325.41" />
-<line class="e feature-stroke no-fill" x1="345.89" y1="312.27" x2="345.89" y2="315.24" />
-<line class="e feature-stroke no-fill" x1="446.08" y1="342.78" x2="458.58" y2="342.78" />
-<polyline class="e feature-stroke no-fill" points="109.07 306.76 143.38 306.76 143.38 379.21 108.01 379.21" />
-<polyline class="e feature-stroke no-fill" points="160.33 327.52 160.33 338.96 152.28 338.96" />
-<line class="e feature-stroke no-fill" x1="143.38" y1="332.82" x2="160.33" y2="332.82" />
-<polyline class="e feature-stroke no-fill" points="151.86 347.86 160.54 347.86 160.54 359.93" />
-<line class="e feature-stroke no-fill" x1="143.38" y1="353.79" x2="160.75" y2="353.79" />
-<polyline class="e feature-stroke no-fill" points="92.33 357.6 92.33 366.08 127.07 366.08 132.58 361.2 132.58 325.19 127.5 319.9 92.12 319.9 92.12 326.46" />
-<rect class="e feature-stroke no-fill" x="306.28" y="200.85" width="4.02" height="65.67" />
-<rect class="e feature-stroke no-fill" x="306.28" y="273.25" width="4.02" height="56.75" />
-<rect class="e feature-stroke no-fill" x="306.28" y="339.1" width="4.02" height="25.67" />
-<line class="e feature-stroke no-fill" x1="192.79" y1="273.99" x2="195.81" y2="273.99" />
-<line class="e feature-stroke no-fill" x1="203.28" y1="273.99" x2="206.3" y2="273.99" />
-<line class="e feature-stroke no-fill" x1="209.47" y1="311.32" x2="208.36" y2="312.43" />
-<line class="e feature-stroke no-fill" x1="215.83" y1="305.12" x2="218.45" y2="302.5" />
-<polygon class="f border-stroke no-fill" points="32.17 358.45 78.14 358.45 78.14 391.92 111.61 391.92 111.61 389.59 147.2 389.59 147.2 359.72 160.33 359.72 160.33 372.01 190.83 372.01 190.83 354.64 203.75 354.64 203.75 362.26 267.94 362.26 267.94 313.76 276.41 313.76 277.68 311.85 285.1 322.02 285.1 365.02 325.77 365.02 325.77 334.51 346.53 334.51 346.53 324.98 380.84 324.98 380.84 356.33 475.95 356.33 475.95 323.92 446.3 323.92 446.3 343.62 425.33 343.62 425.33 312.49 340.38 312.49 340.38 303.8 325.56 303.8 325.56 255.29 346.53 255.29 346.53 198.73 383.6 198.73 383.6 222.88 395.25 222.88 395.25 186.66 346.31 186.66 338.26 177.34 325.56 177.34 325.56 124.38 256.08 124.38 256.08 151.28 242.94 151.28 242.94 126.92 210.75 126.92 210.75 130.1 182.36 130.1 182.36 127.14 170.29 127.14 170.29 129.89 148.26 129.89 148.26 176.92 163.08 176.92 163.08 183.69 166.9 183.69 166.9 194.71 183 194.71 183 183.69 188.08 183.69 188.08 273.93 192.95 273.93 192.95 297.66 208.63 313.12 205.87 315.66 205.87 332.19 190.62 332.19 183.42 327.1 147.41 327.1 147.41 297.23 109.26 297.23 109.26 294.67 78.28 294.67 78.28 328.98 32.17 328.98 32.17 358.45" />
-<polygon class="g border-stroke background-fill" points="228.11 175.65 228.11 183.91 232.99 183.91 232.99 274.78 205.66 274.78 205.66 291.73 217.31 302.95 219.01 301.05 233.62 301.05 233.62 287.91 237.01 287.91 237.01 284.95 253.96 284.95 253.96 300.2 267.51 300.2 267.51 301.47 275.77 301.47 277.89 303.17 285.52 292.57 285.52 260.8 288.49 260.8 288.49 252.12 274.72 252.12 274.72 245.76 265.82 233.47 265.82 176.92 272.39 176.92 272.39 171.62 255.65 171.62 255.65 163.99 243.15 163.99 243.15 175.65 228.11 175.65" />
-`,
-    mauerDerToten_streets: `<style>
-    .d,.e,.f{stroke-miterlimit:10;}
-    .d,.e{stroke-width:0.36px;}
-    .f{stroke-width:0.96px;}
-</style>
-</defs>
-<rect class="a background-fill" width="512" height="512" />
-<polygon class="b field-fill" points="96.3 189.31 96.3 149.18 117.35 149.18 117.35 233.18 124.55 233.18 124.55 185.66 178.79 185.66 192.23 197.18 203.75 186.14 221.03 186.14 221.03 233.18 255.59 233.18 255.59 222.14 239.27 222.14 239.27 125.66 320.86 125.66 320.86 107.9 331.9 106.46 341.02 96.86 364.06 96.86 367.9 98.78 369.34 96.86 382.78 102.14 382.78 95.91 406.78 95.91 406.78 100.7 415.42 100.7 415.42 121.82 423.1 121.82 423.1 139.1 473.98 139.1 473.98 170.3 461.02 170.3 461.02 191.9 473.5 191.9 473.5 228.86 442.78 228.86 442.78 302.29 449.5 302.29 449.5 327.25 476.38 327.25 476.38 409.81 449.5 409.81 449.5 391.09 437.5 391.09 437.5 399.73 390.46 399.73 390.46 394.93 362.14 394.93 362.14 360.85 348.22 360.85 348.22 373.81 320.86 373.81 320.86 416.05 258.95 416.05 258.95 360.37 273.35 360.37 273.35 308.53 319.9 308.53 319.9 301.81 323.26 301.81 323.26 297.97 254.63 297.97 236.87 289.33 218.63 289.33 218.63 345.49 200.39 345.49 186.47 336.37 169.19 341.17 165.35 346.45 144.71 345.97 136.55 336.37 128.39 336.37 128.39 289.33 121.19 289.33 121.19 283.57 117.83 283.57 117.83 335.89 90 335.89 90 331.09 50.64 331.09 50.64 295.1 35.76 295.1 35.76 213.5 50.64 213.5 50.64 189.31 96.3 189.31" />
-<polygon class="c building-fill" points="181.64 217.04 185.05 223.44 195.08 218.32 191.88 212.13 181.64 217.04" />
-<polygon class="c building-fill" points="199.77 208.29 200.62 215.76 210.01 219.81 212.57 217.04 211.08 206.16 199.77 208.29" />
-<polygon class="c building-fill" points="75.18 246.27 92.04 256.08 86.49 265.25 69.64 255.44 75.18 246.27" />
-<polygon class="c building-fill" points="124.04 254.37 143.45 254.37 143.45 264.83 124.25 264.83 124.04 254.37" />
-<rect class="c building-fill" x="198.49" y="254.59" width="19.84" height="10.45" />
-<rect class="c building-fill" x="104.41" y="217.89" width="11.52" height="14.72" />
-<polygon class="c building-fill" points="116.57 282.75 108.25 282.75 103.77 292.13 110.81 306.64 116.57 306.64 116.57 282.75" />
-<polygon class="c building-fill" points="161.58 289.57 169.69 304.72 179.29 299.6 180.78 289.57 161.58 289.57" />
-<polygon class="c building-fill" points="140.68 313.25 150.49 314.96 151.34 328.61 140.89 326.48 140.68 313.25" />
-<circle class="c building-fill" cx="172.14" cy="318.37" r="5.87" />
-<polygon class="c building-fill" points="191.45 310.91 204.25 308.56 199.56 323.92 191.66 318.59 191.45 310.91" />
-<polygon class="c building-fill" points="202.33 289.57 208.3 303.65 217.26 303.65 217.26 289.36 202.33 289.57" />
-<polygon class="c building-fill" points="242.86 250.32 250.54 239.87 255.02 243.28 247.13 253.52 242.86 250.32" />
-<polygon class="c building-fill" points="134.06 195.92 146.44 194.43 146.65 205.09 138.97 208.08 134.06 195.92" />
-<polygon class="c building-fill" points="160.73 203.39 171.61 199.55 174.38 210.43 160.73 213.41 158.17 209.57 160.73 203.39" />
-<ellipse class="c building-fill" cx="173.64" cy="204.99" rx="5.65" ry="6.29" />
-<polygon class="c building-fill" points="251.82 267.6 256.09 274.21 273.16 264.4 268.89 258 251.82 267.6" />
-<polygon class="c building-fill" points="289.8 246.91 310.49 251.17 307.29 263.76 286.81 259.28 289.8 246.91" />
-<polygon class="c building-fill" points="263.77 223.01 275.08 223.01 275.08 232.61 263.98 232.61 263.77 223.01" />
-<polygon class="c building-fill" points="285.53 223.23 294.06 223.23 305.37 236.03 300.46 240.93 285.53 223.23" />
-<polygon class="c building-fill" points="333.1 218.11 343.13 213.63 351.24 218.53 350.6 235.17 341.85 246.69 336.73 244.13 330.33 228.35 333.1 218.11" />
-<polygon class="c building-fill" points="330.54 262.91 337.37 265.47 330.76 283.17 324.14 281.04 330.54 262.91" />
-<polygon class="c building-fill" points="287.24 271.01 294.06 273.57 289.58 286.8 298.33 296.83 273.8 297.25 275.93 291.92 281.48 289.15 287.24 271.01" />
-<polygon class="c building-fill" points="356.14 284.67 361.9 280.61 378.33 301.73 369.37 301.73 356.14 284.67" />
-<polygon class="c building-fill" points="398.17 301.73 398.17 294.27 405.21 294.27 406.7 276.99 410.12 275.28 441.48 272.93 441.48 301.52 398.17 301.73" />
-<polygon class="c building-fill" points="353.16 251.17 371.08 245.84 373.21 252.24 355.29 257.79 353.16 251.17" />
-<polygon class="c building-fill" points="375.77 266.11 394.76 267.6 393.9 274.43 374.92 272.72 375.77 266.11" />
-<polygon class="c building-fill" points="406.92 253.09 403.72 259.71 420.57 267.17 423.98 261.2 406.92 253.09" />
-<polygon class="c building-fill" points="367.02 217.04 377.9 214.27 377.9 219.81 368.3 222.16 367.02 217.04" />
-<polygon class="c building-fill" points="410.12 229.41 442.12 229.41 442.12 245.41 418.01 245.41 410.12 229.41" />
-<polygon class="c building-fill" points="344.62 164.13 361.69 171.17 359.56 177.57 341.85 170.32 344.62 164.13" />
-<polygon class="c building-fill" points="359.98 146.85 370.86 138.53 376.2 143.65 374.28 154.32 368.3 156.67 359.98 146.85" />
-<rect class="c building-fill" x="340.36" y="195.28" width="3.2" height="4.27" />
-<rect class="c building-fill" x="273.8" y="384.72" width="11.31" height="9.17" />
-<polyline class="d feature-stroke no-fill" points="51.5 212.56 95.45 212.56 95.45 188.88" />
-<line class="d feature-stroke no-fill" x1="54.28" y1="224.51" x2="54.28" y2="212.77" />
-<line class="d feature-stroke no-fill" x1="44.25" y1="232.4" x2="46.17" y2="232.4" />
-<line class="d feature-stroke no-fill" x1="53.21" y1="232.19" x2="54.7" y2="232.19" />
-<polyline class="d feature-stroke no-fill" points="50.86 295.12 77.96 295.12 89.9 309.2 89.9 331.6" />
-<line class="d feature-stroke no-fill" x1="128.94" y1="288.93" x2="144.73" y2="288.93" />
-<line class="d feature-stroke no-fill" x1="152.2" y1="288.93" x2="181.21" y2="288.93" />
-<line class="d feature-stroke no-fill" x1="190.38" y1="288.93" x2="217.48" y2="288.93" />
-<line class="d feature-stroke no-fill" x1="125.74" y1="232.19" x2="146.01" y2="232.19" />
-<line class="d feature-stroke no-fill" x1="166.06" y1="232.19" x2="198.17" y2="232.19" />
-<line class="d feature-stroke no-fill" x1="205.74" y1="232.19" x2="219.61" y2="232.19" />
-<polyline class="d feature-stroke no-fill" points="240.09 234.32 240.09 241.79 231.98 242 227.93 268.67 241.8 275.49" />
-<polyline class="d feature-stroke no-fill" points="256.09 222.37 303.24 222.37 306.86 218.75" />
-<polyline class="d feature-stroke no-fill" points="312.41 213.63 314.97 210.64 314.97 188.03" />
-<polyline class="d feature-stroke no-fill" points="321.16 127.01 321.16 181.84 314.97 190.8" />
-<polyline class="d feature-stroke no-fill" points="334.38 182.91 334.38 156.88 321.16 156.88" />
-<line class="d feature-stroke no-fill" x1="334.81" y1="140.03" x2="321.16" y2="140.03" />
-<line class="d feature-stroke no-fill" x1="343.34" y1="108.67" x2="343.34" y2="111.01" />
-<line class="d feature-stroke no-fill" x1="343.34" y1="119.97" x2="343.34" y2="131.49" />
-<line class="d feature-stroke no-fill" x1="343.34" y1="138.96" x2="343.34" y2="141.09" />
-<line class="d feature-stroke no-fill" x1="383.24" y1="115.71" x2="383.24" y2="154.11" />
-<line class="d feature-stroke no-fill" x1="396.25" y1="152.19" x2="383.24" y2="152.19" />
-<polyline class="d feature-stroke no-fill" points="402.44 152.4 423.13 152.4 423.13 140.24" />
-<line class="d feature-stroke no-fill" x1="404.14" y1="121.04" x2="414.81" y2="121.04" />
-<line class="d feature-stroke no-fill" x1="410.97" y1="167.33" x2="410.97" y2="152.4" />
-<line class="d feature-stroke no-fill" x1="383.02" y1="165.63" x2="383.02" y2="211.92" />
-<polyline class="d feature-stroke no-fill" points="397.1 228.56 387.08 228.56 378.33 220.67 378.33 212.13 387.93 212.13" />
-<line class="d feature-stroke no-fill" x1="403.08" y1="228.77" x2="442.54" y2="228.77" />
-<line class="d feature-stroke no-fill" x1="383.24" y1="168.4" x2="386.44" y2="168.4" />
-<line class="d feature-stroke no-fill" x1="388.36" y1="168.19" x2="391.13" y2="168.19" />
-<line class="d feature-stroke no-fill" x1="399.66" y1="168.4" x2="402.65" y2="168.4" />
-<line class="d feature-stroke no-fill" x1="404.78" y1="168.19" x2="407.77" y2="168.19" />
-<line class="d feature-stroke no-fill" x1="409.26" y1="168.4" x2="412.68" y2="168.4" />
-<polyline class="d feature-stroke no-fill" points="414.6 168.4 416.94 168.4 416.94 170.11" />
-<line class="d feature-stroke no-fill" x1="416.52" y1="171.39" x2="416.52" y2="174.16" />
-<line class="d feature-stroke no-fill" x1="416.52" y1="176.51" x2="416.52" y2="179.49" />
-<line class="d feature-stroke no-fill" x1="416.3" y1="181.2" x2="416.3" y2="184.61" />
-<line class="d feature-stroke no-fill" x1="416.3" y1="186.53" x2="416.3" y2="189.31" />
-<line class="d feature-stroke no-fill" x1="416.52" y1="191.23" x2="416.52" y2="194.64" />
-<line class="d feature-stroke no-fill" x1="416.3" y1="196.35" x2="416.3" y2="199.33" />
-<line class="d feature-stroke no-fill" x1="416.52" y1="201.25" x2="416.52" y2="204.45" />
-<line class="d feature-stroke no-fill" x1="416.73" y1="206.16" x2="416.73" y2="209.36" />
-<line class="d feature-stroke no-fill" x1="416.52" y1="211.07" x2="416.52" y2="214.48" />
-<line class="d feature-stroke no-fill" x1="416.73" y1="216.19" x2="416.73" y2="219.17" />
-<line class="d feature-stroke no-fill" x1="416.73" y1="220.88" x2="416.73" y2="224.08" />
-<line class="d feature-stroke no-fill" x1="416.73" y1="226.21" x2="416.73" y2="228.35" />
-<line class="d feature-stroke no-fill" x1="239.45" y1="180.35" x2="242.44" y2="180.35" />
-<line class="d feature-stroke no-fill" x1="244.14" y1="180.56" x2="247.98" y2="180.56" />
-<line class="d feature-stroke no-fill" x1="249.69" y1="180.56" x2="252.89" y2="180.56" />
-<line class="d feature-stroke no-fill" x1="254.17" y1="180.56" x2="258.01" y2="180.56" />
-<line class="d feature-stroke no-fill" x1="259.5" y1="180.56" x2="262.28" y2="180.77" />
-<line class="d feature-stroke no-fill" x1="264.84" y1="180.77" x2="268.04" y2="180.77" />
-<line class="d feature-stroke no-fill" x1="239.45" y1="203.39" x2="242.44" y2="203.39" />
-<line class="d feature-stroke no-fill" x1="244.14" y1="203.6" x2="247.98" y2="203.6" />
-<line class="d feature-stroke no-fill" x1="249.69" y1="203.6" x2="252.89" y2="203.6" />
-<line class="d feature-stroke no-fill" x1="254.17" y1="203.6" x2="258.01" y2="203.6" />
-<line class="d feature-stroke no-fill" x1="259.5" y1="203.6" x2="262.28" y2="203.81" />
-<line class="d feature-stroke no-fill" x1="264.84" y1="203.81" x2="268.04" y2="203.81" />
-<polyline class="d feature-stroke no-fill" points="268.04 186.43 268.04 173.09 315.08 173.09 315.08 185.57" />
-<polyline class="d feature-stroke no-fill" points="267.82 193.47 267.82 217.57 271.56 217.57 271.56 222.37" />
-<line class="d feature-stroke no-fill" x1="320.36" y1="308.35" x2="320.36" y2="317.47" />
-<polyline class="d feature-stroke no-fill" points="323.56 301.63 360.68 301.63 442.6 301.63" />
-<line class="d feature-stroke no-fill" x1="360.84" y1="319.55" x2="360.84" y2="301.63" />
-<polyline class="d feature-stroke no-fill" points="348.52 360.67 348.52 319.55 364.04 319.55 364.04 338.59" />
-<polyline class="d feature-stroke no-fill" points="361.8 360.03 361.8 338.91 367.24 338.91" />
-<line class="d feature-stroke no-fill" x1="388.04" y1="317.15" x2="388.04" y2="338.91" />
-<line class="d feature-stroke no-fill" x1="392.2" y1="326.59" x2="388.04" y2="326.59" />
-<line class="d feature-stroke no-fill" x1="417.64" y1="314.91" x2="417.64" y2="301.63" />
-<line class="d feature-stroke no-fill" x1="401.64" y1="326.59" x2="437.48" y2="326.59" />
-<line class="d feature-stroke no-fill" x1="449.96" y1="337.31" x2="449.96" y2="375.39" />
-<polyline class="d feature-stroke no-fill" points="449.96 380.99 449.96 393.79 475.72 393.79" />
-<line class="d feature-stroke no-fill" x1="390.6" y1="389.63" x2="390.6" y2="395.23" />
-<polyline class="d feature-stroke no-fill" points="305 405.15 285.48 405.15 285.48 359.39" />
-<polyline class="d feature-stroke no-fill" points="273.48 359.39 321 359.39 321 326.27 335.4 326.27" />
-<line class="d feature-stroke no-fill" x1="273.48" y1="330.43" x2="320.84" y2="330.43" />
-<line class="d feature-stroke no-fill" x1="315.4" y1="404.99" x2="320.52" y2="404.99" />
-<rect class="e feature-stroke background-fill" x="381.96" y="338.75" width="54.72" height="38.72" />
-<polygon class="f border-stroke no-fill" points="96.3 189.31 96.3 149.18 117.35 149.18 117.35 233.18 124.55 233.18 124.55 185.66 178.79 185.66 192.23 197.18 203.75 186.14 221.03 186.14 221.03 233.18 255.59 233.18 255.59 222.14 239.27 222.14 239.27 125.66 320.86 125.66 320.86 107.9 331.9 106.46 341.02 96.86 364.06 96.86 367.9 98.78 369.34 96.86 382.78 102.14 382.78 95.91 406.78 95.91 406.78 100.7 415.42 100.7 415.42 121.82 423.1 121.82 423.1 139.1 473.98 139.1 473.98 170.3 461.02 170.3 461.02 191.9 473.5 191.9 473.5 228.86 442.78 228.86 442.78 302.29 449.5 302.29 449.5 327.25 476.38 327.25 476.38 409.81 449.5 409.81 449.5 391.09 437.5 391.09 437.5 399.73 390.46 399.73 390.46 394.93 362.14 394.93 362.14 360.85 348.22 360.85 348.22 373.81 320.86 373.81 320.86 416.05 258.95 416.05 258.95 360.37 273.35 360.37 273.35 308.53 319.9 308.53 319.9 301.81 323.26 301.81 323.26 297.97 254.63 297.97 236.87 289.33 218.63 289.33 218.63 345.49 200.39 345.49 186.47 336.37 169.19 341.17 165.35 346.45 144.71 345.97 136.55 336.37 128.39 336.37 128.39 289.33 121.19 289.33 121.19 283.57 117.83 283.57 117.83 335.89 90 335.89 90 331.09 50.64 331.09 50.64 295.1 35.76 295.1 35.76 213.5 50.64 213.5 50.64 189.31 96.3 189.31" />
-`,
-    forsaken: `<style>
-    .c,.d,.f{stroke-miterlimit:10;}
-    .c,.d{stroke-width:0.52px;}
-    .d{stroke-dasharray:2.62;}
-    .f{stroke-width:0.96px;}
-</style>
-</defs>
-<rect class="a background-fill" width="512" height="512" />
-<path class="b field-fill" d="M38.72,109.57H54.41V94.67h69v-22H165V86.82h24.32v11h7.06V81.33h5.49V62.5h42.37V79h25.1v25.89h36.09v7.06s66.53-1.25,88.66,0,59.86,25.31,68.26,56.49c3.06,11.36,0,47.07,0,47.07L455.32,221v38.45h18.83v22H482V407.71H468.66v11.77H332.93V374.76h8.63v-80l17.26-18h24.32V259.43h50.22v-33l-6.28-9.41V181.75s-1.21-31.37-42.37-34.52c-35.2-2.69-141.22,0-141.22,0v45.51H162.68v-9.42l3.93-7.06L157.19,181h-7.06v-5.49H136.79V150.37h-11v12.55H69.32V147.23l-11-7.06H38.72Z" />
-<polygon class="b field-fill" points="273 215.17 286.08 203.67 329.5 203.67 343.1 216.22 343.1 264.34 333.16 277.42 294.97 277.42 294.97 285.79 301.25 292.59 301.25 300.43 296.02 306.71 290.79 306.71 286.6 310.89 275.1 310.89 275.1 316.65 286.6 316.65 294.97 326.06 294.97 355.88 287.65 355.88 287.65 405.05 262.02 405.05 262.02 414.46 195.07 414.46 195.07 457.35 160.54 457.35 152.18 463.63 139.62 463.63 139.62 459.97 135.44 459.97 135.44 463.63 83.13 463.63 83.13 434.34 69.53 434.34 69.53 397.2 89.93 397.2 94.11 391.45 87.84 381.51 87.84 353.26 117.65 353.26 117.65 356.75 136.48 356.75 136.48 330.77 159.5 330.77 165.25 325.54 187.74 325.54 187.74 312.99 251.03 312.99 251.03 318.74 254.17 318.74 254.17 310.37 231.16 310.37 231.16 261.2 258.88 261.2 258.88 258.06 269.87 258.06 269.87 263.3 273 263.3 273 215.17" />
-<polygon class="b field-fill" points="55.8 238.71 33.3 238.71 33.3 262.77 50.57 262.77 50.57 278.99 34.87 278.99 34.87 300.43 92.94 300.43 92.94 311.94 131.12 311.94 131.12 212.03 90.32 212.03 90.32 196.87 55.8 196.87 55.8 238.71" />
-<line class="c feature-stroke no-fill" x1="61.47" y1="137.82" x2="70.89" y2="137.82" />
-<polyline class="c feature-stroke no-fill" points="86.58 144.88 86.58 155.08 117.18 155.08 117.18 101.73 87.36 101.73 87.36 113.5" />
-<line class="c feature-stroke no-fill" x1="80.3" y1="95.45" x2="80.3" y2="112.71" />
-<line class="c feature-stroke no-fill" x1="80.51" y1="141.94" x2="80.51" y2="160.25" />
-<line class="c feature-stroke no-fill" x1="117.13" y1="117.88" x2="124.45" y2="117.88" />
-<line class="c feature-stroke no-fill" x1="117.65" y1="137.24" x2="125.5" y2="137.24" />
-<polyline class="c feature-stroke no-fill" points="124.97 97.48 124.97 105.33 124.97 146.65" />
-<line class="c feature-stroke no-fill" x1="132.3" y1="106.37" x2="124.98" y2="106.37" />
-<line class="c feature-stroke no-fill" x1="141.71" y1="72.9" x2="141.71" y2="91.21" />
-<polyline class="c feature-stroke no-fill" points="165.25 86.5 165.25 113.7 194.54 113.7" />
-<polyline class="c feature-stroke no-fill" points="168.39 141.42 168.39 174.9 203.96 174.9" />
-<line class="c feature-stroke no-fill" x1="239.53" y1="148.22" x2="168.39" y2="148.22" />
-<line class="c feature-stroke no-fill" x1="238.48" y1="142.99" x2="167.87" y2="142.99" />
-<polyline class="c feature-stroke no-fill" points="199.77 108.99 269.87 108.99 269.87 105.33" />
-<line class="c feature-stroke no-fill" x1="201.87" y1="112.65" x2="265.16" y2="112.65" />
-<polyline class="c feature-stroke no-fill" points="265.68 108.47 265.68 116.84 260.97 123.11 260.97 142.99" />
-<polyline class="c feature-stroke no-fill" points="218.08 175.42 209.71 175.42 209.71 182.22 190.36 182.22" />
-<line class="c feature-stroke no-fill" x1="216.51" y1="190.07" x2="216.51" y2="175.42" />
-<polyline class="c feature-stroke no-fill" points="206.05 82.05 237.7 82.05 237.7 71.85 224.62 71.85" />
-<path class="c feature-stroke no-fill" d="M372.91,137s57,1.84,63.29,47.08c1.36,9.78,0,39.49,0,39.49" />
-<path class="c feature-stroke no-fill" d="M375.26,120.5s70.09,2.09,78.2,57.8c1.41,9.7.79,39.23.79,39.23" />
-<polyline class="c feature-stroke no-fill" points="300.73 205.24 300.73 226.68 293.4 233.48 293.4 241.33 300.73 241.33" />
-<line class="c feature-stroke no-fill" x1="274.05" y1="260.16" x2="291.57" y2="277.68" />
-<line class="c feature-stroke no-fill" x1="287.13" y1="234.53" x2="341.53" y2="234.53" />
-<line class="c feature-stroke no-fill" x1="274.57" y1="234.53" x2="280.85" y2="234.53" />
-<polyline class="c feature-stroke no-fill" points="307 249.17 316.42 249.17 316.42 259.63 323.74 259.63 329.5 254.93" />
-<line class="c feature-stroke no-fill" x1="330.54" y1="246.03" x2="330.54" y2="235.05" />
-<line class="c feature-stroke no-fill" x1="315.9" y1="275.33" x2="315.9" y2="265.39" />
-<line class="c feature-stroke no-fill" x1="273.53" y1="249.17" x2="280.85" y2="249.17" />
-<line class="c feature-stroke no-fill" x1="286.6" y1="249.17" x2="299.16" y2="249.17" />
-<polyline class="c feature-stroke no-fill" points="272.48 270.62 276.14 270.62 285.03 278.46 285.03 285.79 290.79 285.79" />
-<line class="c feature-stroke no-fill" x1="254.7" y1="309.85" x2="262.02" y2="309.85" />
-<line class="c feature-stroke no-fill" x1="276.67" y1="306.71" x2="289.22" y2="306.71" />
-<polyline class="c feature-stroke no-fill" points="218.08 314.03 218.08 343.85 214.42 343.85" />
-<path class="c feature-stroke no-fill" d="M215.47,351.69h3.66v6.8h30.34s.52-4.18,4.18-3.66" />
-<polyline class="c feature-stroke no-fill" points="278.41 354.31 287.3 354.31 287.3 352.22" />
-<line class="c feature-stroke no-fill" x1="282.42" y1="326.59" x2="282.42" y2="348.03" />
-<line class="c feature-stroke no-fill" x1="218.6" y1="327.11" x2="249.99" y2="327.11" />
-<polyline class="c feature-stroke no-fill" points="218.6 336.52 238.48 336.52 238.48 334.43" />
-<polyline class="c feature-stroke no-fill" points="224.36 413.24 214.42 413.24 214.42 402.43 214.42 379.42 261.15 379.42 261.15 413.94" />
-<line class="c feature-stroke no-fill" x1="223.84" y1="408.88" x2="214.42" y2="408.88" />
-<line class="c feature-stroke no-fill" x1="214.42" y1="399.29" x2="191.93" y2="399.29" />
-<rect class="c feature-stroke no-fill" x="160.02" y="384.12" width="32.43" height="17.78" />
-<polyline class="c feature-stroke no-fill" points="188.79 326.59 188.79 344.37 186.17 344.37" />
-<line class="c feature-stroke no-fill" x1="165.77" y1="325.54" x2="165.77" y2="339.14" />
-<line class="c feature-stroke no-fill" x1="187.13" y1="355.97" x2="163.6" y2="355.97" />
-<polyline class="c feature-stroke no-fill" points="137.35 355.88 163.68 355.88 163.68 361.11 167.87 365.29 167.87 384.12" />
-<polyline class="c feature-stroke no-fill" points="185.13 384.12 178.85 377.32 178.85 367.91 181.47 365.29 181.47 353.26" />
-<path class="c feature-stroke no-fill" d="M145.9,339.14s4.71,8.37,10.46.52" />
-<polyline class="c feature-stroke no-fill" points="100.39 385.17 100.39 396.15 103.53 396.15 103.53 409.23" />
-<polyline class="c feature-stroke no-fill" points="84.18 433.82 84.18 423.88 90.63 423.88" />
-<polyline class="c feature-stroke no-fill" points="90.45 462.76 90.45 405.57 90.45 398.25" />
-<polyline class="c feature-stroke no-fill" points="134.56 462.76 134.39 433.82 126.02 424.4 108.24 424.4 108.24 413.42 101.44 406.62 90.45 406.62" />
-<line class="c feature-stroke no-fill" x1="94.11" y1="412.89" x2="94.11" y2="423.35" />
-<line class="c feature-stroke no-fill" x1="90.45" y1="452.12" x2="134.39" y2="452.12" />
-<line class="c feature-stroke no-fill" x1="160.02" y1="401.91" x2="160.02" y2="457.88" />
-<line class="c feature-stroke no-fill" x1="287.13" y1="377.85" x2="279.8" y2="377.85" />
-<line class="c feature-stroke no-fill" x1="49.52" y1="279.51" x2="49.52" y2="298.86" />
-<line class="c feature-stroke no-fill" x1="75.15" y1="298.86" x2="75.15" y2="278.99" />
-<polyline class="c feature-stroke no-fill" points="84.04 277.94 84.04 281.6 119.09 281.6 119.09 278.99 127.98 278.99" />
-<line class="c feature-stroke no-fill" x1="75.67" y1="201.57" x2="88.75" y2="201.57" />
-<line class="c feature-stroke no-fill" x1="75.67" y1="197.91" x2="75.67" y2="206.28" />
-<line class="c feature-stroke no-fill" x1="88.75" y1="197.91" x2="88.75" y2="206.28" />
-<line class="d feature-stroke no-fill" x1="212.68" y1="91.03" x2="212.68" y2="109.17" />
-<line class="d feature-stroke no-fill" x1="225.23" y1="96.96" x2="225.23" y2="109.17" />
-<line class="d feature-stroke no-fill" x1="244.76" y1="79.52" x2="244.76" y2="109.17" />
-<line class="d feature-stroke no-fill" x1="229.07" y1="110.21" x2="229.07" y2="147.17" />
-<line class="d feature-stroke no-fill" x1="239.53" y1="109.17" x2="239.53" y2="143.34" />
-<polyline class="d feature-stroke no-fill" points="225.93 147.87 225.93 175.77 214.07 175.77 214.07 169.84" />
-<line class="d feature-stroke no-fill" x1="213.72" y1="147.87" x2="213.72" y2="159.38" />
-<line class="d feature-stroke no-fill" x1="201.17" y1="148.22" x2="201.17" y2="174.72" />
-<polyline class="d feature-stroke no-fill" points="187.57 175.07 181.64 170.89 181.64 148.22" />
-<line class="d feature-stroke no-fill" x1="232.2" y1="356.05" x2="232.2" y2="389.53" />
-<line class="d feature-stroke no-fill" x1="240.57" y1="356.4" x2="240.57" y2="413.94" />
-<line class="d feature-stroke no-fill" x1="214.77" y1="384.65" x2="259.4" y2="384.65" />
-<line class="d feature-stroke no-fill" x1="129.68" y1="432.77" x2="164.55" y2="432.77" />
-<line class="d feature-stroke no-fill" x1="130.03" y1="440.79" x2="164.55" y2="440.79" />
-<line class="d feature-stroke no-fill" x1="101.09" y1="424.05" x2="101.09" y2="452.3" />
-<line class="d feature-stroke no-fill" x1="90.28" y1="423.7" x2="106.67" y2="423.7" />
-<line class="d feature-stroke no-fill" x1="214.42" y1="389.18" x2="220" y2="384.3" />
-<polygon class="e building-fill" points="149.54 97.32 151.71 101.65 148.1 103.09 146.66 121.14 143.04 121.86 137.27 109.59 140.16 102.37 149.54 97.32" />
-<rect class="e building-fill" x="220.92" y="339.69" width="16.6" height="7.22" />
-<rect class="e building-fill" x="248.15" y="273.28" width="9.02" height="9.03" />
-<rect class="e building-fill" x="248.15" y="287" width="9.02" height="9.03" />
-<rect class="e building-fill" x="271.25" y="292.05" width="9.02" height="9.03" />
-<rect class="e building-fill" x="270.89" y="277.98" width="9.03" height="9.02" />
-<rect class="e building-fill" x="311.58" y="234.93" width="20.21" height="5.05" />
-<rect class="e building-fill" x="311.58" y="237.21" width="14.8" height="11.69" />
-<rect class="e building-fill" x="251.58" y="289.53" width="9.02" height="4.33" />
-<rect class="e building-fill" x="164.18" y="348.36" width="20.22" height="7.22" />
-<rect class="e building-fill" x="62.39" y="113.16" width="13.36" height="7.22" />
-<rect class="e building-fill" x="67.41" y="131.8" width="14.8" height="5.41" />
-<rect class="e building-fill" x="91.69" y="104.37" width="5.41" height="11.55" transform="translate(-16.51 203.64) rotate(-89.53)" />
-<rect class="e building-fill" x="200.21" y="88.62" width="5.41" height="8.8" />
-<rect class="e building-fill" x="235.43" y="82.09" width="8.12" height="13.13" />
-<rect class="e building-fill" x="108.39" y="115.58" width="8.3" height="5.41" />
-<rect class="e building-fill" x="163.71" y="141.2" width="4.69" height="14.89" />
-<rect class="e building-fill" x="158.44" y="109.45" width="5.42" height="5.41" />
-<rect class="e building-fill" x="194.43" y="105.84" width="5.42" height="5.41" />
-<rect class="e building-fill" x="158.77" y="114.5" width="9.81" height="5.41" />
-<rect class="e building-fill" x="194.22" y="109.81" width="9.81" height="5.41" />
-<rect class="e building-fill" x="106.77" y="136.65" width="10.47" height="8.12" />
-<rect class="e building-fill" x="87.6" y="141.34" width="7.22" height="4.51" />
-<rect class="e building-fill" x="179.49" y="423.02" width="12.27" height="15.34" />
-<rect class="e building-fill" x="118.3" y="242.57" width="10.35" height="10.05" />
-<rect class="e building-fill" x="80.1" y="228.72" width="8.96" height="5.62" transform="translate(-4.82 1.82) rotate(-1.2)" />
-<rect class="e building-fill" x="54.01" y="256.93" width="14.68" height="13.42" />
-<rect class="e building-fill" x="109.72" y="213.77" width="10.35" height="9.08" />
-<rect class="e building-fill" x="60.35" y="292.22" width="7.82" height="5.11" />
-<rect class="e building-fill" x="112.97" y="295.63" width="7.82" height="5.11" />
-<rect class="e building-fill" x="103.76" y="268.77" width="6.02" height="11.19" />
-<rect class="e building-fill" x="69.65" y="280.83" width="3.49" height="6.01" />
-<rect class="e building-fill" x="89.71" y="281.77" width="4.36" height="3.85" />
-<rect class="e building-fill" x="110.63" y="282.03" width="4.36" height="3.85" />
-<rect class="e building-fill" x="115.38" y="261.06" width="4.36" height="3.85" />
-<rect class="e building-fill" x="64.85" y="233.37" width="4.36" height="3.85" transform="translate(-129.48 89.56) rotate(-37.54)" />
-<rect class="e building-fill" x="69.32" y="213.25" width="4.36" height="3.85" transform="translate(-18.51 7.06) rotate(-5.01)" />
-<rect class="e building-fill" x="111.16" y="217.51" width="5.17" height="9.08" />
-<rect class="e building-fill" x="109.51" y="245.07" width="12.27" height="7.55" />
-<rect class="e building-fill" x="60.83" y="252.77" width="10.91" height="7.55" />
-<rect class="e building-fill" x="67.09" y="246.51" width="18.13" height="7.55" />
-<rect class="e building-fill" x="76.87" y="244.59" width="7.38" height="7.55" />
-<rect class="e building-fill" x="168.15" y="409.15" width="7.1" height="8.12" />
-<rect class="e building-fill" x="147.57" y="350.43" width="7.54" height="7.16" />
-<rect class="e building-fill" x="172.55" y="326.41" width="15.96" height="4.03" />
-<rect class="e building-fill" x="178.68" y="329.84" width="9.83" height="4.03" />
-<rect class="e building-fill" x="148.52" y="354.23" width="5.97" height="5.67" />
-<rect class="e building-fill" x="150.81" y="400" width="4.88" height="11.01" />
-<rect class="e building-fill" x="109.42" y="374.98" width="4.88" height="11.01" />
-<rect class="e building-fill" x="109.9" y="404.94" width="4.88" height="5.59" />
-<rect class="e building-fill" x="385.02" y="288.09" width="12.27" height="4.51" />
-<rect class="e building-fill" x="350.53" y="371.2" width="3.97" height="11.55" />
-<rect class="e building-fill" x="466.59" y="369.68" width="3.97" height="11.55" />
-<rect class="e building-fill" x="447.96" y="271.38" width="3.97" height="11.55" />
-<rect class="e building-fill" x="464.6" y="298.13" width="3.97" height="11.55" />
-<rect class="e building-fill" x="243.94" y="332.23" width="4.96" height="15.4" />
-<rect class="e building-fill" x="270.9" y="328.86" width="4.96" height="11.55" />
-<rect class="e building-fill" x="271.38" y="361.59" width="4.96" height="17.8" />
-<rect class="e building-fill" x="254.95" y="322.16" width="17.81" height="6.07" transform="translate(-147.02 244.24) rotate(-39.8)" />
-<polygon class="e building-fill" points="198.41 333.62 193.58 329.94 202.04 318.83 206.87 322.51 198.41 333.62" />
-<polygon class="e building-fill" points="157.88 127.45 152.41 123.29 160.87 112.19 166.33 116.35 157.88 127.45" />
-<rect class="e building-fill" x="191.45" y="129.04" width="13.96" height="6.87" transform="matrix(0.76, -0.66, 0.66, 0.76, -38.28, 162.37)" />
-<polygon class="e building-fill" points="192.24 121.31 186.78 117.16 195.23 106.05 200.7 110.21 192.24 121.31" />
-<polygon class="e building-fill" points="193.39 380.14 188.56 376.46 197.01 365.35 201.85 369.03 193.39 380.14" />
-<polygon class="e building-fill" points="144.67 396.16 138.91 394.23 143.72 379.98 149.47 381.92 144.67 396.16" />
-<polygon class="e building-fill" points="139.01 375.95 135.85 372.85 143.54 365.03 146.7 368.14 139.01 375.95" />
-<polygon class="e building-fill" points="240.49 379.79 236.99 377.08 243.7 368.42 247.2 371.13 240.49 379.79" />
-<polygon class="e building-fill" points="462.83 335.52 459.92 332.19 468.17 324.98 471.09 328.32 462.83 335.52" />
-<polygon class="e building-fill" points="125.78 409.4 122.62 406.3 130.31 398.49 133.46 401.59 125.78 409.4" />
-<polygon class="e building-fill" points="269.1 357.72 265.41 360.16 259.37 351.02 263.06 348.58 269.1 357.72" />
-<polygon class="e building-fill" points="103.51 130.28 97.95 135.43 88.54 125.26 94.1 120.11 103.51 130.28" />
-<polygon class="e building-fill" points="152.54 140.81 147.69 143.92 140.22 132.25 145.07 129.14 152.54 140.81" />
-<polygon class="e building-fill" points="167.74 141.41 165.17 145.57 153.39 138.27 155.96 134.12 167.74 141.41" />
-<polygon class="e building-fill" points="205.81 118.17 201.69 123.19 190.98 114.39 195.1 109.37 205.81 118.17" />
-<polygon class="e building-fill" points="232.85 127.84 227.25 131.12 220.25 119.16 225.86 115.87 232.85 127.84" />
-<polygon class="e building-fill" points="226.91 368.05 222.07 371.26 214.55 359.88 219.4 356.67 226.91 368.05" />
-<polygon class="e building-fill" points="133.32 379.31 131.44 384.81 118.54 380.39 120.43 374.89 133.32 379.31" />
-<polygon class="e building-fill" points="107 255.17 102.88 263.2 88.92 256.04 93.03 248.01 107 255.17" />
-<polygon class="e building-fill" points="146.48 446.46 143.32 443.36 151 435.55 154.16 438.65 146.48 446.46" />
-<polygon class="e building-fill" points="80.1 234.03 77.83 229.49 91.6 222.64 93.86 227.18 80.1 234.03" />
-<polygon class="e building-fill" points="317.53 256.77 317.53 245.58 325.83 245.58 325.83 248.89 317.53 256.77" />
-<circle class="e building-fill" cx="271.45" cy="388.06" r="4.33" />
-<rect class="e building-fill" x="54.01" y="256.93" width="8.42" height="20.64" />
-<rect class="e building-fill" x="56.05" y="265.23" width="10.66" height="9.77" transform="translate(-155.53 97.84) rotate(-38.74)" />
-<path class="f no-fill border-stroke" d="M38.72,109.57H54.41V94.67h69v-22H165V86.82h24.32v11h7.06V81.33h5.49V62.5h42.37V79h25.1v25.89h36.09v7.06s66.53-1.25,88.66,0,59.86,25.31,68.26,56.49c3.06,11.36,0,47.07,0,47.07L455.32,221v38.45h18.83v22H482V407.71H468.66v11.77H332.93V374.76h8.63v-80l17.26-18h24.32V259.43h50.22v-33l-6.28-9.41V181.75s-1.21-31.37-42.37-34.52c-35.2-2.69-141.22,0-141.22,0v45.51H162.68v-9.42l3.93-7.06L157.19,181h-7.06v-5.49H136.79V150.37h-11v12.55H69.32V147.23l-11-7.06H38.72Z" />
-<polygon class="f no-fill border-stroke" points="273 215.17 286.08 203.67 329.5 203.67 343.1 216.22 343.1 264.34 333.16 277.42 294.97 277.42 294.97 285.79 301.25 292.59 301.25 300.43 296.02 306.71 290.79 306.71 286.6 310.89 275.1 310.89 275.1 316.65 286.6 316.65 294.97 326.06 294.97 355.88 287.65 355.88 287.65 405.05 262.02 405.05 262.02 414.46 195.07 414.46 195.07 457.35 160.54 457.35 152.18 463.63 139.62 463.63 139.62 459.97 135.44 459.97 135.44 463.63 83.13 463.63 83.13 434.34 69.53 434.34 69.53 397.2 89.93 397.2 94.11 391.45 87.84 381.51 87.84 353.26 117.65 353.26 117.65 356.05 136.48 356.05 136.48 330.77 159.5 330.77 165.25 325.54 187.74 325.54 187.74 312.99 251.03 312.99 251.03 318.74 254.17 318.74 254.17 310.37 231.16 310.37 231.16 261.2 258.88 261.2 258.88 258.06 269.87 258.06 269.87 263.3 273 263.3 273 215.17" />
-<polygon class="f no-fill border-stroke" points="55.8 238.71 33.3 238.71 33.3 262.77 50.57 262.77 50.57 278.99 34.87 278.99 34.87 300.43 92.94 300.43 92.94 311.94 131.12 311.94 131.12 212.03 90.32 212.03 90.32 196.87 55.8 196.87 55.8 238.71" />
-`,
-    forsaken_underground: `<style>
-    .c,.d,.e{stroke-miterlimit:10;}
-    .c{stroke-width:0.96px;}
-    .d,.e{sstroke-width:0.39px;}
-    .e{stroke-dasharray:1.94;}
-</style>
-</defs>
-<rect class="a background-fill" width="512" height="512" />
-<path class="b field-fill" d="M475.09,310.64V287.35h-7.51V186.18H425.67V196H347V178.68h7.25V151.77H340.55l-20.7-19.15v-9.83H292.42c-22.51-2.59-23-22.26-23-22.26h-81.5c.78,14.49-16.81,21.74-16.81,21.74H137.44v9.83L117,151.51H104.32v27.17h6.21v15.78h-4.14v6.73H64.74L64,198.86H45.85v-2.59h-14l.26,36.48H45.33l2.59-2.59H63.19L65,228.35H91.39v1.81h15.26l.78,3.37H125.8l2.33-2.85h17.33V240h16.3v9.83h-2.33v39.33c-.51,28.2,30.28,38,30.28,38H216.1v21.21H375.22V333.15h39.07V325.9h7.5v51.24h5.43v5.43h-4.4V463h51V382.83h-4.65v-6.21h4.91V325.9H480V310.64ZM334,194.52H306.26v-4.46H250l-.19-11.84h21.53V156.49H301l14.56,14.16v7.57H334Z" />
-<path class="a background-fill" d="M175.73,240.26v7.24h2.59v40.63s0,20.18,19.41,20.44h18.11V287.09H375.22v15H414.8v8.28h5.95V286.57H428V244.92h-2.85V234.05H306.91v5.69Z" />
-<polygon class="a background-fill" points="123.86 178.42 141.52 178.42 141.52 171.04 155.49 157.26 185.56 157.26 185.56 177.84 207.3 177.84 207.3 189.48 144.62 189.48 144.62 196.27 123.66 196.27 123.86 178.42" />
-<polygon class="c no-fill border-stroke" points="249.79 178.22 271.33 178.22 271.33 156.49 301.02 156.49 315.58 170.66 315.58 178.22 334.01 178.22 334.01 194.52 306.26 194.52 306.26 190.06 249.99 190.06 249.79 178.22" />
-<line class="d feature-stroke no-fill" x1="149.47" y1="208.3" x2="170.43" y2="208.3" />
-<line class="d feature-stroke no-fill" x1="149.86" y1="221.11" x2="170.43" y2="221.11" />
-<line class="d feature-stroke no-fill" x1="158.4" y1="189.67" x2="158.4" y2="208.3" />
-<line class="d feature-stroke no-fill" x1="158.01" y1="221.11" x2="158.01" y2="239.35" />
-<line class="d feature-stroke no-fill" x1="161.7" y1="240.91" x2="175.86" y2="240.91" />
-<line class="d feature-stroke no-fill" x1="207.3" y1="181.13" x2="249.99" y2="181.13" />
-<line class="d feature-stroke no-fill" x1="268.62" y1="202.29" x2="268.62" y2="225.77" />
-<line class="d feature-stroke no-fill" x1="268.81" y1="190.06" x2="268.81" y2="192" />
-<line class="d feature-stroke no-fill" x1="268.62" y1="239.93" x2="268.62" y2="237.8" />
-<polyline class="d feature-stroke no-fill" points="286.28 239.74 286.28 221.11 308.2 221.11" />
-<polyline class="d feature-stroke no-fill" points="308.2 207.91 286.28 207.91 286.28 189.87" />
-<line class="d feature-stroke no-fill" x1="424.25" y1="196.08" x2="424.25" y2="233.92" />
-<line class="d feature-stroke no-fill" x1="427.93" y1="285.93" x2="441.32" y2="285.93" />
-<line class="d feature-stroke no-fill" x1="455.29" y1="285.93" x2="467.32" y2="285.93" />
-<polyline class="d feature-stroke no-fill" points="421.72 326.1 424.25 326.1 424.25 309.6 420.75 309.6" />
-<line class="d feature-stroke no-fill" x1="375.93" y1="302.03" x2="375.93" y2="311.35" />
-<line class="d feature-stroke no-fill" x1="376.32" y1="324.16" x2="376.32" y2="332.89" />
-<line class="e feature-stroke no-fill" x1="215.06" y1="327.46" x2="215.06" y2="325.32" />
-<line class="e feature-stroke no-fill" x1="215.25" y1="311.54" x2="215.25" y2="308.63" />
-<line class="e feature-stroke no-fill" x1="256.59" y1="190.06" x2="256.59" y2="206.56" />
-<line class="e feature-stroke no-fill" x1="256.98" y1="223.05" x2="256.98" y2="239.74" />
-<rect class="e feature-stroke no-fill" x="197.01" y="207.53" width="2.91" height="14.17" />
-<circle class="f building-fill" cx="228.64" cy="139.99" r="24.84" />
-<circle class="f building-fill" cx="176.25" cy="139.99" r="4.27" />
-<circle class="f building-fill" cx="137.44" cy="152.02" r="4.27" />
-<circle class="f building-fill" cx="318.68" cy="152.02" r="4.27" />
-<circle class="f building-fill" cx="280.65" cy="140.38" r="4.27" />
-<rect class="f building-fill" x="219.72" y="205.59" width="14.75" height="12.42" />
-<rect class="f building-fill" x="239.51" y="299.12" width="18.24" height="11.26" />
-<rect class="f building-fill" x="239.51" y="324.35" width="17.72" height="11.26" />
-<rect class="f building-fill" x="269.27" y="309.09" width="12.55" height="17.21" />
-<rect class="f building-fill" x="301.09" y="306.76" width="5.56" height="21.61" />
-<rect class="f building-fill" x="322.56" y="310.9" width="34.28" height="12.81" />
-<rect class="f building-fill" x="301.35" y="287.61" width="5.3" height="2.46" />
-<rect class="f building-fill" x="301.35" y="345.12" width="5.3" height="2.46" />
-<rect class="f building-fill" x="371.46" y="205.59" width="22.12" height="16.69" />
-<polygon class="f building-fill" points="438.61 328.23 457.75 328.23 457.75 336.51 453.1 340.65 444.04 340.65 439.12 337.03 438.61 328.23" />
-<polygon class="f building-fill" points="448.44 397.84 438.09 392.4 438.09 377.65 443 372.22 452.84 372.22 458.01 377.65 458.01 392.14 448.44 397.84" />
-<path class="c no-fill border-stroke" d="M31.88,196.27h14v2.59H64l.78,2.33h41.65v-6.73h4.14V178.68h-6.21V151.51H117l20.44-19.41v-9.83h33.64s17.59-7.25,16.81-21.74h81.5s.52,19.67,23,22.26h27.43v9.83l20.7,19.15h13.71v26.91H347V196h78.66v-9.83h41.91V287.35h7.51v23.29H480V325.9h-5.95v50.72h-4.91v6.21h4.65V463h-51V382.57h4.4v-5.43h-5.43V325.9h-7.5v7.25H375.22v15.26H216.1V327.2H189.71s-30.79-9.84-30.28-38V249.83h2.33V240h-16.3v-9.32H128.13l-2.33,2.85H107.43l-.78-3.37H91.39v-1.81H65l-1.81,1.81H47.92l-2.59,2.59H32.14Z" />
-<path class="c no-fill border-stroke" d="M175.73,240.26v7.24h2.59v40.63s0,20.18,19.41,20.44h18.11V287.09H375.22v15H414.8v8.28h5.95V286.57H428V244.92h-2.85V234.05H306.91v5.69Z" />
-<polygon class="c no-fill border-stroke" points="123.86 178.42 141.52 178.42 141.52 171.04 155.49 157.26 185.56 157.26 185.56 177.84 207.3 177.84 207.3 189.48 144.62 189.48 144.62 196.27 123.66 196.27 123.86 178.42" />
-`,
+    mauerDerToten: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
+        <defs>
+            <style>
+                {globalStyle}
+                {`
+                .c{isolation:isolate;}
+                .e{stroke-width:0.36px;}
+                .e,.f,.g{stroke-miterlimit:10;}
+                .f,.g{stroke-width:0.96px;}
+                `}
+            </style>
+        </defs>
+        <rect className="a background-fill" width="512" height="512" />
+        <polygon className="b field-fill" points="32.17 358.45 78.14 358.45 78.14 391.92 111.61 391.92 111.61 389.59 147.2 389.59 147.2 359.72 160.33 359.72 160.33 372.01 190.83 372.01 190.83 354.64 203.75 354.64 203.75 362.26 267.94 362.26 267.94 313.76 276.41 313.76 277.68 311.85 285.1 322.02 285.1 365.02 325.77 365.02 325.77 334.51 346.53 334.51 346.53 324.98 380.84 324.98 380.84 356.33 475.95 356.33 475.95 323.92 446.3 323.92 446.3 343.62 425.33 343.62 425.33 312.49 340.38 312.49 340.38 303.8 325.56 303.8 325.56 255.29 346.53 255.29 346.53 198.73 383.6 198.73 383.6 222.88 395.25 222.88 395.25 186.66 346.31 186.66 338.26 177.34 325.56 177.34 325.56 124.38 256.08 124.38 256.08 151.28 242.94 151.28 242.94 126.92 210.75 126.92 210.75 130.1 182.36 130.1 182.36 127.14 170.29 127.14 170.29 129.89 148.26 129.89 148.26 176.92 163.08 176.92 163.08 183.69 166.9 183.69 166.9 194.71 183 194.71 183 183.69 188.08 183.69 188.08 273.93 192.95 273.93 192.95 297.66 208.63 313.12 205.87 315.66 205.87 332.19 190.62 332.19 183.42 327.1 147.41 327.1 147.41 297.23 109.26 297.23 109.26 294.67 78.28 294.67 78.28 328.98 32.17 328.98 32.17 358.45" />
+        <rect className="c background-fill" x="206.08" y="144.08" width="5.08" height="39.4" />
+        <rect className="c background-fill" x="206.08" y="175.38" width="7.71" height="8.1" />
+        <rect className="d building-fill" x="234.26" y="327.84" width="10.49" height="10.49" />
+        <rect className="d building-fill" x="241.67" y="297.55" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="281.92" y="225.21" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="281.92" y="207.26" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="281.92" y="190.26" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="270.27" y="150.86" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="306.38" y="126.04" width="3.18" height="39.25" />
+        <rect className="d building-fill" x="306.38" y="200.93" width="3.71" height="38.19" />
+        <rect className="d building-fill" x="306.38" y="252.08" width="3.92" height="7.06" />
+        <rect className="d building-fill" x="306.38" y="280.36" width="4.02" height="12.78" />
+        <rect className="d building-fill" x="306.38" y="313.83" width="3.81" height="6" />
+        <rect className="d building-fill" x="306.38" y="339.25" width="3.81" height="11.29" />
+        <rect className="d building-fill" x="224.2" y="149.12" width="3.18" height="4.96" />
+        <rect className="d building-fill" x="329.1" y="210.12" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="329.1" y="233.31" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="241.35" y="313.86" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="252.79" y="313.86" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="252.79" y="335.68" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="252.79" y="347.22" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="241.51" y="347.22" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="219.64" y="347.22" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="219.64" y="335.79" width="3.18" height="3.18" />
+        <rect className="d building-fill" x="393.13" y="326.25" width="17.48" height="11.76" />
+        <rect className="d building-fill" x="222.82" y="225.85" width="8.26" height="16.84" />
+        <rect className="d building-fill" x="197.72" y="243.01" width="7.31" height="12.07" />
+        <rect className="d building-fill" x="213.92" y="252.86" width="7.31" height="10.49" />
+        <rect className="d building-fill" x="207.89" y="213.14" width="7.63" height="23.2" />
+        <rect className="d building-fill" x="189.46" y="183.27" width="7.63" height="26.05" />
+        <polygon className="d building-fill" points="184.06 161.03 192.63 159.28 193.43 165.32 185.01 166.59 184.06 161.03" />
+        <polyline className="e feature-stroke no-fill" points="162.66 172.68 162.66 183.48 169.01 183.48" />
+        <polyline className="e feature-stroke no-fill" points="162.87 164.21 162.87 143.87 192.74 143.87" />
+        <polyline className="e feature-stroke no-fill" points="202.91 144.08 211.59 144.08 211.59 175.01 214.13 175.01 214.13 183.48 205.87 183.48 187.66 183.48" />
+        <line className="e feature-stroke no-fill" x1="205.66" y1="144.29" x2="205.66" y2="183.48" />
+        <line className="e feature-stroke no-fill" x1="288.7" y1="125.23" x2="288.7" y2="252.11" />
+        <line className="e feature-stroke no-fill" x1="282.77" y1="176.92" x2="288.7" y2="176.92" />
+        <line className="e feature-stroke no-fill" x1="325.77" y1="177.55" x2="325.77" y2="255.5" />
+        <line className="e feature-stroke no-fill" x1="325.55" y1="303.8" x2="325.55" y2="334.94" />
+        <line className="e feature-stroke no-fill" x1="346.31" y1="321.38" x2="346.31" y2="325.41" />
+        <line className="e feature-stroke no-fill" x1="345.89" y1="312.27" x2="345.89" y2="315.24" />
+        <line className="e feature-stroke no-fill" x1="446.08" y1="342.78" x2="458.58" y2="342.78" />
+        <polyline className="e feature-stroke no-fill" points="109.07 306.76 143.38 306.76 143.38 379.21 108.01 379.21" />
+        <polyline className="e feature-stroke no-fill" points="160.33 327.52 160.33 338.96 152.28 338.96" />
+        <line className="e feature-stroke no-fill" x1="143.38" y1="332.82" x2="160.33" y2="332.82" />
+        <polyline className="e feature-stroke no-fill" points="151.86 347.86 160.54 347.86 160.54 359.93" />
+        <line className="e feature-stroke no-fill" x1="143.38" y1="353.79" x2="160.75" y2="353.79" />
+        <polyline className="e feature-stroke no-fill" points="92.33 357.6 92.33 366.08 127.07 366.08 132.58 361.2 132.58 325.19 127.5 319.9 92.12 319.9 92.12 326.46" />
+        <rect className="e feature-stroke no-fill" x="306.28" y="200.85" width="4.02" height="65.67" />
+        <rect className="e feature-stroke no-fill" x="306.28" y="273.25" width="4.02" height="56.75" />
+        <rect className="e feature-stroke no-fill" x="306.28" y="339.1" width="4.02" height="25.67" />
+        <line className="e feature-stroke no-fill" x1="192.79" y1="273.99" x2="195.81" y2="273.99" />
+        <line className="e feature-stroke no-fill" x1="203.28" y1="273.99" x2="206.3" y2="273.99" />
+        <line className="e feature-stroke no-fill" x1="209.47" y1="311.32" x2="208.36" y2="312.43" />
+        <line className="e feature-stroke no-fill" x1="215.83" y1="305.12" x2="218.45" y2="302.5" />
+        <polygon className="f border-stroke no-fill" points="32.17 358.45 78.14 358.45 78.14 391.92 111.61 391.92 111.61 389.59 147.2 389.59 147.2 359.72 160.33 359.72 160.33 372.01 190.83 372.01 190.83 354.64 203.75 354.64 203.75 362.26 267.94 362.26 267.94 313.76 276.41 313.76 277.68 311.85 285.1 322.02 285.1 365.02 325.77 365.02 325.77 334.51 346.53 334.51 346.53 324.98 380.84 324.98 380.84 356.33 475.95 356.33 475.95 323.92 446.3 323.92 446.3 343.62 425.33 343.62 425.33 312.49 340.38 312.49 340.38 303.8 325.56 303.8 325.56 255.29 346.53 255.29 346.53 198.73 383.6 198.73 383.6 222.88 395.25 222.88 395.25 186.66 346.31 186.66 338.26 177.34 325.56 177.34 325.56 124.38 256.08 124.38 256.08 151.28 242.94 151.28 242.94 126.92 210.75 126.92 210.75 130.1 182.36 130.1 182.36 127.14 170.29 127.14 170.29 129.89 148.26 129.89 148.26 176.92 163.08 176.92 163.08 183.69 166.9 183.69 166.9 194.71 183 194.71 183 183.69 188.08 183.69 188.08 273.93 192.95 273.93 192.95 297.66 208.63 313.12 205.87 315.66 205.87 332.19 190.62 332.19 183.42 327.1 147.41 327.1 147.41 297.23 109.26 297.23 109.26 294.67 78.28 294.67 78.28 328.98 32.17 328.98 32.17 358.45" />
+        <polygon className="g border-stroke background-fill" points="228.11 175.65 228.11 183.91 232.99 183.91 232.99 274.78 205.66 274.78 205.66 291.73 217.31 302.95 219.01 301.05 233.62 301.05 233.62 287.91 237.01 287.91 237.01 284.95 253.96 284.95 253.96 300.2 267.51 300.2 267.51 301.47 275.77 301.47 277.89 303.17 285.52 292.57 285.52 260.8 288.49 260.8 288.49 252.12 274.72 252.12 274.72 245.76 265.82 233.47 265.82 176.92 272.39 176.92 272.39 171.62 255.65 171.62 255.65 163.99 243.15 163.99 243.15 175.65 228.11 175.65" />
+
+    </SVGOverlay>,
+    mauerDerToten_streets: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
+        <defs>
+            <style>
+                {globalStyle}
+                {`
+                .d,.e,.f{stroke-miterlimit:10;}
+                .d,.e{stroke-width:0.36px;}
+                .f{stroke-width:0.96px;}
+                `}
+            </style>
+        </defs>
+        <rect className="a background-fill" width="512" height="512" />
+        <polygon className="b field-fill" points="96.3 189.31 96.3 149.18 117.35 149.18 117.35 233.18 124.55 233.18 124.55 185.66 178.79 185.66 192.23 197.18 203.75 186.14 221.03 186.14 221.03 233.18 255.59 233.18 255.59 222.14 239.27 222.14 239.27 125.66 320.86 125.66 320.86 107.9 331.9 106.46 341.02 96.86 364.06 96.86 367.9 98.78 369.34 96.86 382.78 102.14 382.78 95.91 406.78 95.91 406.78 100.7 415.42 100.7 415.42 121.82 423.1 121.82 423.1 139.1 473.98 139.1 473.98 170.3 461.02 170.3 461.02 191.9 473.5 191.9 473.5 228.86 442.78 228.86 442.78 302.29 449.5 302.29 449.5 327.25 476.38 327.25 476.38 409.81 449.5 409.81 449.5 391.09 437.5 391.09 437.5 399.73 390.46 399.73 390.46 394.93 362.14 394.93 362.14 360.85 348.22 360.85 348.22 373.81 320.86 373.81 320.86 416.05 258.95 416.05 258.95 360.37 273.35 360.37 273.35 308.53 319.9 308.53 319.9 301.81 323.26 301.81 323.26 297.97 254.63 297.97 236.87 289.33 218.63 289.33 218.63 345.49 200.39 345.49 186.47 336.37 169.19 341.17 165.35 346.45 144.71 345.97 136.55 336.37 128.39 336.37 128.39 289.33 121.19 289.33 121.19 283.57 117.83 283.57 117.83 335.89 90 335.89 90 331.09 50.64 331.09 50.64 295.1 35.76 295.1 35.76 213.5 50.64 213.5 50.64 189.31 96.3 189.31" />
+        <polygon className="c building-fill" points="181.64 217.04 185.05 223.44 195.08 218.32 191.88 212.13 181.64 217.04" />
+        <polygon className="c building-fill" points="199.77 208.29 200.62 215.76 210.01 219.81 212.57 217.04 211.08 206.16 199.77 208.29" />
+        <polygon className="c building-fill" points="75.18 246.27 92.04 256.08 86.49 265.25 69.64 255.44 75.18 246.27" />
+        <polygon className="c building-fill" points="124.04 254.37 143.45 254.37 143.45 264.83 124.25 264.83 124.04 254.37" />
+        <rect className="c building-fill" x="198.49" y="254.59" width="19.84" height="10.45" />
+        <rect className="c building-fill" x="104.41" y="217.89" width="11.52" height="14.72" />
+        <polygon className="c building-fill" points="116.57 282.75 108.25 282.75 103.77 292.13 110.81 306.64 116.57 306.64 116.57 282.75" />
+        <polygon className="c building-fill" points="161.58 289.57 169.69 304.72 179.29 299.6 180.78 289.57 161.58 289.57" />
+        <polygon className="c building-fill" points="140.68 313.25 150.49 314.96 151.34 328.61 140.89 326.48 140.68 313.25" />
+        <circle className="c building-fill" cx="172.14" cy="318.37" r="5.87" />
+        <polygon className="c building-fill" points="191.45 310.91 204.25 308.56 199.56 323.92 191.66 318.59 191.45 310.91" />
+        <polygon className="c building-fill" points="202.33 289.57 208.3 303.65 217.26 303.65 217.26 289.36 202.33 289.57" />
+        <polygon className="c building-fill" points="242.86 250.32 250.54 239.87 255.02 243.28 247.13 253.52 242.86 250.32" />
+        <polygon className="c building-fill" points="134.06 195.92 146.44 194.43 146.65 205.09 138.97 208.08 134.06 195.92" />
+        <polygon className="c building-fill" points="160.73 203.39 171.61 199.55 174.38 210.43 160.73 213.41 158.17 209.57 160.73 203.39" />
+        <ellipse className="c building-fill" cx="173.64" cy="204.99" rx="5.65" ry="6.29" />
+        <polygon className="c building-fill" points="251.82 267.6 256.09 274.21 273.16 264.4 268.89 258 251.82 267.6" />
+        <polygon className="c building-fill" points="289.8 246.91 310.49 251.17 307.29 263.76 286.81 259.28 289.8 246.91" />
+        <polygon className="c building-fill" points="263.77 223.01 275.08 223.01 275.08 232.61 263.98 232.61 263.77 223.01" />
+        <polygon className="c building-fill" points="285.53 223.23 294.06 223.23 305.37 236.03 300.46 240.93 285.53 223.23" />
+        <polygon className="c building-fill" points="333.1 218.11 343.13 213.63 351.24 218.53 350.6 235.17 341.85 246.69 336.73 244.13 330.33 228.35 333.1 218.11" />
+        <polygon className="c building-fill" points="330.54 262.91 337.37 265.47 330.76 283.17 324.14 281.04 330.54 262.91" />
+        <polygon className="c building-fill" points="287.24 271.01 294.06 273.57 289.58 286.8 298.33 296.83 273.8 297.25 275.93 291.92 281.48 289.15 287.24 271.01" />
+        <polygon className="c building-fill" points="356.14 284.67 361.9 280.61 378.33 301.73 369.37 301.73 356.14 284.67" />
+        <polygon className="c building-fill" points="398.17 301.73 398.17 294.27 405.21 294.27 406.7 276.99 410.12 275.28 441.48 272.93 441.48 301.52 398.17 301.73" />
+        <polygon className="c building-fill" points="353.16 251.17 371.08 245.84 373.21 252.24 355.29 257.79 353.16 251.17" />
+        <polygon className="c building-fill" points="375.77 266.11 394.76 267.6 393.9 274.43 374.92 272.72 375.77 266.11" />
+        <polygon className="c building-fill" points="406.92 253.09 403.72 259.71 420.57 267.17 423.98 261.2 406.92 253.09" />
+        <polygon className="c building-fill" points="367.02 217.04 377.9 214.27 377.9 219.81 368.3 222.16 367.02 217.04" />
+        <polygon className="c building-fill" points="410.12 229.41 442.12 229.41 442.12 245.41 418.01 245.41 410.12 229.41" />
+        <polygon className="c building-fill" points="344.62 164.13 361.69 171.17 359.56 177.57 341.85 170.32 344.62 164.13" />
+        <polygon className="c building-fill" points="359.98 146.85 370.86 138.53 376.2 143.65 374.28 154.32 368.3 156.67 359.98 146.85" />
+        <rect className="c building-fill" x="340.36" y="195.28" width="3.2" height="4.27" />
+        <rect className="c building-fill" x="273.8" y="384.72" width="11.31" height="9.17" />
+        <polyline className="d feature-stroke no-fill" points="51.5 212.56 95.45 212.56 95.45 188.88" />
+        <line className="d feature-stroke no-fill" x1="54.28" y1="224.51" x2="54.28" y2="212.77" />
+        <line className="d feature-stroke no-fill" x1="44.25" y1="232.4" x2="46.17" y2="232.4" />
+        <line className="d feature-stroke no-fill" x1="53.21" y1="232.19" x2="54.7" y2="232.19" />
+        <polyline className="d feature-stroke no-fill" points="50.86 295.12 77.96 295.12 89.9 309.2 89.9 331.6" />
+        <line className="d feature-stroke no-fill" x1="128.94" y1="288.93" x2="144.73" y2="288.93" />
+        <line className="d feature-stroke no-fill" x1="152.2" y1="288.93" x2="181.21" y2="288.93" />
+        <line className="d feature-stroke no-fill" x1="190.38" y1="288.93" x2="217.48" y2="288.93" />
+        <line className="d feature-stroke no-fill" x1="125.74" y1="232.19" x2="146.01" y2="232.19" />
+        <line className="d feature-stroke no-fill" x1="166.06" y1="232.19" x2="198.17" y2="232.19" />
+        <line className="d feature-stroke no-fill" x1="205.74" y1="232.19" x2="219.61" y2="232.19" />
+        <polyline className="d feature-stroke no-fill" points="240.09 234.32 240.09 241.79 231.98 242 227.93 268.67 241.8 275.49" />
+        <polyline className="d feature-stroke no-fill" points="256.09 222.37 303.24 222.37 306.86 218.75" />
+        <polyline className="d feature-stroke no-fill" points="312.41 213.63 314.97 210.64 314.97 188.03" />
+        <polyline className="d feature-stroke no-fill" points="321.16 127.01 321.16 181.84 314.97 190.8" />
+        <polyline className="d feature-stroke no-fill" points="334.38 182.91 334.38 156.88 321.16 156.88" />
+        <line className="d feature-stroke no-fill" x1="334.81" y1="140.03" x2="321.16" y2="140.03" />
+        <line className="d feature-stroke no-fill" x1="343.34" y1="108.67" x2="343.34" y2="111.01" />
+        <line className="d feature-stroke no-fill" x1="343.34" y1="119.97" x2="343.34" y2="131.49" />
+        <line className="d feature-stroke no-fill" x1="343.34" y1="138.96" x2="343.34" y2="141.09" />
+        <line className="d feature-stroke no-fill" x1="383.24" y1="115.71" x2="383.24" y2="154.11" />
+        <line className="d feature-stroke no-fill" x1="396.25" y1="152.19" x2="383.24" y2="152.19" />
+        <polyline className="d feature-stroke no-fill" points="402.44 152.4 423.13 152.4 423.13 140.24" />
+        <line className="d feature-stroke no-fill" x1="404.14" y1="121.04" x2="414.81" y2="121.04" />
+        <line className="d feature-stroke no-fill" x1="410.97" y1="167.33" x2="410.97" y2="152.4" />
+        <line className="d feature-stroke no-fill" x1="383.02" y1="165.63" x2="383.02" y2="211.92" />
+        <polyline className="d feature-stroke no-fill" points="397.1 228.56 387.08 228.56 378.33 220.67 378.33 212.13 387.93 212.13" />
+        <line className="d feature-stroke no-fill" x1="403.08" y1="228.77" x2="442.54" y2="228.77" />
+        <line className="d feature-stroke no-fill" x1="383.24" y1="168.4" x2="386.44" y2="168.4" />
+        <line className="d feature-stroke no-fill" x1="388.36" y1="168.19" x2="391.13" y2="168.19" />
+        <line className="d feature-stroke no-fill" x1="399.66" y1="168.4" x2="402.65" y2="168.4" />
+        <line className="d feature-stroke no-fill" x1="404.78" y1="168.19" x2="407.77" y2="168.19" />
+        <line className="d feature-stroke no-fill" x1="409.26" y1="168.4" x2="412.68" y2="168.4" />
+        <polyline className="d feature-stroke no-fill" points="414.6 168.4 416.94 168.4 416.94 170.11" />
+        <line className="d feature-stroke no-fill" x1="416.52" y1="171.39" x2="416.52" y2="174.16" />
+        <line className="d feature-stroke no-fill" x1="416.52" y1="176.51" x2="416.52" y2="179.49" />
+        <line className="d feature-stroke no-fill" x1="416.3" y1="181.2" x2="416.3" y2="184.61" />
+        <line className="d feature-stroke no-fill" x1="416.3" y1="186.53" x2="416.3" y2="189.31" />
+        <line className="d feature-stroke no-fill" x1="416.52" y1="191.23" x2="416.52" y2="194.64" />
+        <line className="d feature-stroke no-fill" x1="416.3" y1="196.35" x2="416.3" y2="199.33" />
+        <line className="d feature-stroke no-fill" x1="416.52" y1="201.25" x2="416.52" y2="204.45" />
+        <line className="d feature-stroke no-fill" x1="416.73" y1="206.16" x2="416.73" y2="209.36" />
+        <line className="d feature-stroke no-fill" x1="416.52" y1="211.07" x2="416.52" y2="214.48" />
+        <line className="d feature-stroke no-fill" x1="416.73" y1="216.19" x2="416.73" y2="219.17" />
+        <line className="d feature-stroke no-fill" x1="416.73" y1="220.88" x2="416.73" y2="224.08" />
+        <line className="d feature-stroke no-fill" x1="416.73" y1="226.21" x2="416.73" y2="228.35" />
+        <line className="d feature-stroke no-fill" x1="239.45" y1="180.35" x2="242.44" y2="180.35" />
+        <line className="d feature-stroke no-fill" x1="244.14" y1="180.56" x2="247.98" y2="180.56" />
+        <line className="d feature-stroke no-fill" x1="249.69" y1="180.56" x2="252.89" y2="180.56" />
+        <line className="d feature-stroke no-fill" x1="254.17" y1="180.56" x2="258.01" y2="180.56" />
+        <line className="d feature-stroke no-fill" x1="259.5" y1="180.56" x2="262.28" y2="180.77" />
+        <line className="d feature-stroke no-fill" x1="264.84" y1="180.77" x2="268.04" y2="180.77" />
+        <line className="d feature-stroke no-fill" x1="239.45" y1="203.39" x2="242.44" y2="203.39" />
+        <line className="d feature-stroke no-fill" x1="244.14" y1="203.6" x2="247.98" y2="203.6" />
+        <line className="d feature-stroke no-fill" x1="249.69" y1="203.6" x2="252.89" y2="203.6" />
+        <line className="d feature-stroke no-fill" x1="254.17" y1="203.6" x2="258.01" y2="203.6" />
+        <line className="d feature-stroke no-fill" x1="259.5" y1="203.6" x2="262.28" y2="203.81" />
+        <line className="d feature-stroke no-fill" x1="264.84" y1="203.81" x2="268.04" y2="203.81" />
+        <polyline className="d feature-stroke no-fill" points="268.04 186.43 268.04 173.09 315.08 173.09 315.08 185.57" />
+        <polyline className="d feature-stroke no-fill" points="267.82 193.47 267.82 217.57 271.56 217.57 271.56 222.37" />
+        <line className="d feature-stroke no-fill" x1="320.36" y1="308.35" x2="320.36" y2="317.47" />
+        <polyline className="d feature-stroke no-fill" points="323.56 301.63 360.68 301.63 442.6 301.63" />
+        <line className="d feature-stroke no-fill" x1="360.84" y1="319.55" x2="360.84" y2="301.63" />
+        <polyline className="d feature-stroke no-fill" points="348.52 360.67 348.52 319.55 364.04 319.55 364.04 338.59" />
+        <polyline className="d feature-stroke no-fill" points="361.8 360.03 361.8 338.91 367.24 338.91" />
+        <line className="d feature-stroke no-fill" x1="388.04" y1="317.15" x2="388.04" y2="338.91" />
+        <line className="d feature-stroke no-fill" x1="392.2" y1="326.59" x2="388.04" y2="326.59" />
+        <line className="d feature-stroke no-fill" x1="417.64" y1="314.91" x2="417.64" y2="301.63" />
+        <line className="d feature-stroke no-fill" x1="401.64" y1="326.59" x2="437.48" y2="326.59" />
+        <line className="d feature-stroke no-fill" x1="449.96" y1="337.31" x2="449.96" y2="375.39" />
+        <polyline className="d feature-stroke no-fill" points="449.96 380.99 449.96 393.79 475.72 393.79" />
+        <line className="d feature-stroke no-fill" x1="390.6" y1="389.63" x2="390.6" y2="395.23" />
+        <polyline className="d feature-stroke no-fill" points="305 405.15 285.48 405.15 285.48 359.39" />
+        <polyline className="d feature-stroke no-fill" points="273.48 359.39 321 359.39 321 326.27 335.4 326.27" />
+        <line className="d feature-stroke no-fill" x1="273.48" y1="330.43" x2="320.84" y2="330.43" />
+        <line className="d feature-stroke no-fill" x1="315.4" y1="404.99" x2="320.52" y2="404.99" />
+        <rect className="e feature-stroke background-fill" x="381.96" y="338.75" width="54.72" height="38.72" />
+        <polygon className="f border-stroke no-fill" points="96.3 189.31 96.3 149.18 117.35 149.18 117.35 233.18 124.55 233.18 124.55 185.66 178.79 185.66 192.23 197.18 203.75 186.14 221.03 186.14 221.03 233.18 255.59 233.18 255.59 222.14 239.27 222.14 239.27 125.66 320.86 125.66 320.86 107.9 331.9 106.46 341.02 96.86 364.06 96.86 367.9 98.78 369.34 96.86 382.78 102.14 382.78 95.91 406.78 95.91 406.78 100.7 415.42 100.7 415.42 121.82 423.1 121.82 423.1 139.1 473.98 139.1 473.98 170.3 461.02 170.3 461.02 191.9 473.5 191.9 473.5 228.86 442.78 228.86 442.78 302.29 449.5 302.29 449.5 327.25 476.38 327.25 476.38 409.81 449.5 409.81 449.5 391.09 437.5 391.09 437.5 399.73 390.46 399.73 390.46 394.93 362.14 394.93 362.14 360.85 348.22 360.85 348.22 373.81 320.86 373.81 320.86 416.05 258.95 416.05 258.95 360.37 273.35 360.37 273.35 308.53 319.9 308.53 319.9 301.81 323.26 301.81 323.26 297.97 254.63 297.97 236.87 289.33 218.63 289.33 218.63 345.49 200.39 345.49 186.47 336.37 169.19 341.17 165.35 346.45 144.71 345.97 136.55 336.37 128.39 336.37 128.39 289.33 121.19 289.33 121.19 283.57 117.83 283.57 117.83 335.89 90 335.89 90 331.09 50.64 331.09 50.64 295.1 35.76 295.1 35.76 213.5 50.64 213.5 50.64 189.31 96.3 189.31" />
+
+    </SVGOverlay>,
+    forsaken: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
+        <defs>
+            <style>
+                {globalStyle}
+                {`
+                .c,.d,.f{stroke-miterlimit:10;}
+                .c,.d{stroke-width:0.52px;}
+                .d{stroke-dasharray:2.62;}
+                .f{stroke-width:0.96px;}
+                `}
+            </style>
+        </defs>
+        <rect className="a background-fill" width="512" height="512" />
+        <path className="b field-fill" d="M38.72,109.57H54.41V94.67h69v-22H165V86.82h24.32v11h7.06V81.33h5.49V62.5h42.37V79h25.1v25.89h36.09v7.06s66.53-1.25,88.66,0,59.86,25.31,68.26,56.49c3.06,11.36,0,47.07,0,47.07L455.32,221v38.45h18.83v22H482V407.71H468.66v11.77H332.93V374.76h8.63v-80l17.26-18h24.32V259.43h50.22v-33l-6.28-9.41V181.75s-1.21-31.37-42.37-34.52c-35.2-2.69-141.22,0-141.22,0v45.51H162.68v-9.42l3.93-7.06L157.19,181h-7.06v-5.49H136.79V150.37h-11v12.55H69.32V147.23l-11-7.06H38.72Z" />
+        <polygon className="b field-fill" points="273 215.17 286.08 203.67 329.5 203.67 343.1 216.22 343.1 264.34 333.16 277.42 294.97 277.42 294.97 285.79 301.25 292.59 301.25 300.43 296.02 306.71 290.79 306.71 286.6 310.89 275.1 310.89 275.1 316.65 286.6 316.65 294.97 326.06 294.97 355.88 287.65 355.88 287.65 405.05 262.02 405.05 262.02 414.46 195.07 414.46 195.07 457.35 160.54 457.35 152.18 463.63 139.62 463.63 139.62 459.97 135.44 459.97 135.44 463.63 83.13 463.63 83.13 434.34 69.53 434.34 69.53 397.2 89.93 397.2 94.11 391.45 87.84 381.51 87.84 353.26 117.65 353.26 117.65 356.75 136.48 356.75 136.48 330.77 159.5 330.77 165.25 325.54 187.74 325.54 187.74 312.99 251.03 312.99 251.03 318.74 254.17 318.74 254.17 310.37 231.16 310.37 231.16 261.2 258.88 261.2 258.88 258.06 269.87 258.06 269.87 263.3 273 263.3 273 215.17" />
+        <polygon className="b field-fill" points="55.8 238.71 33.3 238.71 33.3 262.77 50.57 262.77 50.57 278.99 34.87 278.99 34.87 300.43 92.94 300.43 92.94 311.94 131.12 311.94 131.12 212.03 90.32 212.03 90.32 196.87 55.8 196.87 55.8 238.71" />
+        <line className="c feature-stroke no-fill" x1="61.47" y1="137.82" x2="70.89" y2="137.82" />
+        <polyline className="c feature-stroke no-fill" points="86.58 144.88 86.58 155.08 117.18 155.08 117.18 101.73 87.36 101.73 87.36 113.5" />
+        <line className="c feature-stroke no-fill" x1="80.3" y1="95.45" x2="80.3" y2="112.71" />
+        <line className="c feature-stroke no-fill" x1="80.51" y1="141.94" x2="80.51" y2="160.25" />
+        <line className="c feature-stroke no-fill" x1="117.13" y1="117.88" x2="124.45" y2="117.88" />
+        <line className="c feature-stroke no-fill" x1="117.65" y1="137.24" x2="125.5" y2="137.24" />
+        <polyline className="c feature-stroke no-fill" points="124.97 97.48 124.97 105.33 124.97 146.65" />
+        <line className="c feature-stroke no-fill" x1="132.3" y1="106.37" x2="124.98" y2="106.37" />
+        <line className="c feature-stroke no-fill" x1="141.71" y1="72.9" x2="141.71" y2="91.21" />
+        <polyline className="c feature-stroke no-fill" points="165.25 86.5 165.25 113.7 194.54 113.7" />
+        <polyline className="c feature-stroke no-fill" points="168.39 141.42 168.39 174.9 203.96 174.9" />
+        <line className="c feature-stroke no-fill" x1="239.53" y1="148.22" x2="168.39" y2="148.22" />
+        <line className="c feature-stroke no-fill" x1="238.48" y1="142.99" x2="167.87" y2="142.99" />
+        <polyline className="c feature-stroke no-fill" points="199.77 108.99 269.87 108.99 269.87 105.33" />
+        <line className="c feature-stroke no-fill" x1="201.87" y1="112.65" x2="265.16" y2="112.65" />
+        <polyline className="c feature-stroke no-fill" points="265.68 108.47 265.68 116.84 260.97 123.11 260.97 142.99" />
+        <polyline className="c feature-stroke no-fill" points="218.08 175.42 209.71 175.42 209.71 182.22 190.36 182.22" />
+        <line className="c feature-stroke no-fill" x1="216.51" y1="190.07" x2="216.51" y2="175.42" />
+        <polyline className="c feature-stroke no-fill" points="206.05 82.05 237.7 82.05 237.7 71.85 224.62 71.85" />
+        <path className="c feature-stroke no-fill" d="M372.91,137s57,1.84,63.29,47.08c1.36,9.78,0,39.49,0,39.49" />
+        <path className="c feature-stroke no-fill" d="M375.26,120.5s70.09,2.09,78.2,57.8c1.41,9.7.79,39.23.79,39.23" />
+        <polyline className="c feature-stroke no-fill" points="300.73 205.24 300.73 226.68 293.4 233.48 293.4 241.33 300.73 241.33" />
+        <line className="c feature-stroke no-fill" x1="274.05" y1="260.16" x2="291.57" y2="277.68" />
+        <line className="c feature-stroke no-fill" x1="287.13" y1="234.53" x2="341.53" y2="234.53" />
+        <line className="c feature-stroke no-fill" x1="274.57" y1="234.53" x2="280.85" y2="234.53" />
+        <polyline className="c feature-stroke no-fill" points="307 249.17 316.42 249.17 316.42 259.63 323.74 259.63 329.5 254.93" />
+        <line className="c feature-stroke no-fill" x1="330.54" y1="246.03" x2="330.54" y2="235.05" />
+        <line className="c feature-stroke no-fill" x1="315.9" y1="275.33" x2="315.9" y2="265.39" />
+        <line className="c feature-stroke no-fill" x1="273.53" y1="249.17" x2="280.85" y2="249.17" />
+        <line className="c feature-stroke no-fill" x1="286.6" y1="249.17" x2="299.16" y2="249.17" />
+        <polyline className="c feature-stroke no-fill" points="272.48 270.62 276.14 270.62 285.03 278.46 285.03 285.79 290.79 285.79" />
+        <line className="c feature-stroke no-fill" x1="254.7" y1="309.85" x2="262.02" y2="309.85" />
+        <line className="c feature-stroke no-fill" x1="276.67" y1="306.71" x2="289.22" y2="306.71" />
+        <polyline className="c feature-stroke no-fill" points="218.08 314.03 218.08 343.85 214.42 343.85" />
+        <path className="c feature-stroke no-fill" d="M215.47,351.69h3.66v6.8h30.34s.52-4.18,4.18-3.66" />
+        <polyline className="c feature-stroke no-fill" points="278.41 354.31 287.3 354.31 287.3 352.22" />
+        <line className="c feature-stroke no-fill" x1="282.42" y1="326.59" x2="282.42" y2="348.03" />
+        <line className="c feature-stroke no-fill" x1="218.6" y1="327.11" x2="249.99" y2="327.11" />
+        <polyline className="c feature-stroke no-fill" points="218.6 336.52 238.48 336.52 238.48 334.43" />
+        <polyline className="c feature-stroke no-fill" points="224.36 413.24 214.42 413.24 214.42 402.43 214.42 379.42 261.15 379.42 261.15 413.94" />
+        <line className="c feature-stroke no-fill" x1="223.84" y1="408.88" x2="214.42" y2="408.88" />
+        <line className="c feature-stroke no-fill" x1="214.42" y1="399.29" x2="191.93" y2="399.29" />
+        <rect className="c feature-stroke no-fill" x="160.02" y="384.12" width="32.43" height="17.78" />
+        <polyline className="c feature-stroke no-fill" points="188.79 326.59 188.79 344.37 186.17 344.37" />
+        <line className="c feature-stroke no-fill" x1="165.77" y1="325.54" x2="165.77" y2="339.14" />
+        <line className="c feature-stroke no-fill" x1="187.13" y1="355.97" x2="163.6" y2="355.97" />
+        <polyline className="c feature-stroke no-fill" points="137.35 355.88 163.68 355.88 163.68 361.11 167.87 365.29 167.87 384.12" />
+        <polyline className="c feature-stroke no-fill" points="185.13 384.12 178.85 377.32 178.85 367.91 181.47 365.29 181.47 353.26" />
+        <path className="c feature-stroke no-fill" d="M145.9,339.14s4.71,8.37,10.46.52" />
+        <polyline className="c feature-stroke no-fill" points="100.39 385.17 100.39 396.15 103.53 396.15 103.53 409.23" />
+        <polyline className="c feature-stroke no-fill" points="84.18 433.82 84.18 423.88 90.63 423.88" />
+        <polyline className="c feature-stroke no-fill" points="90.45 462.76 90.45 405.57 90.45 398.25" />
+        <polyline className="c feature-stroke no-fill" points="134.56 462.76 134.39 433.82 126.02 424.4 108.24 424.4 108.24 413.42 101.44 406.62 90.45 406.62" />
+        <line className="c feature-stroke no-fill" x1="94.11" y1="412.89" x2="94.11" y2="423.35" />
+        <line className="c feature-stroke no-fill" x1="90.45" y1="452.12" x2="134.39" y2="452.12" />
+        <line className="c feature-stroke no-fill" x1="160.02" y1="401.91" x2="160.02" y2="457.88" />
+        <line className="c feature-stroke no-fill" x1="287.13" y1="377.85" x2="279.8" y2="377.85" />
+        <line className="c feature-stroke no-fill" x1="49.52" y1="279.51" x2="49.52" y2="298.86" />
+        <line className="c feature-stroke no-fill" x1="75.15" y1="298.86" x2="75.15" y2="278.99" />
+        <polyline className="c feature-stroke no-fill" points="84.04 277.94 84.04 281.6 119.09 281.6 119.09 278.99 127.98 278.99" />
+        <line className="c feature-stroke no-fill" x1="75.67" y1="201.57" x2="88.75" y2="201.57" />
+        <line className="c feature-stroke no-fill" x1="75.67" y1="197.91" x2="75.67" y2="206.28" />
+        <line className="c feature-stroke no-fill" x1="88.75" y1="197.91" x2="88.75" y2="206.28" />
+        <line className="d feature-stroke no-fill" x1="212.68" y1="91.03" x2="212.68" y2="109.17" />
+        <line className="d feature-stroke no-fill" x1="225.23" y1="96.96" x2="225.23" y2="109.17" />
+        <line className="d feature-stroke no-fill" x1="244.76" y1="79.52" x2="244.76" y2="109.17" />
+        <line className="d feature-stroke no-fill" x1="229.07" y1="110.21" x2="229.07" y2="147.17" />
+        <line className="d feature-stroke no-fill" x1="239.53" y1="109.17" x2="239.53" y2="143.34" />
+        <polyline className="d feature-stroke no-fill" points="225.93 147.87 225.93 175.77 214.07 175.77 214.07 169.84" />
+        <line className="d feature-stroke no-fill" x1="213.72" y1="147.87" x2="213.72" y2="159.38" />
+        <line className="d feature-stroke no-fill" x1="201.17" y1="148.22" x2="201.17" y2="174.72" />
+        <polyline className="d feature-stroke no-fill" points="187.57 175.07 181.64 170.89 181.64 148.22" />
+        <line className="d feature-stroke no-fill" x1="232.2" y1="356.05" x2="232.2" y2="389.53" />
+        <line className="d feature-stroke no-fill" x1="240.57" y1="356.4" x2="240.57" y2="413.94" />
+        <line className="d feature-stroke no-fill" x1="214.77" y1="384.65" x2="259.4" y2="384.65" />
+        <line className="d feature-stroke no-fill" x1="129.68" y1="432.77" x2="164.55" y2="432.77" />
+        <line className="d feature-stroke no-fill" x1="130.03" y1="440.79" x2="164.55" y2="440.79" />
+        <line className="d feature-stroke no-fill" x1="101.09" y1="424.05" x2="101.09" y2="452.3" />
+        <line className="d feature-stroke no-fill" x1="90.28" y1="423.7" x2="106.67" y2="423.7" />
+        <line className="d feature-stroke no-fill" x1="214.42" y1="389.18" x2="220" y2="384.3" />
+        <polygon className="e building-fill" points="149.54 97.32 151.71 101.65 148.1 103.09 146.66 121.14 143.04 121.86 137.27 109.59 140.16 102.37 149.54 97.32" />
+        <rect className="e building-fill" x="220.92" y="339.69" width="16.6" height="7.22" />
+        <rect className="e building-fill" x="248.15" y="273.28" width="9.02" height="9.03" />
+        <rect className="e building-fill" x="248.15" y="287" width="9.02" height="9.03" />
+        <rect className="e building-fill" x="271.25" y="292.05" width="9.02" height="9.03" />
+        <rect className="e building-fill" x="270.89" y="277.98" width="9.03" height="9.02" />
+        <rect className="e building-fill" x="311.58" y="234.93" width="20.21" height="5.05" />
+        <rect className="e building-fill" x="311.58" y="237.21" width="14.8" height="11.69" />
+        <rect className="e building-fill" x="251.58" y="289.53" width="9.02" height="4.33" />
+        <rect className="e building-fill" x="164.18" y="348.36" width="20.22" height="7.22" />
+        <rect className="e building-fill" x="62.39" y="113.16" width="13.36" height="7.22" />
+        <rect className="e building-fill" x="67.41" y="131.8" width="14.8" height="5.41" />
+        <rect className="e building-fill" x="91.69" y="104.37" width="5.41" height="11.55" transform="translate(-16.51 203.64) rotate(-89.53)" />
+        <rect className="e building-fill" x="200.21" y="88.62" width="5.41" height="8.8" />
+        <rect className="e building-fill" x="235.43" y="82.09" width="8.12" height="13.13" />
+        <rect className="e building-fill" x="108.39" y="115.58" width="8.3" height="5.41" />
+        <rect className="e building-fill" x="163.71" y="141.2" width="4.69" height="14.89" />
+        <rect className="e building-fill" x="158.44" y="109.45" width="5.42" height="5.41" />
+        <rect className="e building-fill" x="194.43" y="105.84" width="5.42" height="5.41" />
+        <rect className="e building-fill" x="158.77" y="114.5" width="9.81" height="5.41" />
+        <rect className="e building-fill" x="194.22" y="109.81" width="9.81" height="5.41" />
+        <rect className="e building-fill" x="106.77" y="136.65" width="10.47" height="8.12" />
+        <rect className="e building-fill" x="87.6" y="141.34" width="7.22" height="4.51" />
+        <rect className="e building-fill" x="179.49" y="423.02" width="12.27" height="15.34" />
+        <rect className="e building-fill" x="118.3" y="242.57" width="10.35" height="10.05" />
+        <rect className="e building-fill" x="80.1" y="228.72" width="8.96" height="5.62" transform="translate(-4.82 1.82) rotate(-1.2)" />
+        <rect className="e building-fill" x="54.01" y="256.93" width="14.68" height="13.42" />
+        <rect className="e building-fill" x="109.72" y="213.77" width="10.35" height="9.08" />
+        <rect className="e building-fill" x="60.35" y="292.22" width="7.82" height="5.11" />
+        <rect className="e building-fill" x="112.97" y="295.63" width="7.82" height="5.11" />
+        <rect className="e building-fill" x="103.76" y="268.77" width="6.02" height="11.19" />
+        <rect className="e building-fill" x="69.65" y="280.83" width="3.49" height="6.01" />
+        <rect className="e building-fill" x="89.71" y="281.77" width="4.36" height="3.85" />
+        <rect className="e building-fill" x="110.63" y="282.03" width="4.36" height="3.85" />
+        <rect className="e building-fill" x="115.38" y="261.06" width="4.36" height="3.85" />
+        <rect className="e building-fill" x="64.85" y="233.37" width="4.36" height="3.85" transform="translate(-129.48 89.56) rotate(-37.54)" />
+        <rect className="e building-fill" x="69.32" y="213.25" width="4.36" height="3.85" transform="translate(-18.51 7.06) rotate(-5.01)" />
+        <rect className="e building-fill" x="111.16" y="217.51" width="5.17" height="9.08" />
+        <rect className="e building-fill" x="109.51" y="245.07" width="12.27" height="7.55" />
+        <rect className="e building-fill" x="60.83" y="252.77" width="10.91" height="7.55" />
+        <rect className="e building-fill" x="67.09" y="246.51" width="18.13" height="7.55" />
+        <rect className="e building-fill" x="76.87" y="244.59" width="7.38" height="7.55" />
+        <rect className="e building-fill" x="168.15" y="409.15" width="7.1" height="8.12" />
+        <rect className="e building-fill" x="147.57" y="350.43" width="7.54" height="7.16" />
+        <rect className="e building-fill" x="172.55" y="326.41" width="15.96" height="4.03" />
+        <rect className="e building-fill" x="178.68" y="329.84" width="9.83" height="4.03" />
+        <rect className="e building-fill" x="148.52" y="354.23" width="5.97" height="5.67" />
+        <rect className="e building-fill" x="150.81" y="400" width="4.88" height="11.01" />
+        <rect className="e building-fill" x="109.42" y="374.98" width="4.88" height="11.01" />
+        <rect className="e building-fill" x="109.9" y="404.94" width="4.88" height="5.59" />
+        <rect className="e building-fill" x="385.02" y="288.09" width="12.27" height="4.51" />
+        <rect className="e building-fill" x="350.53" y="371.2" width="3.97" height="11.55" />
+        <rect className="e building-fill" x="466.59" y="369.68" width="3.97" height="11.55" />
+        <rect className="e building-fill" x="447.96" y="271.38" width="3.97" height="11.55" />
+        <rect className="e building-fill" x="464.6" y="298.13" width="3.97" height="11.55" />
+        <rect className="e building-fill" x="243.94" y="332.23" width="4.96" height="15.4" />
+        <rect className="e building-fill" x="270.9" y="328.86" width="4.96" height="11.55" />
+        <rect className="e building-fill" x="271.38" y="361.59" width="4.96" height="17.8" />
+        <rect className="e building-fill" x="254.95" y="322.16" width="17.81" height="6.07" transform="translate(-147.02 244.24) rotate(-39.8)" />
+        <polygon className="e building-fill" points="198.41 333.62 193.58 329.94 202.04 318.83 206.87 322.51 198.41 333.62" />
+        <polygon className="e building-fill" points="157.88 127.45 152.41 123.29 160.87 112.19 166.33 116.35 157.88 127.45" />
+        <rect className="e building-fill" x="191.45" y="129.04" width="13.96" height="6.87" transform="matrix(0.76, -0.66, 0.66, 0.76, -38.28, 162.37)" />
+        <polygon className="e building-fill" points="192.24 121.31 186.78 117.16 195.23 106.05 200.7 110.21 192.24 121.31" />
+        <polygon className="e building-fill" points="193.39 380.14 188.56 376.46 197.01 365.35 201.85 369.03 193.39 380.14" />
+        <polygon className="e building-fill" points="144.67 396.16 138.91 394.23 143.72 379.98 149.47 381.92 144.67 396.16" />
+        <polygon className="e building-fill" points="139.01 375.95 135.85 372.85 143.54 365.03 146.7 368.14 139.01 375.95" />
+        <polygon className="e building-fill" points="240.49 379.79 236.99 377.08 243.7 368.42 247.2 371.13 240.49 379.79" />
+        <polygon className="e building-fill" points="462.83 335.52 459.92 332.19 468.17 324.98 471.09 328.32 462.83 335.52" />
+        <polygon className="e building-fill" points="125.78 409.4 122.62 406.3 130.31 398.49 133.46 401.59 125.78 409.4" />
+        <polygon className="e building-fill" points="269.1 357.72 265.41 360.16 259.37 351.02 263.06 348.58 269.1 357.72" />
+        <polygon className="e building-fill" points="103.51 130.28 97.95 135.43 88.54 125.26 94.1 120.11 103.51 130.28" />
+        <polygon className="e building-fill" points="152.54 140.81 147.69 143.92 140.22 132.25 145.07 129.14 152.54 140.81" />
+        <polygon className="e building-fill" points="167.74 141.41 165.17 145.57 153.39 138.27 155.96 134.12 167.74 141.41" />
+        <polygon className="e building-fill" points="205.81 118.17 201.69 123.19 190.98 114.39 195.1 109.37 205.81 118.17" />
+        <polygon className="e building-fill" points="232.85 127.84 227.25 131.12 220.25 119.16 225.86 115.87 232.85 127.84" />
+        <polygon className="e building-fill" points="226.91 368.05 222.07 371.26 214.55 359.88 219.4 356.67 226.91 368.05" />
+        <polygon className="e building-fill" points="133.32 379.31 131.44 384.81 118.54 380.39 120.43 374.89 133.32 379.31" />
+        <polygon className="e building-fill" points="107 255.17 102.88 263.2 88.92 256.04 93.03 248.01 107 255.17" />
+        <polygon className="e building-fill" points="146.48 446.46 143.32 443.36 151 435.55 154.16 438.65 146.48 446.46" />
+        <polygon className="e building-fill" points="80.1 234.03 77.83 229.49 91.6 222.64 93.86 227.18 80.1 234.03" />
+        <polygon className="e building-fill" points="317.53 256.77 317.53 245.58 325.83 245.58 325.83 248.89 317.53 256.77" />
+        <circle className="e building-fill" cx="271.45" cy="388.06" r="4.33" />
+        <rect className="e building-fill" x="54.01" y="256.93" width="8.42" height="20.64" />
+        <rect className="e building-fill" x="56.05" y="265.23" width="10.66" height="9.77" transform="translate(-155.53 97.84) rotate(-38.74)" />
+        <path className="f no-fill border-stroke" d="M38.72,109.57H54.41V94.67h69v-22H165V86.82h24.32v11h7.06V81.33h5.49V62.5h42.37V79h25.1v25.89h36.09v7.06s66.53-1.25,88.66,0,59.86,25.31,68.26,56.49c3.06,11.36,0,47.07,0,47.07L455.32,221v38.45h18.83v22H482V407.71H468.66v11.77H332.93V374.76h8.63v-80l17.26-18h24.32V259.43h50.22v-33l-6.28-9.41V181.75s-1.21-31.37-42.37-34.52c-35.2-2.69-141.22,0-141.22,0v45.51H162.68v-9.42l3.93-7.06L157.19,181h-7.06v-5.49H136.79V150.37h-11v12.55H69.32V147.23l-11-7.06H38.72Z" />
+        <polygon className="f no-fill border-stroke" points="273 215.17 286.08 203.67 329.5 203.67 343.1 216.22 343.1 264.34 333.16 277.42 294.97 277.42 294.97 285.79 301.25 292.59 301.25 300.43 296.02 306.71 290.79 306.71 286.6 310.89 275.1 310.89 275.1 316.65 286.6 316.65 294.97 326.06 294.97 355.88 287.65 355.88 287.65 405.05 262.02 405.05 262.02 414.46 195.07 414.46 195.07 457.35 160.54 457.35 152.18 463.63 139.62 463.63 139.62 459.97 135.44 459.97 135.44 463.63 83.13 463.63 83.13 434.34 69.53 434.34 69.53 397.2 89.93 397.2 94.11 391.45 87.84 381.51 87.84 353.26 117.65 353.26 117.65 356.05 136.48 356.05 136.48 330.77 159.5 330.77 165.25 325.54 187.74 325.54 187.74 312.99 251.03 312.99 251.03 318.74 254.17 318.74 254.17 310.37 231.16 310.37 231.16 261.2 258.88 261.2 258.88 258.06 269.87 258.06 269.87 263.3 273 263.3 273 215.17" />
+        <polygon className="f no-fill border-stroke" points="55.8 238.71 33.3 238.71 33.3 262.77 50.57 262.77 50.57 278.99 34.87 278.99 34.87 300.43 92.94 300.43 92.94 311.94 131.12 311.94 131.12 212.03 90.32 212.03 90.32 196.87 55.8 196.87 55.8 238.71" />
+    </SVGOverlay>,
+    forsaken_underground: <SVGOverlay attributes={{ viewBox: '0 0 512 512' }} bounds={ImageBounds}>
+        <defs>
+            <style>
+                {globalStyle}
+                {`
+                .c,.d,.e{stroke-miterlimit:10;}
+                .c{stroke-width:0.96px;}
+                .d,.e{sstroke-width:0.39px;}
+                .e{stroke-dasharray:1.94;}
+                `}
+            </style>
+        </defs>
+        <rect className="a background-fill" width="512" height="512" />
+        <path className="b field-fill" d="M475.09,310.64V287.35h-7.51V186.18H425.67V196H347V178.68h7.25V151.77H340.55l-20.7-19.15v-9.83H292.42c-22.51-2.59-23-22.26-23-22.26h-81.5c.78,14.49-16.81,21.74-16.81,21.74H137.44v9.83L117,151.51H104.32v27.17h6.21v15.78h-4.14v6.73H64.74L64,198.86H45.85v-2.59h-14l.26,36.48H45.33l2.59-2.59H63.19L65,228.35H91.39v1.81h15.26l.78,3.37H125.8l2.33-2.85h17.33V240h16.3v9.83h-2.33v39.33c-.51,28.2,30.28,38,30.28,38H216.1v21.21H375.22V333.15h39.07V325.9h7.5v51.24h5.43v5.43h-4.4V463h51V382.83h-4.65v-6.21h4.91V325.9H480V310.64ZM334,194.52H306.26v-4.46H250l-.19-11.84h21.53V156.49H301l14.56,14.16v7.57H334Z" />
+        <path className="a background-fill" d="M175.73,240.26v7.24h2.59v40.63s0,20.18,19.41,20.44h18.11V287.09H375.22v15H414.8v8.28h5.95V286.57H428V244.92h-2.85V234.05H306.91v5.69Z" />
+        <polygon className="a background-fill" points="123.86 178.42 141.52 178.42 141.52 171.04 155.49 157.26 185.56 157.26 185.56 177.84 207.3 177.84 207.3 189.48 144.62 189.48 144.62 196.27 123.66 196.27 123.86 178.42" />
+        <polygon className="c no-fill border-stroke" points="249.79 178.22 271.33 178.22 271.33 156.49 301.02 156.49 315.58 170.66 315.58 178.22 334.01 178.22 334.01 194.52 306.26 194.52 306.26 190.06 249.99 190.06 249.79 178.22" />
+        <line className="d feature-stroke no-fill" x1="149.47" y1="208.3" x2="170.43" y2="208.3" />
+        <line className="d feature-stroke no-fill" x1="149.86" y1="221.11" x2="170.43" y2="221.11" />
+        <line className="d feature-stroke no-fill" x1="158.4" y1="189.67" x2="158.4" y2="208.3" />
+        <line className="d feature-stroke no-fill" x1="158.01" y1="221.11" x2="158.01" y2="239.35" />
+        <line className="d feature-stroke no-fill" x1="161.7" y1="240.91" x2="175.86" y2="240.91" />
+        <line className="d feature-stroke no-fill" x1="207.3" y1="181.13" x2="249.99" y2="181.13" />
+        <line className="d feature-stroke no-fill" x1="268.62" y1="202.29" x2="268.62" y2="225.77" />
+        <line className="d feature-stroke no-fill" x1="268.81" y1="190.06" x2="268.81" y2="192" />
+        <line className="d feature-stroke no-fill" x1="268.62" y1="239.93" x2="268.62" y2="237.8" />
+        <polyline className="d feature-stroke no-fill" points="286.28 239.74 286.28 221.11 308.2 221.11" />
+        <polyline className="d feature-stroke no-fill" points="308.2 207.91 286.28 207.91 286.28 189.87" />
+        <line className="d feature-stroke no-fill" x1="424.25" y1="196.08" x2="424.25" y2="233.92" />
+        <line className="d feature-stroke no-fill" x1="427.93" y1="285.93" x2="441.32" y2="285.93" />
+        <line className="d feature-stroke no-fill" x1="455.29" y1="285.93" x2="467.32" y2="285.93" />
+        <polyline className="d feature-stroke no-fill" points="421.72 326.1 424.25 326.1 424.25 309.6 420.75 309.6" />
+        <line className="d feature-stroke no-fill" x1="375.93" y1="302.03" x2="375.93" y2="311.35" />
+        <line className="d feature-stroke no-fill" x1="376.32" y1="324.16" x2="376.32" y2="332.89" />
+        <line className="e feature-stroke no-fill" x1="215.06" y1="327.46" x2="215.06" y2="325.32" />
+        <line className="e feature-stroke no-fill" x1="215.25" y1="311.54" x2="215.25" y2="308.63" />
+        <line className="e feature-stroke no-fill" x1="256.59" y1="190.06" x2="256.59" y2="206.56" />
+        <line className="e feature-stroke no-fill" x1="256.98" y1="223.05" x2="256.98" y2="239.74" />
+        <rect className="e feature-stroke no-fill" x="197.01" y="207.53" width="2.91" height="14.17" />
+        <circle className="f building-fill" cx="228.64" cy="139.99" r="24.84" />
+        <circle className="f building-fill" cx="176.25" cy="139.99" r="4.27" />
+        <circle className="f building-fill" cx="137.44" cy="152.02" r="4.27" />
+        <circle className="f building-fill" cx="318.68" cy="152.02" r="4.27" />
+        <circle className="f building-fill" cx="280.65" cy="140.38" r="4.27" />
+        <rect className="f building-fill" x="219.72" y="205.59" width="14.75" height="12.42" />
+        <rect className="f building-fill" x="239.51" y="299.12" width="18.24" height="11.26" />
+        <rect className="f building-fill" x="239.51" y="324.35" width="17.72" height="11.26" />
+        <rect className="f building-fill" x="269.27" y="309.09" width="12.55" height="17.21" />
+        <rect className="f building-fill" x="301.09" y="306.76" width="5.56" height="21.61" />
+        <rect className="f building-fill" x="322.56" y="310.9" width="34.28" height="12.81" />
+        <rect className="f building-fill" x="301.35" y="287.61" width="5.3" height="2.46" />
+        <rect className="f building-fill" x="301.35" y="345.12" width="5.3" height="2.46" />
+        <rect className="f building-fill" x="371.46" y="205.59" width="22.12" height="16.69" />
+        <polygon className="f building-fill" points="438.61 328.23 457.75 328.23 457.75 336.51 453.1 340.65 444.04 340.65 439.12 337.03 438.61 328.23" />
+        <polygon className="f building-fill" points="448.44 397.84 438.09 392.4 438.09 377.65 443 372.22 452.84 372.22 458.01 377.65 458.01 392.14 448.44 397.84" />
+        <path className="c no-fill border-stroke" d="M31.88,196.27h14v2.59H64l.78,2.33h41.65v-6.73h4.14V178.68h-6.21V151.51H117l20.44-19.41v-9.83h33.64s17.59-7.25,16.81-21.74h81.5s.52,19.67,23,22.26h27.43v9.83l20.7,19.15h13.71v26.91H347V196h78.66v-9.83h41.91V287.35h7.51v23.29H480V325.9h-5.95v50.72h-4.91v6.21h4.65V463h-51V382.57h4.4v-5.43h-5.43V325.9h-7.5v7.25H375.22v15.26H216.1V327.2H189.71s-30.79-9.84-30.28-38V249.83h2.33V240h-16.3v-9.32H128.13l-2.33,2.85H107.43l-.78-3.37H91.39v-1.81H65l-1.81,1.81H47.92l-2.59,2.59H32.14Z" />
+        <path className="c no-fill border-stroke" d="M175.73,240.26v7.24h2.59v40.63s0,20.18,19.41,20.44h18.11V287.09H375.22v15H414.8v8.28h5.95V286.57H428V244.92h-2.85V234.05H306.91v5.69Z" />
+        <polygon className="c no-fill border-stroke" points="123.86 178.42 141.52 178.42 141.52 171.04 155.49 157.26 185.56 157.26 185.56 177.84 207.3 177.84 207.3 189.48 144.62 189.48 144.62 196.27 123.66 196.27 123.86 178.42" />
+    </SVGOverlay>,
 };
