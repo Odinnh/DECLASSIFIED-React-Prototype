@@ -21,7 +21,11 @@ const Header = () => {
       <h1 onClick={toggleVisibility}>{currentMapGroup.mapName}<i className="fas fa-angle-down"></i></h1>
       <ul>
         {MapGroupings.map(mapMenuItem => (
-          <HeaderItem key={`header-${mapMenuItem.mapLayers[0].id}`} map={mapMenuItem.mapLayers[0]} title={mapMenuItem.mapName} />
+          <HeaderItem
+            key={`header-${mapMenuItem.mapLayers[0].id}`/* TODO: SWAP WITH USER PREFS */}
+            map={mapMenuItem.mapLayers[0]/* TODO: SWAP WITH USER PREFS */}
+            title={mapMenuItem.mapName}
+          />
         ))}
       </ul>
     </header>

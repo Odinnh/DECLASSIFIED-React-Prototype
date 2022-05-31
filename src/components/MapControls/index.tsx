@@ -8,7 +8,11 @@ export const MapControls = () => {
     return (
         <LayersControl position="topright">
             {currentMapGroup.mapLayers.map(mapLayer =>
-                <LayersControl.BaseLayer key={`layer-${mapLayer.id}`} checked={mapLayer.id === currentMap.id} name={mapLayer.title}>
+                <LayersControl.BaseLayer
+                    key={`layer-${mapLayer.id}`}
+                    checked={mapLayer.id === currentMap.id /* TODO: SWAP WITH USER PREFS */}
+                    name={mapLayer.title}
+                >
                     {mapLayer.mapOverlay}
                 </LayersControl.BaseLayer>
             )}
