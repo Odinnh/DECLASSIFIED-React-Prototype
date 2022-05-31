@@ -10,7 +10,7 @@ import { MapGroupings, MapMenuItem } from '../MapControls/types'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
-    console.log("currentMap: ", currentMap)
+    // console.log("currentMap: ", currentMap)
 
     
 /*     const currentLayer = new L.LayerGroup();

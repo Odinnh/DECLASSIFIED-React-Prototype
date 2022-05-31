@@ -8,10 +8,10 @@ export function useSetMap(currentMap: MapItem) {
         // set default layer for selected map in map instance
 
         if (currentMap) {
-            console.log(currentMap);
+            // console.log(currentMap);
 
             mapInstance.eachLayer(function (layer) {
-                console.log("layer: ", layer);
+                // console.log("layer: ", layer);
 
                 mapInstance.removeLayer(layer);
             });
