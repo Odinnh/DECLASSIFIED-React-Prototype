@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useMapEvent } from "react-leaflet";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
@@ -23,6 +24,21 @@ export const IntelContextProvider = ({ children }) => {
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
     const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
 
+    useMapEvent('baselayerchange', (props) => {
+        console.log("baselayerchange: currentMap: ", props);
+
+        Object.keys(MapDetails).forEach(mapString => {
+
+            if (MapDetails[mapString].title === props.name) {
+                console.log(MapDetails[mapString], "===", props.name);
+                setCurrentMap(MapDetails[mapString])
+            }
+        });
+
+        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers);
+
+    });
+
     useSetMap(currentMap)
 
     useEffect(() => {
@@ -30,7 +46,7 @@ export const IntelContextProvider = ({ children }) => {
 
         MapGroupings.forEach(mapGroup => {
             if (mapGroup.mapLayers.includes(currentMap)) {
-                console.log("FOUND GROUP: ", mapGroup);
+                // console.log("FOUND GROUP: ", mapGroup);
 
                 setCurrentMapGroup(mapGroup);
             }
