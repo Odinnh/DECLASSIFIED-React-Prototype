@@ -1,13 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
+import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { useSetMap } from "../../helpers/mapUtils";
+import { MapItem } from "../../helpers/models";
 import { IntelContextProps } from "./types";
 
 export const IntelContext = createContext<IntelContextProps>({
-    currentMap: MapDetails.dieMaschine,
+    currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
     setCurrentMap: () => { },
-    currentMapGroup: MapGroupings[0],
+    currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
     intelAudioMarkers: [],
     setIntelAudioMarkers: () => { },
@@ -17,14 +19,15 @@ export const IntelContext = createContext<IntelContextProps>({
 
 export const IntelContextProvider = ({ children }) => {
     const [currentMap, setCurrentMap] = useState(MapDetails.dieMaschine);
-    const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0]);
+    const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
     const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
 
     useSetMap(currentMap)
 
     useEffect(() => {
-        setIntelArtifactMarkers(currentMap.mapMarkers!)
+        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers);
+
         MapGroupings.forEach(mapGroup => {
             if (mapGroup.mapLayers.includes(currentMap)) {
                 console.log("FOUND GROUP: ", mapGroup);
@@ -47,4 +50,19 @@ export const IntelContextProvider = ({ children }) => {
         setIntelArtifactMarkers
     }
     return <IntelContext.Provider value={context}>{children}</IntelContext.Provider>;
+}
+
+function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAudioMarkers) {
+    let artifactMarkers: JSX.Element[] = [];
+    let audioMarkers: JSX.Element[] = [];
+    currentMap.mapMarkers!.forEach(marker => {
+        if (marker.props.typeDesc === IntelType.Artifact) {
+            artifactMarkers.push(marker);
+        }
+        if (marker.props.typeDesc === IntelType.Audio) {
+            audioMarkers.push(marker);
+        }
+    });
+    setIntelArtifactMarkers(artifactMarkers);
+    setIntelAudioMarkers(audioMarkers);
 }
