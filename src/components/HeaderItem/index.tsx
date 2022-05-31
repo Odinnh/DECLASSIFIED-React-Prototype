@@ -1,8 +1,9 @@
 import classNames from 'classnames'
 import React, { useContext, useState } from 'react'
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { HeaderItemProps } from './types';
 
-export const HeaderItem = ({ map, title }: any) => {
+export const HeaderItem = ({ map, title }: HeaderItemProps) => {
     const { setCurrentMap } = useContext(IntelContext);
     const [isVisible, setIsVisible] = useState(false);
     const headerClasses = classNames({
