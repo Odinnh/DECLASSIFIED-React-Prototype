@@ -6,15 +6,8 @@ import { MapGroupings } from '../MapControls/types';
 
 
 const Header = () => {
-  const { currentMap } = useContext(IntelContext);
+  const { currentMapGroup } = useContext(IntelContext);
   const [isVisible, setIsVisible] = useState(false);
-  /*   function changeMapTo(mapId) {
-      setMap(mapId);
-      setVisibilityFromPrefs();
-      collapseMenu();
-      TriggerSearch();
-  }
-   */
 
   const headerClasses = classNames({
     visible: isVisible,
@@ -25,7 +18,7 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <h1 onClick={toggleVisibility}>{currentMap.desc}<i className="fas fa-angle-down"></i></h1>
+      <h1 onClick={toggleVisibility}>{currentMapGroup.mapName}<i className="fas fa-angle-down"></i></h1>
       <ul>
         {MapGroupings.map(mapMenuItem => (
           <HeaderItem key={`header-${mapMenuItem.mapLayers[0].id}`} map={mapMenuItem.mapLayers[0]} title={mapMenuItem.mapName} />
