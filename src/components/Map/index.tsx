@@ -1,12 +1,10 @@
-import L, { SVGOverlay } from 'leaflet'
+import L from 'leaflet'
 import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider'
-import { ImageBounds } from '../../helpers/mapsvg'
 import Header from '../Header'
 import { IntelMenu } from '../IntelMenu'
 import { MapControls } from '../MapControls'
-import { MapGroupings, MapMenuItem } from '../MapControls/types'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
