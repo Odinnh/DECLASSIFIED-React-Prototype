@@ -1,9 +1,9 @@
+import { Layer } from "leaflet";
 import { createContext, useEffect, useState } from "react";
-import { useMapEvent } from "react-leaflet";
+import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
-import { useSetMap } from "../../helpers/mapUtils";
 import { MapItem } from "../../helpers/models";
 import { IntelContextProps } from "./types";
 
@@ -19,27 +19,17 @@ export const IntelContext = createContext<IntelContextProps>({
 });
 
 export const IntelContextProvider = ({ children }) => {
-    const [currentMap, setCurrentMap] = useState(MapDetails.dieMaschine);
+    const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
     const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
+    const mapInstance = useMapEvents({});
 
     useMapEvent('baselayerchange', (props) => {
-        console.log("baselayerchange: currentMap: ", props);
+        const currentMapId = Object.keys(MapDetails).find(mapString => MapDetails[mapString].title === props.name)
 
-        Object.keys(MapDetails).forEach(mapString => {
-
-            if (MapDetails[mapString].title === props.name) {
-                console.log(MapDetails[mapString], "===", props.name);
-                setCurrentMap(MapDetails[mapString])
-            }
-        });
-
-        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers);
-
+        if (currentMapId) setCurrentMap(MapDetails[currentMapId])
     });
-
-    useSetMap(currentMap)
 
     useEffect(() => {
         setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers);
@@ -51,7 +41,7 @@ export const IntelContextProvider = ({ children }) => {
                 setCurrentMapGroup(mapGroup);
             }
         });
-    }, [currentMap])
+    }, [currentMap, mapInstance])
 
 
 
