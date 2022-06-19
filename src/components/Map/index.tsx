@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider'
 import Header from '../Header'
-import { IntelMenu } from '../IntelMenu'
+import { DrawerMenu } from '../DrawerMenu'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 
@@ -51,7 +51,7 @@ const MapProvider = () => {
                 <Header />
                 <MapControls />
                 <UserInterface />
-                <IntelMenu />
+                <DrawerMenu />
             </IntelContextProvider>
         </MapContainer>
     )

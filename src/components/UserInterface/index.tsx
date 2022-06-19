@@ -31,7 +31,7 @@ export const UserInterface = () => {
                     </button>
                     <button className="btn ui" onClick={toggleDrawer('bottom', true)}><FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
                     </button>
-                    <a className="btn ui" href="./challenge.html"><FontAwesomeIcon icon={faList}></FontAwesomeIcon > </a>
+                    {/* <a className="btn ui" href="./challenge.html"><FontAwesomeIcon icon={faList}></FontAwesomeIcon > </a> */}
                 </div>
                 <div>
                     {/* <button className="btn ui" id="color-scheme-toggle" onClick="setColorScheme()"><i className="fas fa-moon"></i>
