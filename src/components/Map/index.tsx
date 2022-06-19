@@ -5,6 +5,7 @@ import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/
 import Header from '../Header'
 import { IntelMenu } from '../IntelMenu'
 import { MapControls } from '../MapControls'
+import { UserInterface } from '../UserInterface'
 
 const MapProvider = () => {
     const { currentMap } = useContext(IntelContext);
@@ -30,6 +31,7 @@ const MapProvider = () => {
                 [-256, -256],
                 [768, 768]
             ]}
+            zoomControl={false}
             maxZoom={5}
             minZoom={0.1}
 /*             layers={[
@@ -48,6 +50,7 @@ const MapProvider = () => {
             <IntelContextProvider>
                 <Header />
                 <MapControls />
+                <UserInterface />
                 <IntelMenu />
             </IntelContextProvider>
         </MapContainer>
