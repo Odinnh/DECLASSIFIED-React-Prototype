@@ -31,10 +31,7 @@ export const DrawerMenu = () => {
         >
             <StyledIntelFilter>
                 <IntelList />
-                <ExpandableMenu>
-                    <IntelFilterMenu />
-                    <IntelActionButtons />
-                </ExpandableMenu>
+                <ExpandableMenu />
             </StyledIntelFilter>
         </StyledSwipeableDrawer>
     )
