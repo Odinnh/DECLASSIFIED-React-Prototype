@@ -5,9 +5,9 @@ import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { MapItem } from "../../helpers/models";
-import { IntelContextProps } from "./types";
+import { Anchor, IntelContextProps } from "./types";
 
-export const IntelContext = createContext<IntelContextProps>({
+const initialIntelContextValues =  {
     currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
     setCurrentMap: () => { },
     currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
@@ -16,7 +16,16 @@ export const IntelContext = createContext<IntelContextProps>({
     setIntelAudioMarkers: () => { },
     intelArtifactMarkers: [],
     setIntelArtifactMarkers: () => { },
-});
+    drawerState: {
+        top: false,
+        left: false,
+        bottom: true,
+        right: false,
+    },
+    toggleDrawer: () => () => {},
+};
+
+export const IntelContext = createContext<IntelContextProps>(initialIntelContextValues);
 
 export const IntelContextProvider = ({ children }) => {
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
@@ -24,6 +33,21 @@ export const IntelContextProvider = ({ children }) => {
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
     const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
     const mapInstance = useMapEvents({});
+    const [drawerState, setDrawerState] = useState(initialIntelContextValues.drawerState);
+
+    const toggleDrawer = (anchor: Anchor, open: boolean) =>
+            (event: React.KeyboardEvent | React.MouseEvent) => {
+                if (
+                    event &&
+                    event.type === 'keydown' &&
+                    ((event as React.KeyboardEvent).key === 'Tab' ||
+                        (event as React.KeyboardEvent).key === 'Shift')
+                ) {
+                    return;
+                }
+
+                setDrawerState({ ...drawerState, [anchor]: open });
+            };
 
     useMapEvent('baselayerchange', (props) => {
         const currentMapId = Object.keys(MapDetails).find(mapString => MapDetails[mapString].title === props.name)
@@ -53,7 +77,9 @@ export const IntelContextProvider = ({ children }) => {
         intelAudioMarkers,
         setIntelAudioMarkers,
         intelArtifactMarkers,
-        setIntelArtifactMarkers
+        setIntelArtifactMarkers,
+        drawerState,
+        toggleDrawer
     }
     return <IntelContext.Provider value={context}>{children}</IntelContext.Provider>;
 }

@@ -12,8 +12,17 @@ export interface IntelContextProps {
     setIntelAudioMarkers: Dispatch<SetStateAction<JSX.Element[]>>;
     intelArtifactMarkers: JSX.Element[];
     setIntelArtifactMarkers: Dispatch<SetStateAction<JSX.Element[]>>;
+    drawerState: {
+        top: boolean;
+        left: boolean;
+        bottom: boolean;
+        right: boolean;
+    }
+    toggleDrawer: (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
 export interface IntelContextProviderProps {
     children: React.ReactNode
 }
+
+export type Anchor = 'top' | 'left' | 'bottom' | 'right';
