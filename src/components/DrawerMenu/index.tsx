@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { SwipeableDrawer } from '@mui/material'
 import { useContext } from 'react'
 import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
-import { ExpandableMenu } from '../ExpandableMenu';
+import { IntelListMenu } from '../IntelListMenu';
 import { IntelActionButtons } from '../IntelActionButtons';
 import { IntelFilterMenu } from '../IntelFilterMenu';
 import { IntelList } from '../IntelList'
@@ -31,7 +31,7 @@ export const DrawerMenu = () => {
         >
             <StyledIntelFilter>
                 <IntelList />
-                <ExpandableMenu />
+                <IntelListMenu />
             </StyledIntelFilter>
         </StyledSwipeableDrawer>
     )

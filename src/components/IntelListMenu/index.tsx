@@ -19,7 +19,7 @@ const StyledAccordion = styled(Accordion)`
     box-shadow: none;
 `
 
-export const ExpandableMenu = () => {
+export const IntelListMenu = () => {
     return (
         <StyledExpandableMenu>
 
