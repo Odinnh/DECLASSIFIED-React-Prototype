@@ -115,7 +115,11 @@
   pointer-events: auto;
 }
 
-.btn.ui i {
+.btn.ui:not(.zoom-) {
+  margin: 2px;
+}
+
+.btn.ui svg {
   font-size:  calc(var(--width)/1.6);
   margin: auto;
 }

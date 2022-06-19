@@ -437,3 +437,7 @@ select.faction-list>option:hover {
 #more-options button i.fa-ban{ 
   color: var(--clr-red);
 }
+
+.leaflet-container a.btn.ui {
+  color: var(--clr-color-inverted);
+}
