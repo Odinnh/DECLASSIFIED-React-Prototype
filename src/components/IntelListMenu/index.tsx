@@ -22,7 +22,6 @@ const StyledAccordion = styled(Accordion)`
 export const IntelListMenu = () => {
     return (
         <StyledExpandableMenu>
-
             <StyledAccordion>
                 <AccordionSummary
                     expandIcon={<FilterAltIcon />}
