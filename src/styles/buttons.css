@@ -325,7 +325,7 @@
 
 /* ----------Type btn--------------- */
 
-.type[type="Documents"] {
+/* .type[type="Documents"] {
   background-image: url("../assets/img/intelTypes/documents.png");
 }
 
@@ -339,7 +339,7 @@
 
 .type[type="Artifacts"] {
   background-image: url("../assets/img/intelTypes/artifacts.png");
-}
+} */
 
 .type-check {
   display: none;
