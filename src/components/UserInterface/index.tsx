@@ -9,7 +9,7 @@ import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 export const UserInterface = () => {
-    const { drawerState, toggleDrawer } = useContext(IntelContext);
+    const { toggleDrawer } = useContext(IntelContext);
     const mapInstance = useMapEvents({});
 
     return (
@@ -27,9 +27,9 @@ export const UserInterface = () => {
             </div>
             <div>
                 <div>
-                    <button className="btn ui" onClick={toggleDrawer('bottom', true)}><FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
+                    <button className="btn ui" onClick={toggleDrawer(true)}><FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
                     </button>
-                    <button className="btn ui" onClick={toggleDrawer('bottom', true)}><FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
+                    <button className="btn ui" onClick={toggleDrawer(true)}><FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
                     </button>
                     {/* <a className="btn ui" href="./challenge.html"><FontAwesomeIcon icon={faList}></FontAwesomeIcon > </a> */}
                 </div>

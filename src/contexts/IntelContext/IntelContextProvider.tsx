@@ -16,12 +16,7 @@ const initialIntelContextValues =  {
     setIntelAudioMarkers: () => { },
     intelArtifactMarkers: [],
     setIntelArtifactMarkers: () => { },
-    drawerState: {
-        top: false,
-        left: false,
-        bottom: true,
-        right: false,
-    },
+    drawerState: true,
     toggleDrawer: () => () => {},
 };
 
@@ -35,7 +30,7 @@ export const IntelContextProvider = ({ children }) => {
     const mapInstance = useMapEvents({});
     const [drawerState, setDrawerState] = useState(initialIntelContextValues.drawerState);
 
-    const toggleDrawer = (anchor: Anchor, open: boolean) =>
+    const toggleDrawer = (isOpen: boolean) =>
             (event: React.KeyboardEvent | React.MouseEvent) => {
                 if (
                     event &&
@@ -46,7 +41,7 @@ export const IntelContextProvider = ({ children }) => {
                     return;
                 }
 
-                setDrawerState({ ...drawerState, [anchor]: open });
+                setDrawerState(isOpen);
             };
 
     useMapEvent('baselayerchange', (props) => {

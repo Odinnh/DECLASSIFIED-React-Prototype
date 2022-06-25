@@ -9,7 +9,13 @@ import { IntelList } from '../IntelList'
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)`
     .MuiDrawer-paper {
-        height: 75%;
+        @media (max-width: 900px) {
+            height: 75%;
+        }
+        @media (min-width: 900px) {
+            height: 100%;
+            width: 500px;
+        }
     }
 `
 const StyledIntelFilter = styled.div`
@@ -21,13 +27,13 @@ const StyledIntelFilter = styled.div`
 
 export const DrawerMenu = () => {
     const { drawerState, toggleDrawer } = useContext(IntelContext);
-
+    let width = window.innerWidth;
     return (
         <StyledSwipeableDrawer
-            anchor={'bottom'}
-            open={drawerState['bottom']}
-            onClose={toggleDrawer('bottom', false)}
-            onOpen={toggleDrawer('bottom', true)}
+            anchor={(width > 900) ? 'left' : 'bottom'}
+            open={drawerState}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
         >
             <StyledIntelFilter>
                 <IntelList />
