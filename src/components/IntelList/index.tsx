@@ -1,5 +1,5 @@
-import { Accordion, AccordionSummary, Typography, AccordionDetails, AccordionActions, Button } from '@mui/material'
-import React from 'react'
+import { Accordion, AccordionSummary, Typography, AccordionDetails, AccordionActions, Button, CircularProgress } from '@mui/material'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -24,6 +24,8 @@ const StyledAccordionDetails = styled(AccordionDetails)`
 `
 
 export const IntelList = () => {
+    const [imgLoaded, setImageLoaded] = useState(false);
+
     return (
         <StyledIntelList >
             <Accordion>
@@ -39,8 +41,9 @@ export const IntelList = () => {
                     <img 
                     src='./assets/img/intelScreenshot/placeholder.png'
                     alt='Placeholder'
-                    loading="lazy"
+                    onLoad={() => setImageLoaded(true)}
                     />
+                    {imgLoaded ? null : (<CircularProgress />)}
                     <Typography>
                         Map - Season X - Intel Type - Faction
                     </Typography>
