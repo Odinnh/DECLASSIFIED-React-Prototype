@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Accordion, AccordionDetails, AccordionSummary, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { IntelActionButtons } from '../IntelActionButtons'
 import { IntelFilterMenu } from '../IntelFilterMenu'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
@@ -20,11 +20,16 @@ const StyledAccordion = styled(Accordion)`
 `
 
 export const IntelListMenu = () => {
+    const [expand, setExpand] = useState(false);
+    const toggleAcordion = () => {
+        setExpand((prev) => !prev);
+    };
+
     return (
         <StyledExpandableMenu>
-            <StyledAccordion>
+            <StyledAccordion expanded={expand}>
                 <AccordionSummary
-                    expandIcon={<FilterAltIcon />}
+                    expandIcon={<FilterAltIcon onClick={toggleAcordion} />}
                     aria-controls="intel-filter"
                     id="intel-filter-header"
                 >
