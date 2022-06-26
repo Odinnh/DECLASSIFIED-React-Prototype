@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ShareIcon from '@mui/icons-material/Share';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import BugReportIcon from '@mui/icons-material/BugReport';
+import { CustomImage } from '../CustomImage';
 
 const StyledIntelList = styled.div`
     background-color: var(--clr-grey-d);
@@ -23,11 +24,7 @@ const StyledAccordionDetails = styled(AccordionDetails)`
     }
 `
 
-const StyledImageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
+
 
 const IntelSubheading = styled(Typography)`
     font-weight: bold;
@@ -39,12 +36,11 @@ const IntelDescription = styled(Typography)`
 `
 
 export const IntelList = () => {
-    const [imgLoaded, setImageLoaded] = useState(false);
+
 
     return (
         <StyledIntelList >
             <Accordion>
-
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="intel-item"
@@ -53,14 +49,7 @@ export const IntelList = () => {
                     <Typography>Intel Name</Typography>
                 </AccordionSummary>
                 <StyledAccordionDetails>
-                    <StyledImageContainer>
-                        <img
-                            src='./assets/img/intelScreenshot/placeholder.png'
-                            alt='Placeholder'
-                            onLoad={() => setImageLoaded(true)}
-                        />
-                        {imgLoaded ? null : (<CircularProgress />)}
-                    </StyledImageContainer>
+                    <CustomImage src='./assets/img/intelScreenshot/placeholder.png' altText='Placeholder' />
                     <IntelSubheading>
                         Map - Season X - Intel Type - Faction
                     </IntelSubheading>
