@@ -23,6 +23,21 @@ const StyledAccordionDetails = styled(AccordionDetails)`
     }
 `
 
+const StyledImageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const IntelSubheading = styled(Typography)`
+    font-weight: bold;
+    text-align: center;
+`
+
+const IntelDescription = styled(Typography)`
+    text-align: center;
+`
+
 export const IntelList = () => {
     const [imgLoaded, setImageLoaded] = useState(false);
 
@@ -38,19 +53,21 @@ export const IntelList = () => {
                     <Typography>Intel Name</Typography>
                 </AccordionSummary>
                 <StyledAccordionDetails>
-                    <img 
-                    src='./assets/img/intelScreenshot/placeholder.png'
-                    alt='Placeholder'
-                    onLoad={() => setImageLoaded(true)}
-                    />
-                    {imgLoaded ? null : (<CircularProgress />)}
-                    <Typography>
+                    <StyledImageContainer>
+                        <img
+                            src='./assets/img/intelScreenshot/placeholder.png'
+                            alt='Placeholder'
+                            onLoad={() => setImageLoaded(true)}
+                        />
+                        {imgLoaded ? null : (<CircularProgress />)}
+                    </StyledImageContainer>
+                    <IntelSubheading>
                         Map - Season X - Intel Type - Faction
-                    </Typography>
-                    <Typography>
+                    </IntelSubheading>
+                    <IntelDescription>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                         malesuada lacus ex, sit amet blandit leo lobortis eget.
-                    </Typography>
+                    </IntelDescription>
                     <StyledIntelActionContainer>
                         <Button><LocationOnIcon /></Button>
                         <Button><CheckBoxOutlineBlankIcon /></Button>
