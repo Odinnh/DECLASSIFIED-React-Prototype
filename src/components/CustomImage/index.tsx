@@ -8,15 +8,17 @@ const StyledImageContainer = styled.div`
     align-items: center;
 `
 
-export const CustomImage = ({ src, altText }) => {
+export const CustomImage = ({ src = './assets/img/intelScreenshot/placeholder.png', altText = 'Placeholder' }) => {
     const [imgLoaded, setImageLoaded] = useState(false);
 
     return (
         <StyledImageContainer>
             <img
+                // className={imgLoaded ? "" : "-hidden"} // Doesn't seem to get removed, will look for better way
                 src={src}
-                alt={altText}//'Placeholder'
+                alt={altText}
                 onLoad={() => setImageLoaded(true)}
+                loading="lazy"
             />
             {imgLoaded ? null : (<CircularProgress />)}
         </StyledImageContainer>

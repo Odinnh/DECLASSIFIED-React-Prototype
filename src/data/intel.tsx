@@ -80,7 +80,7 @@ export enum IntelType {
     Artifact = "Artifacts",
 }
 
-interface IntelItem {
+export interface IntelItem {
     id: string;
     faction: Faction;
     season: Season;
