@@ -7,6 +7,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import { IntelItem } from '../../data/intel';
+import { useState } from 'react';
 
 const StyledIntelActionContainer = styled.div`
     display: flex;
@@ -40,11 +41,11 @@ export const IntelListMenuItem = ({
     img = undefined
 
 }: IntelItem) => {
-
+    const [expanded, setExpanded] = useState(false);
 
 
     return (
-        <Accordion>
+        <Accordion onChange={() => setExpanded(!expanded)}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="intel-item"
@@ -52,7 +53,7 @@ export const IntelListMenuItem = ({
             >
                 <Typography>{title}</Typography>
             </AccordionSummary>
-            <StyledAccordionDetails>
+            {expanded ? (<StyledAccordionDetails>
                 <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
                 <IntelSubheading>
                     Map - {season} - {typeDesc} - {faction}
@@ -66,7 +67,8 @@ export const IntelListMenuItem = ({
                     <Button><ShareIcon /></Button>
                     <Button><BugReportIcon /></Button>
                 </StyledIntelActionContainer>
-            </StyledAccordionDetails>
+            </StyledAccordionDetails>) : (null)}
+
         </Accordion>
     )
 }
