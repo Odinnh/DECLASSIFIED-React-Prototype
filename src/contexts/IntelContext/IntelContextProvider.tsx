@@ -1,13 +1,13 @@
-import { Layer } from "leaflet";
 import { createContext, useEffect, useState } from "react";
 import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { MapItem } from "../../helpers/models";
-import { Anchor, IntelContextProps } from "./types";
+import { IntelContextProps } from "./types";
 
 const initialIntelContextValues =  {
+    userPrefs: {},
     currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
     setCurrentMap: () => { },
     currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
@@ -23,6 +23,21 @@ const initialIntelContextValues =  {
 export const IntelContext = createContext<IntelContextProps>(initialIntelContextValues);
 
 export const IntelContextProvider = ({ children }) => {
+    const [userPrefs, setUserPrefs] = useState(initialIntelContextValues.userPrefs);
+    if(localStorage.getItem("declassifiedPrefs") !== null){
+        // They still have old userPrefs
+
+        // Map old user prefs to new, delete old prefs? (probably not)
+    }
+
+    // if any user prefs exist map them to new instance of userPrefs
+
+    // don't replace any missing values with default values (assume defaults only store if different?)
+
+    // set userPrefs into local storage, ("declassifiedPrefsV2"?)
+
+
+
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
