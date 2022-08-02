@@ -56,7 +56,7 @@ export const IntelListMenuItem = ({
             {expanded ? (<StyledAccordionDetails>
                 <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
                 <IntelSubheading>
-                    Map - {season} - {typeDesc} - {faction}
+                    {map} - {season} - {typeDesc} - {faction}
                 </IntelSubheading>
                 <IntelDescription>
                     {desc}
