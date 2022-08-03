@@ -1,15 +1,15 @@
 import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import React, { useContext, useState } from 'react'
 import { LayerGroup, LayersControl } from 'react-leaflet'
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider'
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 
-export const IntelMarkers = () => {
+export const MapMarkers = () => {
     const center: LatLngExpression = [0, 0]
     const rectangle: LatLngBoundsExpression = [
         [0, 0],
         [0, 0],
     ]
-    const { intelArtifactMarkers, intelAudioMarkers } = useContext(IntelContext)
+    const { intelArtifactMarkers, intelAudioMarkers, miscMarkers } = useContext(DeclassifiedContext)
     const [isChecked, setIsChecked] = useState(true);
     
     return (
@@ -22,6 +22,12 @@ export const IntelMarkers = () => {
             <LayersControl.Overlay name="Intel - Artifacts" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
                     {intelArtifactMarkers}
+                </LayerGroup>
+            </LayersControl.Overlay>
+
+            <LayersControl.Overlay name="Misc Markers" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
+                <LayerGroup>
+                    {miscMarkers}
                 </LayerGroup>
             </LayersControl.Overlay>
 

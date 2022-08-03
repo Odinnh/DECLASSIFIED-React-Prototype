@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import React, { useContext, useState } from 'react'
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { HeaderItemProps } from './types';
 
 export const HeaderItem = ({ map, title }: HeaderItemProps) => {
-    const { setCurrentMap } = useContext(IntelContext);
+    const { setCurrentMap } = useContext(DeclassifiedContext);
     const [isVisible, setIsVisible] = useState(false);
     const headerClasses = classNames({
         visible: isVisible,

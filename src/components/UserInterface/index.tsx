@@ -2,14 +2,14 @@
 import { Icon } from '@mui/material';
 import React, { useContext } from 'react'
 import { useMapEvents } from 'react-leaflet';
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAdd, faMinus, faFolderOpen, faGear, faList  } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 export const UserInterface = () => {
-    const { toggleDrawer } = useContext(IntelContext);
+    const { toggleDrawer } = useContext(DeclassifiedContext);
     const mapInstance = useMapEvents({});
 
     return (

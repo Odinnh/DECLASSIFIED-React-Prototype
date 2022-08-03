@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import { useContext, useState } from 'react';
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { HeaderItem } from '../HeaderItem';
 import { MapGroupings } from '../MapControls/types';
 
 
 const Header = () => {
-  const { currentMapGroup } = useContext(IntelContext);
+  const { currentMapGroup } = useContext(DeclassifiedContext);
   const [isVisible, setIsVisible] = useState(false);
 
   const headerClasses = classNames({

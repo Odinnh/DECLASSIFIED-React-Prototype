@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { SwipeableDrawer } from '@mui/material'
 import { useContext } from 'react'
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { IntelListMenu } from '../IntelListMenu';
 import { IntelActionButtons } from '../IntelActionButtons';
 import { IntelFilterMenu } from '../IntelFilterMenu';
@@ -26,7 +26,7 @@ const StyledIntelFilter = styled.div`
 `
 
 export const DrawerMenu = () => {
-    const { drawerState, toggleDrawer } = useContext(IntelContext);
+    const { drawerState, toggleDrawer } = useContext(DeclassifiedContext);
     let width = window.innerWidth;
     return (
         <StyledSwipeableDrawer

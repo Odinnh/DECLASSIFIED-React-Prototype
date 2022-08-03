@@ -1,14 +1,14 @@
 import L from 'leaflet'
 import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
-import { IntelContext, IntelContextProvider } from '../../contexts/IntelContext/IntelContextProvider'
+import { DeclassifiedContext, DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import Header from '../Header'
 import { DrawerMenu } from '../DrawerMenu'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 
 const MapProvider = () => {
-    const { currentMap } = useContext(IntelContext);
+    const { currentMap } = useContext(DeclassifiedContext);
     // console.log("currentMap: ", currentMap)
 
     
@@ -47,12 +47,12 @@ const MapProvider = () => {
             zoomSnap={0}
             maxBoundsViscosity={1.0}
         >
-            <IntelContextProvider>
+            <DeclassifiedContextProvider>
                 <Header />
                 <MapControls />
                 <UserInterface />
                 <DrawerMenu />
-            </IntelContextProvider>
+            </DeclassifiedContextProvider>
         </MapContainer>
     )
 }

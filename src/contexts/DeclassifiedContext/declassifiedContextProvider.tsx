@@ -4,26 +4,25 @@ import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { MapItem } from "../../helpers/models";
-import { IntelContextProps } from "./types";
+import { DeclassifiedContextProps } from "./types";
 
-const initialIntelContextValues =  {
+const initialContextValues =  {
     userPrefs: {},
     currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
     setCurrentMap: () => { },
     currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
     intelAudioMarkers: [],
-    setIntelAudioMarkers: () => { },
     intelArtifactMarkers: [],
-    setIntelArtifactMarkers: () => { },
+    miscMarkers: [],
     drawerState: true,
     toggleDrawer: () => () => {},
 };
 
-export const IntelContext = createContext<IntelContextProps>(initialIntelContextValues);
+export const DeclassifiedContext = createContext<DeclassifiedContextProps>(initialContextValues);
 
-export const IntelContextProvider = ({ children }) => {
-    const [userPrefs, setUserPrefs] = useState(initialIntelContextValues.userPrefs);
+export const DeclassifiedContextProvider = ({ children }) => {
+    const [userPrefs, setUserPrefs] = useState(initialContextValues.userPrefs);
     if(localStorage.getItem("declassifiedPrefs") !== null){
         // They still have old userPrefs
 
@@ -41,9 +40,10 @@ export const IntelContextProvider = ({ children }) => {
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
     const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
+    const [miscMarkers, setMiscMarkers] = useState<JSX.Element[]>([]);
     const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
     const mapInstance = useMapEvents({});
-    const [drawerState, setDrawerState] = useState(initialIntelContextValues.drawerState);
+    const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
 
     const toggleDrawer = (isOpen: boolean) =>
             (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -66,7 +66,7 @@ export const IntelContextProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers);
+        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers, setMiscMarkers);
 
         MapGroupings.forEach(mapGroup => {
             if (mapGroup.mapLayers.includes(currentMap)) {
@@ -85,19 +85,18 @@ export const IntelContextProvider = ({ children }) => {
         currentMapGroup,
         setCurrentMapGroup,
         intelAudioMarkers,
-        setIntelAudioMarkers,
         intelArtifactMarkers,
-        setIntelArtifactMarkers,
+        miscMarkers,
         drawerState,
         toggleDrawer
     }
-    return <IntelContext.Provider value={context}>{children}</IntelContext.Provider>;
+    return <DeclassifiedContext.Provider value={context}>{children}</DeclassifiedContext.Provider>;
 }
 
-function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAudioMarkers) {
+function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAudioMarkers, setMiscMarkers) {
     let artifactMarkers: JSX.Element[] = [];
     let audioMarkers: JSX.Element[] = [];
-    currentMap.mapMarkers!.forEach(marker => {
+    currentMap.intelMapMarkers!.forEach(marker => {
         if (marker.props.typeDesc === IntelType.Artifact) {
             artifactMarkers.push(marker);
         }
@@ -105,6 +104,8 @@ function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAud
             audioMarkers.push(marker);
         }
     });
+    
     setIntelArtifactMarkers(artifactMarkers);
     setIntelAudioMarkers(audioMarkers);
+    setMiscMarkers(currentMap.miscMapMarkers);
 }

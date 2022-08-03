@@ -1,6 +1,6 @@
 import './App.css';
 import MapProvider from './components/Map';
-import { IntelContextProvider } from './contexts/IntelContext/IntelContextProvider';
+import { DeclassifiedContextProvider } from './contexts/DeclassifiedContext/declassifiedContextProvider';
 import { BaseLayout } from './pages/layouts/BaseLayout';
 
 function App() {

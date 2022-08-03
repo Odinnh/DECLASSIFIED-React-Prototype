@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { LayersControl } from 'react-leaflet'
-import { IntelContext } from '../../contexts/IntelContext/IntelContextProvider';
-import { IntelMarkers } from '../IntelMarkers';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { MapMarkers } from '../MapMarkers';
 
 export const MapControls = () => {
-    const { currentMap, currentMapGroup } = useContext(IntelContext)
+    const { currentMap, currentMapGroup } = useContext(DeclassifiedContext)
     return (
         <LayersControl position="topright">
             {currentMapGroup.mapLayers.map(mapLayer =>
@@ -16,7 +16,7 @@ export const MapControls = () => {
                     {mapLayer.mapOverlay}
                 </LayersControl.BaseLayer>
             )}
-            <IntelMarkers />
+            <MapMarkers />
         </LayersControl>
     )
 }

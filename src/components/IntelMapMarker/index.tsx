@@ -21,26 +21,30 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
     const markerIcon = intelIconInit(faction, typeDesc);
 
     return (
-        <Marker key={id} position={loc} icon={markerIcon}>
-            <Popup>
-                <>
-                    <h1>{title}</h1>
+        (loc === null && loc === [0, 0]) ? <></> :
+            (
+                <Marker key={id} position={loc} icon={markerIcon}>
+                    <Popup>
+                        <>
+                            <h1>{title}</h1>
 
-                    <div className="intel-content">
-                        <div>
-                            <p>{desc}</p>
-                            <div className="buttonContainer" data-item={id}>
-                                {/* {collectedBtn}
+                            <div className="intel-content">
+                                <div>
+                                    <p>{desc}</p>
+                                    <div className="buttonContainer" data-item={id}>
+                                        {/* {collectedBtn}
                                 {shareBtn}
                                 {bugBtn}
                                 {moreBtn} */}
+                                    </div>
+                                </div>
+                                <img src={imgSrc} /* onClick="expandImage(this)" */ alt="Intel Location"></img>
                             </div>
-                        </div>
-                        <img src={imgSrc} /* onClick="expandImage(this)" */ alt="Intel Location"></img>
-                    </div>
-                </>
-            </Popup>
-        </Marker>
+                        </>
+                    </Popup>
+                </Marker>
+            )
+
     )
 }
 
