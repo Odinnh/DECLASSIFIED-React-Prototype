@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { useMapEvent, useMapEvents } from "react-leaflet";
+import { MapItem } from "../../classes";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
-import { MapItem } from "../../helpers/models";
 import { DeclassifiedContextProps } from "./types";
 
 const initialContextValues =  {
@@ -22,7 +22,7 @@ const initialContextValues =  {
 export const DeclassifiedContext = createContext<DeclassifiedContextProps>(initialContextValues);
 
 export const DeclassifiedContextProvider = ({ children }) => {
-    const [userPrefs, setUserPrefs] = useState(initialContextValues.userPrefs);
+    // const [userPrefs, setUserPrefs] = useState(initialContextValues.userPrefs);
     if(localStorage.getItem("declassifiedPrefs") !== null){
         // They still have old userPrefs
 

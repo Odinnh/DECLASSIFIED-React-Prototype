@@ -1,8 +1,8 @@
 import L, { DivIconOptions } from 'leaflet'
 import { Marker, Popup } from 'react-leaflet'
-import { IntelMarker } from '../../helpers/models'
 import ReactDOMServer from 'react-dom/server';
 import { Faction, IntelType } from '../../data/intel';
+import { IntelMarker } from '../../classes';
 
 const iconImages = {
     [IntelType.Artifact]: require('../../assets/img/icons/type/artifacts.png'),

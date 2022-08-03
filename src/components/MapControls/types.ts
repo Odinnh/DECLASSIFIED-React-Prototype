@@ -1,5 +1,5 @@
+import { MapItem } from '../../classes';
 import { MapDetails } from '../../data/mapDetails';
-import { Item, MapItem } from './../../helpers/models';
 
 export interface MapMenuItem {
     mapName: string;

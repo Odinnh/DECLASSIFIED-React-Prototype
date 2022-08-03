@@ -1,14 +1,13 @@
-import { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import React, { useContext, useState } from 'react'
 import { LayerGroup, LayersControl } from 'react-leaflet'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 
 export const MapMarkers = () => {
-    const center: LatLngExpression = [0, 0]
-    const rectangle: LatLngBoundsExpression = [
-        [0, 0],
-        [0, 0],
-    ]
+    // const center: LatLngExpression = [0, 0]
+    // const rectangle: LatLngBoundsExpression = [
+    //     [0, 0],
+    //     [0, 0],
+    // ]
     const { intelArtifactMarkers, intelAudioMarkers, miscMarkers } = useContext(DeclassifiedContext)
     const [isChecked, setIsChecked] = useState(true);
     

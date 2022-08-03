@@ -1,14 +1,13 @@
 import L from 'leaflet'
-import { useContext } from 'react'
 import { MapContainer } from 'react-leaflet'
-import { DeclassifiedContext, DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
+import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import Header from '../Header'
 import { DrawerMenu } from '../DrawerMenu'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 
 const MapProvider = () => {
-    const { currentMap } = useContext(DeclassifiedContext);
+    // const { currentMap } = useContext(DeclassifiedContext);
     // console.log("currentMap: ", currentMap)
 
     

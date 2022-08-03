@@ -1,5 +1,5 @@
+import { MapItem } from "../classes";
 import { mapSVGs } from "../helpers/mapsvg";
-import { MapItem } from "../helpers/models";
 import { MapIds } from "./intel";
 
 

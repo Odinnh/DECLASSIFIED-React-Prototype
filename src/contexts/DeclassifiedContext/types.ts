@@ -1,7 +1,6 @@
 import { MapMenuItem } from '../../components/MapControls/types';
 import { Dispatch, SetStateAction } from "react";
-import { mapSVGs } from "../../helpers/mapsvg";
-import { Item, MapItem } from "../../helpers/models";
+import { MapItem } from '../../classes';
 
 export interface DeclassifiedContextProps {
     currentMap: MapItem;

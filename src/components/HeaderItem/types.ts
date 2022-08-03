@@ -1,4 +1,4 @@
-import { MapItem } from "../../helpers/models";
+import { MapItem } from "../../classes";
 
 export interface HeaderItemProps {
     map: MapItem;
