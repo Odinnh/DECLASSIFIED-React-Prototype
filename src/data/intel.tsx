@@ -80,6 +80,38 @@ export enum IntelType {
     Artifact = "Artifacts",
 }
 
+export enum IconTypes {
+    generalIcon = "generalIcon",
+
+    ammoCrateIcon = "ammoCrateIcon",
+    arsenalIcon = "arsenalIcon",
+    craftingTableIcon = "craftingTableIcon",
+    dementedIcon = "dementedIcon",
+    fishingIcon = "fishingIcon",
+    miscIconInit = "miscIconInit",
+    monkeyIcon = "monkeyIcon",
+    mysteryBoxIcon = "mysteryBoxIcon",
+    papMachineIcon = "papMachineIcon",
+    radioIcon = "radioIcon",
+    redRiftIcon = "redRiftIcon",
+    riftIcon = "riftIcon",
+    trialComputerIcon = "trialComputerIcon",
+    wallbuyIcon = "wallbuyIcon",
+    wunderFizzIcon = "wunderFizzIcon",
+    ziplineIcon = "ziplineIcon",
+    
+    staminUp = "staminUp",
+    quickRevive = "quickRevive",
+    juggernog = "juggernog",
+    speedCola = "speedCola",
+    muleKick = "muleKick",
+    elementalPop = "elementalPop",
+    deathPerception = "deathPerception",
+    tombstoneSoda = "tombstoneSoda",
+    deadshotDaiquiri = "deadshotDaiquiri",
+    PHDSlider = "PHDSlider",
+}
+
 export interface IntelItem {
     id: string;
     faction: Faction;
@@ -91,6 +123,7 @@ export interface IntelItem {
     desc: string;
     img?: string;
 }
+
 export const IntelStore: IntelItem[] = [
     /////////////////////Requiem/////////////////////////
     {
