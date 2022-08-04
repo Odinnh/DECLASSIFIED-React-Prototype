@@ -1,8 +1,37 @@
 import React, { useContext, useState } from 'react'
 import { LayerGroup, LayersControl } from 'react-leaflet'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
-import { IntelType } from '../../data/intel'
-import { renderIntelMapMarkers, renderMiscMapMarkers } from '../../helpers/markers'
+import { IntelStore, IntelType } from '../../data/intel'
+import { MiscStore } from '../../data/misc';
+import { IntelMapMarker } from '../IntelMapMarker';
+import { MiscMapMarker } from '../MiscMapMarker';
+
+const renderIntelMapMarkers = (mapId: string, intelType: IntelType): JSX.Element[] => {
+    if (mapId) {
+        return IntelStore
+            .filter(intel => (intel.map === mapId && intel.typeDesc === intelType))
+            .map(intel => {
+                return (<IntelMapMarker {...intel} />);
+            });
+    } else {
+        return [<></>]
+    }
+};
+
+const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
+    if (mapId) {
+        console.log(mapId);
+        console.log(MiscStore);
+        
+        
+        return MiscStore[mapId].map(misc => {
+            return (<MiscMapMarker {...misc} />)
+        });
+
+    } else {
+        return [<></>]
+    }
+};
 
 export const MapMarkers = () => {
     // const center: LatLngExpression = [0, 0]
@@ -12,6 +41,8 @@ export const MapMarkers = () => {
     // ]
     const { currentMap } = useContext(DeclassifiedContext)
     const [isChecked, setIsChecked] = useState(true);
+
+    console.log(currentMap);
 
     return (
         <>
