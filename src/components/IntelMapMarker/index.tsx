@@ -4,17 +4,6 @@ import ReactDOMServer from 'react-dom/server';
 import { Faction, IntelType } from '../../data/intel';
 import { IntelMarker } from '../../classes';
 
-const iconImages = {
-    [IntelType.Artifact]: require('../../assets/img/icons/type/artifacts.png'),
-    [IntelType.Audio]: require('../../assets/img/icons/type/audio logs.png')
-}
-const iconBackgrounds = {
-    [Faction.DarkAether]: require('../../assets/img/icons/markers/dark aether.png'),
-    [Faction.Maxis]: require('../../assets/img/icons/markers/maxis.png'),
-    [Faction.Omega]: require('../../assets/img/icons/markers/omega.png'),
-    [Faction.Requiem]: require('../../assets/img/icons/markers/requiem.png')
-}
-
 export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img }: IntelMarker) => {
     let imgSrc = img ? `https://i.imgur.com/${img}.jpg` : 'assets/img/intelScreenshot/placeholder.png';
     // map
@@ -49,14 +38,11 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
 }
 
 const intelIconInit = (faction: Faction, type: string) => {
-    const iconImage = iconImages[type];
-    const iconBackground = iconBackgrounds[faction];
-
     var markerIcons: DivIconOptions = {
         html: ReactDOMServer.renderToString(
             <div>
-                <img className='icon' src={iconImage} alt="Icon" />
-                <img className='background' src={iconBackground} alt="Background" />
+                <img className='icon' src={`/assets/img/type/${type}.png`}  alt="Icon" />
+                <img className='background' src={`/assets/img/markers/${faction}.png`} alt="Background" />
             </div>
 
         ),
