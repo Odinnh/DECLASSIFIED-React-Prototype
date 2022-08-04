@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapItem } from "../../classes";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
+import { IntelItem } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
 
@@ -11,6 +12,8 @@ const initialContextValues =  {
     setCurrentMap: () => { },
     currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
+    filteredIntelStore: [],
+    setFilteredIntelStore: () => {},
     drawerState: false,
     toggleDrawer: () => () => {},
 };
@@ -31,11 +34,10 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
     // set userPrefs into local storage, ("declassifiedPrefsV2"?)
 
-
-
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
     const mapInstance = useMapEvents({});
+    const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
 
     const toggleDrawer = (isOpen: boolean) =>
@@ -76,6 +78,8 @@ export const DeclassifiedContextProvider = ({ children }) => {
         setCurrentMap,
         currentMapGroup,
         setCurrentMapGroup,
+        filteredIntelStore,
+        setFilteredIntelStore,
         drawerState,
         toggleDrawer
     }

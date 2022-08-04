@@ -1,13 +1,26 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select, SelectChangeEvent, useTheme } from '@mui/material'
-import React from 'react'
+import { useState } from 'react'
 import { Faction, IntelType, Season } from '../../data/intel'
 import { CustomIntelFilterCheckbox } from '../CustomIntelFilterCheckbox'
 import { getStyles, MenuProps, StyledIntelFilterMenu } from './styles'
 
+interface FilterState {
+  searchText: string;
+  seasons: Season[];
+  factions: Faction[];
+  intelTypes: IntelType[];
+}
+
 export const IntelFilterMenu = () => {
   const theme = useTheme();
-  const [season, setSeason] = React.useState<string[]>([]);
-  const [faction, setFaction] = React.useState<string[]>([]);
+  const [season, setSeason] = useState<string[]>([]);
+  const [faction, setFaction] = useState<string[]>([]);
+  const [filterState, setFilterState] = useState<FilterState>({
+    searchText: '',
+    seasons: [],
+    factions: [],
+    intelTypes: []
+  });
 
   const handleSeasonChange = (event: SelectChangeEvent<typeof season>) => {
     const {
