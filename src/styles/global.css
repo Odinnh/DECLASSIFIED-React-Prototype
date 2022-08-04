@@ -41,7 +41,7 @@ body {
     --modal-col-2: 7/8;
     --modal-col-3: 14/8;
     --z-index-ui: 1050;
-    --z-index-menu: 1000;
+    --z-index-menu: 800;
     --z-index-map: 0;
 
     /* whites and blacks */

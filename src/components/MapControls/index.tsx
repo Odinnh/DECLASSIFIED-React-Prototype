@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LayersControl } from 'react-leaflet'
+import { LayersControl } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { MapMarkers } from '../MapMarkers';
 
