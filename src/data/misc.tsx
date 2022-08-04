@@ -69,7 +69,7 @@ export const Perks = {
     death: new Item({ id: "deathPerception", title: "Death Perception", icon: IconTypes.deathPerception }),
     tomb: new Item({ id: "tombstoneSoda", title: "Tombstone", icon: IconTypes.tombstoneSoda }),
     deadshot: new Item({ id: "deadshotDaiquiri", title: "Deadshot Daiquiri", icon: IconTypes.deadshotDaiquiri }),
-    phd: new Item({ id: "PHDSlider", title: "PHD Slider", icon: IconTypes.PHDSlider }),
+    phd: new Item({ id: "phdSlider", title: "PHD Slider", icon: IconTypes.phdSlider }),
 }
 
 /////////////////////Markers/////////////////////////

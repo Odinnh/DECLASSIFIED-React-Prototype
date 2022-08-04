@@ -109,7 +109,7 @@ export enum IconTypes {
     deathPerception = "deathPerception",
     tombstoneSoda = "tombstoneSoda",
     deadshotDaiquiri = "deadshotDaiquiri",
-    PHDSlider = "PHDSlider",
+    phdSlider = "phdSlider",
 }
 
 export interface IntelItem {
