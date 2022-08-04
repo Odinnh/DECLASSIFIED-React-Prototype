@@ -69,6 +69,6 @@ export const renderIntelMapMarkers = (mapId: string): JSX.Element[] => {
 
 export const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
     return MiscPOI[mapId].map(misc => {
-        return [(<MiscMapMarker {...misc} />)]
+        return (<MiscMapMarker {...misc} />)
     });
 };
