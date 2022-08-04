@@ -2,9 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapItem } from "../../classes";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
-import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
-import { renderIntelMapMarkers, renderMiscMapMarkers } from "../../helpers/markers";
 import { DeclassifiedContextProps } from "./types";
 
 const initialContextValues =  {
