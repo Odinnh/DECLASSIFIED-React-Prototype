@@ -2,8 +2,8 @@ import L from "leaflet";
 import { IntelMapMarker } from "../components/IntelMapMarker";
 import { MiscMapMarker } from "../components/MiscMapMarker";
 import { Bounds } from "../components/MiscMapMarker/types";
-import { IntelStore } from "../data/intel";
-import MiscPOI from "../data/misc";
+import { IntelStore, IntelType } from "../data/intel";
+import { MiscStore } from "../data/misc";
 
 export const miscIconInit = (id: string, type: string, bounds?: Bounds) => {
     const { iconSize, iconAnchor, popupAnchor } = bounds ?? {};
@@ -59,16 +59,18 @@ export const ziplineIcon = miscIconInit('zipline', 'misc')
 export const trialComputerIcon = miscIconInit('trialComputer', 'misc')
 export const papMachineIcon = miscIconInit('papMachine', 'misc')
 
-export const renderIntelMapMarkers = (mapId: string): JSX.Element[] => {
+export const renderIntelMapMarkers = (mapId: string, intelType: IntelType): JSX.Element[] => {
     return IntelStore
-        .filter(intel => (intel.map === mapId))
+        .filter(intel => (intel.map === mapId && intel.typeDesc === intelType))
         .map(intel => {
             return (<IntelMapMarker {...intel} />);
         });
 };
 
 export const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
-    return MiscPOI[mapId].map(misc => {
+    return MiscStore[mapId].map(misc => {
         return (<MiscMapMarker {...misc} />)
     });
+
+    // return [<></>]
 };

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { LayerGroup, LayersControl } from 'react-leaflet'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
+import { IntelType } from '../../data/intel'
+import { renderIntelMapMarkers, renderMiscMapMarkers } from '../../helpers/markers'
 
 export const MapMarkers = () => {
     // const center: LatLngExpression = [0, 0]
@@ -8,25 +10,25 @@ export const MapMarkers = () => {
     //     [0, 0],
     //     [0, 0],
     // ]
-    const { intelArtifactMarkers, intelAudioMarkers, miscMarkers } = useContext(DeclassifiedContext)
+    const { currentMap } = useContext(DeclassifiedContext)
     const [isChecked, setIsChecked] = useState(true);
-    
+
     return (
         <>
             <LayersControl.Overlay name="Intel - Audio Logs" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {intelAudioMarkers}
+                    {renderIntelMapMarkers(currentMap.id!, IntelType.Audio)}
                 </LayerGroup>
             </LayersControl.Overlay>
             <LayersControl.Overlay name="Intel - Artifacts" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {intelArtifactMarkers}
+                    {renderIntelMapMarkers(currentMap.id!, IntelType.Artifact)}
                 </LayerGroup>
             </LayersControl.Overlay>
 
             <LayersControl.Overlay name="Misc Markers" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {miscMarkers}
+                    {renderMiscMapMarkers(currentMap.id!)}
                 </LayerGroup>
             </LayersControl.Overlay>
 

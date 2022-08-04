@@ -132,7 +132,7 @@ export interface IMisc {
 // Non collectible items that need icons on the respective maps
 
 /////////////////////Round Based Misc Items/////////////////////////
-export const MiscPOI: IMisc = {
+export const MiscStore: IMisc = {
     [MapIds.dieMaschine]: [
         new MiscMarker("qnnn7", MiscTypes.craftingTable, [238.9533945125948, 313.2529307427267]),
         new MiscMarker("FcRRV", MiscTypes.rampageInducer, [187.22527858413707, 297.96712471202267]),
@@ -830,5 +830,3 @@ export const MiscPOI: IMisc = {
         new MiscMarker("gLRQZ", MiscTypes.redRift, [281.5872778794272, 99.5338716371389]),
     ]
 }
-
-export default MiscPOI;

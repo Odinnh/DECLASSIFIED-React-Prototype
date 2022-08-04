@@ -4,6 +4,7 @@ import { MapItem } from "../../classes";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelType } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
+import { renderIntelMapMarkers, renderMiscMapMarkers } from "../../helpers/markers";
 import { DeclassifiedContextProps } from "./types";
 
 const initialContextValues =  {
@@ -12,10 +13,7 @@ const initialContextValues =  {
     setCurrentMap: () => { },
     currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
-    intelAudioMarkers: [],
-    intelArtifactMarkers: [],
-    miscMarkers: [],
-    drawerState: true,
+    drawerState: false,
     toggleDrawer: () => () => {},
 };
 
@@ -39,9 +37,6 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
-    const [intelArtifactMarkers, setIntelArtifactMarkers] = useState<JSX.Element[]>([]);
-    const [miscMarkers, setMiscMarkers] = useState<JSX.Element[]>([]);
-    const [intelAudioMarkers, setIntelAudioMarkers] = useState<JSX.Element[]>([]);
     const mapInstance = useMapEvents({});
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
 
@@ -66,7 +61,6 @@ export const DeclassifiedContextProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        setMapMarkers(currentMap, setIntelArtifactMarkers, setIntelAudioMarkers, setMiscMarkers);
 
         MapGroupings.forEach(mapGroup => {
             if (mapGroup.mapLayers.includes(currentMap)) {
@@ -84,28 +78,28 @@ export const DeclassifiedContextProvider = ({ children }) => {
         setCurrentMap,
         currentMapGroup,
         setCurrentMapGroup,
-        intelAudioMarkers,
-        intelArtifactMarkers,
-        miscMarkers,
         drawerState,
         toggleDrawer
     }
     return <DeclassifiedContext.Provider value={context}>{children}</DeclassifiedContext.Provider>;
 }
 
-function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAudioMarkers, setMiscMarkers) {
-    let artifactMarkers: JSX.Element[] = [];
-    let audioMarkers: JSX.Element[] = [];
-    currentMap.intelMapMarkers!.forEach(marker => {
-        if (marker.props.typeDesc === IntelType.Artifact) {
-            artifactMarkers.push(marker);
-        }
-        if (marker.props.typeDesc === IntelType.Audio) {
-            audioMarkers.push(marker);
-        }
-    });
+// function setMapMarkers(currentMap: MapItem, setIntelArtifactMarkers, setIntelAudioMarkers, setMiscMarkers) {
+//     let artifactMarkers: JSX.Element[] = [];
+//     let audioMarkers: JSX.Element[] = [];
+
+//     // const allIntelMarkers = renderIntelMapMarkers(currentMap.id!);
+//     // allIntelMarkers!.forEach(marker => {
+//     //     if (marker.props.typeDesc === IntelType.Artifact) {
+//     //         artifactMarkers.push(marker);
+//     //     }
+//     //     if (marker.props.typeDesc === IntelType.Audio) {
+//     //         audioMarkers.push(marker);
+//     //     }
+//     // });
     
-    setIntelArtifactMarkers(artifactMarkers);
-    setIntelAudioMarkers(audioMarkers);
-    setMiscMarkers(currentMap.miscMapMarkers);
-}
+//     const allMiscMarkers = renderMiscMapMarkers(currentMap.id!);
+//     setIntelArtifactMarkers(artifactMarkers);
+//     setIntelAudioMarkers(audioMarkers);
+//     setMiscMarkers(allMiscMarkers);
+// }

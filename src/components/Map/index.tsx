@@ -7,18 +7,6 @@ import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 
 const MapProvider = () => {
-    // const { currentMap } = useContext(DeclassifiedContext);
-    // console.log("currentMap: ", currentMap)
-
-    
-/*     const currentLayer = new L.LayerGroup();
-
-
-    var svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgElement.setAttribute('xmlns', "http://www.w3.org/2000/svg");
-    svgElement.setAttribute('viewBox', "0 0 200 200");
-
-    L.svgOverlay(svgElement, ImageBounds).addTo(currentLayer); */
     
     return (
         <MapContainer id={"worldMap"}
@@ -33,10 +21,6 @@ const MapProvider = () => {
             zoomControl={false}
             maxZoom={5}
             minZoom={0.1}
-/*             layers={[
-                currentLayer
-
-            ]} */
             tap={true}
             tapTolerance={30}
             /* noWrap={true} */

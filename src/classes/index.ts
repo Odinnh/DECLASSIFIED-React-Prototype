@@ -3,6 +3,14 @@ import { Faction, Season } from "../data/intel";
 import { generalIcon, renderIntelMapMarkers, renderMiscMapMarkers } from "../helpers/markers";
 
 /////////////////////Classes/////////////////////////
+
+export interface IItem {
+    id?: string;
+    title: string;
+    desc?: string;
+    icon?: Icon<IconOptions>;
+    layer?: string;
+}
 export class Item {
     id?: string;
     title: string;
@@ -10,7 +18,7 @@ export class Item {
     icon?: Icon<IconOptions>;
     layer?: string;
 
-    constructor({ id, title, desc, icon, layer }: Item) {
+    constructor({ id, title, desc, icon, layer }: IItem) {
         this.id = id;
         this.title = title ?? "";
         this.desc = desc ?? "";
@@ -63,7 +71,7 @@ export class MapItem extends Item {
     constructor(id, { title, desc, icon, layer, mapOverlay }: MapItem) {
         super({ id, title, desc, icon, layer });
         this.mapOverlay = mapOverlay;
-        this.intelMapMarkers = renderIntelMapMarkers(id);
-        this.miscMapMarkers = renderMiscMapMarkers(id);
+        // this.intelMapMarkers = renderIntelMapMarkers(id);
+        // this.miscMapMarkers = renderMiscMapMarkers(id);
     }
 }
