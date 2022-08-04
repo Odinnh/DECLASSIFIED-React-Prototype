@@ -26,7 +26,7 @@ export const MiscMapMarker = ({ id, title, desc, icon, typeDesc, loc }: MiscMark
 export const miscIconInit = (id?: string) => {
     const { iconSize, iconAnchor, popupAnchor } = (id && customMiscIconBounds[id]) ?? {};
     return L.icon({
-        iconUrl: `assets/img/markers/${id}.png`,
+        iconUrl: `assets/img/markers/${(id ?? '').toLowerCase()}.png`,
         iconSize: iconSize ?? [30, 30],
         iconAnchor: iconAnchor ?? [15, 15],
         popupAnchor: popupAnchor ?? [0, -15],

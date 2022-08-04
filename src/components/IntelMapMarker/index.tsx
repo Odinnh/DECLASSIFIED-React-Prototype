@@ -41,8 +41,8 @@ const intelIconInit = (faction: Faction, type: string) => {
     var markerIcons: DivIconOptions = {
         html: ReactDOMServer.renderToString(
             <div>
-                <img className='icon' src={`/assets/img/type/${type}.png`} alt="Icon" />
-                <img className='background' src={`/assets/img/markers/${faction}.png`} alt="Background" />
+                <img className='icon' src={`/assets/img/markers/${type.toLowerCase()}.png`} alt="Icon" />
+                <img className='background' src={`/assets/img/markers/${faction.toLowerCase()}.png`} alt="Background" />
             </div>
 
         ),

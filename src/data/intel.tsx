@@ -56,10 +56,10 @@ export enum MapIds {
 };
 
 export enum Faction {
-    Requiem = "Requiem",
-    Omega = "Omega",
-    Maxis = "Maxis",
-    DarkAether = "Dark Aether",
+    Requiem = "requiem",
+    Omega = "omega",
+    Maxis = "maxis",
+    DarkAether = "dark_aether",
 }
 
 export enum Season {
@@ -74,41 +74,41 @@ export enum Season {
 }
 
 export enum IntelType {
-    Audio = "Audio Logs",
-    Docs = "Documents",
-    Radio = "Radio Transmissions",
-    Artifact = "Artifacts",
+    Audio = "audio_logs",
+    Docs = "documents",
+    Radio = "radio_transmissions",
+    Artifact = "artifacts",
 }
 
 export enum IconTypes {
     general = "general",
 
-    ammoCrate = "ammoCrate",
+    ammoCrate = "ammo_crate",
     arsenal = "arsenal",
-    craftingTable = "craftingTable",
+    craftingTable = "crafting_table",
     demented = "demented",
     fishing = "fishing",
     monkey = "monkey",
-    mysteryBox = "mysteryBox",
-    papMachine = "papMachine",
+    mysteryBox = "mystery_box",
+    papMachine = "pap_machine",
     radio = "radio",
-    redRift = "redRift",
+    redRift = "red_rift",
     rift = "rift",
-    trialComputer = "trialComputer",
+    trialComputer = "trial_computer",
     wallbuy = "wallbuy",
-    wunderFizz = "wunderFizz",
+    wunderFizz = "wunder_fizz",
     zipline = "zipline",
     
-    staminUp = "staminUp",
-    quickRevive = "quickRevive",
+    staminUp = "stamin_up",
+    quickRevive = "quick_revive",
     juggernog = "juggernog",
-    speedCola = "speedCola",
-    muleKick = "muleKick",
-    elementalPop = "elementalPop",
-    deathPerception = "deathPerception",
-    tombstoneSoda = "tombstoneSoda",
-    deadshotDaiquiri = "deadshotDaiquiri",
-    phdSlider = "phdSlider",
+    speedCola = "speed_cola",
+    muleKick = "mule_kick",
+    elementalPop = "elemental_pop",
+    deathPerception = "death_perception",
+    tombstoneSoda = "tombstone_soda",
+    deadshotDaiquiri = "deadshot_daiquiri",
+    phdSlider = "phd_slider",
 }
 
 export interface IntelItem {
