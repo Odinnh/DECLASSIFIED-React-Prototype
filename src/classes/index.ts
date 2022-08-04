@@ -1,5 +1,4 @@
-import { generalIcon } from './../components/MiscMapMarker/index';
-import { Icon, IconOptions, LatLngExpression } from "leaflet";
+import { LatLngExpression } from "leaflet";
 import { Faction, IconTypes, Season } from "../data/intel";
 // import { generalIcon, renderIntelMapMarkers, renderMiscMapMarkers } from "../helpers/markers";
 
@@ -23,7 +22,7 @@ export class Item {
         this.id = id;
         this.title = title ?? "";
         this.desc = desc ?? "";
-        this.icon = icon ?? IconTypes.generalIcon;
+        this.icon = icon ?? IconTypes.general;
         this.layer = layer ?? "MiscMarkers";
     }
 }

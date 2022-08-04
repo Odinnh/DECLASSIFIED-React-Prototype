@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
-import { SwipeableDrawer } from '@mui/material'
-import { useContext } from 'react'
+import { SwipeableDrawer } from '@mui/material';
+import { useContext } from 'react';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { IntelList } from '../IntelList';
 import { IntelListMenu } from '../IntelListMenu';
-import { IntelActionButtons } from '../IntelActionButtons';
-import { IntelFilterMenu } from '../IntelFilterMenu';
-import { IntelList } from '../IntelList'
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)`
     .MuiDrawer-paper {

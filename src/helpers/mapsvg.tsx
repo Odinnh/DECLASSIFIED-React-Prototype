@@ -1,4 +1,4 @@
-import { bounds, LatLngBoundsExpression } from "leaflet"
+import { LatLngBoundsExpression } from "leaflet";
 import { SVGOverlay } from "react-leaflet";
 
 export const ImageBounds: LatLngBoundsExpression = [

@@ -1,12 +1,13 @@
 import L from 'leaflet';
-import { Marker, Popup } from 'react-leaflet'
+import { Marker, Popup } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
-import { Bounds } from './types';
+import { IconTypes } from '../../data/intel';
 
-export const MiscMapMarker = ({ id, title, desc, typeDesc, loc }: MiscMarker) => {
+export const MiscMapMarker = ({ id, title, desc, icon, typeDesc, loc }: MiscMarker) => {
+    const renderedIcon = miscIconInit(icon);
 
     return (
-        <Marker key={id} position={loc} icon={generalIcon}>
+        <Marker position={loc} icon={renderedIcon}>
             <Popup>
                 <div className="misc-content">
                     <h1>{title}</h1>
@@ -22,10 +23,10 @@ export const MiscMapMarker = ({ id, title, desc, typeDesc, loc }: MiscMarker) =>
     )
 }
 
-export const miscIconInit = (id: string, bounds?: Bounds) => {
-    const { iconSize, iconAnchor, popupAnchor } = bounds ?? {};
+export const miscIconInit = (id?: string) => {
+    const { iconSize, iconAnchor, popupAnchor } = (id && customMiscIconBounds[id]) ?? {};
     return L.icon({
-        iconUrl: `assets/img/icons/${id}.png`,
+        iconUrl: `assets/img/markers/${id}.png`,
         iconSize: iconSize ?? [30, 30],
         iconAnchor: iconAnchor ?? [15, 15],
         popupAnchor: popupAnchor ?? [0, -15],
@@ -33,45 +34,38 @@ export const miscIconInit = (id: string, bounds?: Bounds) => {
     });
 }
 
-export const generalIcon = miscIconInit('generalIcon', {
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
-});
-export const radioIcon = miscIconInit('radioIcon', {
-    iconSize: [39, 48],
-    iconAnchor: [19.5, 24],
-    popupAnchor: [0, -30]
-});
-export const riftIcon = miscIconInit('rift', {
-    iconSize: [22, 48],
-    iconAnchor: [11, 24],
-    popupAnchor: [0, -30]
-});
-export const dementedIcon = miscIconInit('dementedIcon', {
-    iconSize: [48, 48],
-    iconAnchor: [24, 24],
-    popupAnchor: [0, -30]
-});
-export const fishingIcon = miscIconInit('fishIcon', {
-
-    popupAnchor: [0, -30]
-});
-export const monkeyIcon = miscIconInit('monkeyIcon', {
-
-    popupAnchor: [0, -30]
-});
-export const redRiftIcon = miscIconInit('redRift', {
-    iconSize: [22, 48],
-    iconAnchor: [11, 24],
-    popupAnchor: [0, -30]
-});
-
-export const wunderFizzIcon = miscIconInit('wunderFizz')
-export const mysteryBoxIcon = miscIconInit('mysteryBox')
-export const arsenalIcon = miscIconInit('arsenal', { iconAnchor: [15, 30] })
-export const craftingTableIcon = miscIconInit('craftingTable', { iconAnchor: [15, 30] })
-export const wallbuyIcon = miscIconInit('wallBuy')
-export const ammoCrateIcon = miscIconInit('ammoCrate')
-export const ziplineIcon = miscIconInit('zipline')
-export const trialComputerIcon = miscIconInit('trialComputer')
-export const papMachineIcon = miscIconInit('papMachine')
+const customMiscIconBounds = {
+    [IconTypes.general]: {
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.radio]: {
+        iconSize: [39, 48],
+        iconAnchor: [19.5, 24],
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.rift]:
+    {
+        iconSize: [22, 48],
+        iconAnchor: [11, 24],
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.demented]: {
+        iconSize: [48, 48],
+        iconAnchor: [24, 24],
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.fishing]: {
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.monkey]: {
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.redRift]: {
+        iconSize: [22, 48],
+        iconAnchor: [11, 24],
+        popupAnchor: [0, -30]
+    },
+    [IconTypes.arsenal]: { iconAnchor: [15, 30] },
+    [IconTypes.craftingTable]: { iconAnchor: [15, 30] },
+}

@@ -1,8 +1,8 @@
 import L from 'leaflet'
 import { MapContainer } from 'react-leaflet'
 import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
-import Header from '../Header'
 import { DrawerMenu } from '../DrawerMenu'
+import Header from '../Header'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 

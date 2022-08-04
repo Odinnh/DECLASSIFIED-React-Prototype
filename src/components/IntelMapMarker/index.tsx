@@ -1,8 +1,8 @@
-import L, { DivIconOptions } from 'leaflet'
-import { Marker, Popup } from 'react-leaflet'
+import L, { DivIconOptions } from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
-import { Faction, IntelType } from '../../data/intel';
+import { Marker, Popup } from 'react-leaflet';
 import { IntelMarker } from '../../classes';
+import { Faction } from '../../data/intel';
 
 export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img }: IntelMarker) => {
     let imgSrc = img ? `https://i.imgur.com/${img}.jpg` : 'assets/img/intelScreenshot/placeholder.png';
@@ -10,9 +10,9 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
     const markerIcon = intelIconInit(faction, typeDesc);
 
     return (
-        (loc === null && loc === [0, 0]) ? <></> :
+        (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
             (
-                <Marker key={id} position={loc} icon={markerIcon}>
+                <Marker position={loc} icon={markerIcon}>
                     <Popup>
                         <>
                             <h1>{title}</h1>
@@ -41,7 +41,7 @@ const intelIconInit = (faction: Faction, type: string) => {
     var markerIcons: DivIconOptions = {
         html: ReactDOMServer.renderToString(
             <div>
-                <img className='icon' src={`/assets/img/type/${type}.png`}  alt="Icon" />
+                <img className='icon' src={`/assets/img/type/${type}.png`} alt="Icon" />
                 <img className='background' src={`/assets/img/markers/${faction}.png`} alt="Background" />
             </div>
 

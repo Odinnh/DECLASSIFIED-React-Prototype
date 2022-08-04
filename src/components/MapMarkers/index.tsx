@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { LayerGroup, LayersControl } from 'react-leaflet'
-import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
-import { IntelStore, IntelType } from '../../data/intel'
+import { useContext, useState } from 'react';
+import { LayerGroup, LayersControl } from 'react-leaflet';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { IntelStore, IntelType } from '../../data/intel';
 import { MiscStore } from '../../data/misc';
 import { IntelMapMarker } from '../IntelMapMarker';
 import { MiscMapMarker } from '../MiscMapMarker';
@@ -11,7 +11,7 @@ const renderIntelMapMarkers = (mapId: string, intelType: IntelType): JSX.Element
         return IntelStore
             .filter(intel => (intel.map === mapId && intel.typeDesc === intelType))
             .map(intel => {
-                return (<IntelMapMarker {...intel} />);
+                return (<IntelMapMarker key={intel.id} {...intel} />);
             });
     } else {
         return [<></>]
@@ -20,12 +20,8 @@ const renderIntelMapMarkers = (mapId: string, intelType: IntelType): JSX.Element
 
 const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
     if (mapId) {
-        console.log(mapId);
-        console.log(MiscStore);
-        
-        
-        return MiscStore[mapId].map(misc => {
-            return (<MiscMapMarker {...misc} />)
+        return MiscStore[mapId].map((misc, index) => {
+            return (<MiscMapMarker key={index} {...misc} />)
         });
 
     } else {
@@ -41,8 +37,6 @@ export const MapMarkers = () => {
     // ]
     const { currentMap } = useContext(DeclassifiedContext)
     const [isChecked, setIsChecked] = useState(true);
-
-    console.log(currentMap);
 
     return (
         <>

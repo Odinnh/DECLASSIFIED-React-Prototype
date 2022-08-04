@@ -1,5 +1,3 @@
-import { Accordion, AccordionSummary, Typography, AccordionDetails, AccordionActions, Button, CircularProgress } from '@mui/material'
-import React, { useState } from 'react'
 import styled from 'styled-components'
 import { IntelStore } from '../../data/intel'
 import { IntelListMenuItem } from '../IntelListMenuItem'
@@ -20,7 +18,7 @@ export const IntelList = () => {
         <StyledIntelList >
             {IntelStore
                 .map(intel => {
-                    return (<IntelListMenuItem {...intel} />);
+                    return (<IntelListMenuItem key={intel.id} {...intel} />);
                 })
             }
         </StyledIntelList>
