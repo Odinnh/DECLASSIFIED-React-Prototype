@@ -6,7 +6,7 @@ export const StyledIntelFilterMenu = styled.div`
   display: grid;
   justify-items: center;
   grid-template-columns: 50% 50%;
-  div {
+  .MuiFormControl-root {
     width: 100%;
   }
   .MuiInputLabel-root {

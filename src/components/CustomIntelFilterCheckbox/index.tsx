@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { Field } from 'formik';
+import styled from '@emotion/styled'
+import React from 'react'
 
 const StyledCustomIntelFilterCheckbox = styled.div`
     padding: 5px;
@@ -32,14 +32,12 @@ const StyledCustomIntelFilterCheckbox = styled.div`
     }
 `
 
-export const CustomIntelFilterCheckbox = ({ intelType, name }) => {
+export const CustomIntelFilterCheckbox = ({ intelType }) => {
     const imgSrc = (intelType).toLowerCase();
 
     return (
-        <StyledCustomIntelFilterCheckbox  >
-            <Field type="checkbox" name={name} value={intelType} />
-            <div className="container" >
-
+        <StyledCustomIntelFilterCheckbox>
+            <div className="container">
                 <label>{intelType}</label>
                 <img
                     src={require(`../../../src/assets/img/intelTypes/${imgSrc}.png`)}
