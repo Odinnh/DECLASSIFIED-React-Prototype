@@ -55,7 +55,6 @@ export const IntelFilterMenu = () => {
 
   return (
     <StyledIntelFilterMenu>
-      {/* CHANGE Formik TO THIS: https://react-hook-form.com/get-started */}
       <Formik
         initialValues={filterState}
         onSubmit={handleSubmit}
