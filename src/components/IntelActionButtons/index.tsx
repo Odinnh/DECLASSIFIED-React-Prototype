@@ -1,5 +1,6 @@
-import styled from '@emotion/styled'
-import { FormGroup, FormControlLabel, Switch } from '@mui/material'
+import styled from '@emotion/styled';
+import { FormControlLabel, FormGroup, Switch } from '@mui/material';
+import { useFormContext } from 'react-hook-form';
 
 const StyledFormGroup = styled(FormGroup)`
   display: flex;
@@ -7,10 +8,12 @@ const StyledFormGroup = styled(FormGroup)`
 `
 
 export const IntelActionButtons = () => {
+  const { register } = useFormContext();
+
   return (
     <StyledFormGroup>
-      <FormControlLabel control={<Switch />} label="Current Map Only" />
-      <FormControlLabel control={<Switch />} label="Hide Collected" />
+      <FormControlLabel {...register("currentMapOnly")} control={<Switch />} label="Current Map Only" />
+      <FormControlLabel {...register("hideCollected")} control={<Switch />} label="Hide Collected" />
     </StyledFormGroup>
   )
 }

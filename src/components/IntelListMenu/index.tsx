@@ -1,11 +1,13 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionDetails, AccordionSummary, TextField, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import FilterAltIcon from '@mui/icons-material/FilterAlt'
+import { Accordion, AccordionDetails, AccordionSummary, TextField } from '@mui/material'
+import { useState } from 'react'
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import { Faction, IntelType, Season } from '../../data/intel'
 import { IntelActionButtons } from '../IntelActionButtons'
 import { IntelFilterMenu } from '../IntelFilterMenu'
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
-const StyledExpandableMenu = styled.div`
+const StyledExpandableMenu = styled.form`
     display: grid;
     justify-items: center;
     background-color: var(--clr-grey-d);
@@ -19,27 +21,47 @@ const StyledAccordion = styled(Accordion)`
     box-shadow: none;
 `
 
+export type FormInputs = {
+    searchTerm: string,
+    seasons: Season[],
+    factions: Faction[],
+    intelTypes: IntelType[],
+    currentMapOnly: boolean,
+    hideCollected: boolean,
+};
+
 export const IntelListMenu = () => {
     const [expand, setExpand] = useState(false);
     const toggleAcordion = () => {
         setExpand((prev) => !prev);
     };
+    const methods = useForm<FormInputs>({
+        mode: "onChange"
+    });
+    const { register, handleSubmit, watch, trigger, formState: { errors } } = methods;
+    const onSubmit: SubmitHandler<FormInputs> = data => console.log(data);
+
+    console.log(watch());
+    
+    // watch((data, { name, type }) => console.log(data, name, type))
 
     return (
-        <StyledExpandableMenu>
-            <StyledAccordion expanded={expand}>
-                <AccordionSummary
-                    expandIcon={<FilterAltIcon onClick={toggleAcordion} />}
-                    aria-controls="intel-filter"
-                    id="intel-filter-header"
-                >
-                    <TextField id="intelSearch" label="Outlined" variant="outlined" />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <IntelFilterMenu />
-                </AccordionDetails>
-            </StyledAccordion>
-            <IntelActionButtons />
-        </StyledExpandableMenu>
+        <FormProvider {...methods} >
+            <StyledExpandableMenu onSubmit={handleSubmit(onSubmit)}>
+                <StyledAccordion expanded={expand}>
+                    <AccordionSummary
+                        expandIcon={<FilterAltIcon onClick={toggleAcordion} />}
+                        aria-controls="intel-filter"
+                        id="intel-filter-header"
+                    >
+                        <TextField id="intelSearch" label="Search Intel" variant="outlined" {...register("searchTerm")} />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <IntelFilterMenu />
+                    </AccordionDetails>
+                </StyledAccordion>
+                <IntelActionButtons />
+            </StyledExpandableMenu>
+        </FormProvider>
     )
 }

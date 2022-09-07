@@ -1,5 +1,6 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select, SelectChangeEvent, useTheme } from '@mui/material'
 import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { Faction, IntelType, Season } from '../../data/intel'
 import { CustomIntelFilterCheckbox } from '../CustomIntelFilterCheckbox'
 import { getStyles, MenuProps, StyledIntelFilterMenu } from './styles'
@@ -13,14 +14,9 @@ interface FilterState {
 
 export const IntelFilterMenu = () => {
   const theme = useTheme();
+  const { register, watch } = useFormContext();
   const [season, setSeason] = useState<string[]>([]);
   const [faction, setFaction] = useState<string[]>([]);
-  const [filterState, setFilterState] = useState<FilterState>({
-    searchText: '',
-    seasons: [],
-    factions: [],
-    intelTypes: []
-  });
 
   const handleSeasonChange = (event: SelectChangeEvent<typeof season>) => {
     const {
@@ -49,6 +45,7 @@ export const IntelFilterMenu = () => {
       <FormControl>
         <InputLabel id="season-filter-label">Seasons</InputLabel>
         <Select
+          {...register("seasons")}
           label="Seasons"
           labelId="season-filter-label"
           id="season-filter"
@@ -79,6 +76,7 @@ export const IntelFilterMenu = () => {
       <FormControl>
         <InputLabel id="faction-filter-label">Factions</InputLabel>
         <Select
+          {...register("factions")}
           label="Factions But longer and lets see if it changes"
           labelId="faction-filter-label"
           id="faction-filter"
@@ -106,10 +104,18 @@ export const IntelFilterMenu = () => {
           ))}
         </Select>
       </FormControl>
+      {["Audio", "Docs", "Radio", "Artifact"].map((value) => (
+        <input
+          key={value}
+          type="checkbox"
+          value={value}
+          {...register("test")}
+        />
+      ))}
       {intelTypes.map((intelTypeItem) => (
         <CustomIntelFilterCheckbox
-          key={intelTypeItem}
-          intelType={intelTypeItem}
+          name={intelTypeItem}
+          defaultChecked={false}
         />
       ))}
     </StyledIntelFilterMenu>
