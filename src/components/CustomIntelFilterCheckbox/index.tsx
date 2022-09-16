@@ -82,40 +82,45 @@ type PropsType = {
     label, name, value, onChange, defaultChecked
 }
 
-export const CustomIntelFilterCheckbox = ({ name, defaultChecked, ...rest }) => {
+export const CustomIntelFilterCheckbox = ({ intelType, name, defaultChecked, ...rest }) => {
     const { register, watch } = useFormContext();
     const imgSrc = (name).toLowerCase();
     const [checked, setChecked] = React.useState(defaultChecked || false);
 
     // console.log({value});
-    
-    
+
+
     return (
-        <StyledCustomIntelFilterCheckbox onClick={() => setChecked(!checked)} style={{ cursor: "pointer" }} >
+        <>
+
             <input
                 style={{ display: "none" }}
-                // {...register("intelTypes")}
-                key={name}
+                // key={name}
                 type="checkbox"
-                value={name}
-                // name={name}
-                // checked={checked}
-                // onChange={e => {
-                //     setChecked(e.target.checked);
-                // }}
+                // value={name}
+                {...rest}
+            // {...register("tester")}
+            // name={name}
+            // checked={checked}
+            // onChange={e => {
+            //     setChecked(e.target.checked);
+            // }}
             />
-            <div className={`container ${checked ? "checked" : ""}`}>
-                <label>{name}</label>
-                <img
-                    src={require(`../../../src/assets/img/intelTypes/${imgSrc}.png`)}
-                    alt='Placeholder'
-                    loading="lazy"
-                />
-                <div className="intel-count">
-                    10
-                    /105
+            <StyledCustomIntelFilterCheckbox onClick={() => setChecked(!checked)} style={{ cursor: "pointer" }} >
+
+                <div className={`container ${checked ? "checked" : ""}`}>
+                    <label>{name}</label>
+                    <img
+                        src={require(`../../../src/assets/img/intelTypes/${imgSrc}.png`)}
+                        alt='Placeholder'
+                        loading="lazy"
+                    />
+                    <div className="intel-count">
+                        10
+                        /105
+                    </div>
                 </div>
-            </div>
-        </StyledCustomIntelFilterCheckbox>
+            </StyledCustomIntelFilterCheckbox>
+        </>
     );
 }

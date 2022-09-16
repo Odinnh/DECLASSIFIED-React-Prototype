@@ -112,10 +112,11 @@ export const IntelFilterMenu = () => {
           {...register("test")}
         />
       ))}
-      {intelTypes.map((intelTypeItem) => (
+      {["Audio", "Docs", "Radio", "Artifact"].map((intelTypeItem) => (
         <CustomIntelFilterCheckbox
-          name={intelTypeItem}
+          intelType={intelTypeItem}
           defaultChecked={false}
+          {...register("tester")}
         />
       ))}
     </StyledIntelFilterMenu>
