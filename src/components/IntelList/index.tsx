@@ -4,7 +4,6 @@ import { IntelListMenuItem } from '../IntelListMenuItem'
 
 
 const StyledIntelList = styled.div`
-    background-color: var(--clr-grey-d);
     padding: 10px;
 `
 
@@ -12,12 +11,12 @@ const StyledIntelList = styled.div`
 
 export const IntelList = () => {
     // .filter(intel => (intel.map === mapId))
-
+    var renderList = IntelStore.slice(0, 10);
 
     return (
         <StyledIntelList >
-            {IntelStore
-                .map(intel => {
+            {
+                renderList.map(intel => {
                     return (<IntelListMenuItem key={intel.id} {...intel} />);
                 })
             }

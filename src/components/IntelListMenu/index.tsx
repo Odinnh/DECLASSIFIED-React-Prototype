@@ -36,13 +36,25 @@ export const IntelListMenu = () => {
         setExpand((prev) => !prev);
     };
     const methods = useForm<FormInputs>({
-        mode: "onChange"
+        defaultValues: {
+            searchTerm: "",
+            seasons: [],
+            factions: [],
+            intelTypes: [],
+            currentMapOnly: false,
+            hideCollected: false
+        }
     });
-    const { register, handleSubmit, watch, trigger, formState: { errors } } = methods;
-    const onSubmit: SubmitHandler<FormInputs> = data => console.log(data);
+    const { register, handleSubmit, watch, trigger, formState, formState: { isValidating } } = methods;
+    const onSubmit: SubmitHandler<FormInputs> = data => {
 
-    console.log(watch());
-    
+        console.log("SUBMIT: ", { data });
+    }
+
+    watch((data, { name, type }) => handleSubmit(onSubmit)())
+
+    // console.log(watch());
+
     // watch((data, { name, type }) => console.log(data, name, type))
 
     return (

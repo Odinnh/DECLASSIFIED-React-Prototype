@@ -104,21 +104,15 @@ export const IntelFilterMenu = () => {
           ))}
         </Select>
       </FormControl>
-      {["Audio", "Docs", "Radio", "Artifact"].map((value) => (
-        <input
-          key={value}
-          type="checkbox"
-          value={value}
-          {...register("test")}
-        />
-      ))}
-      {["Audio", "Docs", "Radio", "Artifact"].map((intelTypeItem) => (
+      {intelTypes.map((intelTypeItem) => (
         <CustomIntelFilterCheckbox
-          intelType={intelTypeItem}
+          key={intelTypeItem}
+          name={intelTypeItem}
           defaultChecked={false}
-          {...register("tester")}
         />
       ))}
+
+<input type="submit" />
     </StyledIntelFilterMenu>
   )
 }

@@ -17,6 +17,7 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)`
     }
 `
 const StyledIntelFilter = styled.div`
+    background-color: var(--clr-grey-d);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

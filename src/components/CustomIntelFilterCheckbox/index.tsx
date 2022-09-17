@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 const StyledCustomIntelFilterCheckbox = styled.div`
@@ -82,10 +82,12 @@ type PropsType = {
     label, name, value, onChange, defaultChecked
 }
 
-export const CustomIntelFilterCheckbox = ({ intelType, name, defaultChecked, ...rest }) => {
-    const { register, watch } = useFormContext();
+export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
+    const { register, trigger, getValues, setValue } = useFormContext();
     const imgSrc = (name).toLowerCase();
     const [checked, setChecked] = React.useState(defaultChecked || false);
+    const checkbox = useRef<HTMLInputElement | null>(null);
+    const { ref, ...rest } = register('intelTypes');
 
     // console.log({value});
 
@@ -95,18 +97,36 @@ export const CustomIntelFilterCheckbox = ({ intelType, name, defaultChecked, ...
 
             <input
                 style={{ display: "none" }}
-                // key={name}
+                key={name}
                 type="checkbox"
-                // value={name}
+                value={name}
                 {...rest}
-            // {...register("tester")}
-            // name={name}
-            // checked={checked}
-            // onChange={e => {
-            //     setChecked(e.target.checked);
-            // }}
+                ref={(e) => {
+                    ref(e)
+                    checkbox.current = e
+                }}
+                name={"intelTypes"}
             />
-            <StyledCustomIntelFilterCheckbox onClick={() => setChecked(!checked)} style={{ cursor: "pointer" }} >
+            <StyledCustomIntelFilterCheckbox onClick={() => {
+                const isChecked = !checkbox.current!.checked;
+                checkbox.current!.checked = isChecked
+
+                setChecked(isChecked);
+                const currentArray = getValues('intelTypes');
+                console.log({ currentArray });
+
+                if (isChecked) {
+                    currentArray.push(name)
+                    setValue('intelTypes', currentArray)
+                }
+                else {
+                    const index = currentArray.indexOf(name);
+                    if (index > -1) {
+                        currentArray.splice(index, 1);
+                    }
+                    setValue('intelTypes', currentArray)
+                }
+            }} style={{ cursor: "pointer" }} >
 
                 <div className={`container ${checked ? "checked" : ""}`}>
                     <label>{name}</label>
