@@ -12,7 +12,7 @@ interface FilterState {
   intelTypes: IntelType[];
 }
 
-export const IntelFilterMenu = ({onSubmit}) => {
+export const IntelFilterMenu = () => {
   const theme = useTheme();
   const { register, setValue } = useFormContext();
   const [season, setSeason] = useState<string[]>([]);

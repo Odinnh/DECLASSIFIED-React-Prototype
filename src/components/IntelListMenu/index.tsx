@@ -69,7 +69,7 @@ export const IntelListMenu = () => {
                         <TextField id="intelSearch" label="Search Intel" variant="outlined" {...register("searchTerm")} />
                     </AccordionSummary>
                     <AccordionDetails>
-                        <IntelFilterMenu onSubmit={onSubmit} />
+                        <IntelFilterMenu />
                     </AccordionDetails>
                 </StyledAccordion>
                 <IntelActionButtons />
