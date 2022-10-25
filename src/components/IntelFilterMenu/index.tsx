@@ -111,8 +111,6 @@ export const IntelFilterMenu = () => {
           defaultChecked={false}
         />
       ))}
-
-<input type="submit" />
     </StyledIntelFilterMenu>
   )
 }

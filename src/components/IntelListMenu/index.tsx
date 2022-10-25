@@ -48,6 +48,8 @@ export const IntelListMenu = () => {
     const { register, handleSubmit, watch, trigger, formState, formState: { isValidating } } = methods;
     const onSubmit: SubmitHandler<FormInputs> = data => {
 
+        // TODO: set filter value in context
+
         console.log("SUBMIT: ", data);
     }
 
