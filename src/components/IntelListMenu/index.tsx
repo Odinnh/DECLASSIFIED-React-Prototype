@@ -48,7 +48,7 @@ export const IntelListMenu = () => {
     const { register, handleSubmit, watch, trigger, formState, formState: { isValidating } } = methods;
     const onSubmit: SubmitHandler<FormInputs> = data => {
 
-        console.log("SUBMIT: ", { data });
+        console.log("SUBMIT: ", data);
     }
 
     watch((data, { name, type }) => handleSubmit(onSubmit)())
@@ -69,7 +69,7 @@ export const IntelListMenu = () => {
                         <TextField id="intelSearch" label="Search Intel" variant="outlined" {...register("searchTerm")} />
                     </AccordionSummary>
                     <AccordionDetails>
-                        <IntelFilterMenu />
+                        <IntelFilterMenu onSubmit={onSubmit} />
                     </AccordionDetails>
                 </StyledAccordion>
                 <IntelActionButtons />

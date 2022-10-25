@@ -12,9 +12,9 @@ interface FilterState {
   intelTypes: IntelType[];
 }
 
-export const IntelFilterMenu = () => {
+export const IntelFilterMenu = ({onSubmit}) => {
   const theme = useTheme();
-  const { register, watch } = useFormContext();
+  const { register, setValue } = useFormContext();
   const [season, setSeason] = useState<string[]>([]);
   const [faction, setFaction] = useState<string[]>([]);
 
@@ -22,19 +22,19 @@ export const IntelFilterMenu = () => {
     const {
       target: { value },
     } = event;
-    setSeason(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    // On autofill we get a stringified value.
+    const newArr = typeof value === 'string' ? value.split(',') : value
+    setValue('seasons', newArr)
+    setSeason(newArr);
   };
-  const handleFactionChange = (event: SelectChangeEvent<typeof season>) => {
+  const handleFactionChange = (event: SelectChangeEvent<typeof faction>) => {
     const {
       target: { value },
     } = event;
-    setFaction(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    // On autofill we get a stringified value.
+    const newArr = typeof value === 'string' ? value.split(',') : value
+    setValue('factions', newArr)
+    setFaction(newArr);
   };
   const seasons = Object.values(Season);
   const factions = Object.values(Faction);
