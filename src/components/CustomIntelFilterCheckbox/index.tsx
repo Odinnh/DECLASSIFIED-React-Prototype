@@ -36,61 +36,12 @@ const StyledCustomIntelFilterCheckbox = styled.div`
     }
 `
 
-// export const CustomIntelFilterCheckbox = ({ intelType }) => {
-//     const imgSrc = (intelType).toLowerCase();
-
-//     return (
-//         <StyledCustomIntelFilterCheckbox>
-//             <div className="container">
-//                 <label>{intelType}</label>
-//                 <img
-//                     src={require(`../../../src/assets/img/intelTypes/${imgSrc}.png`)}
-//                     alt='Placeholder'
-//                     loading="lazy"
-//                 />
-//                 <div className="intel-count">
-//                     10
-//                     /105
-//                 </div>
-//             </div>
-//         </StyledCustomIntelFilterCheckbox>
-//     )
-// }
-function useCombinedRefs(...refs) {
-    const targetRef = React.useRef();
-
-    React.useEffect(() => {
-        refs.forEach(ref => {
-            if (!ref) return;
-
-            if (typeof ref === "function") {
-                ref(targetRef.current);
-            } else {
-                ref.current = targetRef.current;
-            }
-        });
-    }, [refs]);
-
-    return targetRef;
-}
-
-type RefType = {
-
-}
-
-type PropsType = {
-    label, name, value, onChange, defaultChecked
-}
-
 export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
-    const { register, trigger, getValues, setValue } = useFormContext();
+    const { register, getValues, setValue } = useFormContext();
     const imgSrc = (name).toLowerCase();
     const [checked, setChecked] = React.useState(defaultChecked || false);
     const checkbox = useRef<HTMLInputElement | null>(null);
     const { ref, ...rest } = register('intelTypes');
-
-    // console.log({value});
-
 
     return (
         <>
