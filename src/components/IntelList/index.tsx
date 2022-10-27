@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
-import { IntelStore } from '../../data/intel'
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
+import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
 import { IntelListMenuItem } from '../IntelListMenuItem'
 
 
@@ -10,9 +12,21 @@ const StyledIntelList = styled.div`
 
 
 export const IntelList = () => {
+    const { currentIntelFilter } = useContext(DeclassifiedContext);
     // .filter(intel => (intel.map === mapId))
-    var renderList = IntelStore.slice(0, 10);
 
+
+    var renderList = filterIntel(
+        IntelStore,
+        currentIntelFilter.searchTerm,
+        currentIntelFilter.factions,
+        currentIntelFilter.seasons,
+        currentIntelFilter.intelTypes,
+        currentIntelFilter.currentMapOnly,
+        currentIntelFilter.hideCollected)
+
+        console.log(renderList);
+        
     return (
         <StyledIntelList >
             {
@@ -22,4 +36,53 @@ export const IntelList = () => {
             }
         </StyledIntelList>
     )
+}
+
+function filterIntel(intelCache: IntelItem[],
+    searchTermDirty: string,
+    factionsArr: Faction[] = [],
+    seasonsArr: Season[] = [],
+    intelTypeArr: IntelType[] = [],
+    currentMapOnly: boolean,
+    hideCollected = true) {
+    let results = intelCache;
+    
+    
+    let searchTerm = searchTermDirty.trim().toLowerCase()
+    results = results.filter((intel) => {
+        return intel.title.toLowerCase().indexOf(searchTerm.trim().toLowerCase()) !== -1
+    });
+    
+    if (factionsArr.some(item => item)) {
+        results = results.filter((intel) => {
+            return factionsArr.includes(intel.faction);
+        });
+    }
+
+    if (seasonsArr.some(item => item)) {
+        results = results.filter((intel) => {
+            return seasonsArr.includes(intel.season);
+        });
+    }
+
+    if (intelTypeArr.some(item => item)) {
+        results = results.filter((intel) => {
+            return intelTypeArr.includes(intel.typeDesc);
+        });
+    }
+    
+    // if currentMapOnly then get current map ids and filter
+    // if (mapArr.some(item => item)) {
+        //     results = results.filter((intel) => {
+            //         return mapArr.includes(intel.map) || intel.map == mapDetails.allOutbreakMaps.id && mapArr.some((e) => { return allOutbreakMapsArr.includes(e) });
+            //     });
+            // }
+            
+    if (hideCollected) {
+        results = results.filter((intel) => {
+            return intel.isCollected;
+        });
+    }
+    console.log({seasonsArr, intelTypeArr, results});
+    return results;
 }

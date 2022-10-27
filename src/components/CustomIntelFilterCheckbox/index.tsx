@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React, { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { IntelType } from '../../data/intel';
 
 const StyledCustomIntelFilterCheckbox = styled.div`
     padding: 5px;
@@ -39,6 +40,7 @@ const StyledCustomIntelFilterCheckbox = styled.div`
 export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
     const { register, getValues, setValue } = useFormContext();
     const imgSrc = (name).toLowerCase();
+    const value = IntelType[name];
     const [checked, setChecked] = React.useState(defaultChecked || false);
     const checkbox = useRef<HTMLInputElement | null>(null);
     const { ref, ...rest } = register('intelTypes');
@@ -48,9 +50,9 @@ export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
 
             <input
                 style={{ display: "none" }}
-                key={name}
+                key={value}
                 type="checkbox"
-                value={name}
+                value={value}
                 {...rest}
                 ref={(e) => {
                     ref(e)
@@ -67,11 +69,11 @@ export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
                 console.log({ currentArray });
 
                 if (isChecked) {
-                    currentArray.push(name)
+                    currentArray.push(value)
                     setValue('intelTypes', currentArray)
                 }
                 else {
-                    const index = currentArray.indexOf(name);
+                    const index = currentArray.indexOf(value);
                     if (index > -1) {
                         currentArray.splice(index, 1);
                     }

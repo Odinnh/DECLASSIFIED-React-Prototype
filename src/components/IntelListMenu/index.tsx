@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import { Accordion, AccordionDetails, AccordionSummary, TextField } from '@mui/material'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelType, Season } from '../../data/intel'
 import { IntelActionButtons } from '../IntelActionButtons'
 import { IntelFilterMenu } from '../IntelFilterMenu'
@@ -31,25 +32,19 @@ export type FormInputs = {
 };
 
 export const IntelListMenu = () => {
+    const { currentIntelFilter, setCurrentIntelFilter } = useContext(DeclassifiedContext);
     const [expand, setExpand] = useState(false);
     const toggleAcordion = () => {
         setExpand((prev) => !prev);
     };
     const methods = useForm<FormInputs>({
-        defaultValues: {
-            searchTerm: "",
-            seasons: [],
-            factions: [],
-            intelTypes: [],
-            currentMapOnly: false,
-            hideCollected: false
-        }
+        defaultValues: currentIntelFilter
     });
     const { register, handleSubmit, watch, trigger, formState, formState: { isValidating } } = methods;
     const onSubmit: SubmitHandler<FormInputs> = data => {
 
         // TODO: set filter value in context
-
+        setCurrentIntelFilter(data);
         console.log("SUBMIT: ", data);
     }
 
@@ -79,3 +74,14 @@ export const IntelListMenu = () => {
         </FormProvider>
     )
 }
+export function getIntelFilterDefaults(): FormInputs {
+    return {
+        searchTerm: "",
+        seasons: [],
+        factions: [],
+        intelTypes: [],
+        currentMapOnly: false,
+        hideCollected: false
+    }
+}
+

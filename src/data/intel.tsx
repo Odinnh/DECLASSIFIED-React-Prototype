@@ -98,7 +98,7 @@ export enum IconTypes {
     wallbuy = "wallbuy",
     wunderFizz = "wunder_fizz",
     zipline = "zipline",
-    
+
     staminUp = "stamin_up",
     quickRevive = "quick_revive",
     juggernog = "juggernog",
@@ -111,19 +111,48 @@ export enum IconTypes {
     phdSlider = "phd_slider",
 }
 
-export interface IntelItem {
-    id: string;
-    faction: Faction;
-    season: Season;
-    typeDesc: IntelType;
-    loc: LatLngExpression;
-    map: string | undefined;
-    title: string;
-    desc: string;
-    img?: string;
+export interface IIntelItem {
+    readonly id: string;
+    readonly faction: Faction;
+    readonly season: Season;
+    readonly typeDesc: IntelType;
+    readonly loc: LatLngExpression;
+    readonly map: string | undefined;
+    readonly title: string;
+    readonly desc: string;
+    readonly img?: string;
 }
 
-export const IntelStore: IntelItem[] = [
+export class IntelItem implements IIntelItem {
+    id!: string;
+    faction!: Faction;
+    season!: Season;
+    typeDesc!: IntelType;
+    loc!: LatLngExpression;
+    map!: string | undefined;
+    title!: string;
+    desc!: string;
+    img?: string | undefined;
+
+    constructor(id, faction, season, typeDesc, loc, map, title, desc, img = "") {
+        this.id = id;
+        this.faction = faction;
+        this.season = season;
+        this.typeDesc = typeDesc;
+        this.loc = loc;
+        this.map = map;
+        this.title = title;
+        this.desc = desc;
+        this.img = img;
+    }
+
+
+    get isCollected(): boolean {
+        return false;
+    }
+}
+
+const staticIntelStore: IIntelItem[] = [
     /////////////////////Requiem/////////////////////////
     {
         id: "RS0Au1",
@@ -5601,6 +5630,16 @@ export const IntelStore: IntelItem[] = [
         desc: DefaultPOIData.onslaught,
     },
 ]
+
+function getIntelStore(intelStore: IIntelItem[]): IntelItem[] {
+    var intelListComputed: IntelItem[] = [];
+    intelStore.forEach(intel => {
+        intelListComputed.push(new IntelItem(intel.id, intel.faction, intel.season, intel.typeDesc, intel.loc, intel.map, intel.title, intel.desc, intel.img));
+    });
+    return intelListComputed;
+};
+
+export const IntelStore: IntelItem[] = getIntelStore(staticIntelStore);
 
 //Needed to parse location back from a string.
 /* export const IntelCache = IntelStore.slice();

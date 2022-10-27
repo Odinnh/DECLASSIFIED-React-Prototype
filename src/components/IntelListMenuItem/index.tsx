@@ -1,13 +1,13 @@
-import styled from '@emotion/styled'
-import { Accordion, Typography, Button, AccordionDetails, AccordionSummary } from '@mui/material'
-import { CustomImage } from '../CustomImage'
+import styled from '@emotion/styled';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ShareIcon from '@mui/icons-material/Share';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import { IntelItem } from '../../data/intel';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material';
 import { useState } from 'react';
+import { IIntelItem } from '../../data/intel';
+import { CustomImage } from '../CustomImage';
 
 const StyledIntelActionContainer = styled.div`
     display: flex;
@@ -39,8 +39,7 @@ export const IntelListMenuItem = ({
     title,
     desc,
     img = undefined
-
-}: IntelItem) => {
+}: IIntelItem) => {
     const [expanded, setExpanded] = useState(false);
 
 
