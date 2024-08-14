@@ -13,7 +13,7 @@ const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
     &&&{
         color: var(--clr-color);
         width: 100vw;
-        height: ${props => props.$isMobile ? "100vh" : "100vh"};
+        height: ${props => props.$isMobile ? "100svh" : "100svh"};
         z-index: var(--z-index-map);
         cursor: crosshair;
         /* display: block; */
@@ -28,7 +28,8 @@ const MapProvider = () => {
     const { isMobile } = useContext(UserContext);
 
     return (
-        <StyledMapContainer $isMobile={isMobile} id={"worldMap"}
+        <StyledMapContainer $isMobile={isMobile} 
+            id={"worldMap"}
             center={[256, 256]}
             zoom={0.8}
             scrollWheelZoom={true}
