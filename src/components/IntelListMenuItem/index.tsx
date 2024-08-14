@@ -48,7 +48,7 @@ export const IntelListMenuItem = ({
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="intel-item"
-                id="intel-item-header"
+                className="intel-item-header"
             >
                 <Typography>{title}</Typography>
             </AccordionSummary>
