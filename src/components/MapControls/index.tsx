@@ -6,7 +6,7 @@ import { MapMarkers } from '../MapMarkers';
 export const MapControls = () => {
     const { currentMap, currentMapGroup } = useContext(DeclassifiedContext)
     return (
-        <LayersControl position="topright">
+        <LayersControl position="topright" collapsed={false} >
             {currentMapGroup.mapLayers.map(mapLayer =>
                 <LayersControl.BaseLayer
                     key={`layer-${mapLayer.id}`}
