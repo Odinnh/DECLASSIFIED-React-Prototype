@@ -7,6 +7,7 @@ import { MapItem } from '../../classes'
 
 
 const StyledIntelList = styled.div`
+    background-color: var(--clr-grey-d);
     padding: 10px;
 `
 
