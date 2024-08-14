@@ -1,4 +1,5 @@
 import MapProvider from './components/Map';
+import { UserContextProvider } from './contexts/DeclassifiedContext/userContextProvider';
 import { BaseLayout } from './pages/layouts/BaseLayout';
 
 function App() {
@@ -6,7 +7,9 @@ function App() {
 
   return (
     <BaseLayout>
-      <MapProvider />
+      <UserContextProvider>
+        <MapProvider />
+      </UserContextProvider>
     </BaseLayout>
   );
 }

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAdd, faMinus, faFolderOpen, faGear  } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import styled from '@emotion/styled';
+import { UserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
 
 const StyledUiContainer = styled.div<{ $isMobile? : boolean }>`
     display: flex;
@@ -12,7 +13,7 @@ const StyledUiContainer = styled.div<{ $isMobile? : boolean }>`
     justify-content: space-between;
     position: absolute;
     width: 100vw;
-    height:100vh;
+    height: ${props => props.$isMobile ? "90vh" : "100vh"};
     bottom: 0;
     padding: 20px;
     z-index: var(--z-index-ui);
@@ -25,7 +26,8 @@ const StyledUiContainer = styled.div<{ $isMobile? : boolean }>`
 `
 
 export const UserInterface = () => {
-    const { toggleDrawer, isMobile } = useContext(DeclassifiedContext);
+    const { toggleDrawer } = useContext(DeclassifiedContext);
+    const { isMobile } = useContext(UserContext);
     const mapInstance = useMapEvents({});
 
     return (

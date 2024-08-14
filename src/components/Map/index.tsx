@@ -1,17 +1,19 @@
 import L from 'leaflet'
 import { MapContainer } from 'react-leaflet'
-import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { DrawerMenu } from '../DrawerMenu'
 import Header from '../Header'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 import styled from '@emotion/styled'
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/DeclassifiedContext/userContextProvider'
+import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 
-const StyledMapContainer = styled(MapContainer)`
+const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
     &&&{
         color: var(--clr-color);
         width: 100vw;
-        height: 95vh;
+        height: ${props => props.$isMobile ? "90vh" : "100vh"};
         z-index: var(--z-index-map);
         cursor: crosshair;
         display: block;
@@ -23,9 +25,10 @@ const StyledMapContainer = styled(MapContainer)`
 `
 
 const MapProvider = () => {
+    const { isMobile } = useContext(UserContext);
 
     return (
-        <StyledMapContainer id={"worldMap"}
+        <StyledMapContainer $isMobile={isMobile} id={"worldMap"}
             center={[256, 256]}
             zoom={0.8}
             scrollWheelZoom={true}
