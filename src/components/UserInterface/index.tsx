@@ -13,7 +13,7 @@ const StyledUiContainer = styled.div<{ $isMobile? : boolean }>`
     justify-content: space-between;
     position: absolute;
     width: 100vw;
-    height: ${props => props.$isMobile ? "90vh" : "100vh"};
+    height: 100svh;
     bottom: 0;
     padding: 20px;
     z-index: var(--z-index-ui);
@@ -22,6 +22,10 @@ const StyledUiContainer = styled.div<{ $isMobile? : boolean }>`
     >div{
     display:flex;
     justify-content: ${props => props.$isMobile ? "flex-start" : "space-between"};
+
+    .zoom-container {
+        visibility: ${props => props.$isMobile ? "hidden" : "visible"};
+    }
     }
 `
 
