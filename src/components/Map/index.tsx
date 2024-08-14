@@ -5,11 +5,26 @@ import { DrawerMenu } from '../DrawerMenu'
 import Header from '../Header'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
+import styled from '@emotion/styled'
+
+const StyledMapContainer = styled(MapContainer)`
+    color: var(--clr-color);
+    width: 100vw;
+    height: 95vh;
+    z-index: var(--z-index-map);
+    cursor: crosshair;
+    display: block;
+    grid-column: 1;
+    cursor: crosshair;
+    float: right;
+    z-index: 0;
+    background-color: var(--svg-background);
+`
 
 const MapProvider = () => {
     
     return (
-        <MapContainer id={"worldMap"}
+        <StyledMapContainer id={"worldMap"}
             center={[256, 256]}
             zoom={0.8}
             scrollWheelZoom={true}
@@ -36,7 +51,7 @@ const MapProvider = () => {
                 <UserInterface />
                 <DrawerMenu />
             </DeclassifiedContextProvider>
-        </MapContainer>
+        </StyledMapContainer>
     )
 }
 

@@ -20,18 +20,6 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-#worldMap {
-  color: var(--clr-color);
-  width: 100vw;
-  height: 100vh;
-  z-index: var(--z-index-map);
-  cursor: crosshair;
-}
-
-#worldMap {
-  background-color: var(--svg-background);
-}
-
 header {
   user-select: none;
   margin: 0 auto;
