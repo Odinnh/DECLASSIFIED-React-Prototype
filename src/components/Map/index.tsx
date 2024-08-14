@@ -13,11 +13,11 @@ const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
     &&&{
         color: var(--clr-color);
         width: 100vw;
-        height: ${props => props.$isMobile ? "100svh" : "100svh"};
+        height: 100svh;
         z-index: var(--z-index-map);
         cursor: crosshair;
-        /* display: block; */
-        /* grid-column: 1; */
+        display: block;
+        grid-column: 1;
         float: right;
         z-index: 0;
         background-color: var(--svg-background);
@@ -50,12 +50,12 @@ const MapProvider = () => {
             zoomSnap={0}
             maxBoundsViscosity={1.0}
         >
-            {/* <DeclassifiedContextProvider>
+            <DeclassifiedContextProvider>
                 <Header />
                 <MapControls />
                 <UserInterface />
                 <DrawerMenu />
-            </DeclassifiedContextProvider> */}
+            </DeclassifiedContextProvider>
         </StyledMapContainer>
     )
 }
