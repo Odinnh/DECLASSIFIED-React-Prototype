@@ -1,4 +1,3 @@
-import './App.css';
 import MapProvider from './components/Map';
 import { BaseLayout } from './pages/layouts/BaseLayout';
 

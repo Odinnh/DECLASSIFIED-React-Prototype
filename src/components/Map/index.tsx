@@ -8,21 +8,22 @@ import { UserInterface } from '../UserInterface'
 import styled from '@emotion/styled'
 
 const StyledMapContainer = styled(MapContainer)`
-    color: var(--clr-color);
-    width: 100vw;
-    height: 95vh;
-    z-index: var(--z-index-map);
-    cursor: crosshair;
-    display: block;
-    grid-column: 1;
-    cursor: crosshair;
-    float: right;
-    z-index: 0;
-    background-color: var(--svg-background);
+    &&&{
+        color: var(--clr-color);
+        width: 100vw;
+        height: 95vh;
+        z-index: var(--z-index-map);
+        cursor: crosshair;
+        display: block;
+        grid-column: 1;
+        float: right;
+        z-index: 0;
+        background-color: var(--svg-background);
+    }
 `
 
 const MapProvider = () => {
-    
+
     return (
         <StyledMapContainer id={"worldMap"}
             center={[256, 256]}

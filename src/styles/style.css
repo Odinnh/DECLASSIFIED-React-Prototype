@@ -410,9 +410,7 @@ select.faction-list>option:hover {
   color: var(--clr-red);
 }
 
-.leaflet-container a.btn.ui {
-  color: var(--clr-color-inverted);
-}
+
 
 html, body {
   margin: 0;
