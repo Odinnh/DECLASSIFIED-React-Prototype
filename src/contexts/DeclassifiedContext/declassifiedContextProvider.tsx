@@ -3,15 +3,18 @@ import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapItem } from "../../classes";
 import { FormInputs, getIntelFilterDefaults } from "../../components/IntelListMenu";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
-import { IntelItem } from "../../data/intel";
+import { IntelItem, MapIds } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db, DeclassifiedUserPreferences } from "../../data/db";
+import { getUserPreferences } from "../../data/dataAccessLayer";
 
 const initialContextValues =  {
     userPrefs: {},
     currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
     setCurrentMap: () => { },
-    currentMapGroup: MapGroupings[0] /* TODO: SWAP WITH USER PREFS */,
+    currentMapGroup: MapGroupings["dieMachine_Group"] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
     filteredIntelStore: [],
     setFilteredIntelStore: () => {},
@@ -29,18 +32,15 @@ export const DeclassifiedContextProvider = ({ children }) => {
     if(localStorage.getItem("declassifiedPrefs") !== null){
         // They still have old userPrefs
 
-        // Map old user prefs to new, delete old prefs? (probably not)
+        // if any user prefs exist map them to new instance of userPrefs
+        // don't replace any missing values with default values (assume defaults only store if different?)
+        // set mapped userPrefs into Dexie
     }
 
-    // if any user prefs exist map them to new instance of userPrefs
-
-    // don't replace any missing values with default values (assume defaults only store if different?)
-
-    // set userPrefs into local storage, ("declassifiedPrefsV2"?)
-
     var intelFilterDefaults = getIntelFilterDefaults();
+    const [userPrefs, setUserPreferences] = useState<DeclassifiedUserPreferences>();
     const [currentMap, setCurrentMap] = useState<MapItem>(MapDetails.dieMaschine);
-    const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings[0] /* TODO: SWAP WITH USER PREFS */);
+    const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem>(MapGroupings["dieMachine_Group"] /* TODO: SWAP WITH USER PREFS */);
     const mapInstance = useMapEvents({});
     const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
     const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(intelFilterDefaults);
@@ -69,11 +69,15 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
     useEffect(() => {
 
-        MapGroupings.forEach(mapGroup => {
-            if (mapGroup.mapLayers.includes(currentMap)) {
-                // console.log("FOUND GROUP: ", mapGroup);
+        const fetchPreferences = async () => {
+            const data = await getUserPreferences();
+            setUserPreferences(data);
+        };
+        fetchPreferences();
 
-                setCurrentMapGroup(mapGroup);
+        Object.entries(MapGroupings).forEach(([key, mapItem]) => {
+            if (mapItem.mapLayers.includes(currentMap)) {
+                setCurrentMapGroup(mapItem);
             }
         });
 
@@ -86,6 +90,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
 
     const context = {
+        userPrefs,
         currentMap,
         setCurrentMap,
         currentMapGroup,
