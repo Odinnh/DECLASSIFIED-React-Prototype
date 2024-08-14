@@ -38,7 +38,8 @@ export const IntelListMenu = () => {
         setExpand((prev) => !prev);
     };
     const methods = useForm<FormInputs>({
-        defaultValues: currentIntelFilter
+        defaultValues: currentIntelFilter,
+        shouldUnregister: false,
     });
     const { register, handleSubmit, watch, trigger, formState, formState: { isValidating } } = methods;
     const onSubmit: SubmitHandler<FormInputs> = data => {
@@ -80,7 +81,7 @@ export function getIntelFilterDefaults(): FormInputs {
         seasons: [],
         factions: [],
         intelTypes: [],
-        currentMapOnly: false,
+        currentMapOnly: true,
         hideCollected: false
     }
 }
