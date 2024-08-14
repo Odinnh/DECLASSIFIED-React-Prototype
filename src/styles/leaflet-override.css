@@ -85,6 +85,6 @@
   z-index:1;
 }
 
-.leaflet-bottom.leaflet-right {
+.leaflet-control-attribution.leaflet-control {
   visibility: hidden;
 }

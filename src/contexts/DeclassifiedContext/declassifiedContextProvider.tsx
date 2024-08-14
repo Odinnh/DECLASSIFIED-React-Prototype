@@ -19,6 +19,7 @@ const initialContextValues =  {
     setCurrentIntelFilter: () => {},
     drawerState: false,
     toggleDrawer: () => () => {},
+    isMobile: window.innerWidth <= 768
 };
 
 export const DeclassifiedContext = createContext<DeclassifiedContextProps>(initialContextValues);
@@ -44,6 +45,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
     const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
     const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(intelFilterDefaults);
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
+    const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
 
     const toggleDrawer = (isOpen: boolean) =>
             (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -74,6 +76,11 @@ export const DeclassifiedContextProvider = ({ children }) => {
                 setCurrentMapGroup(mapGroup);
             }
         });
+
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
     }, [currentMap, mapInstance])
 
 
@@ -88,7 +95,8 @@ export const DeclassifiedContextProvider = ({ children }) => {
         currentIntelFilter,
         setCurrentIntelFilter,
         drawerState,
-        toggleDrawer
+        toggleDrawer,
+        isMobile
     }
     return <DeclassifiedContext.Provider value={context}>{children}</DeclassifiedContext.Provider>;
 }

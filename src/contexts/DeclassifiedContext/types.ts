@@ -15,6 +15,7 @@ export interface DeclassifiedContextProps {
     setCurrentIntelFilter: Dispatch<SetStateAction<FormInputs>>;
     drawerState: boolean;
     toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+    isMobile: boolean;
 }
 
 export interface IntelContextProviderProps {

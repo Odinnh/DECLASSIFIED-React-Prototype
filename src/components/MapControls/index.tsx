@@ -4,9 +4,9 @@ import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassi
 import { MapMarkers } from '../MapMarkers';
 
 export const MapControls = () => {
-    const { currentMap, currentMapGroup } = useContext(DeclassifiedContext)
+    const { currentMap, currentMapGroup, isMobile } = useContext(DeclassifiedContext)
     return (
-        <LayersControl position="topright" collapsed={false} >
+        <LayersControl position={isMobile ? "bottomright" : "topright"} collapsed={isMobile} >
             {currentMapGroup.mapLayers.map(mapLayer =>
                 <LayersControl.BaseLayer
                     key={`layer-${mapLayer.id}`}

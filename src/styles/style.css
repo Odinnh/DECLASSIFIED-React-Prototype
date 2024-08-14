@@ -303,22 +303,6 @@ select.faction-list>option:hover {
   transform: matrix(0 -1 -1 0 0 0);
 }
 
-#ui {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  width: 100vw;
-  height:100vh;
-  bottom: 0;
-  padding: 20px;
-  z-index: var(--z-index-ui);
-  pointer-events: none;
-}
-#ui>div{
-  display:flex;
-  justify-content: space-between;
-}
 /*notification styling */
 
 #notification-popup {
