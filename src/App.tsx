@@ -6,11 +6,12 @@ function App() {
   document.body.classList.add('dark'); // TODO: remove this when re-working themes
 
   return (
-    <BaseLayout>
-      <UserContextProvider>
-        <MapProvider />
-      </UserContextProvider>
-    </BaseLayout>
+    <></>
+    // <BaseLayout>
+    //   <UserContextProvider>
+    //     <MapProvider />
+    //   </UserContextProvider>
+    // </BaseLayout>
   );
 }
 
