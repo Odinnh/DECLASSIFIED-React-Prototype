@@ -5,7 +5,7 @@ import { useContext, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelType, Season } from '../../data/intel'
-import { MenuFooter } from '../IntelActionButtons'
+import { MenuFooter } from '../MenuFooter'
 import { IntelFilterMenu } from '../IntelFilterMenu'
 
 const StyledExpandableMenu = styled.form`
