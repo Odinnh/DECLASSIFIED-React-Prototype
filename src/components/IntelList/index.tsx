@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
 import { IntelListMenuItem } from '../IntelListMenuItem'
+import { MapItem } from '../../classes'
 
 
 const StyledIntelList = styled.div`
@@ -12,11 +13,12 @@ const StyledIntelList = styled.div`
 
 
 export const IntelList = () => {
-    const { currentIntelFilter } = useContext(DeclassifiedContext);
+    const { currentMap, currentIntelFilter } = useContext(DeclassifiedContext);
     // .filter(intel => (intel.map === mapId))
 
 
     var renderList = filterIntel(
+        currentMap,
         IntelStore,
         currentIntelFilter.searchTerm,
         currentIntelFilter.factions,
@@ -38,7 +40,9 @@ export const IntelList = () => {
     )
 }
 
-function filterIntel(intelCache: IntelItem[],
+function filterIntel(
+    currentMap: MapItem,
+    intelCache: IntelItem[],
     searchTermDirty: string,
     factionsArr: Faction[] = [],
     seasonsArr: Season[] = [],
@@ -72,6 +76,11 @@ function filterIntel(intelCache: IntelItem[],
     }
     
     // if currentMapOnly then get current map ids and filter
+    if (currentMapOnly) {
+        results = results.filter((intel) => {
+            return intel.map === currentMap.id;
+        });
+    }
     // if (mapArr.some(item => item)) {
         //     results = results.filter((intel) => {
             //         return mapArr.includes(intel.map) || intel.map == mapDetails.allOutbreakMaps.id && mapArr.some((e) => { return allOutbreakMapsArr.includes(e) });

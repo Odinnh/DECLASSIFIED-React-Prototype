@@ -5,7 +5,7 @@ import { useContext, useState } from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelType, Season } from '../../data/intel'
-import { IntelActionButtons } from '../IntelActionButtons'
+import { MenuFooter } from '../IntelActionButtons'
 import { IntelFilterMenu } from '../IntelFilterMenu'
 
 const StyledExpandableMenu = styled.form`
@@ -69,7 +69,7 @@ export const IntelListMenu = () => {
                         <IntelFilterMenu />
                     </AccordionDetails>
                 </StyledAccordion>
-                <IntelActionButtons />
+                <MenuFooter />
             </StyledExpandableMenu>
         </FormProvider>
     )

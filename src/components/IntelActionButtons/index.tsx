@@ -7,7 +7,7 @@ const StyledFormGroup = styled(FormGroup)`
   flex-direction: row;
 `
 
-export const IntelActionButtons = () => {
+export const MenuFooter = () => {
   const { register } = useFormContext();
 
   return (
