@@ -49,12 +49,12 @@ const MapProvider = () => {
             zoomSnap={0}
             maxBoundsViscosity={1.0}
         >
-            <DeclassifiedContextProvider>
+            {/* <DeclassifiedContextProvider>
                 <Header />
                 <MapControls />
                 <UserInterface />
                 <DrawerMenu />
-            </DeclassifiedContextProvider>
+            </DeclassifiedContextProvider> */}
         </StyledMapContainer>
     )
 }
