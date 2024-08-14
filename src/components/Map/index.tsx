@@ -31,7 +31,7 @@ const MapProvider = () => {
             maxBoundsViscosity={1.0}
         >
             <DeclassifiedContextProvider>
-                <Header />
+                {/* <Header /> */}
                 <MapControls />
                 <UserInterface />
                 <DrawerMenu />
