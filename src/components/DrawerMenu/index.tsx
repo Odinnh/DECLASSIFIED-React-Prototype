@@ -34,7 +34,7 @@ export const DrawerMenu = () => {
             onClose={toggleDrawer(false)}
             onOpen={toggleDrawer(true)}
         >
-            <StyledIntelFilter>
+            <StyledIntelFilter id="intel-filter">
                 <IntelList />
                 <IntelListMenu />
             </StyledIntelFilter>

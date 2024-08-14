@@ -56,7 +56,7 @@ export const IntelListMenu = () => {
 
     return (
         <FormProvider {...methods} >
-            <StyledExpandableMenu onSubmit={handleSubmit(onSubmit)}>
+            <StyledExpandableMenu id="intel-expandable-menu" onSubmit={handleSubmit(onSubmit)}>
                 <StyledAccordion expanded={expand}>
                     <AccordionSummary
                         expandIcon={<FilterAltIcon onClick={toggleAcordion} />}

@@ -28,7 +28,7 @@ export const IntelList = () => {
         console.log(renderList);
         
     return (
-        <StyledIntelList >
+        <StyledIntelList id="intel-list" >
             {
                 renderList.map(intel => {
                     return (<IntelListMenuItem key={intel.id} {...intel} />);
