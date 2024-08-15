@@ -3,12 +3,11 @@ import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapItem } from "../../classes";
 import { FormInputs, getIntelFilterDefaults } from "../../components/IntelListMenu";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
-import { IntelItem, MapIds } from "../../data/intel";
+import { IntelItem } from "../../data/intel";
 import { MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
-import { useLiveQuery } from "dexie-react-hooks";
-import { db, DeclassifiedUserPreferences } from "../../data/db";
-import { getUserPreferences } from "../../data/dataAccessLayer";
+import { DeclassifiedUserPreferences } from "../../data/db";
+import { getSetUserPreferences } from "../../data/dataAccessLayer";
 
 const initialContextValues =  {
     userPrefs: {},
@@ -70,7 +69,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
     useEffect(() => {
 
         const fetchPreferences = async () => {
-            const data = await getUserPreferences();
+            const data = await getSetUserPreferences();
             setUserPreferences(data);
         };
         fetchPreferences();

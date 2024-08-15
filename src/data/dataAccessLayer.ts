@@ -12,7 +12,7 @@ const defaultUserPrefs: DeclassifiedUserPreferences = {
 	useSystemTheme: true,
 };
 
-export async function getUserPreferences() {
+export async function getSetUserPreferences() {
 	try {
 		const count = await db.userPrefs.count();
 		if (count === 0) {
