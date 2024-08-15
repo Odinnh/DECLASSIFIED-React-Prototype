@@ -1,8 +1,9 @@
 import { db, DeclassifiedUserPreferences } from "./db";
 import { MapIds } from "./intel";
 
+const defaultUsername = "defaultUser";
 const defaultUserPrefs: DeclassifiedUserPreferences = {
-	id: 1,
+	username: defaultUsername,
 	currentMap: MapIds.dieMaschine,
 	challengeTrackerState: "",
 	darkMode: true,
@@ -12,14 +13,15 @@ const defaultUserPrefs: DeclassifiedUserPreferences = {
 	useSystemTheme: true,
 };
 
-export async function getSetUserPreferences() {
+export async function getSetUserPreferences(username: string = defaultUsername) {
 	try {
-		const count = await db.userPrefs.count();
-		if (count === 0) {
-			await db.userPrefs.add(defaultUserPrefs);
+		const userExists = await db.userPrefs.get(username) !== undefined;
+		console.log("userExists: ", userExists);
+		if (!userExists) {
+			await db.userPrefs.add(defaultUserPrefs, username);
 			return defaultUserPrefs;
 		} else {
-			return db.userPrefs.get(1);
+			return db.userPrefs.get(username);
 		}
 	} catch (error) {
 		console.log("ERROR - getSetUserPreferences: ", error)
