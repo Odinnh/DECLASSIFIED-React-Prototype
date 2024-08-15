@@ -9,6 +9,9 @@ import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } fro
 import { useState } from 'react';
 import { IIntelItem } from '../../data/intel';
 import { CustomImage } from '../CustomImage';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../data/db';
+import { deleteCollectedIntel, addCollectedIntel } from '../../data/dataAccessLayer';
 
 const StyledIntelActionContainer = styled.div`
     display: flex;
@@ -43,6 +46,8 @@ export const IntelListMenuItem = ({
 }: IIntelItem) => {
     const [expanded, setExpanded] = useState(false);
 
+    const isCollected = useLiveQuery(() => db.intelCollected.get(id));
+
 
     return (
         <Accordion onChange={() => setExpanded(!expanded)}>
@@ -63,7 +68,7 @@ export const IntelListMenuItem = ({
                 </IntelDescription>
                 <StyledIntelActionContainer>
                     <Button><LocationOnIcon /></Button>
-                    <Button><CheckBoxOutlineBlankIcon /></Button>
+                    {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
                     <Button><ShareIcon /></Button>
                     <Button><BugReportIcon /></Button>
                 </StyledIntelActionContainer>

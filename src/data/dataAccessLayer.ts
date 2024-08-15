@@ -22,6 +22,28 @@ export async function getSetUserPreferences() {
 			return db.userPrefs.get(1);
 		}
 	} catch (error) {
-        console.log("error fetching user prefs: ", error)
-    }
+		console.log("ERROR - getSetUserPreferences: ", error)
+	}
+}
+
+export async function addCollectedIntel(intelId: string) {
+	try {
+		if (intelId) {
+			return await db.intelCollected.put({ intelId: intelId, dateCollected: new Date() });
+		}
+		return;
+	} catch (error) {
+		console.log("ERROR - addCollectedIntel: ", error)
+	}
+}
+
+export async function deleteCollectedIntel(intelId: string) {
+	try {
+		if (intelId) {
+			return await db.intelCollected.delete(intelId);
+		}
+		return;
+	} catch (error) {
+		console.log("ERROR - deleteCollectedIntel: ", error)
+	}
 }
