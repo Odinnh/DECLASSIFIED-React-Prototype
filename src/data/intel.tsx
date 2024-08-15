@@ -1019,6 +1019,7 @@ const staticIntelStore: IIntelItem[] = [
         map: MapIds.golova,
         title: "Transformed Apple Crate",
         desc: "In the barn of the lower farmstead. Should be pretty easy to spot.",
+        img: "R6GJJPc",
     }, {
         id: "RS3Ar5",
         faction: Faction.Requiem,
