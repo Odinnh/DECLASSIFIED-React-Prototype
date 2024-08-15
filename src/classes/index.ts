@@ -65,6 +65,9 @@ export class MiscType extends Item {
 }
 
 export class MapItem extends Item {
+    get mapCanRender(): boolean {
+        return this.mapOverlay !== undefined && this.mapOverlay !== null;
+    }
     mapOverlay?: JSX.Element;
     intelMapMarkers?: JSX.Element[];
     miscMapMarkers?: JSX.Element[];

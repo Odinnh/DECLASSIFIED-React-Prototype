@@ -4,7 +4,7 @@ import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassi
 import { HeaderItemProps } from './types';
 
 export const HeaderItem = ({ map, title }: HeaderItemProps) => {
-    const { setCurrentMap } = useContext(DeclassifiedContext);
+    const { setCurrentMapWithValidation: setCurrentMap } = useContext(DeclassifiedContext);
     const [isVisible, setIsVisible] = useState(false);
     const headerClasses = classNames({
         visible: isVisible,

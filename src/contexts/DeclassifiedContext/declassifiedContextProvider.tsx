@@ -12,7 +12,7 @@ import { getSetUserPreferences } from "../../data/dataAccessLayer";
 const initialContextValues =  {
     userPrefs: {},
     currentMap: MapDetails.dieMaschine /* TODO: SWAP WITH USER PREFS */,
-    setCurrentMap: () => { },
+    setCurrentMapWithValidation: () => false,
     currentMapGroup: MapGroupings["dieMachine_Group"] /* TODO: SWAP WITH USER PREFS */,
     setCurrentMapGroup: () => { },
     filteredIntelStore: [],
@@ -45,6 +45,18 @@ export const DeclassifiedContextProvider = ({ children }) => {
     const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(intelFilterDefaults);
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
     const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
+
+    const setCurrentMapWithValidation = (newMap :MapItem) => {
+        // Perform validation
+        if (newMap.mapOverlay !== null && newMap.mapOverlay !== undefined) {
+            // If validation passes, update the state
+            setCurrentMap(newMap);
+            return true;
+        } else {
+            console.error('Cannot set a map that doesnt exist.');
+            return false;
+        }
+    };
 
     const toggleDrawer = (isOpen: boolean) =>
             (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -86,12 +98,10 @@ export const DeclassifiedContextProvider = ({ children }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, [currentMap, mapInstance])
 
-
-
     const context = {
         userPrefs,
         currentMap,
-        setCurrentMap,
+        setCurrentMapWithValidation,
         currentMapGroup,
         setCurrentMapGroup,
         filteredIntelStore,

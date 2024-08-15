@@ -6,7 +6,7 @@ import { IntelItem } from '../../data/intel';
 
 export interface DeclassifiedContextProps {
     currentMap: MapItem;
-    setCurrentMap: Dispatch<SetStateAction<MapItem>>;
+    setCurrentMapWithValidation: (newMap :MapItem) => boolean;
     currentMapGroup: MapMenuItem;
     setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem>>;
     filteredIntelStore: IntelItem[];
