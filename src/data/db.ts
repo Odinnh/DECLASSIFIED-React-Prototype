@@ -8,7 +8,20 @@ interface DeclassifiedUserPreferences {
     hideBugRepButton: boolean;
     hideIntel: boolean;
     hideMisc: boolean;
+    useSystemTheme: boolean;
+}
+
+// TODO - Use this interface to map old user preferences to new user preferences
+interface OldDeclassifiedUserPreferences {
+    challengeTrackerState: string;
+    collectedIntel: string[];
+    completedChallenges: string[];
+    darkMode: boolean;
+    hideBugRepButton: boolean;
+    hideIntel: boolean;
+    hideMisc: boolean;
     lastSelectedMap: string;
+    pinnedChallenges: string[];
     useSystemTheme: boolean;
 }
 
@@ -31,7 +44,7 @@ const db = new Dexie('DeclassifiedV1') as Dexie & {
 
 // Schema declaration:
 db.version(1).stores({
-    userPrefs: '++id, currentMap, challengeTrackerState, darkMode, hideBugRepButton, hideIntel, hideMisc, lastSelectedMap, useSystemTheme',
+    userPrefs: '++id, currentMap, challengeTrackerState, darkMode, hideBugRepButton, hideIntel, hideMisc, useSystemTheme',
     intelCollected: '++id, intelId',
     completedChallenges: '++id, challengeId',
     pinnedChallenges: '++id, challengeId'

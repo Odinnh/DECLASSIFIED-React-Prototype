@@ -9,7 +9,6 @@ const defaultUserPrefs: DeclassifiedUserPreferences = {
 	hideBugRepButton: false,
 	hideIntel: false,
 	hideMisc: false,
-	lastSelectedMap: MapIds.dieMaschine,
 	useSystemTheme: true,
 };
 
