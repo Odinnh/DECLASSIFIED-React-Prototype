@@ -18,7 +18,14 @@ import { GetMapById } from '../../data/mapDetails';
 
 const StyledAccordion = styled(Accordion)`
     .collected {
-        background: linear-gradient(225deg, rgba(255, 255, 255, 0) 15%, var(--clr-green) 15%, var(--clr-green) 35%, rgba(255, 255, 255, 0) 16%);
+        background: linear-gradient(245deg, 
+            rgba(255, 255, 255, 0) 0%, 
+            var(--clr-green) 0%, 
+            var(--clr-green) 15%, 
+            rgba(255, 255, 255, 0) 10%);
+        svg[data-testid="ExpandMoreIcon"] {
+            color: var(--clr-white);
+        }
     }
 
     .intel-item-header[data-faction="Requiem"] .icon {
@@ -64,6 +71,12 @@ const IntelSummary = styled(AccordionSummary)`
         width: 10%;
         height: 100%;
         padding: 10px;
+    }
+
+    .intelTitle {
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
     }
 `
 
