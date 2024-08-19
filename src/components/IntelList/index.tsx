@@ -7,6 +7,7 @@ import { MapItem } from '../../classes'
 import { Paper, Typography } from '@mui/material'
 import { db } from '../../data/db'
 import { useLiveQuery } from 'dexie-react-hooks'
+import { MapMenuItem } from '../MapControls/types'
 
 
 const StyledIntelList = styled.div`
@@ -24,12 +25,13 @@ const NoResults = styled(Paper)`
 `
 
 export const IntelList = () => {
-    const { currentMap, currentIntelFilter } = useContext(DeclassifiedContext);
+    const { currentMap, currentMapGroup, currentIntelFilter } = useContext(DeclassifiedContext);
     // .filter(intel => (intel.map === mapId))
 
 
     var renderList = filterIntel(
         currentMap,
+        currentMapGroup,
         IntelStore,
         currentIntelFilter.searchTerm,
         currentIntelFilter.factions,
@@ -54,6 +56,7 @@ export const IntelList = () => {
 
 function filterIntel(
     currentMap: MapItem,
+    currentMapGroup: MapMenuItem,
     intelCache: IntelItem[],
     searchTermDirty: string,
     factionsArr: Faction[] = [],
@@ -90,7 +93,7 @@ function filterIntel(
     // if currentMapOnly then get current map ids and filter
     if (currentMapOnly) {
         results = results.filter((intel) => {
-            return intel.map === currentMap.id;
+            return currentMapGroup.mapLayers.filter((map) => map.id === intel.map).length > 0;
         });
     }
     // if (mapArr.some(item => item)) {
