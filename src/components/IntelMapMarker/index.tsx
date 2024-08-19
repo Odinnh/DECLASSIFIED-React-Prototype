@@ -1,13 +1,13 @@
 import L, { DivIconOptions } from 'leaflet';
-import ReactDOMServer from 'react-dom/server';
 import { Marker, Popup } from 'react-leaflet';
 import { IntelMarker } from '../../classes';
 import { Faction } from '../../data/intel';
+import { intelIconInit } from '../../helpers/icons';
 
 export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img }: IntelMarker) => {
     let imgSrc = img ? `https://i.imgur.com/${img}.jpg` : 'assets/img/intelScreenshot/placeholder.png';
     // map
-    const markerIcon = intelIconInit(faction, typeDesc);
+    const markerIcon = renderLeafletIcon(faction, typeDesc);
 
     return (
         (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
@@ -37,15 +37,9 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
     )
 }
 
-const intelIconInit = (faction: Faction, type: string) => {
+const renderLeafletIcon = (faction: Faction, type: string) => {
     var markerIcons: DivIconOptions = {
-        html: ReactDOMServer.renderToString(
-            <div>
-                <img className='icon' src={`/assets/img/markers/${type.toLowerCase()}.png`} alt="Icon" />
-                <img className='background' src={`/assets/img/markers/${faction.toLowerCase()}.png`} alt="Background" />
-            </div>
-
-        ),
+        html: intelIconInit(faction, type),
         className: 'intel-icon',
         iconSize: [25, 25],
         iconAnchor: [12.5, 40],

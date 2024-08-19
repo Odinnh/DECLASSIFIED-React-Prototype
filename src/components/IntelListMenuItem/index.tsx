@@ -5,7 +5,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ShareIcon from '@mui/icons-material/Share';
-import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Icon, Typography } from '@mui/material';
 import { useContext, useState } from 'react';
 import { DefaultPOIData, IIntelItem } from '../../data/intel';
 import { CustomImage } from '../CustomImage';
@@ -19,6 +19,45 @@ import { GetMapById } from '../../data/mapDetails';
 const StyledIntelActionContainer = styled.div`
     display: flex;
     justify-content: space-between;
+`
+const StyledAccordion = styled(Accordion)`
+    .collected {
+        background: linear-gradient(225deg, rgba(255, 255, 255, 0) 15%, var(--clr-green) 15%, var(--clr-green) 35%, rgba(255, 255, 255, 0) 16%);
+    }
+
+    .intel-item-header[data-faction="requiem"] .icon {
+        background-color: var(--clr-blue);
+    }
+
+    .intel-item-header[data-faction="omega"] .icon {
+        background-color: var(--clr-red);
+    }
+
+    .intel-item-header[data-faction="maxis"] .icon {
+        background-color: var(--clr-blue-d);
+    }
+
+    .intel-item-header[data-faction="dark_aether"] .icon {
+        background-color: var(--clr-purple);
+    }
+
+    .intelTitle {
+        padding-left: 7px;
+    }
+`
+const IntelSummary = styled(AccordionSummary)`
+    padding-left: 0px;
+
+    .MuiAccordionSummary-content {
+        align-items: center;
+        margin: 0px;
+    }
+
+    .icon {
+        width: 10%;
+        height: 100%;
+        padding: 10px;
+    }
 `
 
 const StyledAccordionDetails = styled(AccordionDetails)`
@@ -56,14 +95,17 @@ export const IntelListMenuItem = ({
     var mapItem = GetMapById(map!);
 
     return (
-        <Accordion onChange={() => setExpanded(!expanded)}>
-            <AccordionSummary
+        <StyledAccordion onChange={() => setExpanded(!expanded)}>
+            <IntelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="intel-item"
-                className="intel-item-header"
+                className={`intel-item-header ${isCollected ? 'collected' : ''}`}
+                data-faction={faction}
+                data-type={typeDesc}
             >
-                <Typography>{title}</Typography>
-            </AccordionSummary>
+                <img className='icon' src={`/assets/img/markers/${typeDesc.toLowerCase()}.png`} alt="Icon" />
+                <Typography className='intelTitle'>{title}</Typography>
+            </IntelSummary>
             {expanded ? (<StyledAccordionDetails>
                 <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
                 <IntelSubheading>
@@ -76,7 +118,7 @@ export const IntelListMenuItem = ({
                     {IntelHasLocation && mapItem?.mapCanRender ?
                         <Button onClick={() => {
                             if (IntelIsOnAnotherMap) {
-                                
+
                                 if (mapItem && mapItem.mapCanRender) {
                                     var mapSetResult = setCurrentMap(mapItem);
                                     if (mapSetResult) {
@@ -95,6 +137,6 @@ export const IntelListMenuItem = ({
                 </StyledIntelActionContainer>
             </StyledAccordionDetails>) : (null)}
 
-        </Accordion>
+        </StyledAccordion>
     )
 }
