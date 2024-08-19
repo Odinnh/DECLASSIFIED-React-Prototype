@@ -5,6 +5,7 @@ import { useFormContext, Controller } from 'react-hook-form';
 const StyledFormGroup = styled(FormGroup)`
   display: flex;
   flex-direction: row;
+  padding: 5px;
 `
 
 export const MenuFooter = () => {

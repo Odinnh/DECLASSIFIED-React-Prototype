@@ -4,6 +4,9 @@ import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassi
 import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
 import { IntelListMenuItem } from '../IntelListMenuItem'
 import { MapItem } from '../../classes'
+import { Paper, Typography } from '@mui/material'
+import { db } from '../../data/db'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 
 const StyledIntelList = styled.div`
@@ -11,7 +14,14 @@ const StyledIntelList = styled.div`
     padding: 10px;
 `
 
-
+const NoResults = styled(Paper)`
+    h2 {
+        display: flex;
+        justify-content: center;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+`
 
 export const IntelList = () => {
     const { currentMap, currentIntelFilter } = useContext(DeclassifiedContext);
@@ -30,12 +40,13 @@ export const IntelList = () => {
 
         console.log(renderList);
         
+    const RenderedIntelList = renderList.map(intel => {
+        return (<IntelListMenuItem key={intel.id} {...intel} />)
+    })
     return (
         <StyledIntelList id="intel-list" >
             {
-                renderList.map(intel => {
-                    return (<IntelListMenuItem key={intel.id} {...intel} />);
-                })
+                RenderedIntelList.length ? RenderedIntelList : <NoResults><Typography variant='h2'> No Intel Found...</Typography></NoResults>
             }
         </StyledIntelList>
     )
@@ -90,7 +101,7 @@ function filterIntel(
             
     if (hideCollected) {
         results = results.filter((intel) => {
-            return intel.isCollected;
+            return !useLiveQuery(() => db.intelCollected.get(intel.id));
         });
     }
     console.log({seasonsArr, intelTypeArr, results});

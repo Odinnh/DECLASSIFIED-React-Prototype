@@ -56,10 +56,10 @@ export enum MapIds {
 };
 
 export enum Faction {
-    Requiem = "requiem",
-    Omega = "omega",
-    Maxis = "maxis",
-    DarkAether = "dark_aether",
+    Requiem = "Requiem",
+    Omega = "Omega",
+    Maxis = "Maxis",
+    Dark_Aether = "Dark Aether",
 }
 
 export enum Season {
@@ -74,10 +74,10 @@ export enum Season {
 }
 
 export enum IntelType {
-    Audio = "audio_logs",
-    Docs = "documents",
-    Radio = "radio_transmissions",
-    Artifact = "artifacts",
+    Audio = "Audio Logs",
+    Docs = "Documents",
+    Radio = "Radio Transmissions",
+    Artifact = "Artifacts",
 }
 
 export enum IconTypes {
@@ -3916,7 +3916,7 @@ const staticIntelStore: IIntelItem[] = [
     /////////////////////Dark Aether/////////////////////////
     {
         id: "DS0Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3925,7 +3925,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3934,7 +3934,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Au3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3943,7 +3943,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Au4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3952,7 +3952,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Au5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3961,7 +3961,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Au6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -3970,7 +3970,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -3979,7 +3979,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -3988,7 +3988,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -3997,7 +3997,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4006,7 +4006,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4015,7 +4015,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4024,7 +4024,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4033,7 +4033,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do8",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4042,7 +4042,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do9",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4051,7 +4051,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do10",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4060,7 +4060,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do11",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4069,7 +4069,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Do12",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4078,7 +4078,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS0Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [255.6040273179711, 209.5934508684848],
@@ -4088,7 +4088,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "jiJAPUQ",
     }, {
         id: "DS0Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [200.7678322911951, 178.88682571261361],
@@ -4098,7 +4098,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "EYww78N",
     }, {
         id: "DS0Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [114.01156059366146, 348.68855512651794],
@@ -4108,7 +4108,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "gSh6MRa",
     }, {
         id: "DS0Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Preseason,
         typeDesc: IntelType.Artifact,
         loc: [327.44734406193004, 318.7461250716169],
@@ -4118,7 +4118,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "ow2AEku",
     }, {
         id: "DS1Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4127,7 +4127,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4136,7 +4136,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Au3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4145,7 +4145,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Au4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4154,7 +4154,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Au5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4163,7 +4163,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Au6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4172,7 +4172,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4181,7 +4181,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4190,7 +4190,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4199,7 +4199,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4208,7 +4208,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4217,7 +4217,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4226,7 +4226,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4235,7 +4235,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do8",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4244,7 +4244,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do9",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4253,7 +4253,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do10",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4262,7 +4262,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do11",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4271,7 +4271,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do12",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4280,7 +4280,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Do13",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4289,7 +4289,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4298,7 +4298,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4307,7 +4307,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4316,7 +4316,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4325,7 +4325,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4334,7 +4334,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ra6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4343,7 +4343,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS1Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season1,
         typeDesc: IntelType.Artifact,
         loc: [354.96085298811846, 285.5],
@@ -4353,7 +4353,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "tLJkx4S",
     }, {
         id: "DS2Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4362,7 +4362,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4371,7 +4371,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4380,7 +4380,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4389,7 +4389,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4398,7 +4398,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4407,7 +4407,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4416,7 +4416,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Do7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4425,7 +4425,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Ra1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4434,7 +4434,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Ra2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4443,7 +4443,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Ra3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4452,7 +4452,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS2Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [155, 212.5],
@@ -4462,7 +4462,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "GmKRLaf",
     }, {
         id: "DS2Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [104.96229130685089, 326.9399639558459],
@@ -4472,7 +4472,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "9dkegZY",
     }, {
         id: "DS2Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [260.1704238411489, 399.954296532133],
@@ -4482,7 +4482,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "QwYbojZ",
     }, {
         id: "DS2Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season2,
         typeDesc: IntelType.Artifact,
         loc: [239.3576897778437, 74.5],
@@ -4492,7 +4492,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "bU3zpG7",
     }, {
         id: "DS3Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4501,7 +4501,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4510,7 +4510,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Au3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4519,7 +4519,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Au4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4528,7 +4528,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4537,7 +4537,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4546,7 +4546,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4555,7 +4555,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4564,7 +4564,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4573,7 +4573,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Do6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4582,7 +4582,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4591,7 +4591,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4600,7 +4600,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4609,7 +4609,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4618,7 +4618,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4627,7 +4627,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4636,7 +4636,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ra7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4645,7 +4645,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS3Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [162.5, 462],
@@ -4655,7 +4655,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "uFhawNw",
     }, {
         id: "DS3Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [316, 286.5],
@@ -4665,7 +4665,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "4FvTHz3",
     }, {
         id: "DS3Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [284.5, 238.5],
@@ -4675,7 +4675,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "DUeehQn",
     }, {
         id: "DS3Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [279.4652284636858, 147.6332283257859],
@@ -4685,7 +4685,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "t5TwvLH",
     }, {
         id: "DS3Ar5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -4695,7 +4695,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "xQFq6b1",
     }, {
         id: "DS3Ar6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season3,
         typeDesc: IntelType.Artifact,
         loc: [226, 142.5],
@@ -4705,7 +4705,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "QExvSGe",
     }, {
         id: "DS4Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4714,7 +4714,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS4Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4723,7 +4723,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Au3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4732,7 +4732,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Au4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4741,7 +4741,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Do1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4750,7 +4750,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS4Do2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4759,7 +4759,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS4Do3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4768,7 +4768,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Do4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4777,7 +4777,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Do5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Docs,
         loc: DefaultPOIData.nullLoc,
@@ -4786,7 +4786,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Ra1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4795,7 +4795,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS4Ra2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4804,7 +4804,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS4Ra3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4813,7 +4813,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Ra4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4822,7 +4822,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge,
     }, {
         id: "DS4Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [358.4578205355559, 261],
@@ -4832,7 +4832,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "DwJhhdl",
     }, {
         id: "DS4Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [206.47021635041676, 299.5],
@@ -4842,7 +4842,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "0CRrWbl",
     }, {
         id: "DS4Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [186.3576897778437, 331.625],
@@ -4852,7 +4852,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "kiK2Rr8",
     }, {
         id: "DS4Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: [236.8503849289433, 327.875],
@@ -4862,7 +4862,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "RKM8CE7",
     }, {
         id: "DS4Ar5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -4872,7 +4872,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "LcCTZ0F",
     }, {
         id: "DS4Ar6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -4882,7 +4882,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "nbh7Pym",
     }, {
         id: "DS4Ar7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season4,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -4892,7 +4892,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "UpeO5Dr",
     }, {
         id: "DS5Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4901,7 +4901,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS5Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4910,7 +4910,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS5Ra1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4919,7 +4919,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS5Ra2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4928,7 +4928,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS5Ra3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Radio,
         loc: DefaultPOIData.nullLoc,
@@ -4937,7 +4937,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS5Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [238.67594055140722, 68.30086779172998],
@@ -4947,7 +4947,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "sqsllT0",
     }, {
         id: "DS5Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [364.92220011672936, 279.24477525393905],
@@ -4957,7 +4957,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "hz1FHKd",
     }, {
         id: "DS5Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [244.6159268403402, 188.73986243301607],
@@ -4967,7 +4967,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "ctnz9Ae",
     }, {
         id: "DS5Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season5,
         typeDesc: IntelType.Artifact,
         loc: [309.8628684849271, 262.7430596656802],
@@ -4977,7 +4977,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "WoGXHqz",
     }, {
         id: "DS6Au1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4986,7 +4986,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS6Au2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Audio,
         loc: DefaultPOIData.nullLoc,
@@ -4995,7 +4995,7 @@ const staticIntelStore: IIntelItem[] = [
         desc: DefaultPOIData.challenge
     }, {
         id: "DS6Ar1",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [393.3707361360731, 342],
@@ -5005,7 +5005,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "sYh4g2M",
     }, {
         id: "DS6Ar2",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [170.61009616275408, 319.75],
@@ -5015,7 +5015,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "D8Pj7M5",
     }, {
         id: "DS6Ar3",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [327.842464008449, 304.25],
@@ -5025,7 +5025,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "YnDjT7U",
     }, {
         id: "DS6Ar4",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [238.2379564951548, 255.125],
@@ -5035,7 +5035,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "y6hCATZ",
     }, {
         id: "DS6Ar5",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: [421.0527264879534, 127.71176452428412],
@@ -5045,7 +5045,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "rVWYM4B",
     }, {
         id: "DS6Ar6",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -5055,7 +5055,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "9pfNhpv",
     }, {
         id: "DS6Ar7",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,
@@ -5065,7 +5065,7 @@ const staticIntelStore: IIntelItem[] = [
         img: "qVkZGEG",
     }, {
         id: "DS6Ar8",
-        faction: Faction.DarkAether,
+        faction: Faction.Dark_Aether,
         season: Season.Season6,
         typeDesc: IntelType.Artifact,
         loc: DefaultPOIData.nullLoc,

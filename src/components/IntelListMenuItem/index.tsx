@@ -21,19 +21,19 @@ const StyledAccordion = styled(Accordion)`
         background: linear-gradient(225deg, rgba(255, 255, 255, 0) 15%, var(--clr-green) 15%, var(--clr-green) 35%, rgba(255, 255, 255, 0) 16%);
     }
 
-    .intel-item-header[data-faction="requiem"] .icon {
+    .intel-item-header[data-faction="Requiem"] .icon {
         background-color: var(--clr-blue);
     }
 
-    .intel-item-header[data-faction="omega"] .icon {
+    .intel-item-header[data-faction="Omega"] .icon {
         background-color: var(--clr-red);
     }
 
-    .intel-item-header[data-faction="maxis"] .icon {
+    .intel-item-header[data-faction="Maxis"] .icon {
         background-color: var(--clr-blue-d);
     }
 
-    .intel-item-header[data-faction="dark_aether"] .icon {
+    .intel-item-header[data-faction="Dark Aether"] .icon {
         background-color: var(--clr-purple);
     }
 
@@ -71,6 +71,21 @@ const StyledAccordionDetails = styled(AccordionDetails)`
     img {
         width: 100%;
     }
+    padding: 0px;
+`
+
+const IntelDetails = styled.div`
+    h3 {
+        font-size: 0.8rem;
+    }
+    p {
+        font-size: 0.7rem;
+    }
+    svg {
+        font-size: 1.2rem;
+    }
+        
+    padding: 8px;
 `
 
 const StyledIntelActionContainer = styled.div`
@@ -104,7 +119,7 @@ export const IntelListMenuItem = ({
     const IntelHasLocation = loc !== DefaultPOIData.nullLoc;
     const IntelIsOnAnotherMap = map !== currentMap.id;
     const isCollected = useLiveQuery(() => db.intelCollected.get(id));
-    var mapItem = GetMapById(map!);
+    const mapItem = GetMapById(map!);
 
     return (
         <StyledAccordion onChange={() => setExpanded(!expanded)}>
@@ -122,35 +137,38 @@ export const IntelListMenuItem = ({
                     {title}
                 </Typography>
             </IntelSummary>
-            {expanded ? (<StyledAccordionDetails>
+            {expanded ? (
+            <StyledAccordionDetails>
                 <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
-                <IntelSubheading>
-                    {map} - {season} - {typeDesc} - {faction}
-                </IntelSubheading>
-                <IntelDescription>
-                    {desc}
-                </IntelDescription>
-                <StyledIntelActionContainer>
-                    {IntelHasLocation && mapItem?.mapCanRender ?
-                        <Button onClick={() => {
-                            if (IntelIsOnAnotherMap) {
+                <IntelDetails>
+                    <IntelSubheading variant='h3'>
+                        {mapItem?.title} - {season} - {typeDesc} - {faction}
+                    </IntelSubheading>
+                    <IntelDescription>
+                        {desc}
+                    </IntelDescription>
+                    <StyledIntelActionContainer>
+                        {IntelHasLocation && mapItem?.mapCanRender ?
+                            <Button onClick={() => {
+                                if (IntelIsOnAnotherMap) {
 
-                                if (mapItem && mapItem.mapCanRender) {
-                                    var mapSetResult = setCurrentMap(mapItem);
-                                    if (mapSetResult) {
-                                        mapInstance.flyTo(loc, 4);
+                                    if (mapItem && mapItem.mapCanRender) {
+                                        var mapSetResult = setCurrentMap(mapItem);
+                                        if (mapSetResult) {
+                                            mapInstance.flyTo(loc, 4);
+                                        }
                                     }
+                                } else {
+                                    mapInstance.flyTo(loc, 4);
                                 }
-                            } else {
-                                mapInstance.flyTo(loc, 4);
-                            }
-                        }}><LocationOnIcon /></Button>
-                        : <Button disabled><LocationOnIcon /></Button>
-                    }
-                    {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
-                    <Button><ShareIcon /></Button>
-                    <Button><BugReportIcon htmlColor='var(--clr-red)' /></Button>
-                </StyledIntelActionContainer>
+                            }}><LocationOnIcon /></Button>
+                            : <Button disabled><LocationOnIcon /></Button>
+                        }
+                        {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
+                        <Button><ShareIcon /></Button>
+                        <Button><BugReportIcon htmlColor='var(--clr-red)' /></Button>
+                    </StyledIntelActionContainer>
+                </IntelDetails>
             </StyledAccordionDetails>) : (null)}
 
         </StyledAccordion>

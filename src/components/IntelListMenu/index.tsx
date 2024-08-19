@@ -69,8 +69,8 @@ export const IntelListMenu = () => {
                     <AccordionDetails>
                         <IntelFilterMenu />
                     </AccordionDetails>
+                    <MenuFooter />
                 </StyledAccordion>
-                <MenuFooter />
             </StyledExpandableMenu>
         </FormProvider>
     )
