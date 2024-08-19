@@ -16,10 +16,6 @@ import { useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { GetMapById } from '../../data/mapDetails';
 
-const StyledIntelActionContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
 const StyledAccordion = styled(Accordion)`
     .collected {
         background: linear-gradient(225deg, rgba(255, 255, 255, 0) 15%, var(--clr-green) 15%, var(--clr-green) 35%, rgba(255, 255, 255, 0) 16%);
@@ -47,8 +43,19 @@ const StyledAccordion = styled(Accordion)`
 `
 const IntelSummary = styled(AccordionSummary)`
     padding-left: 0px;
+    min-height: unset;
 
-    .MuiAccordionSummary-content {
+    .MuiTypography-h2 {
+        font-size: 1.1rem;
+    }
+
+    .Mui-expanded &&& {
+        min-height: unset;
+        margin: unset;
+    }
+
+    .MuiAccordionSummary-content,
+    .MuiAccordionSummary-content.MuiAccordionSummary-contentGutters {
         align-items: center;
         margin: 0px;
     }
@@ -64,6 +71,11 @@ const StyledAccordionDetails = styled(AccordionDetails)`
     img {
         width: 100%;
     }
+`
+
+const StyledIntelActionContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 
 const IntelSubheading = styled(Typography)`
@@ -104,7 +116,11 @@ export const IntelListMenuItem = ({
                 data-type={typeDesc}
             >
                 <img className='icon' src={`/assets/img/markers/${typeDesc.toLowerCase()}.png`} alt="Icon" />
-                <Typography className='intelTitle'>{title}</Typography>
+                <Typography
+                    variant='h2'
+                    className='intelTitle'>
+                    {title}
+                </Typography>
             </IntelSummary>
             {expanded ? (<StyledAccordionDetails>
                 <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
@@ -133,7 +149,7 @@ export const IntelListMenuItem = ({
                     }
                     {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
                     <Button><ShareIcon /></Button>
-                    <Button><BugReportIcon /></Button>
+                    <Button><BugReportIcon htmlColor='var(--clr-red)' /></Button>
                 </StyledIntelActionContainer>
             </StyledAccordionDetails>) : (null)}
 
