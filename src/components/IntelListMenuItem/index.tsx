@@ -15,6 +15,11 @@ import { deleteCollectedIntel, addCollectedIntel } from '../../data/dataAccessLa
 import { useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { GetMapById } from '../../data/mapDetails';
+import { redirectToGithub } from '../../helpers/github';
+
+export interface IIntelItemWithHandler extends IIntelItem {
+    notification: (intelId: string) => void;
+}
 
 const StyledAccordion = styled(Accordion)`
     .collected {
@@ -124,8 +129,9 @@ export const IntelListMenuItem = ({
     map,
     title,
     desc,
-    img = undefined
-}: IIntelItem) => {
+    img = undefined,
+    notification
+}: IIntelItemWithHandler) => {
     const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext);
     const mapInstance = useMapEvents({});
     const [expanded, setExpanded] = useState(false);
@@ -178,8 +184,11 @@ export const IntelListMenuItem = ({
                             : <Button disabled><LocationOnIcon /></Button>
                         }
                         {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
-                        <Button><ShareIcon /></Button>
-                        <Button><BugReportIcon htmlColor='var(--clr-red)' /></Button>
+                        <Button><ShareIcon onClick={() => {
+                            navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
+                            notification(id)
+                        }} /></Button>
+                        <Button onClick={() => redirectToGithub(id, typeDesc, "Fix", mapItem)} ><BugReportIcon htmlColor='var(--clr-red)' /></Button>
                     </StyledIntelActionContainer>
                 </IntelDetails>
             </StyledAccordionDetails>) : (null)}

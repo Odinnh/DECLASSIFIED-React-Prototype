@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import styled from 'styled-components'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
@@ -8,6 +8,7 @@ import { Paper, Typography } from '@mui/material'
 import { db } from '../../data/db'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { MapMenuItem } from '../MapControls/types'
+import NotificationBanner from '../NotificationBanner/NotificationBanner'
 
 
 const StyledIntelList = styled.div`
@@ -28,6 +29,15 @@ export const IntelList = () => {
     const { currentMap, currentMapGroup, currentIntelFilter } = useContext(DeclassifiedContext);
     // .filter(intel => (intel.map === mapId))
 
+    const snackbarRef = useRef<{
+        handleClick: (msg: string) => void;
+    }>(null);
+
+    const notification = (intelId: string) => {
+        if (snackbarRef.current) {
+            snackbarRef.current.handleClick(`Copied Link To Clipboard`);
+        }
+    };
 
     var renderList = filterIntel(
         currentMap,
@@ -40,17 +50,23 @@ export const IntelList = () => {
         currentIntelFilter.currentMapOnly,
         currentIntelFilter.hideCollected)
 
-        console.log(renderList);
-        
+    console.log(renderList);
+
     const RenderedIntelList = renderList.map(intel => {
-        return (<IntelListMenuItem key={intel.id} {...intel} />)
+        return (<IntelListMenuItem 
+            key={intel.id} 
+            {...intel}
+            notification={notification} />)
     })
     return (
-        <StyledIntelList id="intel-list" >
-            {
-                RenderedIntelList.length ? RenderedIntelList : <NoResults><Typography variant='h2'> No Intel Found...</Typography></NoResults>
-            }
-        </StyledIntelList>
+        <>
+            <StyledIntelList id="intel-list" >
+                {
+                    RenderedIntelList.length ? RenderedIntelList : <NoResults><Typography variant='h2'> No Intel Found...</Typography></NoResults>
+                }
+            </StyledIntelList>
+            <NotificationBanner ref={snackbarRef} />
+        </>
     )
 }
 
@@ -65,13 +81,13 @@ function filterIntel(
     currentMapOnly: boolean,
     hideCollected = true) {
     let results = intelCache;
-    
-    
+
+
     let searchTerm = searchTermDirty.trim().toLowerCase()
     results = results.filter((intel) => {
         return intel.title.toLowerCase().indexOf(searchTerm.trim().toLowerCase()) !== -1
     });
-    
+
     if (factionsArr.some(item => item)) {
         results = results.filter((intel) => {
             return factionsArr.includes(intel.faction);
@@ -89,7 +105,7 @@ function filterIntel(
             return intelTypeArr.includes(intel.typeDesc);
         });
     }
-    
+
     // if currentMapOnly then get current map ids and filter
     if (currentMapOnly) {
         results = results.filter((intel) => {
@@ -97,16 +113,16 @@ function filterIntel(
         });
     }
     // if (mapArr.some(item => item)) {
-        //     results = results.filter((intel) => {
-            //         return mapArr.includes(intel.map) || intel.map == mapDetails.allOutbreakMaps.id && mapArr.some((e) => { return allOutbreakMapsArr.includes(e) });
-            //     });
-            // }
-            
+    //     results = results.filter((intel) => {
+    //         return mapArr.includes(intel.map) || intel.map == mapDetails.allOutbreakMaps.id && mapArr.some((e) => { return allOutbreakMapsArr.includes(e) });
+    //     });
+    // }
+
     if (hideCollected) {
         results = results.filter((intel) => {
             return !useLiveQuery(() => db.intelCollected.get(intel.id));
         });
     }
-    console.log({seasonsArr, intelTypeArr, results});
+    console.log({ seasonsArr, intelTypeArr, results });
     return results;
 }
