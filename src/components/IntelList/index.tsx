@@ -129,15 +129,17 @@ function filterIntel(
     //     });
     // }
 
-    if (collectedIntelFilter === "uncollected-only") {
-        results = results.filter((intel) => {
-            return !(intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
-        });
-    }
-    else if (collectedIntelFilter === "collected-only") {
-        results = results.filter((intel) => {
-            return (intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
-        });
+    if (collectedIntel) {
+        if (collectedIntelFilter === "uncollected-only") {
+            results = results.filter((intel) => {
+                return !(intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
+            });
+        }
+        else if (collectedIntelFilter === "collected-only") {
+            results = results.filter((intel) => {
+                return (intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
+            });
+        }
     }
     // console.log({ seasonsArr, intelTypeArr, results });
     // console.log("INTEL FILTERED END: ", results);
