@@ -53,7 +53,7 @@ export const IntelList = () => {
         currentIntelFilter.seasons,
         currentIntelFilter.intelTypes,
         currentIntelFilter.currentMapOnly,
-        currentIntelFilter.hideCollected)
+        currentIntelFilter.collectedIntelFilter);      
 
     // console.log("IntelListToRender", IntelListToRender);
 
@@ -81,16 +81,16 @@ export const IntelList = () => {
 }
 
 function filterIntel(
-    collectedIntel,
-    currentMap: MapItem,
-    currentMapGroup: MapMenuItem,
-    intelCache: IntelItem[],
-    searchTermDirty: string,
-    factionsArr: Faction[] = [],
-    seasonsArr: Season[] = [],
-    intelTypeArr: IntelType[] = [],
-    currentMapOnly: boolean,
-    hideCollected = true) {
+    collectedIntel, 
+    currentMap: MapItem, 
+    currentMapGroup: MapMenuItem, 
+    intelCache: IntelItem[], 
+    searchTermDirty: string, 
+    factionsArr: Faction[] = [], 
+    seasonsArr: Season[] = [], 
+    intelTypeArr: IntelType[] = [], 
+    currentMapOnly: boolean, 
+    collectedIntelFilter: string) {
     let results = intelCache;
 
 
@@ -129,9 +129,14 @@ function filterIntel(
     //     });
     // }
 
-    if (hideCollected) {
+    if (collectedIntelFilter === "uncollected-only") {
         results = results.filter((intel) => {
             return !(intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
+        });
+    }
+    else if (collectedIntelFilter === "collected-only") {
+        results = results.filter((intel) => {
+            return (intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
         });
     }
     // console.log({ seasonsArr, intelTypeArr, results });

@@ -28,7 +28,7 @@ export type FormInputs = {
     factions: Faction[],
     intelTypes: IntelType[],
     currentMapOnly: boolean,
-    hideCollected: boolean,
+    collectedIntelFilter: string
 };
 
 export const IntelListMenu = () => {
@@ -46,6 +46,7 @@ export const IntelListMenu = () => {
 
         // TODO: set filter value in context
         setCurrentIntelFilter(data);
+        console.log("FORM SUBMIT: ", data);
     }
 
     watch((data, { name, type }) => handleSubmit(onSubmit)())
@@ -81,7 +82,7 @@ export function getIntelFilterDefaults(): FormInputs {
         factions: [],
         intelTypes: [],
         currentMapOnly: true,
-        hideCollected: false
+        collectedIntelFilter: "all"
     }
 }
 
