@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAdd, faMinus, faFolderOpen, faGear  } from '@fortawesome/free-solid-svg-icons'
+import { faAdd, faMinus, faFolderOpen, faGear } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import styled from '@emotion/styled';
 import { UserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
