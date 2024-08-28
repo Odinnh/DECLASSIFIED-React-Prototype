@@ -46,7 +46,6 @@ export const IntelListMenu = () => {
 
         // TODO: set filter value in context
         setCurrentIntelFilter(data);
-        console.log("SUBMIT: ", data);
     }
 
     watch((data, { name, type }) => handleSubmit(onSubmit)())

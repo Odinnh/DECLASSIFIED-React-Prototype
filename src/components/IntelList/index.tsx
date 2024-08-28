@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
@@ -27,7 +27,11 @@ const NoResults = styled(Paper)`
 
 export const IntelList = () => {
     const { currentMap, currentMapGroup, currentIntelFilter } = useContext(DeclassifiedContext);
-    // .filter(intel => (intel.map === mapId))
+    // const [loading, setLoading] = useState(true); // TODO - Implement loading spinner
+
+    const collectedIntel = useLiveQuery(async () => {
+        return await db.intelCollected.toArray();
+    });
 
     const snackbarRef = useRef<{
         handleClick: (msg: string) => void;
@@ -39,7 +43,8 @@ export const IntelList = () => {
         }
     };
 
-    var renderList = filterIntel(
+    const IntelListToRender = filterIntel(
+        collectedIntel,
         currentMap,
         currentMapGroup,
         IntelStore,
@@ -50,20 +55,25 @@ export const IntelList = () => {
         currentIntelFilter.currentMapOnly,
         currentIntelFilter.hideCollected)
 
-    console.log(renderList);
+    // console.log("IntelListToRender", IntelListToRender);
 
-    const RenderedIntelList = renderList.map(intel => {
-        return (<IntelListMenuItem 
-            key={intel.id} 
+    const RenderedIntelList = IntelListToRender.map(intel => {
+        return (<IntelListMenuItem
+            key={intel.id}
             {...intel}
             notification={notification} />)
     })
+    if (RenderedIntelList.length === 0) {
+        return (
+            <NoResults>
+                <Typography variant='h2'> No Intel Found...</Typography>
+            </NoResults>
+        )
+    }
     return (
         <>
             <StyledIntelList id="intel-list" >
-                {
-                    RenderedIntelList.length ? RenderedIntelList : <NoResults><Typography variant='h2'> No Intel Found...</Typography></NoResults>
-                }
+                {RenderedIntelList}
             </StyledIntelList>
             <NotificationBanner ref={snackbarRef} />
         </>
@@ -71,6 +81,7 @@ export const IntelList = () => {
 }
 
 function filterIntel(
+    collectedIntel,
     currentMap: MapItem,
     currentMapGroup: MapMenuItem,
     intelCache: IntelItem[],
@@ -120,9 +131,10 @@ function filterIntel(
 
     if (hideCollected) {
         results = results.filter((intel) => {
-            return !useLiveQuery(() => db.intelCollected.get(intel.id));
+            return !(intel.id === collectedIntel.find((collected) => collected.intelId === intel.id)?.intelId);
         });
     }
-    console.log({ seasonsArr, intelTypeArr, results });
+    // console.log({ seasonsArr, intelTypeArr, results });
+    // console.log("INTEL FILTERED END: ", results);
     return results;
 }
