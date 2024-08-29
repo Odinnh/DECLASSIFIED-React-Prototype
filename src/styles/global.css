@@ -114,3 +114,7 @@ body.custom-color {
 .-hidden {
     display: none !important;
 }
+
+.collected-marker {
+    opacity: 0.35;
+}

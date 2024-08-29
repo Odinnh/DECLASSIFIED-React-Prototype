@@ -145,11 +145,6 @@ export class IntelItem implements IIntelItem {
         this.desc = desc;
         this.img = img;
     }
-
-
-    get isCollected(): boolean {
-        return false;
-    }
 }
 
 const staticIntelStore: IIntelItem[] = [
