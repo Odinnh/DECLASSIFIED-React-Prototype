@@ -34,7 +34,11 @@ const MapProvider = () => {
             zoom={0.8}
             scrollWheelZoom={true}
             crs={L.CRS.Simple}
-            maxBounds={[
+            maxBounds={
+            isMobile ? [ // TODO - figure out the best bounds for mobile and desktop
+                [-256, -256],
+                [768, 768]
+            ] : [
                 [-256, -256],
                 [768, 768]
             ]}
@@ -48,7 +52,7 @@ const MapProvider = () => {
             zoomDelta={0.5}
             wheelPxPerZoomLevel={80}
             zoomSnap={0}
-            maxBoundsViscosity={1.0}
+            maxBoundsViscosity={0.2}
         >
             <DeclassifiedContextProvider>
                 <Header />
