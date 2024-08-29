@@ -80,7 +80,7 @@ export enum IntelType {
     Artifact = "Artifacts",
 }
 
-export enum IconTypes {
+export enum MiscIconTypes {
     general = "general",
 
     ammoCrate = "ammo_crate",

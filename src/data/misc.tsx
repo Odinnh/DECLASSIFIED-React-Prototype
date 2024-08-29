@@ -1,20 +1,20 @@
 import { Item, MiscMarker } from "../classes";
-import { IconTypes, MapIds } from "./intel";
+import { MiscIconTypes, MapIds } from "./intel";
 
 /////////////////////Misc/////////////////////////
 export const MiscTypes = {
-    dementedEcho: new Item({ title: "Demented Echo", desc: "Destroy it before it touches you to get a reward.", icon: IconTypes.demented }),
-    rift: new Item({ title: "Aether Rift", desc: "Jump through to teleport and gain a random powerup.", icon: IconTypes.rift }),
-    redRift: new Item({ title: "Red Aether Rift", desc: "Jump through all the rifts to continue the Easter Egg", icon: IconTypes.redRift }),
-    radio: new Item({ title: "Radio", icon: IconTypes.radio }),
+    dementedEcho: new Item({ title: "Demented Echo", desc: "Destroy it before it touches you to get a reward.", icon: MiscIconTypes.demented }),
+    rift: new Item({ title: "Aether Rift", desc: "Jump through to teleport and gain a random powerup.", icon: MiscIconTypes.rift }),
+    redRift: new Item({ title: "Red Aether Rift", desc: "Jump through all the rifts to continue the Easter Egg", icon: MiscIconTypes.redRift }),
+    radio: new Item({ title: "Radio", icon: MiscIconTypes.radio }),
     //TODO STANDARDISE STRING
-    requiemRadio: new Item({ title: "Requiem Radio", icon: IconTypes.radio, layer: "Markers" }),
-    omegaRadio: new Item({ title: "Omega Radio", icon: IconTypes.radio }),
-    maxisRadio: new Item({ title: "Maxis Radio", icon: IconTypes.radio }),
-    monkey: new Item({ title: "Stone Monkey", icon: IconTypes.monkey }),
+    requiemRadio: new Item({ title: "Requiem Radio", icon: MiscIconTypes.radio, layer: "Markers" }),
+    omegaRadio: new Item({ title: "Omega Radio", icon: MiscIconTypes.radio }),
+    maxisRadio: new Item({ title: "Maxis Radio", icon: MiscIconTypes.radio }),
+    monkey: new Item({ title: "Stone Monkey", icon: MiscIconTypes.monkey }),
     projector: new Item({ title: "Projector", desc: "The projector for the Main Quest" }),
     signal: new Item({ title: "Signal" }),
-    fishing: new Item({ title: "Fishing", desc: "Fish up to 3 times for a small reward each time.", icon: IconTypes.fishing }),
+    fishing: new Item({ title: "Fishing", desc: "Fish up to 3 times for a small reward each time.", icon: MiscIconTypes.fishing }),
     essenceDrop: new Item({ title: "Essence Drop" }),
     scrapHeap: new Item({ title: "Scrap Heap" }),
     thermophasic: new Item({ title: "D.I.E. Thermophasic Upgrade" }),
@@ -22,11 +22,11 @@ export const MiscTypes = {
     electrobolt: new Item({ title: "D.I.E. Electrobolt Upgrade" }),
     cryoemitter: new Item({ title: "D.I.E. Cryo-Emitter Upgrade" }),
 
-    wunderFizz: new Item({ title: "Der Wunderfizz", icon: IconTypes.wunderFizz }),
-    trialComputer: new Item({ title: "Trial Computer", icon: IconTypes.trialComputer }),
-    papMachine: new Item({ title: "Pack-a-Punch", icon: IconTypes.papMachine }),
-    mysteryBox: new Item({ title: "Mystery Box Location", icon: IconTypes.mysteryBox }),
-    wallbuy: new Item({ title: "Wall Buy", icon: IconTypes.wallbuy }),
+    wunderFizz: new Item({ title: "Der Wunderfizz", icon: MiscIconTypes.wunderFizz }),
+    trialComputer: new Item({ title: "Trial Computer", icon: MiscIconTypes.trialComputer }),
+    papMachine: new Item({ title: "Pack-a-Punch", icon: MiscIconTypes.papMachine }),
+    mysteryBox: new Item({ title: "Mystery Box Location", icon: MiscIconTypes.mysteryBox }),
+    wallbuy: new Item({ title: "Wall Buy", icon: MiscIconTypes.wallbuy }),
     power: new Item({ title: "Power Switch" }),
     jumpPad: new Item({ title: "Jump Pad" }),
     landingPad: new Item({ title: "Landing Pad" }),
@@ -34,15 +34,15 @@ export const MiscTypes = {
     teleporter: new Item({ title: "Teleporter" }),
     collector: new Item({ title: "Collection Unit" }),
     reactor: new Item({ title: "Aether Reactor" }),
-    craftingTable: new Item({ title: "Crafting Table", icon: IconTypes.craftingTable }),
-    arsenal: new Item({ title: "Arsenal", icon: IconTypes.arsenal }),
-    ammoCrate: new Item({ title: "Ammo Crate", icon: IconTypes.ammoCrate }),
+    craftingTable: new Item({ title: "Crafting Table", icon: MiscIconTypes.craftingTable }),
+    arsenal: new Item({ title: "Arsenal", icon: MiscIconTypes.arsenal }),
+    ammoCrate: new Item({ title: "Ammo Crate", icon: MiscIconTypes.ammoCrate }),
     trap: new Item({ title: "Trap" }),
-    zipline: new Item({ title: "Zipline", icon: IconTypes.zipline }),
-    rampageInducer: new Item({ title: "Rampage Inducer", icon: IconTypes.demented }),
+    zipline: new Item({ title: "Zipline", icon: MiscIconTypes.zipline }),
+    rampageInducer: new Item({ title: "Rampage Inducer", icon: MiscIconTypes.demented }),
 
-    klausRadio: new Item({ title: "Klaus recall radio", icon: IconTypes.radio }),
-    aetherTunnel: new Item({ title: "Aether Tunnel", icon: IconTypes.zipline }),
+    klausRadio: new Item({ title: "Klaus recall radio", icon: MiscIconTypes.radio }),
+    aetherTunnel: new Item({ title: "Aether Tunnel", icon: MiscIconTypes.zipline }),
     aetherCrystal: new Item({ title: "Aether Crystal" }),
 }
 
@@ -60,16 +60,16 @@ export const WorldEventTypes = {
 
 /////////////////////Perks/////////////////////////
 export const Perks = {
-    staminup: new Item({ id: "staminUp", title: "Stamin-Up", icon: IconTypes.staminUp }),
-    quick: new Item({ id: "quickRevive", title: "Quick Revive", icon: IconTypes.quickRevive }),
-    jugg: new Item({ id: "juggernog", title: "Jugger-Nog", icon: IconTypes.juggernog }),
-    speed: new Item({ id: "speedCola", title: "Speed Cola", icon: IconTypes.speedCola }),
-    mule: new Item({ id: "muleKick", title: "Mule Kick", icon: IconTypes.muleKick }),
-    elemental: new Item({ id: "elementalPop", title: "Elemental Pop", icon: IconTypes.elementalPop }),
-    death: new Item({ id: "deathPerception", title: "Death Perception", icon: IconTypes.deathPerception }),
-    tomb: new Item({ id: "tombstoneSoda", title: "Tombstone", icon: IconTypes.tombstoneSoda }),
-    deadshot: new Item({ id: "deadshotDaiquiri", title: "Deadshot Daiquiri", icon: IconTypes.deadshotDaiquiri }),
-    phd: new Item({ id: "phdSlider", title: "PHD Slider", icon: IconTypes.phdSlider }),
+    staminup: new Item({ id: "staminUp", title: "Stamin-Up", icon: MiscIconTypes.staminUp }),
+    quick: new Item({ id: "quickRevive", title: "Quick Revive", icon: MiscIconTypes.quickRevive }),
+    jugg: new Item({ id: "juggernog", title: "Jugger-Nog", icon: MiscIconTypes.juggernog }),
+    speed: new Item({ id: "speedCola", title: "Speed Cola", icon: MiscIconTypes.speedCola }),
+    mule: new Item({ id: "muleKick", title: "Mule Kick", icon: MiscIconTypes.muleKick }),
+    elemental: new Item({ id: "elementalPop", title: "Elemental Pop", icon: MiscIconTypes.elementalPop }),
+    death: new Item({ id: "deathPerception", title: "Death Perception", icon: MiscIconTypes.deathPerception }),
+    tomb: new Item({ id: "tombstoneSoda", title: "Tombstone", icon: MiscIconTypes.tombstoneSoda }),
+    deadshot: new Item({ id: "deadshotDaiquiri", title: "Deadshot Daiquiri", icon: MiscIconTypes.deadshotDaiquiri }),
+    phd: new Item({ id: "phdSlider", title: "PHD Slider", icon: MiscIconTypes.phdSlider }),
 }
 
 /////////////////////Markers/////////////////////////

@@ -1,39 +1,58 @@
 import L, { DivIconOptions } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { IntelMarker } from '../../classes';
-import { Faction } from '../../data/intel';
+import { Faction, IntelItem } from '../../data/intel';
 import { intelIconInit } from '../../helpers/icons';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, DeclassifiedIntelCollected } from '../../data/db';
+import { useRef } from 'react';
+import { IntelListMenuItem } from '../IntelListMenuItem';
+import styled from '@emotion/styled';
 
-export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img }: IntelMarker) => {
-    let imgSrc = img ? `https://i.imgur.com/${img}.jpg` : 'assets/img/intelScreenshot/placeholder.png';
-    // map
+const StyledPopup = styled(Popup)`
+    border-radius: 5px;
+    margin: 0 !important;
+    .leaflet-popup-content-wrapper {
+        .leaflet-popup-content {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    }
+    .leaflet-popup-close-button {
+        display: none !important;
+    }
+`
+
+export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img, map }: IntelItem) => {
     const isCollected = useLiveQuery(() => db.intelCollected.get(id ?? ""));
     const markerIcon = renderLeafletIcon(isCollected, faction, typeDesc);
+    const snackbarRef = useRef<{
+        handleClick: (msg: string) => void;
+    }>(null);
+    const notification = (intelId: string) => {
+        if (snackbarRef.current) {
+            snackbarRef.current.handleClick(`Copied Link To Clipboard`);
+        }
+    };
 
     return (
         (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
             (
                 <Marker position={loc} icon={markerIcon}>
-                    <Popup>
-                        <>
-                            <h1>{title}</h1> {isCollected ? 'collected' : ''}
-
-                            <div className="intel-content">
-                                <div>
-                                    <p>{desc}</p>
-                                    <div className="buttonContainer" data-item={id}>
-                                        {/* {collectedBtn}
-                                {shareBtn}
-                                {bugBtn}
-                                {moreBtn} */}
-                                    </div>
-                                </div>
-                                <img src={imgSrc} /* onClick="expandImage(this)" */ alt="Intel Location"></img>
-                            </div>
-                        </>
-                    </Popup>
+                    <StyledPopup>
+                        <IntelListMenuItem
+                            key={id}
+                            id={id!}
+                            faction={faction}
+                            season={season}
+                            typeDesc={typeDesc}
+                            loc={loc}
+                            map={map}
+                            title={title}
+                            desc={desc ?? ''}
+                            img={img}
+                            notification={notification} />
+                    </StyledPopup>
                 </Marker>
             )
 

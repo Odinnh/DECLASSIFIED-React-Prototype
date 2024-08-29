@@ -1,16 +1,15 @@
 import { MapItem } from "../classes";
-import { IntelStore } from "../data/intel";
-import { MarkerTypes, MiscStore } from "../data/misc";
+import { MiscIconTypes, IntelStore, IntelType } from "../data/intel";
+import { MiscStore } from "../data/misc";
 import { ContribTemplates, RepoDomain } from "./models";
 
-export function redirectToGithub( id = "", itemType, issueType = "New", currentMap, location = "") {
+export function redirectToGithub( id = "", itemType: IntelType|MiscIconTypes, issueType = "New", currentMap, location = "") {
     const domain = `${RepoDomain}/issues/new`;
     let assignees = "Odinnh,sol3uk";
 
-    const isIntel = (itemType == MarkerTypes.intel.id);
-    const isMisc = (itemType == MarkerTypes.misc.id);
+    const isIntel = Object.values(IntelType).includes(itemType as IntelType);
+    const isMisc = Object.values(MiscIconTypes).includes(itemType as MiscIconTypes);
     let label = ""; let issueTemplate = ""; let entityName = ""; let map = currentMap ?? "";
-
     if (isIntel) {
         if (issueType !== "New") {
             issueTemplate = ContribTemplates.intel.editId
@@ -31,9 +30,7 @@ export function redirectToGithub( id = "", itemType, issueType = "New", currentM
         // Don't yet keep map against misc markers, need to change this, this will do for now since miscs are only on the current map
         map = currentMap.id;
     }
-
     let labels = `${label},${map}`;
-
     let intelIdPlaceholder = id ? `[${id}]` : "";
 
     let issueTitle = `${label}: ${entityName} [${map}]${intelIdPlaceholder}`;

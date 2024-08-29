@@ -1,5 +1,5 @@
 import { LatLngExpression } from "leaflet";
-import { Faction, IconTypes, Season } from "../data/intel";
+import { Faction, MiscIconTypes, IntelType, Season } from "../data/intel";
 // import { generalIcon, renderIntelMapMarkers, renderMiscMapMarkers } from "../helpers/markers";
 
 /////////////////////Classes/////////////////////////
@@ -22,13 +22,13 @@ export class Item {
         this.id = id;
         this.title = title ?? "";
         this.desc = desc ?? "";
-        this.icon = icon ?? IconTypes.general;
+        this.icon = icon ?? MiscIconTypes.general;
         this.layer = layer ?? "MiscMarkers";
     }
 }
 
 export class BaseMarker extends Item {
-    typeDesc: string;
+    typeDesc: IntelType;
     loc: LatLngExpression;
 
     constructor({ id, title, desc, icon, layer, typeDesc, loc }: any) {
@@ -42,12 +42,14 @@ export class IntelMarker extends BaseMarker {
     faction: Faction;
     season: Season;
     img?: string;
+    map: string;
 
-    constructor({ id, title, desc, icon, layer, typeDesc, loc, faction, season, img }: any) {
+    constructor({ id, title, desc, icon, layer, typeDesc, loc, faction, season, img, map }: any) {
         super({ id, title, desc, icon, layer, typeDesc, loc });
         this.faction = faction;
         this.season = season;
         this.img = img;
+        this.map = map;
     }
 }
 

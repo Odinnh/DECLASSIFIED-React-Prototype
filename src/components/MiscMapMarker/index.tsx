@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
-import { IconTypes } from '../../data/intel';
+import { MiscIconTypes } from '../../data/intel';
 
 export const MiscMapMarker = ({ id, title, desc, icon, typeDesc, loc }: MiscMarker) => {
     const renderedIcon = miscIconInit(icon);
@@ -35,37 +35,37 @@ export const miscIconInit = (id?: string) => {
 }
 
 const customMiscIconBounds = {
-    [IconTypes.general]: {
+    [MiscIconTypes.general]: {
         iconAnchor: [15, 30],
         popupAnchor: [0, -30]
     },
-    [IconTypes.radio]: {
+    [MiscIconTypes.radio]: {
         iconSize: [39, 48],
         iconAnchor: [19.5, 24],
         popupAnchor: [0, -30]
     },
-    [IconTypes.rift]:
+    [MiscIconTypes.rift]:
     {
         iconSize: [22, 48],
         iconAnchor: [11, 24],
         popupAnchor: [0, -30]
     },
-    [IconTypes.demented]: {
+    [MiscIconTypes.demented]: {
         iconSize: [48, 48],
         iconAnchor: [24, 24],
         popupAnchor: [0, -30]
     },
-    [IconTypes.fishing]: {
+    [MiscIconTypes.fishing]: {
         popupAnchor: [0, -30]
     },
-    [IconTypes.monkey]: {
+    [MiscIconTypes.monkey]: {
         popupAnchor: [0, -30]
     },
-    [IconTypes.redRift]: {
+    [MiscIconTypes.redRift]: {
         iconSize: [22, 48],
         iconAnchor: [11, 24],
         popupAnchor: [0, -30]
     },
-    [IconTypes.arsenal]: { iconAnchor: [15, 30] },
-    [IconTypes.craftingTable]: { iconAnchor: [15, 30] },
+    [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
+    [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
 }
