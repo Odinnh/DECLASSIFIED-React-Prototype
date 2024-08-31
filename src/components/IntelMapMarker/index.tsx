@@ -1,6 +1,5 @@
 import L, { DivIconOptions } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
-import { IntelMarker } from '../../classes';
 import { Faction, IntelItem } from '../../data/intel';
 import { intelIconInit } from '../../helpers/icons';
 import { useLiveQuery } from 'dexie-react-hooks';
