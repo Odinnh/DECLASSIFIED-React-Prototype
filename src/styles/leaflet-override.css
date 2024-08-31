@@ -42,12 +42,12 @@
   flex-wrap: nowrap;
   justify-content: space-around;
 } */
-.leaflet-popup-content > div > img {
+/* .leaflet-popup-content > div > img {
   width: 300px;
-}
-.leaflet-popup-content p {
+} */
+/* .leaflet-popup-content p {
   padding: 5px 20px;
-}
+} */
 .leaflet-popup-content {
   margin: unset;
 }
