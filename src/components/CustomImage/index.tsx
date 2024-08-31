@@ -21,9 +21,13 @@ const style = {
 };
 
 export const CustomImage = ({
-    src: imageId = './assets/img/intelScreenshot/placeholder.png',
+    src: imageId,
     altText = 'Placeholder'
 }) => {
+    const hasImage = imageId !== '' && imageId !== null && imageId !== undefined;
+    const thumbnailSrc = `https://i.imgur.com/${imageId}l.jpg?t=${new Date().getTime()}`; // the "l" is used for imgur api to scale the image
+    const fullSizeSrc = `https://i.imgur.com/${imageId}.jpg?t=${new Date().getTime()}`;
+    const placeholderSrc  = './assets/img/intelScreenshot/placeholder.png';
     const [imgLoaded, setImageLoaded] = useState(false);
     const [modalImageLoaded, setModalImageLoaded] = useState(false);
     const [open, setOpen] = useState(false);
@@ -38,43 +42,50 @@ export const CustomImage = ({
     return (
         <>
             <StyledImageContainer>
-                {!imgLoaded && (
-                        <CircularProgress />
-                    )}
-                <img
-                    src={`https://i.imgur.com/${imageId}m.jpg?t=${new Date().getTime()}`}
-                    onClick={handleOpen}
-                    alt={altText}
-                    loading="lazy"
-                    style={{
-                        height: 'auto',
-                        cursor: 'pointer'
-                    }}
-                    onLoad={() => setImageLoaded(true)}
-                />
+                {hasImage ? (
+                    <>
+                        {!imgLoaded && (
+                            <CircularProgress />
+                        )}
+                        <img
+                        src={thumbnailSrc} 
+                        onClick={handleOpen}
+                        alt={altText}
+                        loading="lazy"
+                        style={{
+                            height: 'auto',
+                            cursor: 'pointer'
+                        }}
+                        onLoad={() => setImageLoaded(true)}
+                        />
+                    </>
+                ) : (<img src={placeholderSrc} alt={altText} />)}
+                
             </StyledImageContainer>
 
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    {!modalImageLoaded && (
-                        <CircularProgress style={{ display: 'block', margin: 'auto' }} />
-                    )}
-                    <img
-                        src={`https://i.imgur.com/${imageId}.jpg?t=${new Date().getTime()}`}
-                        onLoad={() => setModalImageLoaded(true)}
-                        alt={altText}
-                        style={{
-                            width: '100%',
-                            display: modalImageLoaded ? 'block' : 'none',
-                        }}
-                    />
-                </Box>
-            </Modal>
+            {hasImage && (
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        {!modalImageLoaded && (
+                            <CircularProgress style={{ display: 'block', margin: 'auto' }} />
+                        )}
+                        <img
+                            src={fullSizeSrc}
+                            onLoad={() => setModalImageLoaded(true)}
+                            alt={altText}
+                            style={{
+                                width: '100%',
+                                display: modalImageLoaded ? 'block' : 'none',
+                            }}
+                        />
+                    </Box>
+                </Modal>
+            )}
         </>
     );
 };
