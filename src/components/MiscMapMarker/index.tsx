@@ -20,6 +20,7 @@ const StyledPopup = styled(Popup)`
 `
 
 const MiscDetailItem = styled(Paper)`
+    background-color: unset;
     padding: 8px;
     /* width:300px; */
     display: flex;

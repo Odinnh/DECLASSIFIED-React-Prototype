@@ -1,6 +1,6 @@
 .leaflet-popup-content-wrapper {
   border-radius: unset;
-  background-color: var(--clr-white-d);
+  background-color: var(--clr-bg-inverted) !important;
   border: none;
   padding: 0px !important;
 }.leaflet-popup-content{
@@ -49,7 +49,7 @@
 }
 
 .leaflet-popup-tip {
-  background-color: var(--clr-white-d);
+  background-color: var(--clr-bg-inverted) !important;
   z-index: -1;
 }
 
