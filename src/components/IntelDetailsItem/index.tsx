@@ -73,7 +73,8 @@ const IntelSummary = styled(AccordionSummary)`
     .MuiAccordionSummary-content.MuiAccordionSummary-contentGutters {
         align-items: center;
         margin: 0px;
-        width: 100% !important;
+        width: 100%;
+        overflow: hidden;
     }
 
     .icon {
@@ -85,6 +86,8 @@ const IntelSummary = styled(AccordionSummary)`
         margin: 0 auto;
         white-space: nowrap;
         overflow: hidden;
+        text-wrap: pretty;
+        text-align: center;
     }
 `
 
