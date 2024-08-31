@@ -190,7 +190,7 @@ export const IntelDetailsItem = ({
                                 }}><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
                                 : <Button disabled><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
                             }
-                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
+                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon htmlColor='var(--clr-blue)' /></Button>)}
                             <Button><ShareIcon htmlColor='var(--clr-blue)' onClick={() => {
                                 navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
                                 notification(id)
