@@ -184,11 +184,11 @@ export const IntelDetailsItem = ({
                                     } else {
                                         mapInstance.flyTo(loc, 4);
                                     }
-                                }}><LocationOnIcon /></Button>
-                                : <Button disabled><LocationOnIcon /></Button>
+                                }}><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
+                                : <Button disabled><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
                             }
-                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
-                            <Button><ShareIcon onClick={() => {
+                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
+                            <Button><ShareIcon htmlColor='var(--clr-blue)' onClick={() => {
                                 navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
                                 notification(id)
                             }} /></Button>
