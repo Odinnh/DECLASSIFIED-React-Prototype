@@ -167,7 +167,7 @@ export const IntelDetailsItem = ({
             </IntelSummary>
             {isMarker || expanded ? (
                 <StyledAccordionDetails>
-                    <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
+                    <CustomImage src={img} altText='Placeholder' />
                     <IntelDetails>
                         <IntelSubheading variant='h3'>
                             {mapItem?.title} - {season} - {typeDesc} - {faction}
