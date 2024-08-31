@@ -22,7 +22,7 @@ export interface IIntelItemWithHandler extends IIntelItem {
 }
 
 const StyledAccordion = styled(Accordion)`
-    background-color: var(--clr-bg);
+    background-color: var(--clr-bg-inverted);
 
     .collected {
         background: linear-gradient(245deg, 
