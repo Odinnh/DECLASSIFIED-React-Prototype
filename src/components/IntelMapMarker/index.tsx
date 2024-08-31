@@ -11,7 +11,9 @@ import styled from '@emotion/styled';
 import NotificationBanner from '../NotificationBanner/NotificationBanner';
 
 const StyledPopup = styled(Popup)`
-    border-radius: 5px;
+    background-color: var(--clr-bg-inverted);
+    border-radius: 12px !important;
+    box-shadow: unset !important;
     margin: 0 !important;
     .leaflet-popup-content-wrapper {
         .leaflet-popup-content {

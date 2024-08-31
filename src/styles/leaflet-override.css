@@ -1,3 +1,7 @@
+.leaflet-popup{
+  border-radius: 12px !important;
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: unset;
   background-color: var(--clr-bg-inverted) !important;

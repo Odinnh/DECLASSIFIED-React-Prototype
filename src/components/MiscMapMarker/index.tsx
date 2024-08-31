@@ -6,7 +6,8 @@ import { Paper, styled, Typography } from '@mui/material';
 
 const StyledPopup = styled(Popup)`
     background-color: var(--clr-bg-inverted);
-    border-radius: 5px;
+    border-radius: 12px !important;
+    box-shadow: unset !important;
     margin: 0 !important;
     .leaflet-popup-content-wrapper {
         .leaflet-popup-content {
@@ -21,6 +22,7 @@ const StyledPopup = styled(Popup)`
 
 const MiscDetailItem = styled(Paper)`
     background-color: unset;
+    border-radius: unset;
     padding: 8px;
     /* width:300px; */
     display: flex;
