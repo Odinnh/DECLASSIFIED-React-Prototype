@@ -56,8 +56,8 @@ body {
 
 body.dark {
     --clr-bg: var(--clr-grey-d);
-    --clr-color: var(--clr-white-d);
     --clr-bg-inverted: var(--clr-white-d);
+    --clr-color: var(--clr-white-d);
     --clr-color-inverted: var(--clr-grey-d);
 
     /* whites and blacks */
