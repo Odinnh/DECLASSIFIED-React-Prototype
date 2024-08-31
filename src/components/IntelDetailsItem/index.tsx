@@ -33,6 +33,7 @@ const StyledAccordion = styled(Accordion)`
         svg[data-testid="ExpandMoreIcon"] {
             color: var(--clr-white);
         }
+        border-top-right-radius: inherit;
     }
 
     .intel-item-header[data-faction="Requiem"] .icon {
