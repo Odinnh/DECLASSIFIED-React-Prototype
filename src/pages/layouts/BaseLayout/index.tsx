@@ -1,4 +1,3 @@
-import '../../../styles/worldmap.css';
 import '../../../styles/global.css';
 import '../../../styles/leaflet-override.css';
 import '../../../styles/style.css';
