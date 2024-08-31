@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 import { Faction, IntelItem, IntelStore, IntelType, Season } from '../../data/intel'
-import { IntelListMenuItem } from '../IntelListMenuItem'
+import { IntelDetailsItem } from '../IntelDetailsItem'
 import { MapItem } from '../../classes'
 import { Paper, Typography } from '@mui/material'
 import { db } from '../../data/db'
@@ -58,7 +58,7 @@ export const IntelList = () => {
     // console.log("IntelListToRender", IntelListToRender);
 
     const RenderedIntelList = IntelListToRender.map(intel => {
-        return (<IntelListMenuItem
+        return (<IntelDetailsItem
             key={intel.id}
             {...intel}
             notification={notification} />)

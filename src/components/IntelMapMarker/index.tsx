@@ -6,7 +6,7 @@ import { intelIconInit } from '../../helpers/icons';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, DeclassifiedIntelCollected } from '../../data/db';
 import { useRef } from 'react';
-import { IntelListMenuItem } from '../IntelListMenuItem';
+import { IntelDetailsItem } from '../IntelDetailsItem';
 import styled from '@emotion/styled';
 import NotificationBanner from '../NotificationBanner/NotificationBanner';
 
@@ -41,7 +41,7 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
             (<>
                 <Marker position={loc} icon={markerIcon}>
                     <StyledPopup>
-                        <IntelListMenuItem
+                        <IntelDetailsItem
                             key={id}
                             id={id!}
                             faction={faction}
@@ -52,7 +52,8 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
                             title={title}
                             desc={desc ?? ''}
                             img={img}
-                            notification={notification} />
+                            notification={notification}
+                            isMarker={true} />
                     </StyledPopup>
                 </Marker>
                 <NotificationBanner ref={snackbarRef} />

@@ -19,6 +19,7 @@ import { redirectToGithub } from '../../helpers/github';
 
 export interface IIntelItemWithHandler extends IIntelItem {
     notification: (intelId: string) => void;
+    isMarker?: boolean;
 }
 
 const StyledAccordion = styled(Accordion)`
@@ -72,10 +73,10 @@ const IntelSummary = styled(AccordionSummary)`
     .MuiAccordionSummary-content.MuiAccordionSummary-contentGutters {
         align-items: center;
         margin: 0px;
+        width: 100% !important;
     }
 
     .icon {
-        width: 10%;
         height: 100%;
         padding: 10px;
     }
@@ -122,7 +123,7 @@ const IntelDescription = styled(Typography)`
     text-align: center;
 `
 
-export const IntelListMenuItem = ({
+export const IntelDetailsItem = ({
     id,
     faction,
     season,
@@ -132,7 +133,8 @@ export const IntelListMenuItem = ({
     title,
     desc,
     img = undefined,
-    notification
+    notification,
+    isMarker = false
 }: IIntelItemWithHandler) => {
     const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext);
     const mapInstance = useMapEvents({});
@@ -143,9 +145,9 @@ export const IntelListMenuItem = ({
     const mapItem = GetMapById(map!);
 
     return (
-        <StyledAccordion onChange={() => setExpanded(!expanded)}>
+        <StyledAccordion defaultExpanded={isMarker} onChange={() => setExpanded(!expanded)} >
             <IntelSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={isMarker ? null : <ExpandMoreIcon />}
                 aria-controls="intel-item"
                 className={`intel-item-header ${isCollected ? 'collected' : ''}`}
                 data-faction={faction}
@@ -158,42 +160,42 @@ export const IntelListMenuItem = ({
                     {title}
                 </Typography>
             </IntelSummary>
-            {expanded ? (
-            <StyledAccordionDetails>
-                <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
-                <IntelDetails>
-                    <IntelSubheading variant='h3'>
-                        {mapItem?.title} - {season} - {typeDesc} - {faction}
-                    </IntelSubheading>
-                    <IntelDescription>
-                        {desc}
-                    </IntelDescription>
-                    <StyledIntelActionContainer>
-                        {IntelHasLocation && mapItem?.mapCanRender ?
-                            <Button onClick={() => {
-                                if (IntelIsOnAnotherMap) {
+            {isMarker || expanded ? (
+                <StyledAccordionDetails>
+                    <CustomImage src={img ? `https://i.imgur.com/${img}m.jpg` : undefined} altText='Placeholder' />
+                    <IntelDetails>
+                        <IntelSubheading variant='h3'>
+                            {mapItem?.title} - {season} - {typeDesc} - {faction}
+                        </IntelSubheading>
+                        <IntelDescription>
+                            {desc}
+                        </IntelDescription>
+                        <StyledIntelActionContainer>
+                            {IntelHasLocation && mapItem?.mapCanRender ?
+                                <Button onClick={() => {
+                                    if (IntelIsOnAnotherMap) {
 
-                                    if (mapItem && mapItem.mapCanRender) {
-                                        var mapSetResult = setCurrentMap(mapItem);
-                                        if (mapSetResult) {
-                                            mapInstance.flyTo(loc, 4);
+                                        if (mapItem && mapItem.mapCanRender) {
+                                            var mapSetResult = setCurrentMap(mapItem);
+                                            if (mapSetResult) {
+                                                mapInstance.flyTo(loc, 4);
+                                            }
                                         }
+                                    } else {
+                                        mapInstance.flyTo(loc, 4);
                                     }
-                                } else {
-                                    mapInstance.flyTo(loc, 4);
-                                }
-                            }}><LocationOnIcon /></Button>
-                            : <Button disabled><LocationOnIcon /></Button>
-                        }
-                        {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
-                        <Button><ShareIcon onClick={() => {
-                            navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
-                            notification(id)
-                        }} /></Button>
-                        <Button onClick={() => redirectToGithub(id, typeDesc, "Fix", mapItem)} ><BugReportIcon htmlColor='var(--clr-red)' /></Button>
-                    </StyledIntelActionContainer>
-                </IntelDetails>
-            </StyledAccordionDetails>) : (null)}
+                                }}><LocationOnIcon /></Button>
+                                : <Button disabled><LocationOnIcon /></Button>
+                            }
+                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon /></Button>)}
+                            <Button><ShareIcon onClick={() => {
+                                navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
+                                notification(id)
+                            }} /></Button>
+                            <Button onClick={() => redirectToGithub(id, typeDesc, "Fix", mapItem)} ><BugReportIcon htmlColor='var(--clr-red)' /></Button>
+                        </StyledIntelActionContainer>
+                    </IntelDetails>
+                </StyledAccordionDetails>) : (null)}
 
         </StyledAccordion>
     )
