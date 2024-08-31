@@ -8,6 +8,7 @@ import { db, DeclassifiedIntelCollected } from '../../data/db';
 import { useRef } from 'react';
 import { IntelListMenuItem } from '../IntelListMenuItem';
 import styled from '@emotion/styled';
+import NotificationBanner from '../NotificationBanner/NotificationBanner';
 
 const StyledPopup = styled(Popup)`
     border-radius: 5px;
@@ -37,7 +38,7 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
 
     return (
         (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
-            (
+            (<>
                 <Marker position={loc} icon={markerIcon}>
                     <StyledPopup>
                         <IntelListMenuItem
@@ -54,6 +55,8 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
                             notification={notification} />
                     </StyledPopup>
                 </Marker>
+                <NotificationBanner ref={snackbarRef} />
+            </>
             )
 
     )
@@ -67,7 +70,7 @@ const renderLeafletIcon = (isCollected: DeclassifiedIntelCollected | undefined, 
         iconAnchor: [12.5, 40],
         shadowSize: [33, 44],
         shadowAnchor: [(33 / 2), 44],
-        popupAnchor: [0, -25]        
+        popupAnchor: [0, -25]
     }
 
     return L.divIcon(
