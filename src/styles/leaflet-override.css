@@ -125,3 +125,7 @@
 .leaflet-container .leaflet-control-layers-list {
   accent-color: var(--clr-red) !important;
 }
+
+.leaflet-tile { 
+  border: solid black 5px !important; 
+}

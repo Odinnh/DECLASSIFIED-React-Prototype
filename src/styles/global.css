@@ -12,7 +12,7 @@ html {
 body {
     /* whites and blacks */
     --clr-white: #FFFFFF;
-    --clr-white-d: #c7bbb2;
+    --clr-white-d: color-mix(in srgb, #c7bbb2 50%, white 50%);
     --clr-grey-l: #6a6a6b;
     --clr-grey: #565555;
     --clr-grey-d: #3c3c3b;
