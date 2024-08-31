@@ -578,7 +578,7 @@ export const MiscStore: IMisc = {
         new MiscMarker("NXZCq", MiscTypes.monkey, [312.61036148443907, 345], "Behind some pallets next to the train platform."),
         new MiscMarker("FqjzW", MiscTypes.monkey, [366.728066736379, 131], "Leaning against the broken down car."),
         new MiscMarker("SGa0I", MiscTypes.monkey, [238.30978121120768, 448.3125], "At the end of the railroad, under rafters."),
-        new MiscMarker("fDb0E", MiscTypes.projector, [0, 0]),
+        // new MiscMarker("fDb0E", MiscTypes.projector, [0, 0]), // Dont think this exists
         new MiscMarker("YeH4n", MiscTypes.thermophasic, [94.0042121017423, 334.3317226785948]),
     ],
     [MapIds.alpine]: [
