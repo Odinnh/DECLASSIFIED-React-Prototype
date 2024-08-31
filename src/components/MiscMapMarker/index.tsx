@@ -2,23 +2,60 @@ import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
 import { MiscIconTypes } from '../../data/intel';
+import { Paper, styled, Typography } from '@mui/material';
+
+const StyledPopup = styled(Popup)`
+    background-color: var(--clr-bg-inverted);
+    border-radius: 5px;
+    margin: 0 !important;
+    .leaflet-popup-content-wrapper {
+        .leaflet-popup-content {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    }
+    .leaflet-popup-close-button {
+        display: none !important;
+    }
+`
+
+const MiscDetailItem = styled(Paper)`
+    padding: 8px;
+    /* width:300px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+`
+
+const MiscDescription = styled(Typography)`
+    text-align: center;
+    margin: 0px !important;
+    font-size: 0.7rem;
+`
+
+const PopupTitle = styled(Typography)`
+    font-size: 1.1rem;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+`
 
 export const MiscMapMarker = ({ id, title, desc, icon, typeDesc, loc }: MiscMarker) => {
     const renderedIcon = miscIconInit(icon);
 
     return (
         <Marker position={loc} icon={renderedIcon}>
-            <Popup>
-                <div className="misc-content">
-                    <h1>{title}</h1>
-                    <div>
-                        <div className="buttonContainer" data-item={id}>
-                            <p>{desc}</p>
-
-                        </div>
-                    </div>
-                </div>
-            </Popup>
+            <StyledPopup>
+                <MiscDetailItem>
+                    <PopupTitle variant='h2'>
+                        {title}
+                    </PopupTitle>
+                    <MiscDescription>
+                        {desc}
+                    </MiscDescription>
+                </MiscDetailItem>
+            </StyledPopup>
         </Marker>
     )
 }

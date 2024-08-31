@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
-import BugReportIcon from '@mui/icons-material/BugReport';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import ShareIcon from '@mui/icons-material/Share';
-import { Accordion, AccordionDetails, AccordionSummary, Button, Icon, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material';
 import { useContext, useState } from 'react';
 import { DefaultPOIData, IIntelItem } from '../../data/intel';
 import { CustomImage } from '../CustomImage';
@@ -15,7 +13,8 @@ import { deleteCollectedIntel, addCollectedIntel } from '../../data/dataAccessLa
 import { useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { GetMapById } from '../../data/mapDetails';
-import { redirectToGithub } from '../../helpers/github';
+import { ShareButton } from '../ActionButtons/ShareButton';
+import { BugReportButton } from '../ActionButtons/BugReportButton';
 
 export interface IIntelItemWithHandler extends IIntelItem {
     notification: (intelId: string) => void;
@@ -23,7 +22,7 @@ export interface IIntelItemWithHandler extends IIntelItem {
 }
 
 const StyledAccordion = styled(Accordion)`
-    background-color: var(--clr-bg-inverted);
+    background-color: var(--clr-bg);
 
     .collected {
         background: linear-gradient(245deg, 
@@ -59,6 +58,7 @@ const StyledAccordion = styled(Accordion)`
 const IntelSummary = styled(AccordionSummary)`
     padding-left: 0px;
     min-height: unset;
+    width: 100%;
 
     .MuiTypography-h2 {
         font-size: 1.1rem;
@@ -124,6 +124,7 @@ const IntelSubheading = styled(Typography)`
 
 const IntelDescription = styled(Typography)`
     text-align: center;
+    margin: 0px !important;
 `
 
 export const IntelDetailsItem = ({
@@ -174,6 +175,7 @@ export const IntelDetailsItem = ({
                             {desc}
                         </IntelDescription>
                         <StyledIntelActionContainer>
+                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon htmlColor='var(--clr-blue)' /></Button>)}
                             {IntelHasLocation && mapItem?.mapCanRender ?
                                 <Button onClick={() => {
                                     if (IntelIsOnAnotherMap) {
@@ -190,12 +192,8 @@ export const IntelDetailsItem = ({
                                 }}><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
                                 : <Button disabled><LocationOnIcon htmlColor='var(--clr-blue)' /></Button>
                             }
-                            {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon htmlColor='var(--clr-blue)' /></Button>)}
-                            <Button><ShareIcon htmlColor='var(--clr-blue)' onClick={() => {
-                                navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?id=${id}`);
-                                notification(id)
-                            }} /></Button>
-                            <Button onClick={() => redirectToGithub(id, typeDesc, "Fix", mapItem)} ><BugReportIcon htmlColor='var(--clr-red)' /></Button>
+                            <ShareButton id={id} notification={notification} />
+                            <BugReportButton id={id} typeDesc={typeDesc} mapItem={mapItem}/>
                         </StyledIntelActionContainer>
                     </IntelDetails>
                 </StyledAccordionDetails>) : (null)}
