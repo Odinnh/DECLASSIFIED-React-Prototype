@@ -7,14 +7,14 @@ export const GetMapById = (mapId :string) => Object.values(MapDetails).find(map 
 export const MapDetails = {
     allOutbreakMaps: new MapItem(MapIds.allOutbreakMaps, { title: "All Outbreak Maps" }),
     //outbreak
-    zoo: new MapItem(MapIds.zoo, { title: "Zoo" }),
-    ruka: new MapItem(MapIds.ruka, { title: "Ruka" }),
-    duga: new MapItem(MapIds.duga, { title: "Duga" }),
-    alpine: new MapItem(MapIds.alpine, { title: "Alpine" }),
-    golova: new MapItem(MapIds.golova, { title: "Golova" }),
-    sanatorium: new MapItem(MapIds.sanatorium, { title: "Sanatorium" }),
-    collateral: new MapItem(MapIds.collateral, { title: "Collateral" }),
-    armada: new MapItem(MapIds.armada, { title: "Armada" }),
+    zoo: new MapItem(MapIds.zoo, { title: "Zoo", mapOverlay:mapSVGs.zoo }),
+    ruka: new MapItem(MapIds.ruka, { title: "Ruka", mapOverlay:mapSVGs.ruka }),
+    duga: new MapItem(MapIds.duga, { title: "Duga", mapOverlay:mapSVGs.duga }),
+    alpine: new MapItem(MapIds.alpine, { title: "Alpine", mapOverlay:mapSVGs.alpine }),
+    golova: new MapItem(MapIds.golova, { title: "Golova", mapOverlay:mapSVGs.golova }),
+    sanatorium: new MapItem(MapIds.sanatorium, { title: "Sanatorium", mapOverlay:mapSVGs.sanatorium }),
+    collateral: new MapItem(MapIds.collateral, { title: "Collateral", mapOverlay:mapSVGs.collateral }),
+    armada: new MapItem(MapIds.armada, { title: "Armada", mapOverlay:mapSVGs.armada }),
     //roundbased
     dieMaschine: new MapItem(MapIds.dieMaschine, { title: "Die Maschine", mapOverlay: mapSVGs.dieMaschine }),
     dieMaschineUnderground: new MapItem(MapIds.dieMaschineUnderground, { title: "Die Maschine Underground", mapOverlay: mapSVGs.dieMaschine_underground }),
