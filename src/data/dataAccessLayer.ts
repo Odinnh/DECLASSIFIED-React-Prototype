@@ -16,7 +16,6 @@ const defaultUserPrefs: DeclassifiedUserPreferences = {
 export async function getSetUserPreferences(username: string = defaultUsername) {
 	try {
 		const userExists = await db.userPrefs.get(username) !== undefined;
-		console.log("userExists: ", userExists);
 		if (!userExists) {
 			await db.userPrefs.add(defaultUserPrefs, username);
 			return defaultUserPrefs;
