@@ -82,7 +82,7 @@ const Header = () => {
     <>
       {isMobile ? (
         <StyledHeader>
-          <Button onClick={toggleDrawer(true)}>{currentMapGroup.mapName}</Button>
+          <Button onClick={toggleDrawer(true)}>{currentMapGroup!.mapName}</Button>
           <MapDrawer
             anchor={'top'}
             open={isDrawerOpen}
@@ -102,7 +102,7 @@ const Header = () => {
             aria-expanded={isOpen ? 'true' : undefined}
             onClick={handleMenuClick}
           >
-            {currentMapGroup.mapName}
+            {currentMapGroup!.mapName}
           </Button>
           <MapMenu
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}

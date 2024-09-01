@@ -5,10 +5,10 @@ import { MapMenuItem } from '../../components/MapControls/types';
 import { IntelItem } from '../../data/intel';
 
 export interface DeclassifiedContextProps {
-    currentMap: MapItem;
-    setCurrentMapWithValidation: (newMap :MapItem) => boolean;
-    currentMapGroup: MapMenuItem;
-    setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem>>;
+    currentMap: MapItem | null;
+    setCurrentMapWithValidation: (newMap :MapItem) => Promise<boolean>;
+    currentMapGroup: MapMenuItem | null;
+    setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem | null>>;
     filteredIntelStore: IntelItem[];
     setFilteredIntelStore: Dispatch<SetStateAction<IntelItem[]>>;
     currentIntelFilter: FormInputs;

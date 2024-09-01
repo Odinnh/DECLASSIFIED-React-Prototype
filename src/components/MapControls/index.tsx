@@ -10,10 +10,10 @@ export const MapControls = () => {
     
     return (
         <LayersControl position={isMobile ? "bottomright" : "topright"} collapsed={isMobile}  >
-            {currentMapGroup.mapLayers.map(mapLayer =>
+            {currentMapGroup!.mapLayers.map(mapLayer =>
                 <LayersControl.BaseLayer
                     key={`layer-${mapLayer.id}`}
-                    checked={mapLayer.id === currentMap.id /* TODO: SWAP WITH USER PREFS */}
+                    checked={mapLayer.id === currentMap!.id /* TODO: SWAP WITH USER PREFS */}
                     name={mapLayer.title}
                 >
                     {mapLayer.mapOverlay}

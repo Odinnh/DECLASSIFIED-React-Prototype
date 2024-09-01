@@ -145,7 +145,7 @@ export const IntelDetailsItem = ({
     const mapInstance = useMapEvents({});
     const [expanded, setExpanded] = useState(false);
     const IntelHasLocation = loc !== DefaultPOIData.nullLoc;
-    const IntelIsOnAnotherMap = map !== currentMap.id;
+    const IntelIsOnAnotherMap = map !== currentMap!.id;
     const isCollected = useLiveQuery(() => db.intelCollected.get(id));
     const mapItem = GetMapById(map!);
 
@@ -178,11 +178,10 @@ export const IntelDetailsItem = ({
                         <StyledIntelActionContainer>
                             {isCollected ? (<Button onClick={() => deleteCollectedIntel(id)} ><CheckBoxIcon htmlColor='var(--clr-blue)' /></Button>) : (<Button onClick={() => addCollectedIntel(id)}><CheckBoxOutlineBlankIcon htmlColor='var(--clr-blue)' /></Button>)}
                             {IntelHasLocation && mapItem?.mapCanRender ?
-                                <Button onClick={() => {
+                                <Button onClick={async () => {
                                     if (IntelIsOnAnotherMap) {
-
                                         if (mapItem && mapItem.mapCanRender) {
-                                            var mapSetResult = setCurrentMap(mapItem);
+                                            var mapSetResult = await setCurrentMap(mapItem);
                                             if (mapSetResult) {
                                                 mapInstance.flyTo(loc, 4);
                                             }

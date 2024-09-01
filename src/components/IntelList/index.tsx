@@ -26,8 +26,10 @@ const NoResults = styled(Paper)`
 `
 
 export const IntelList = () => {
-    const { currentMap, currentMapGroup, currentIntelFilter } = useContext(DeclassifiedContext);
+    const { currentMapGroup, currentIntelFilter } = useContext(DeclassifiedContext);
     // const [loading, setLoading] = useState(true); // TODO - Implement loading spinner
+    
+    
 
     const collectedIntel = useLiveQuery(async () => {
         return await db.intelCollected.toArray();
@@ -42,10 +44,11 @@ export const IntelList = () => {
             snackbarRef.current.handleClick(`Copied Link To Clipboard`);
         }
     };
-
+    if (!currentMapGroup) {
+        return null;
+    }
     const IntelListToRender = filterIntel(
         collectedIntel,
-        currentMap,
         currentMapGroup,
         IntelStore,
         currentIntelFilter.searchTerm,
@@ -82,7 +85,6 @@ export const IntelList = () => {
 
 function filterIntel(
     collectedIntel, 
-    currentMap: MapItem, 
     currentMapGroup: MapMenuItem, 
     intelCache: IntelItem[], 
     searchTermDirty: string, 

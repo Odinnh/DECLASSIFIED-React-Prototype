@@ -42,18 +42,18 @@ export const MapMarkers = () => {
         <>
             <LayersControl.Overlay name="Intel - Audio Logs" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {renderIntelMapMarkers(currentMap.id!, IntelType.Audio)}
+                    {renderIntelMapMarkers(currentMap!.id!, IntelType.Audio)}
                 </LayerGroup>
             </LayersControl.Overlay>
             <LayersControl.Overlay name="Intel - Artifacts" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {renderIntelMapMarkers(currentMap.id!, IntelType.Artifact)}
+                    {renderIntelMapMarkers(currentMap!.id!, IntelType.Artifact)}
                 </LayerGroup>
             </LayersControl.Overlay>
 
             <LayersControl.Overlay name="Misc Markers" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
                 <LayerGroup>
-                    {renderMiscMapMarkers(currentMap.id!)}
+                    {renderMiscMapMarkers(currentMap!.id!)}
                 </LayerGroup>
             </LayersControl.Overlay>
 
