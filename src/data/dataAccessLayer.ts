@@ -27,6 +27,32 @@ export async function getSetUserPreferences(username: string = defaultUsername) 
 	}
 }
 
+export async function updateUserPreferences(updates: Partial<Omit<DeclassifiedUserPreferences, 'username'>>): Promise<DeclassifiedUserPreferences | undefined> {
+    try {
+        // Retrieve the current user preferences or set the default if none exist
+        const currentUserPrefs = await getSetUserPreferences(defaultUsername);
+
+        if (!currentUserPrefs) {
+            console.log("ERROR - updateUserPreferences: Could not retrieve or set user preferences.");
+            return undefined;
+        }
+
+        // Merge the updates with the current preferences, excluding 'username'
+        const updatedPrefs = { ...currentUserPrefs, ...updates };
+
+        // Update the preferences in the database
+        await db.userPrefs.put(updatedPrefs, defaultUsername);
+
+        // Return the updated preferences
+        return updatedPrefs;
+    } catch (error) {
+        console.log("ERROR - updateUserPreferences: ", error);
+        return undefined;
+    }
+}
+
+
+
 export async function addCollectedIntel(intelId: string) {
 	try {
 		if (intelId) {

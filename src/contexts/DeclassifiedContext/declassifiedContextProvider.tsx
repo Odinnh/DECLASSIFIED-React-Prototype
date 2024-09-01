@@ -4,10 +4,10 @@ import { MapItem } from "../../classes";
 import { FormInputs, getIntelFilterDefaults } from "../../components/IntelListMenu";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
 import { IntelItem } from "../../data/intel";
-import { MapDetails } from "../../data/mapDetails";
+import { GetMapById, MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
 import { DeclassifiedUserPreferences } from "../../data/db";
-import { getSetUserPreferences } from "../../data/dataAccessLayer";
+import { getSetUserPreferences, updateUserPreferences } from "../../data/dataAccessLayer";
 
 const initialContextValues =  {
     userPrefs: {},
@@ -23,6 +23,12 @@ const initialContextValues =  {
     toggleDrawer: () => () => {},
     isMobile: window.innerWidth <= 768
 };
+
+async function updateUserPreferencesInDB(
+    updates: Partial<Omit<DeclassifiedUserPreferences, 'username'>>
+    ): Promise<DeclassifiedUserPreferences | undefined> {
+        return await updateUserPreferences(updates);
+    }
 
 export const DeclassifiedContext = createContext<DeclassifiedContextProps>(initialContextValues);
 
@@ -51,6 +57,11 @@ export const DeclassifiedContextProvider = ({ children }) => {
         if (newMap.mapOverlay !== null && newMap.mapOverlay !== undefined) {
             // If validation passes, update the state
             setCurrentMap(newMap);
+            const callToUpdateDB = async () => {
+                // Update the user preferences in the database
+                await updateUserPreferencesInDB({ currentMap: newMap.id });
+            }
+            callToUpdateDB();
             return true;
         } else {
             console.error('Cannot set a map that doesnt exist.');
@@ -82,6 +93,10 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
         const fetchPreferences = async () => {
             const data = await getSetUserPreferences();
+            let userPrefsCurrentMap = GetMapById(data!.currentMap);
+            if (userPrefsCurrentMap) {
+                setCurrentMap(userPrefsCurrentMap);
+            }
             setUserPreferences(data);
         };
         fetchPreferences();
