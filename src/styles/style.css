@@ -20,66 +20,6 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-header {
-  user-select: none;
-  margin: 0 auto;
-  position: absolute;
-  z-index: var(--z-index-menu);
-  left: calc((100vw - 400px) / 2);
-  cursor: pointer;
-}
-
-header h1 {
-  color: var(--clr-white);
-  width: 400px;
-  background: var(--clr-grey-d);
-  background: linear-gradient(135deg,
-      var(--clr-grey-d) 15%,
-      var(--clr-red) 15%,
-      var(--clr-red) 16%,
-      var(--clr-grey-d) 16%);
-  background-position-x: -454px;
-  background-repeat: no-repeat;
-  background-size: 800%;
-  display: flex;
-  margin: auto;
-  height: 90px;
-  align-items: center;
-  justify-content: space-evenly;
-  box-shadow: var(--shadow);
-  /* text-transform: uppercase; */
-  font-weight: 900;
-}
-
-header ul {
-  list-style: none;
-  color: var(--clr-color);
-}
-
-header h2,
-header>ul>li>ul>li {
-  padding: 10px 15px;
-  background-color: var(--clr-bg);
-}
-
-header>ul>li:hover>h2,
-header>ul>li>ul>li:hover {
-  background-color: var(--clr-bg-inverted);
-  color: var(--clr-color-inverted);
-}
-
-header>ul>li>ul,
-header>ul {
-  display: none;
-}
-
-header.visible>ul,
-header>ul>li.visible>ul,
-header>ul>li:focus>ul,
-header>ul>li:focus-within>ul {
-  display: initial;
-}
-
 /* Dropdown Content (Hidden by Default) */
 
 .dropdown-content {
