@@ -21,8 +21,8 @@ export enum MiscIconTypes {
     wunderFizz = "wunder_fizz",
     
     zipline = "zipline",
-    ziplineUp = "ziplineUp",
-    ziplineDown = "ziplineDown",
+    ziplineUp = "zipline_up",
+    ziplineDown = "zipline_down",
     portal = "portal",
     rampageInducer = "rampage_inducer",
 
