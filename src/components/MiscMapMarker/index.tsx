@@ -75,7 +75,11 @@ export const miscIconInit = (id?: string) => {
 }
 
 const svgIcons = {
-    [MiscIconTypes.rampageInducer]: true
+    [MiscIconTypes.rampageInducer]: true,
+    [MiscIconTypes.portal]: true,
+    [MiscIconTypes.zipline]: true,
+    [MiscIconTypes.ziplineUp]: true,
+    [MiscIconTypes.ziplineDown]: true
 }
 
 const customMiscIconBounds = {
@@ -113,4 +117,8 @@ const customMiscIconBounds = {
     [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
     [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
     [MiscIconTypes.rampageInducer]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+    [MiscIconTypes.portal]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+    [MiscIconTypes.zipline]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+    [MiscIconTypes.ziplineUp]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+    [MiscIconTypes.ziplineDown]: { popupAnchor: [5, -20], iconSize: [40, 40] },
 }
