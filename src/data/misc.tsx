@@ -1,7 +1,43 @@
 import { Item, MiscMarker } from "../classes";
-import { MiscIconTypes, MapIds } from "./intel";
+import { MapIds } from "./intel";
 
 /////////////////////Misc/////////////////////////
+export enum MiscIconTypes {
+    general = "general",
+
+    ammoCrate = "ammo_crate",
+    arsenal = "arsenal",
+    craftingTable = "crafting_table",
+    demented = "demented",
+    fishing = "fishing", 
+    monkey = "monkey",
+    mysteryBox = "mystery_box",
+    papMachine = "pap_machine",
+    radio = "radio",
+    redRift = "red_rift",
+    rift = "demented",
+    trialComputer = "trial_computer",
+    wallbuy = "wallbuy",
+    wunderFizz = "wunder_fizz",
+    
+    zipline = "zipline",
+    ziplineUp = "zipline_up",
+    ziplineDown = "zipline_down",
+    portal = "portal",
+    rampageInducer = "rampage_inducer",
+
+    staminUp = "stamin_up",
+    quickRevive = "quick_revive",
+    juggernog = "juggernog",
+    speedCola = "speed_cola",
+    muleKick = "mule_kick",
+    elementalPop = "elemental_pop",
+    deathPerception = "death_perception",
+    tombstoneSoda = "tombstone_soda",
+    deadshotDaiquiri = "deadshot_daiquiri",
+    phdSlider = "phd_slider",
+}
+
 export const MiscTypes = {
     dementedEcho: new Item({ title: "Demented Echo", desc: "Destroy it before it touches you to get a reward.", icon: MiscIconTypes.demented }),
     rift: new Item({ title: "Aether Rift", desc: "Jump through to teleport and gain a random powerup.", icon: MiscIconTypes.rift }),
@@ -31,7 +67,7 @@ export const MiscTypes = {
     jumpPad: new Item({ title: "Jump Pad" }),
     landingPad: new Item({ title: "Landing Pad" }),
     airSupport: new Item({ title: "Air Support Console" }),
-    teleporter: new Item({ title: "Teleporter" }),
+    teleporter: new Item({ title: "Teleporter", icon: MiscIconTypes.portal }),
     collector: new Item({ title: "Collection Unit" }),
     reactor: new Item({ title: "Aether Reactor" }),
     craftingTable: new Item({ title: "Crafting Table", icon: MiscIconTypes.craftingTable }),

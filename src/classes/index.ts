@@ -1,5 +1,6 @@
 import { LatLngExpression } from "leaflet";
-import { Faction, MiscIconTypes, IntelType, Season } from "../data/intel";
+import { Faction, IntelType, Season } from "../data/intel";
+import { MiscIconTypes } from "../data/misc";
 // import { generalIcon, renderIntelMapMarkers, renderMiscMapMarkers } from "../helpers/markers";
 
 /////////////////////Classes/////////////////////////
@@ -22,7 +23,7 @@ export class Item {
         this.id = id;
         this.title = title ?? "";
         this.desc = desc ?? "";
-        this.icon = icon ?? MiscIconTypes.general;
+        this.icon = icon ?? "general"; // Using MiscIconTypes.general here causes loop race condition
         this.layer = layer ?? "MiscMarkers";
     }
 }
