@@ -79,6 +79,9 @@ const svgIcons = {
     [MiscIconTypes.portal]: true,
     [MiscIconTypes.zipline]: true,
     [MiscIconTypes.ziplineUp]: true,
+    [MiscIconTypes.redRift]: true,
+    [MiscIconTypes.rift]: true,
+    [MiscIconTypes.tunnel]: true,
     [MiscIconTypes.ziplineDown]: true
 }
 
@@ -94,9 +97,8 @@ const customMiscIconBounds = {
     },
     [MiscIconTypes.rift]:
     {
-        iconSize: [22, 48],
-        iconAnchor: [11, 24],
-        popupAnchor: [0, -30]
+        iconSize: [40, 40],
+        popupAnchor: [5, -20]
     },
     [MiscIconTypes.demented]: {
         iconSize: [48, 48],
@@ -110,9 +112,8 @@ const customMiscIconBounds = {
         popupAnchor: [0, -30]
     },
     [MiscIconTypes.redRift]: {
-        iconSize: [22, 48],
-        iconAnchor: [11, 24],
-        popupAnchor: [0, -30]
+        iconSize: [40, 40],
+        popupAnchor: [5, -20]
     },
     [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
     [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
@@ -121,4 +122,5 @@ const customMiscIconBounds = {
     [MiscIconTypes.zipline]: { popupAnchor: [5, -20], iconSize: [40, 40] },
     [MiscIconTypes.ziplineUp]: { popupAnchor: [5, -20], iconSize: [40, 40] },
     [MiscIconTypes.ziplineDown]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+    [MiscIconTypes.tunnel]: { popupAnchor: [5, -20], iconSize: [40, 40] },
 }
