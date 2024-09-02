@@ -89,7 +89,6 @@ const svgIcons = {
   [MiscIconTypes.redRift]: true,
   [MiscIconTypes.rift]: true,
   [MiscIconTypes.tunnel]: true,
-  [MiscIconTypes.ziplineDown]: true,
 }
 
 const customMiscIconBounds = {
