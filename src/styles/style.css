@@ -292,7 +292,7 @@ select.faction-list>option:hover {
   display: none;
 }
 
-#lightbox {
+/* #lightbox {
   max-width: 100%;
   max-height: 100%;
 }
@@ -302,7 +302,7 @@ select.faction-list>option:hover {
   top: 0;
   left: 0;
   z-index: var(--z-index-ui);
-}
+} */
 
 #settings-desc #import-export {
   height: 10vh;
