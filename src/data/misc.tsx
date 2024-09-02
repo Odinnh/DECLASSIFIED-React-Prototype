@@ -3,48 +3,48 @@ import { MapIds } from "./intel";
 
 /////////////////////Misc/////////////////////////
 export enum MiscIconTypes {
-  //default iocn
-  general = 'general',
+    //default iocn
+    general = 'general',
 
-  //misc icons
-  demented = 'demented',
-  fishing = 'fishing',
-  monkey = 'monkey',
-  radio = 'radio',
-  trialComputer = 'trial_computer',
-  rampageInducer = 'rampage_inducer',
+    //misc icons
+    demented = 'demented',
+    fishing = 'fishing',
+    monkey = 'monkey',
+    radio = 'radio',
+    trialComputer = 'trial_computer',
+    rampageInducer = 'rampage_inducer',
 
-  //movement icons
-  redRift = 'tunnel_red',
-  rift = 'tunnel_pink',
-  wunderFizz = 'wunder_fizz',
-  zipline = 'zipline',
-  ziplineUp = 'ziplineUp',
-  ziplineDown = 'ziplineDown',
-  tunnel = 'tunnel',
-  tunnelRed = 'tunnel_red',
-  tunnelPink = 'tunnel_pink',
-  portal = 'portal',
+    //movement icons
+    redRift = 'tunnel_red',
+    rift = 'tunnel_pink',
+    wunderFizz = 'wunder_fizz',
+    zipline = 'zipline',
+    ziplineUp = 'ziplineUp',
+    ziplineDown = 'ziplineDown',
+    tunnel = 'tunnel',
+    tunnelRed = 'tunnel_red',
+    tunnelPink = 'tunnel_pink',
+    portal = 'portal',
 
-  //powerup icons
-  mysteryBox = 'mystery_box',
-  papMachine = 'pap_machine',
-  ammoCrate = 'ammo_crate',
-  arsenal = 'arsenal',
-  craftingTable = 'crafting_table',
-  wallbuy = 'wallbuy',
+    //powerup icons
+    mysteryBox = 'mystery_box',
+    papMachine = 'pap_machine',
+    ammoCrate = 'ammo_crate',
+    arsenal = 'arsenal',
+    craftingTable = 'crafting_table',
+    wallbuy = 'wallbuy',
 
-  //perk icons
-  staminUp = 'stamin_up',
-  quickRevive = 'quick_revive',
-  juggernog = 'juggernog',
-  speedCola = 'speed_cola',
-  muleKick = 'mule_kick',
-  elementalPop = 'elemental_pop',
-  deathPerception = 'death_perception',
-  tombstoneSoda = 'tombstone_soda',
-  deadshotDaiquiri = 'deadshot_daiquiri',
-  phdSlider = 'phd_slider',
+    //perk icons
+    staminUp = 'stamin_up',
+    quickRevive = 'quick_revive',
+    juggernog = 'juggernog',
+    speedCola = 'speed_cola',
+    muleKick = 'mule_kick',
+    elementalPop = 'elemental_pop',
+    deathPerception = 'death_perception',
+    tombstoneSoda = 'tombstone_soda',
+    deadshotDaiquiri = 'deadshot_daiquiri',
+    phdSlider = 'phd_slider',
 }
 
 export const MiscTypes = {
