@@ -98,6 +98,9 @@ export enum MiscIconTypes {
     wallbuy = "wallbuy",
     wunderFizz = "wunder_fizz",
     zipline = "zipline",
+    ziplineUp = "ziplineUp",
+    ziplineDown = "ziplineDown",
+    portal = "portal",
 
     rampageInducer = "rampage_inducer",
 
@@ -111,6 +114,7 @@ export enum MiscIconTypes {
     tombstoneSoda = "tombstone_soda",
     deadshotDaiquiri = "deadshot_daiquiri",
     phdSlider = "phd_slider",
+
 }
 
 export interface IIntelItem {
