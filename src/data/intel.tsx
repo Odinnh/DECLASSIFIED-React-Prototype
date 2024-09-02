@@ -80,43 +80,6 @@ export enum IntelType {
     Artifact = "Artifacts",
 }
 
-export enum MiscIconTypes {
-    general = "general",
-
-    ammoCrate = "ammo_crate",
-    arsenal = "arsenal",
-    craftingTable = "crafting_table",
-    demented = "demented",
-    fishing = "fishing",
-    monkey = "monkey",
-    mysteryBox = "mystery_box",
-    papMachine = "pap_machine",
-    radio = "radio",
-    redRift = "red_rift",
-    rift = "rift",
-    trialComputer = "trial_computer",
-    wallbuy = "wallbuy",
-    wunderFizz = "wunder_fizz",
-    zipline = "zipline",
-    ziplineUp = "ziplineUp",
-    ziplineDown = "ziplineDown",
-    portal = "portal",
-
-    rampageInducer = "rampage_inducer",
-
-    staminUp = "stamin_up",
-    quickRevive = "quick_revive",
-    juggernog = "juggernog",
-    speedCola = "speed_cola",
-    muleKick = "mule_kick",
-    elementalPop = "elemental_pop",
-    deathPerception = "death_perception",
-    tombstoneSoda = "tombstone_soda",
-    deadshotDaiquiri = "deadshot_daiquiri",
-    phdSlider = "phd_slider",
-
-}
-
 export interface IIntelItem {
     readonly id: string;
     readonly faction: Faction;

@@ -1,6 +1,6 @@
 import { MapItem } from "../classes";
-import { MiscIconTypes, IntelStore, IntelType } from "../data/intel";
-import { MiscStore } from "../data/misc";
+import { IntelStore, IntelType } from "../data/intel";
+import { MiscIconTypes, MiscStore } from "../data/misc";
 import { ContribTemplates, RepoDomain } from "./models";
 
 export function redirectToGithub( id = "", itemType: IntelType|MiscIconTypes, issueType = "New", currentMap, location = "") {

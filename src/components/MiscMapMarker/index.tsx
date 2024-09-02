@@ -1,8 +1,8 @@
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
-import { MiscIconTypes } from '../../data/intel';
 import { Paper, styled, Typography } from '@mui/material';
+import { MiscIconTypes } from '../../data/misc';
 
 const StyledPopup = styled(Popup)`
     background-color: var(--clr-bg-inverted);
@@ -79,7 +79,7 @@ const svgIcons = {
     [MiscIconTypes.portal]: true,
     [MiscIconTypes.zipline]: true,
     [MiscIconTypes.ziplineUp]: true,
-    [MiscIconTypes.ziplineDown]: true
+    [MiscIconTypes.ziplineDown]: true,
 }
 
 const customMiscIconBounds = {
