@@ -81,6 +81,9 @@ const IntelSummary = styled(AccordionSummary)`
     .icon {
         height: 100%;
         padding: 10px;
+        align-self: stretch;
+        object-fit: contain;
+        height: unset;
     }
 
     .intelTitle {
