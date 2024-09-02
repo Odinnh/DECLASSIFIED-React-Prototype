@@ -66,12 +66,16 @@ export const MiscMapMarker = ({ id, title, desc, icon, typeDesc, loc }: MiscMark
 export const miscIconInit = (id?: string) => {
     const { iconSize, iconAnchor, popupAnchor } = (id && customMiscIconBounds[id]) ?? {};
     return L.icon({
-        iconUrl: `assets/img/markers/${(id ?? '').toLowerCase()}.png`,
+        iconUrl: `assets/img/markers/${(id ?? '').toLowerCase()}.${svgIcons[id ?? ''] ? 'svg' : 'png' }`,
         iconSize: iconSize ?? [30, 30],
         iconAnchor: iconAnchor ?? [15, 15],
         popupAnchor: popupAnchor ?? [0, -15],
         className: 'misc-icon'
     });
+}
+
+const svgIcons = {
+    [MiscIconTypes.rampageInducer]: true
 }
 
 const customMiscIconBounds = {
@@ -108,4 +112,5 @@ const customMiscIconBounds = {
     },
     [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
     [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
+    [MiscIconTypes.rampageInducer]: { popupAnchor: [5, -20], iconSize: [40, 40] },
 }
