@@ -9,7 +9,7 @@ export enum MiscIconTypes {
     arsenal = "arsenal",
     craftingTable = "crafting_table",
     demented = "demented",
-    fishing = "fishing",
+    fishing = "fishing", 
     monkey = "monkey",
     mysteryBox = "mystery_box",
     papMachine = "pap_machine",
