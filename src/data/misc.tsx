@@ -15,7 +15,7 @@ export enum MiscIconTypes {
     papMachine = "pap_machine",
     radio = "radio",
     redRift = "red_rift",
-    rift = "rift",
+    rift = "demented",
     trialComputer = "trial_computer",
     wallbuy = "wallbuy",
     wunderFizz = "wunder_fizz",
