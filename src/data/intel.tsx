@@ -99,7 +99,7 @@ export enum MiscIconTypes {
     wunderFizz = "wunder_fizz",
     zipline = "zipline",
 
-    rampageInducer = "rampageInducer",
+    rampageInducer = "rampage_inducer",
 
     staminUp = "stamin_up",
     quickRevive = "quick_revive",
