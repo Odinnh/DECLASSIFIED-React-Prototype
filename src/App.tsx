@@ -1,16 +1,40 @@
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import MapProvider from './components/Map';
-import { UserContextProvider } from './contexts/DeclassifiedContext/userContextProvider';
+import { UserContext, UserContextProvider } from './contexts/DeclassifiedContext/userContextProvider';
 import { BaseLayout } from './pages/layouts/BaseLayout';
+import { useContext, useEffect } from 'react';
+
+const MapWithItemId = () => {
+  const { id } = useParams();
+  const { updateMapItemId } = useContext(UserContext);
+
+  // Update the global state with the 'id' parameter
+  useEffect(() => {
+    if (id) {
+      updateMapItemId(id);
+    }
+  }, [id, updateMapItemId]);
+
+  return <MapProvider />;
+};
 
 function App() {
   document.body.classList.add('dark'); // TODO: remove this when re-working themes
 
   return (
-    <BaseLayout>
-      <UserContextProvider>
-        <MapProvider />
-      </UserContextProvider>
-    </BaseLayout>
+    <Router>
+      <BaseLayout>
+        <UserContextProvider>
+          <Routes>
+            {/* Define route with id for focusing on a specific item */}
+            <Route path="/:id" Component={MapWithItemId} />
+            
+            {/* Define default route */}
+            <Route path="/" Component={MapProvider} />
+          </Routes>
+        </UserContextProvider>
+      </BaseLayout>
+    </Router>
   );
 }
 

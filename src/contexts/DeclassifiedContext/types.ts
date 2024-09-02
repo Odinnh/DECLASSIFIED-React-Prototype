@@ -25,4 +25,6 @@ export type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export interface UserContextProps {
     isMobile: boolean;
+    mapItemId: string | null;
+    updateMapItemId: (id: string) => void;
 }

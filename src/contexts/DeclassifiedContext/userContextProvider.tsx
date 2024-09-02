@@ -2,13 +2,20 @@ import { createContext, useEffect, useState } from "react";
 import { UserContextProps } from "./types";
 
 const initialContextValues =  {
-    isMobile: window.innerWidth <= 768
+    isMobile: window.innerWidth <= 768,
+    mapItemId: null,
+    updateMapItemId: () => {}
 };
 
 export const UserContext = createContext<UserContextProps>(initialContextValues);
 
 export const UserContextProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
+    const [mapItemId, setMapItemId] = useState(null);
+
+    const updateMapItemId = (id) => {
+        setMapItemId(id);
+    };
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -20,7 +27,9 @@ export const UserContextProvider = ({ children }) => {
 
 
     const context = {
-        isMobile
+        isMobile,
+        mapItemId,
+        updateMapItemId
     }
     return <UserContext.Provider value={context}>{children}</UserContext.Provider>;
 }
