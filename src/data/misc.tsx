@@ -89,7 +89,7 @@ export const MiscTypes = {
     rampageInducer: new Item({ title: "Rampage Inducer", icon: MiscIconTypes.rampageInducer }),
 
     klausRadio: new Item({ title: "Klaus recall radio", icon: MiscIconTypes.radio }),
-    aetherTunnel: new Item({ title: "Aether Tunnel", icon: MiscIconTypes.portal }),
+    aetherTunnel: new Item({ title: "Aether Tunnel", icon: MiscIconTypes.tunnel }),
     aetherCrystal: new Item({ title: "Aether Crystal" }),
 }
 
