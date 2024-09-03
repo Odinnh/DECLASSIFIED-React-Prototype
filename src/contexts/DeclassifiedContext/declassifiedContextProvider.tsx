@@ -1,38 +1,40 @@
-import { createContext, useEffect, useState } from "react";
-import { useMapEvent } from "react-leaflet";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { useMapEvent, useMapEvents } from "react-leaflet";
 import { MapItem } from "../../classes";
 import { FormInputs, getIntelFilterDefaults } from "../../components/IntelListMenu";
 import { MapGroupings, MapMenuItem } from "../../components/MapControls/types";
-import { IntelItem } from "../../data/intel";
-import { GetMapById, MapDetails } from "../../data/mapDetails";
+import { DefaultPOIData, IntelItem } from "../../data/intel";
+import { GetMapById, GetMapByTitle, MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
 import { DeclassifiedUserPreferences } from "../../data/db";
 import { getSetUserPreferences, updateUserPreferences } from "../../data/dataAccessLayer";
+import { UserContext } from "./userContextProvider";
+import { getIntelById, getMiscMarkerById } from "../../helpers/github";
 
 const initialContextValues = {
     userPrefs: {},
     currentMap: null,
     setCurrentMapWithValidation: async () => false,
     currentMapGroup: null,
-    setCurrentMapGroup: () => {},
+    setCurrentMapGroup: () => { },
     filteredIntelStore: [],
-    setFilteredIntelStore: () => {},
+    setFilteredIntelStore: () => { },
     currentIntelFilter: getIntelFilterDefaults(),
-    setCurrentIntelFilter: () => {},
+    setCurrentIntelFilter: () => { },
     drawerState: false,
-    toggleDrawer: () => () => {},
-    isMobile: window.innerWidth <= 768,
+    toggleDrawer: () => () => { },
 };
 
 async function updateUserPreferencesInDB(
     updates: Partial<Omit<DeclassifiedUserPreferences, 'username'>>
-    ): Promise<DeclassifiedUserPreferences | undefined> {
-        return await updateUserPreferences(updates);
-    }
+): Promise<DeclassifiedUserPreferences | undefined> {
+    return await updateUserPreferences(updates);
+}
 
 export const DeclassifiedContext = createContext<DeclassifiedContextProps>(initialContextValues);
 
 export const DeclassifiedContextProvider = ({ children }) => {
+    const mapInstance = useMapEvents({})
     const [userPrefs, setUserPreferences] = useState<DeclassifiedUserPreferences | null>(null);
     const [currentMap, setCurrentMap] = useState<MapItem | null>(null);
     const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem | null>(null);
@@ -40,9 +42,11 @@ export const DeclassifiedContextProvider = ({ children }) => {
     const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
     const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(getIntelFilterDefaults());
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
-    const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
+    const { isMobile, mapItemId } = useContext(UserContext);
+    const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const setCurrentMapWithValidation = async (newMap: MapItem) => {
+        console.log("Setting current map to: ", newMap);
         if (newMap.mapOverlay !== null && newMap.mapOverlay !== undefined) {
             setCurrentMap(newMap);
             Object.entries(MapGroupings).forEach(([key, mapItem]) => {
@@ -66,11 +70,51 @@ export const DeclassifiedContextProvider = ({ children }) => {
     };
 
     useMapEvent("baselayerchange", (props) => {
-        const currentMapId = Object.keys(MapDetails).find(mapString => MapDetails[mapString].title === props.name);
-        if (currentMapId) {
-            setCurrentMapWithValidation(MapDetails[currentMapId]);
+        let currentMapKey = GetMapByTitle(props.name);
+        if (currentMapKey) {
+            setCurrentMapWithValidation(MapDetails[currentMapKey]);
         }
     });
+
+    const focusOnSharedItem = useCallback(async () => {
+        if (isMapLoaded) {
+            if (mapItemId) {
+                console.log("Focus on shared item: ", mapItemId);
+                let intelItem = getIntelById(mapItemId);
+                if (intelItem && intelItem.map) {
+                    const IntelHasLocation = intelItem.loc !== DefaultPOIData.nullLoc
+                    if (IntelHasLocation) {
+                        const intelItemMap = GetMapById(intelItem.map)!;
+                        console.log("setCurrentMapWithValidation with INTEL: ", intelItem);
+                        console.log("intelItemMap: ",intelItemMap);
+                        await setCurrentMapWithValidation(intelItemMap);
+                        mapInstance.flyTo(intelItem.loc, 4)
+                        return;
+                    }
+
+                    return;
+                } else {
+                    let miscItemResult = getMiscMarkerById(mapItemId);
+                    if (miscItemResult) {
+                        const [miscMapId, miscItem] = miscItemResult;
+                        if (miscItem && miscMapId) {
+                            const MiscHasLocation = miscItem.loc !== DefaultPOIData.nullLoc
+                            if (MiscHasLocation) {
+                                const miscItemMap = GetMapById(miscMapId)!;
+                                console.log("setCurrentMapWithValidation with MISC: ", miscItem);
+                                console.log("miscItemMap: ", miscItemMap);
+                                await setCurrentMapWithValidation(miscItemMap)
+                                mapInstance.flyTo(miscItem.loc, 4)
+                                return;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+            }
+        }
+    }, [isMapLoaded, mapInstance, mapItemId]);
 
     useEffect(() => {
         const fetchPreferences = async () => {
@@ -88,6 +132,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
                     });
                 }
 
+                setIsMapLoaded(true);
             } catch (error) {
                 console.error("Failed to fetch user preferences: ", error);
             } finally {
@@ -97,11 +142,10 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
         fetchPreferences();
 
-        const handleResize = () => setIsMobile(window.innerWidth <= 768);
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+        if (isMapLoaded) {
+            focusOnSharedItem();
+        }
+    }, [focusOnSharedItem, isMapLoaded]);
 
     if (isLoading) {
         return null;

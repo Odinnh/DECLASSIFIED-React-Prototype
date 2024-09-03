@@ -26,10 +26,7 @@ function App() {
       <BaseLayout>
         <UserContextProvider>
           <Routes>
-            {/* Define route with id for focusing on a specific item */}
             <Route path="/:id" Component={MapWithItemId} />
-            
-            {/* Define default route */}
             <Route path="/" Component={MapProvider} />
           </Routes>
         </UserContextProvider>

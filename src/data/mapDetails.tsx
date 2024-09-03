@@ -3,6 +3,7 @@ import { mapSVGs } from "../helpers/mapsvg";
 import { MapIds } from "./intel";
 
 export const GetMapById = (mapId :string) => Object.values(MapDetails).find(map => map.id === mapId);
+export const GetMapByTitle = (mapId :string) => Object.keys(MapDetails).find(mapString => MapDetails[mapString].title === mapId)
 
 export const MapDetails = {
     allOutbreakMaps: new MapItem(MapIds.allOutbreakMaps, { title: "All Outbreak Maps" }),

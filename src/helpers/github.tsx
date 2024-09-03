@@ -1,5 +1,5 @@
-import { MapItem } from "../classes";
-import { IntelStore, IntelType } from "../data/intel";
+import { MapItem, MiscMarker } from "../classes";
+import { IntelStore, IntelType, MapIds } from "../data/intel";
 import { MiscIconTypes, MiscStore } from "../data/misc";
 import { ContribTemplates, RepoDomain } from "./models";
 
@@ -25,7 +25,7 @@ export function redirectToGithub( id = "", itemType: IntelType|MiscIconTypes, is
     } else if (isMisc) {
         issueTemplate = issueType === "New" ? ContribTemplates.misc.newId : ContribTemplates.misc.editId;
         label = issueType === "New" ? ContribTemplates.misc.newTitle : ContribTemplates.misc.editTitle;
-        let miscItem = getMiscMarkerById(id, currentMap);
+        let miscItem = getMiscMarkerByIdAndMap(id, currentMap);
         entityName = miscItem ? miscItem.title : "";
         // Don't yet keep map against misc markers, need to change this, this will do for now since miscs are only on the current map
         map = currentMap.id;
@@ -47,18 +47,36 @@ export function redirectToGithub( id = "", itemType: IntelType|MiscIconTypes, is
     window.open(encodeURI(finalURL));
 }
 
-function getIntelById(intelId) {
+export const getIntelById = (intelId : string) => {
     if (intelId) {
         let matchedIntel = IntelStore.find((item) => item.id === intelId)
         return matchedIntel;
     }
     return null;
-}
+};
 
-function getMiscMarkerById(itemId, currentMap: MapItem) {
+const getMiscMarkerByIdAndMap = (itemId, currentMap: MapItem) => {
     if (itemId) {
         let matchedMisc = MiscStore[currentMap.id!].find((item) => item.id === itemId)
         return matchedMisc;
     }
     return null;
-}
+};
+
+export const getMiscMarkerById = (markerId : string) : [MapIds, MiscMarker] | null => {
+    if (markerId) {
+        let matchedMiscMarker : MiscMarker | undefined;
+        let foundMap : MapIds | undefined;
+        Object.entries(MiscStore).map(([key, miscMarkersForMap]) => {
+            let matchedMisc = miscMarkersForMap.find((item) => item.id === markerId)
+            if (matchedMisc) {
+                matchedMiscMarker = matchedMisc;
+                foundMap = key as MapIds;
+                return [foundMap, matchedMiscMarker];
+            }
+        });
+        if (foundMap && matchedMiscMarker)
+            return [ foundMap!, matchedMiscMarker!];
+    }
+    return null;
+};

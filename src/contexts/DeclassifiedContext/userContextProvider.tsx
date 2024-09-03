@@ -3,6 +3,7 @@ import { UserContextProps } from "./types";
 
 const initialContextValues =  {
     isMobile: window.innerWidth <= 768,
+    setIsMobile: () => {},
     mapItemId: null,
     updateMapItemId: () => {}
 };
@@ -11,10 +12,12 @@ export const UserContext = createContext<UserContextProps>(initialContextValues)
 
 export const UserContextProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
-    const [mapItemId, setMapItemId] = useState(null);
+    const [mapItemId, setMapItemId] = useState<string | null>(null);
 
-    const updateMapItemId = (id) => {
-        setMapItemId(id);
+    const updateMapItemId = (id: string | undefined) => {
+        if (id){
+            setMapItemId(id);
+        }
     };
 
     useEffect(() => {
