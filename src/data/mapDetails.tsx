@@ -45,6 +45,8 @@ export const MapDetails = {
     checkmate: new MapItem(MapIds.checkmate, { title: "Checkmate" }),
     garrison: new MapItem(MapIds.garrison, { title: "Garrison" }),
     deprogram: new MapItem(MapIds.deprogram, { title: "Deprogram" }),
+    //bo6
+    libertyFalls: new MapItem(MapIds.libertyFalls, { title: "Liberty Falls", mapOverlay: mapSVGs.liberty_falls }),
 };
 
 export const allOutbreakMapsArr = [
