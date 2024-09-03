@@ -1,50 +1,63 @@
 import { Item, MiscMarker } from "../classes";
+import { miscIconInit } from "../components/MiscMapMarker";
 import { MapIds } from "./intel";
 
 /////////////////////Misc/////////////////////////
 export enum MiscIconTypes {
-    //default iocn
-    general = 'general',
+  //default iocn
+  general = 'general',
+  objective = 'objective',
 
-    //misc icons
-    demented = 'demented',
-    fishing = 'fishing',
-    monkey = 'monkey',
-    radio = 'radio',
-    trialComputer = 'trial_computer',
-    rampageInducer = 'rampage_inducer',
+  //misc icons
+  demented = 'demented_echo',
+  fishing = 'fishing',
+  monkey = 'monkey',
+  radio = 'radio',
+  trialComputer = 'trial_computer',
+  trialChallenge = 'trials',
+  rampageInducer = 'rampage_inducer',
+  trap = 'trap',
+  projector = 'projector',
+  orb = 'aether_orb',
+  reactor = 'collection_unit',
 
-    //movement icons
-    redRift = 'tunnel_red',
-    rift = 'tunnel_pink',
-    wunderFizz = 'wunder_fizz',
-    zipline = 'zipline',
-    ziplineUp = 'ziplineUp',
-    ziplineDown = 'ziplineDown',
-    tunnel = 'tunnel',
-    tunnelRed = 'tunnel_red',
-    tunnelPink = 'tunnel_pink',
-    portal = 'portal',
+  //movement icons
+  redRift = 'tunnel_red',
+  rift = 'tunnel_pink',
+  wunderFizz = 'wunder_fizz',
+  zipline = 'zipline',
+  ziplineUp = 'ziplineUp',
+  ziplineDown = 'ziplineDown',
+  tunnel = 'tunnel',
+  tunnelRed = 'tunnel_red',
+  tunnelPink = 'tunnel_pink',
+  portal = 'portal',
+  landingPad = 'landingpad',
+  jumpPad = 'jumppad',
 
-    //powerup icons
-    mysteryBox = 'mystery_box',
-    papMachine = 'pap_machine',
-    ammoCrate = 'ammo_crate',
-    arsenal = 'arsenal',
-    craftingTable = 'crafting_table',
-    wallbuy = 'wallbuy',
+  //powerup icons
+  mysteryBox = 'mystery_box',
+  papMachine = 'pap_machine',
+  ammoCrate = 'ammo_crate',
+  arsenal = 'arsenal',
+  craftingTable = 'crafting_table',
+  wallbuy = 'wallbuy',
+  gumball = 'gumball',
+  armorWall = 'armor_wall',
+  workbench = 'workbench',
+  upgrade = 'upgrade',
 
-    //perk icons
-    staminUp = 'stamin_up',
-    quickRevive = 'quick_revive',
-    juggernog = 'juggernog',
-    speedCola = 'speed_cola',
-    muleKick = 'mule_kick',
-    elementalPop = 'elemental_pop',
-    deathPerception = 'death_perception',
-    tombstoneSoda = 'tombstone_soda',
-    deadshotDaiquiri = 'deadshot_daiquiri',
-    phdSlider = 'phd_slider',
+  //perk icons
+  staminUp = 'stamin_up',
+  quickRevive = 'quick_revive',
+  juggernog = 'juggernog',
+  speedCola = 'speed_cola',
+  muleKick = 'mule_kick',
+  elementalPop = 'elemental_pop',
+  deathPerception = 'death_perception',
+  tombstoneSoda = 'tombstone_soda',
+  deadshotDaiquiri = 'deadshot_daiquiri',
+  phdSlider = 'phd_slider',
 }
 
 export const MiscTypes = {
@@ -57,15 +70,15 @@ export const MiscTypes = {
     omegaRadio: new Item({ title: "Omega Radio", icon: MiscIconTypes.radio }),
     maxisRadio: new Item({ title: "Maxis Radio", icon: MiscIconTypes.radio }),
     monkey: new Item({ title: "Stone Monkey", icon: MiscIconTypes.monkey }),
-    projector: new Item({ title: "Projector", desc: "The projector for the Main Quest" }),
+    projector: new Item({ title: "Projector", desc: "The projector for the Main Quest", icon: MiscIconTypes.projector }),
     signal: new Item({ title: "Signal" }),
     fishing: new Item({ title: "Fishing", desc: "Fish up to 3 times for a small reward each time.", icon: MiscIconTypes.fishing }),
     essenceDrop: new Item({ title: "Essence Drop" }),
     scrapHeap: new Item({ title: "Scrap Heap" }),
-    thermophasic: new Item({ title: "D.I.E. Thermophasic Upgrade" }),
-    nova5: new Item({ title: "D.I.E. Nova-5 Upgrade" }),
-    electrobolt: new Item({ title: "D.I.E. Electrobolt Upgrade" }),
-    cryoemitter: new Item({ title: "D.I.E. Cryo-Emitter Upgrade" }),
+    thermophasic: new Item({ title: "D.I.E. Thermophasic Upgrade", icon: MiscIconTypes.upgrade }),
+    nova5: new Item({ title: "D.I.E. Nova-5 Upgrade", icon: MiscIconTypes.upgrade }),
+    electrobolt: new Item({ title: "D.I.E. Electrobolt Upgrade", icon: MiscIconTypes.upgrade }),
+    cryoemitter: new Item({ title: "D.I.E. Cryo-Emitter Upgrade", icon: MiscIconTypes.upgrade }),
 
     wunderFizz: new Item({ title: "Der Wunderfizz", icon: MiscIconTypes.wunderFizz }),
     trialComputer: new Item({ title: "Trial Computer", icon: MiscIconTypes.trialComputer }),
@@ -73,16 +86,16 @@ export const MiscTypes = {
     mysteryBox: new Item({ title: "Mystery Box Location", icon: MiscIconTypes.mysteryBox }),
     wallbuy: new Item({ title: "Wall Buy", icon: MiscIconTypes.wallbuy }),
     power: new Item({ title: "Power Switch" }),
-    jumpPad: new Item({ title: "Jump Pad" }),
-    landingPad: new Item({ title: "Landing Pad" }),
+    jumpPad: new Item({ title: "Jump Pad", icon:MiscIconTypes.jumpPad }),
+    landingPad: new Item({ title: "Landing Pad", icon: MiscIconTypes.landingPad }),
     airSupport: new Item({ title: "Air Support Console" }),
     teleporter: new Item({ title: "Teleporter", icon: MiscIconTypes.portal }),
-    collector: new Item({ title: "Collection Unit" }),
-    reactor: new Item({ title: "Aether Reactor" }),
+    collector: new Item({ title: "Collection Unit", icon: MiscIconTypes.reactor }),
+    reactor: new Item({ title: "Aether Reactor", icon: MiscIconTypes.reactor }),
     craftingTable: new Item({ title: "Crafting Table", icon: MiscIconTypes.craftingTable }),
     arsenal: new Item({ title: "Arsenal", icon: MiscIconTypes.arsenal }),
     ammoCrate: new Item({ title: "Ammo Crate", icon: MiscIconTypes.ammoCrate }),
-    trap: new Item({ title: "Trap" }),
+    trap: new Item({ title: "Trap", icon:MiscIconTypes.trap }),
     zipline: new Item({ title: "Zipline", icon: MiscIconTypes.zipline }),
     ziplineUp: new Item({ title: "Zipline", icon: MiscIconTypes.ziplineUp }),
     ziplineDown: new Item({ title: "Zipline", icon: MiscIconTypes.ziplineDown }),
@@ -164,7 +177,7 @@ export const EasterEggTypes = {
 // Gonna have to add a way to bring through the full description along with the unique description from the misc markers
 export const OutbreakEE2Steps = {
     step2Helicopter: new Item({ title: "Crashed Helicopter", desc: `The transport chopper that the Omega Eight were using is located in the "Carved Hills", located south of the lone shack, having crashed by unknown means. Nearing it will spawn a horde needs to be eliminated, as one of the corpses is holding a message from Hugo Jager about where the surviving members of the crash went.` }),
-    step3Orb: new Item({ title: "Red Aetherial Orb", desc: "The Aetherium Orb can spawn within three places and is visually distinct, having a darker hue of red and will not produce Essence upon being damaged. When damaged, it will flee like the standard variant for a total of three times before it will flee to hover over the Recon Rover to where it will stay above, unwilling to enter it." }),
+    step3Orb: new Item({ title: "Red Aetherial Orb", desc: "The Aetherium Orb can spawn within three places and is visually distinct, having a darker hue of red and will not produce Essence upon being damaged. When damaged, it will flee like the standard variant for a total of three times before it will flee to hover over the Recon Rover to where it will stay above, unwilling to enter it.", icon: MiscIconTypes.orb }),
 }
 
 export interface IMisc {
