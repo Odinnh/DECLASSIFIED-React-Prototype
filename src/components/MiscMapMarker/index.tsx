@@ -97,6 +97,7 @@ const svgIcons = {
   [MiscIconTypes.demented]: true,
   [MiscIconTypes.orb]: true,
   [MiscIconTypes.reactor]: true,
+  [MiscIconTypes.power]: true,
 }
 const svgIconProperties = { popupAnchor: [5, -20], iconSize: [40, 40] }
 const customMiscIconBounds = {
@@ -139,4 +140,5 @@ const customMiscIconBounds = {
   [MiscIconTypes.jumpPad]: svgIconProperties,
   [MiscIconTypes.landingPad]: svgIconProperties,
   [MiscIconTypes.orb]: svgIconProperties,
+  [MiscIconTypes.power]: svgIconProperties,
 }
