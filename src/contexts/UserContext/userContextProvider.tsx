@@ -14,7 +14,7 @@ export const UserContext = createContext<UserContextProps>(initialContextValues)
 
 export const UserContextProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
-    const [isDebugMode, setIsDebugMode] = useState(initialContextValues.isMobile);
+    const [isDebugMode, setIsDebugMode] = useState(initialContextValues.isDebugMode);
     const [mapItemId, setMapItemId] = useState<string | null>(null);
 
     const updateMapItemId = (id: string | undefined) => {

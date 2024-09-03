@@ -38,6 +38,8 @@ export const UserInterface = () => {
 
     useMapEvent("click", (props) => {
         let location = "[" + props.latlng.lat + ", " + props.latlng.lng + "]";
+        console.log(location);
+
         if (isDebugMode) {
             navigator.clipboard.writeText(location);
             triggerNotification("Location Copied to Clipboard");
