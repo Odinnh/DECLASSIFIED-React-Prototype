@@ -3282,4 +3282,158 @@ export const mapSVGs = {
         <path className="c no-fill border-stroke" d="M175.73,240.26v7.24h2.59v40.63s0,20.18,19.41,20.44h18.11V287.09H375.22v15H414.8v8.28h5.95V286.57H428V244.92h-2.85V234.05H306.91v5.69Z" />
         <polygon className="c no-fill border-stroke" points="123.86 178.42 141.52 178.42 141.52 171.04 155.49 157.26 185.56 157.26 185.56 177.84 207.3 177.84 207.3 189.48 144.62 189.48 144.62 196.27 123.66 196.27 123.86 178.42" />
     </SVGOverlay>,
+    //#TODO: set up styling to use global colors instead of local colors.
+    liberty_falls: <SVGOverlay attributes={{ viewBox: '0 0 512 512'}} bounds={ImageBounds}>
+  <defs>
+    <style>
+        {globalStyle}{`
+      .cls-1 {
+        fill: #565555;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        fill: url(#New_Pattern_Swatch_2);
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4, .cls-7, .cls-8 {
+        stroke: #6a6a6b;
+      }
+
+      .cls-2 {
+        fill: #3c3c3b;
+      }
+
+      .cls-5 {
+        stroke-width: 1px;
+      }
+
+      .cls-5, .cls-3, .cls-6, .cls-7 {
+        fill: none;
+      }
+
+      .cls-5, .cls-6 {
+        stroke: #b33536;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        stroke-width: .1px;
+      }
+
+      .cls-10 {
+        opacity: .6;
+      }
+
+      .cls-8 {
+        fill: #3c3c3b;
+      }`}
+    </style>
+    <clipPath id="clippath">
+      <rect className="cls-3" x="0" y="0" width="7.7" height="7.7"/>
+    </clipPath>
+    <pattern id="New_Pattern_Swatch_2" data-name="New Pattern Swatch 2" x="0" y="0" width="7.7" height="7.7" patternTransform="translate(369.8 7905.9) rotate(-29.2) scale(119.6 2.1) skewX(-1)" patternUnits="userSpaceOnUse" viewBox="0 0 7.7 7.7">
+      <g>
+        <rect className="cls-3" width="7.7" height="7.7"/>
+        <g className="cls-10">
+          <g className="cls-9">
+            <line className="cls-6" x1="7.4" y1="8" x2="8.1" y2="7.3"/>
+            <line className="cls-6" x1="6.7" y1="8" x2="8.1" y2="6.6"/>
+            <line className="cls-6" x1="6" y1="8" x2="8.1" y2="5.9"/>
+            <line className="cls-6" x1="5.3" y1="8" x2="8.1" y2="5.2"/>
+            <line className="cls-6" x1="4.6" y1="8" x2="8.1" y2="4.5"/>
+            <line className="cls-6" x1="3.9" y1="8" x2="8.1" y2="3.8"/>
+            <line className="cls-6" x1="3.2" y1="8" x2="8.1" y2="3.1"/>
+            <line className="cls-6" x1="2.5" y1="8" x2="8.1" y2="2.4"/>
+            <line className="cls-6" x1="1.8" y1="8" x2="8.1" y2="1.7"/>
+            <line className="cls-6" x1="1.1" y1="8" x2="8.1" y2="1"/>
+            <line className="cls-6" x1=".4" y1="8" x2="8.1" y2=".3"/>
+            <line className="cls-6" x1="-.3" y1="8" x2="8.1" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="7.3" x2="7.4" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="6.6" x2="6.7" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="5.9" x2="6" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="5.2" x2="5.3" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="4.5" x2="4.6" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="3.8" x2="3.9" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="3.1" x2="3.2" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="2.4" x2="2.5" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="1.7" x2="1.8" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1="1" x2="1.1" y2="-.4"/>
+            <line className="cls-6" x1="-.3" y1=".3" x2=".4" y2="-.4"/>
+          </g>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <rect className="cls-2" x="0" y="0" width="512" height="512"/>
+    <polygon className="cls-1" points="82.1 249.3 74.6 277.6 77.3 278.3 75.7 289 77.5 290.9 69.5 321.8 154.2 344 183.6 346.2 240.7 381 234.2 392.2 276.2 417.1 311.2 361.1 337.6 358.8 341.4 372.4 379.8 361.5 378.2 355.6 431.7 343.6 432.2 332.5 452.9 326.6 445.3 299.6 433.5 303 435.3 279.5 405.2 265.6 382.3 272.1 375.7 248.8 393.6 243.8 383.4 207.6 388.7 206.1 386.4 197.9 394.1 195.7 389.5 179.4 357.9 188.4 350.5 162.4 321.9 170.5 325.7 183.8 307.2 189 308.6 194.2 295 198 296 201.3 278.1 206.3 267.1 204.8 263.1 190.7 230.8 199.8 233.1 208.2 203.5 216.6 201.1 208.2 159.9 219.9 170.7 259.7 94.7 239.8 82.1 249.3"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <polyline className="cls-7" points="154.2 344 157.8 330.3 153.9 330.3"/>
+    <polyline className="cls-7" points="156.1 321.9 160 321.9 163.1 310.1 152.7 307.4 151.1 313.8"/>
+    <polygon className="cls-8" points="142.9 304.9 140.3 314.8 133.4 313 129.9 326.4 136.8 328.2 134 338.7 69 321.7 77.5 290.9 80.5 288.5 142.9 304.9"/>
+    <line className="cls-7" x1="84.3" y1="280.2" x2="77.3" y2="278.3"/>
+    <line className="cls-7" x1="90.1" y1="281.7" x2="145.2" y2="296.1"/>
+    <polyline className="cls-7" points="155 298.7 165.5 301.5 170.3 282.5"/>
+    <polyline className="cls-7" points="172.2 275.8 176.1 261.1 170.7 259.7"/>
+    <line className="cls-7" x1="145.1" y1="253" x2="138.8" y2="277.2"/>
+    <line className="cls-7" x1="118.5" y1="246.1" x2="114.7" y2="260.8"/>
+    <line className="cls-7" x1="113.1" y1="267" x2="108" y2="286.4"/>
+    <rect className="cls-7" x="99.7" y="267.6" width="2.8" height="2.4" transform="translate(-184.5 298.5) rotate(-75.3)"/>
+    <rect className="cls-7" x="117.7" y="280.8" width="2.8" height="2.4" transform="translate(-183.8 325.8) rotate(-75.3)"/>
+    <rect className="cls-7" x="88.8" y="249.3" width="2.8" height="2.4" transform="translate(-175 274.3) rotate(-75.3)"/>
+    <rect className="cls-7" x="106.2" y="250.5" width="6.2" height="5.4" transform="translate(-163.4 294.7) rotate(-75.3)"/>
+    <rect className="cls-7" x="148.5" y="262.4" width="6.2" height="3.8" transform="translate(-142.5 343.9) rotate(-75.3)"/>
+    <rect className="cls-7" x="158.8" y="282.9" width="6.1" height="6.9" transform="translate(-156.2 370.3) rotate(-75.3)"/>
+    <rect className="cls-8" x="359.6" y="183.6" width="32.8" height="16.9" transform="translate(-38.1 109.5) rotate(-15.8)"/>
+    <rect className="cls-8" x="310.7" y="184.7" width="27.4" height="30.1" transform="translate(-42.1 95.8) rotate(-15.8)"/>
+    <polyline className="cls-7" points="280.2 211 274.1 212.8 277.7 225.5 301.9 218.8 298.3 205.9 293 207.4"/>
+    <polygon className="cls-4" points="343.5 225.8 349.6 247.4 351.9 246.7 357.1 265 353.3 271.4 337.6 275.9 331.1 252.6 336.1 251.2 330 229.7 343.5 225.8"/>
+    <polygon className="cls-8" points="325.6 254.2 333.1 280.6 288.9 293.1 270.4 227.7 301.9 218.8 312.9 257.8 325.6 254.2"/>
+    <polygon className="cls-4" points="236.7 215.5 243.2 238.4 212.6 246.9 210.1 238 224.6 233.9 220.7 220 236.7 215.5"/>
+    <polygon className="cls-4" points="198.4 230 201.4 240.5 195.2 242.2 197.7 251.1 181 256 175.5 236.5 198.4 230"/>
+    <line className="cls-7" x1="206.2" y1="224.1" x2="220.7" y2="220"/>
+    <line className="cls-7" x1="197.7" y1="251.1" x2="212.6" y2="246.9"/>
+    <polygon className="cls-4" points="215.4 265.2 204.3 268.3 191.6 284.4 211.2 295.4 189.6 328.5 200.3 334.5 202.4 331.8 196.8 328.7 211.6 309.8 227.6 318.7 228.1 310.3 238.3 307.5 240.5 315.1 271.1 306.4 263.8 280.4 236.9 288.1 235 290.5 223.4 293.6 215.4 265.2"/>
+    <polygon className="cls-8" points="263.8 280.5 239.7 287.3 232.1 260.4 249.7 255.4 250.1 255.3 255.5 274.5 261.6 272.8 263.8 280.5"/>
+    <line className="cls-7" x1="215.4" y1="265.2" x2="232.1" y2="260.4"/>
+    <polygon className="cls-4" points="213 364.1 231.2 333.9 218.8 325.7 214.8 326.9 198 355 213 364.1"/>
+    <line className="cls-7" x1="238.1" y1="324.6" x2="227.6" y2="318.7"/>
+    <line className="cls-7" x1="186.5" y1="326.8" x2="189.6" y2="328.5"/>
+    <polygon className="cls-8" points="306.9 368 302.5 352.5 268.2 333.8 240.7 381 234.2 392.2 276.2 417.1 306.9 368"/>
+    <polygon className="cls-4" points="276.3 338.2 302.6 321.1 328.7 313.4 336.2 340 312.1 346.9 302.5 352.5 276.3 338.2"/>
+    <polygon className="cls-4" points="342.8 306.9 328 311.1 336.2 340 351 335.9 342.8 306.9"/>
+    <polygon className="cls-8" points="354.9 349.8 340.1 353.9 336.2 340 351 335.9 354.9 349.8"/>
+    <polygon className="cls-7" points="383 348.5 384.7 352.8 394.1 347 391.4 343.9 383 348.5"/>
+    <polygon className="cls-7" points="405.1 343.7 405.2 349 394.7 349 394.7 343.7 405.1 343.7"/>
+    <polygon className="cls-7" points="430.4 331.8 418 335.3 410.3 308 423.4 304.3 430.4 331.8"/>
+    <polygon className="cls-7" points="395.1 311 397.4 325.4 414.1 321.3 410.3 308 395.1 311"/>
+    <polygon className="cls-7" points="355 208.4 359.3 208.8 355.9 230.8 351.6 230.3 355 208.4"/>
+    <polygon className="cls-4" points="255.1 211 259.3 210.2 262 232.2 257.7 233 255.1 211"/>
+    <polygon className="cls-7" points="232 342.6 235.9 340.6 245 360.8 241.1 362.9 232 342.6"/>
+    <polygon className="cls-8" points="167.7 217.7 169.4 223.4 161.4 225.7 159.9 219.9 167.7 217.7"/>
+    <polygon className="cls-7" points="219.7 360.5 218.2 364.9 229.2 366.4 229.1 362.3 219.7 360.5"/>
+    <polygon className="cls-7" points="266.8 255.2 262.8 257.4 271.6 268.1 274.4 265.1 266.8 255.2"/>
+    <polygon className="cls-7" points="325.6 300.6 321.6 302.8 328.5 311.4 331.3 308.3 325.6 300.6"/>
+    <polygon className="cls-7" points="239.2 373.2 234.9 376.3 228.9 367.6 233.3 364.6 239.2 373.2"/>
+    <polygon className="cls-7" points="267.3 287.3 266.6 290.5 273.6 295.6 274.9 294.4 288.2 295.1 287.9 289.8 274.5 289.7 267.3 287.3"/>
+    <polygon className="cls-7" points="427.3 275.8 424 277.9 429.1 287 432.8 284.3 427.3 275.8"/>
+    <polygon className="cls-7" points="432.8 287.7 428.8 287.7 429.2 298.1 433.3 298 432.8 287.7"/>
+    <polygon className="cls-7" points="364.4 307.9 362.1 307.2 360.7 310.1 368.4 313.9 370.1 311 368.6 310.3 378.1 293.8 373.2 291 364.4 307.9"/>
+    <polygon className="cls-4" points="379.8 361.5 341.4 372.4 337.6 358.8 340.1 353.9 375 344.4 379.8 361.5"/>
+    <polygon className="cls-8" points="433.5 303 423.4 304.3 430.4 331.8 432.2 332.5 452.9 326.6 445.3 299.6 433.5 303"/>
+    <polygon className="cls-5" points="82.1 249.3 74.6 277.6 77.3 278.3 75.7 289 77.5 290.9 69.5 321.8 154.2 344 183.6 346.2 240.7 381 234.2 392.2 276.2 417.1 311.2 361.1 337.6 358.8 341.4 372.4 379.8 361.5 378.2 355.6 431.7 343.6 432.2 332.5 452.9 326.6 445.3 299.6 433.5 303 435.3 279.5 405.2 265.6 382.3 272.1 375.7 248.8 393.6 243.8 383.4 207.6 388.7 206.1 386.4 197.9 394.1 195.7 389.5 179.4 357.9 188.4 350.5 162.4 321.9 170.5 325.7 183.8 307.2 189 308.6 194.2 295 198 296 201.3 278.1 206.3 267.1 204.8 263.1 190.7 230.8 199.8 233.1 208.2 203.5 216.6 201.1 208.2 159.9 219.9 170.7 259.7 94.7 239.8 82.1 249.3"/>
+  </g>
+    </SVGOverlay>
 };

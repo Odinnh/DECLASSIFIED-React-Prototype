@@ -42,7 +42,7 @@ export enum MiscIconTypes {
   ammoCrate = 'ammo_crate',
   arsenal = 'arsenal',
   craftingTable = 'crafting_table',
-  wallbuy = 'wallbuy',
+  wallbuy = 'wall_buy',
   gumball = 'gumball',
   armorWall = 'armor_wall',
   workbench = 'workbench',
@@ -889,5 +889,6 @@ export const MiscStore: IMisc = {
         new MiscMarker("V7fzw", MiscTypes.craftingTable, [310.5950163050527, 192.125]),
         new MiscMarker("RlHu9", MiscTypes.papMachine, [190.3367491337941, 261.0625]),
         new MiscMarker("gLRQZ", MiscTypes.redRift, [281.5872778794272, 99.5338716371389]),
-    ]
+    ],
+    [MapIds.libertyFalls]: []
 }

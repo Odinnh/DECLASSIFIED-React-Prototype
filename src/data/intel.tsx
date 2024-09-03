@@ -53,6 +53,8 @@ export enum MapIds {
   checkmate = 'checkmate',
   garrison = 'garrison',
   deprogram = 'deprogram',
+  //b06
+  libertyFalls = 'liberty_falls',
 }
 
 export enum Faction {

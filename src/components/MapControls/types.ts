@@ -22,7 +22,8 @@ export const MapGroupings : MapGroupDictionary = {
         MapDetails.sanatorium, 
         MapDetails.collateral, 
         MapDetails.armada
-    ]}
+    ]},
+    "liberty_falls": {mapName:'Liberty Falls', mapLayers: [MapDetails.libertyFalls]}
 }
 
 export interface MapControlsProps {
