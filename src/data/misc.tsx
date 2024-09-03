@@ -20,6 +20,7 @@ export enum MiscIconTypes {
   projector = 'projector',
   orb = 'aether_orb',
   reactor = 'collection_unit',
+  power = 'power',
 
   //movement icons
   redRift = 'tunnel_red',
@@ -85,7 +86,7 @@ export const MiscTypes = {
     papMachine: new Item({ title: "Pack-a-Punch", icon: MiscIconTypes.papMachine }),
     mysteryBox: new Item({ title: "Mystery Box Location", icon: MiscIconTypes.mysteryBox }),
     wallbuy: new Item({ title: "Wall Buy", icon: MiscIconTypes.wallbuy }),
-    power: new Item({ title: "Power Switch" }),
+    power: new Item({ title: "Power Switch", icon: MiscIconTypes.power }),
     jumpPad: new Item({ title: "Jump Pad", icon:MiscIconTypes.jumpPad }),
     landingPad: new Item({ title: "Landing Pad", icon: MiscIconTypes.landingPad }),
     airSupport: new Item({ title: "Air Support Console" }),
