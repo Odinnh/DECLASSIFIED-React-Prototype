@@ -89,8 +89,16 @@ const svgIcons = {
   [MiscIconTypes.redRift]: true,
   [MiscIconTypes.rift]: true,
   [MiscIconTypes.tunnel]: true,
+  [MiscIconTypes.upgrade]: true,
+  [MiscIconTypes.trap]: true,
+  [MiscIconTypes.projector]: true,
+  [MiscIconTypes.jumpPad]: true,
+  [MiscIconTypes.landingPad]: true,
+  [MiscIconTypes.demented]: true,
+  [MiscIconTypes.orb]: true,
+  [MiscIconTypes.reactor]: true,
 }
-
+const svgIconProperties = { popupAnchor: [5, -20], iconSize: [40, 40] }
 const customMiscIconBounds = {
   [MiscIconTypes.general]: {
     iconAnchor: [15, 30],
@@ -105,11 +113,6 @@ const customMiscIconBounds = {
     iconSize: [40, 40],
     popupAnchor: [5, -20],
   },
-  [MiscIconTypes.demented]: {
-    iconSize: [48, 48],
-    iconAnchor: [24, 24],
-    popupAnchor: [0, -30],
-  },
   [MiscIconTypes.fishing]: {
     popupAnchor: [0, -30],
   },
@@ -122,10 +125,18 @@ const customMiscIconBounds = {
   },
   [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
   [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
-  [MiscIconTypes.rampageInducer]: { popupAnchor: [5, -20], iconSize: [40, 40] },
-  [MiscIconTypes.portal]: { popupAnchor: [5, -20], iconSize: [40, 40] },
-  [MiscIconTypes.zipline]: { popupAnchor: [5, -20], iconSize: [40, 40] },
-  [MiscIconTypes.ziplineUp]: { popupAnchor: [5, -20], iconSize: [40, 40] },
-  [MiscIconTypes.ziplineDown]: { popupAnchor: [5, -20], iconSize: [40, 40] },
-  [MiscIconTypes.tunnel]: { popupAnchor: [5, -20], iconSize: [40, 40] },
+  [MiscIconTypes.demented]: svgIconProperties,
+
+  [MiscIconTypes.rampageInducer]: svgIconProperties,
+  [MiscIconTypes.portal]: svgIconProperties,
+  [MiscIconTypes.zipline]: svgIconProperties,
+  [MiscIconTypes.ziplineUp]: svgIconProperties,
+  [MiscIconTypes.ziplineDown]: svgIconProperties,
+  [MiscIconTypes.tunnel]: svgIconProperties,
+  [MiscIconTypes.upgrade]: svgIconProperties,
+  [MiscIconTypes.trap]: svgIconProperties,
+  [MiscIconTypes.projector]: svgIconProperties,
+  [MiscIconTypes.jumpPad]: svgIconProperties,
+  [MiscIconTypes.landingPad]: svgIconProperties,
+  [MiscIconTypes.orb]: svgIconProperties,
 }
