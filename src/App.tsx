@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import MapProvider from './components/Map';
-import { UserContext, UserContextProvider } from './contexts/DeclassifiedContext/userContextProvider';
+import { UserContextProvider, useUserContext } from './contexts/DeclassifiedContext/userContextProvider';
 import { BaseLayout } from './pages/layouts/BaseLayout';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const MapWithItemId = () => {
   const { id } = useParams();
-  const { updateMapItemId } = useContext(UserContext);
+  const { updateMapItemId } = useUserContext();
 
   // Update the global state with the 'id' parameter
   useEffect(() => {

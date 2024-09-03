@@ -5,8 +5,7 @@ import Header from '../Header'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 import styled from '@emotion/styled'
-import { useContext } from 'react'
-import { UserContext } from '../../contexts/DeclassifiedContext/userContextProvider'
+import { useUserContext } from '../../contexts/DeclassifiedContext/userContextProvider'
 import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
 
 const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
@@ -25,23 +24,23 @@ const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
 `
 
 const MapProvider = () => {
-    const { isMobile } = useContext(UserContext);
+    const { isMobile } = useUserContext();
 
     return (
-        <StyledMapContainer $isMobile={isMobile} 
+        <StyledMapContainer $isMobile={isMobile}
             id={"worldMap"}
             center={[256, 256]}
             zoom={0.8}
             scrollWheelZoom={true}
             crs={L.CRS.Simple}
             maxBounds={
-            isMobile ? [ // TODO - figure out the best bounds for mobile and desktop
-                [-256, -256],
-                [768, 768]
-            ] : [
-                [-256, -256],
-                [768, 768]
-            ]}
+                isMobile ? [ // TODO - figure out the best bounds for mobile and desktop
+                    [-256, -256],
+                    [768, 768]
+                ] : [
+                    [-256, -256],
+                    [768, 768]
+                ]}
             zoomControl={false}
             maxZoom={5}
             minZoom={0.1}

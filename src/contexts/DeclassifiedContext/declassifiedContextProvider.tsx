@@ -8,7 +8,7 @@ import { GetMapById, GetMapByTitle, MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
 import { DeclassifiedUserPreferences } from "../../data/db";
 import { getSetUserPreferences, updateUserPreferences } from "../../data/dataAccessLayer";
-import { UserContext } from "./userContextProvider";
+import { UserContext, useUserContext } from "./userContextProvider";
 import { getIntelById, getMiscMarkerById } from "../../helpers/github";
 
 const initialContextValues = {
@@ -42,7 +42,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
     const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
     const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(getIntelFilterDefaults());
     const [drawerState, setDrawerState] = useState(initialContextValues.drawerState);
-    const { isMobile, mapItemId } = useContext(UserContext);
+    const { isMobile, mapItemId } = useUserContext();
     const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const setCurrentMapWithValidation = async (newMap: MapItem) => {
@@ -51,6 +51,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
             setCurrentMap(newMap);
             Object.entries(MapGroupings).forEach(([key, mapItem]) => {
                 if (newMap && mapItem.mapLayers.includes(newMap)) {
+                    console.log("Setting current map GROUP to: ", mapItem);
                     setCurrentMapGroup(mapItem);
                 }
             });
@@ -72,11 +73,12 @@ export const DeclassifiedContextProvider = ({ children }) => {
     useMapEvent("baselayerchange", (props) => {
         let currentMapKey = GetMapByTitle(props.name);
         if (currentMapKey) {
+            console.log("setCurrentMapWithValidation with baselayerchange: ", currentMapKey);
             setCurrentMapWithValidation(MapDetails[currentMapKey]);
         }
     });
 
-    const focusOnSharedItem = useCallback(async () => {
+    const focusOnSharedItem = useCallback(async () => { // TODO - Debug race condition with map loading and share link to avoid refreshing the page
         if (isMapLoaded) {
             if (mapItemId) {
                 console.log("Focus on shared item: ", mapItemId);
@@ -124,6 +126,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
                 const userPrefsCurrentMap = GetMapById(data!.currentMap);
                 if (userPrefsCurrentMap) {
+                    console.log("Setting current map from user preferences: ", userPrefsCurrentMap);
                     setCurrentMap(userPrefsCurrentMap);
                     Object.entries(MapGroupings).forEach(([key, mapItem]) => {
                         if (userPrefsCurrentMap && mapItem.mapLayers.includes(userPrefsCurrentMap)) {

@@ -25,6 +25,11 @@ export type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export interface UserContextProps {
     isMobile: boolean;
+    setIsMobile: (state: boolean) => void;
+    isDebugMode: boolean;
+    setIsDebugMode: (state: boolean) => void;
     mapItemId: string | null;
     updateMapItemId: (id: string) => void;
+    triggerNotification: ((msg: string) => void);
+    setNotificationDelegate: (fn: (msg: string) => void) => void;
 }

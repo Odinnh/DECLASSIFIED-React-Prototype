@@ -26,7 +26,6 @@ import { ShareButton } from '../ActionButtons/ShareButton'
 import { BugReportButton } from '../ActionButtons/BugReportButton'
 
 export interface IIntelItemWithHandler extends IIntelItem {
-  notification: (intelId: string) => void
   isMarker?: boolean
 }
 
@@ -40,7 +39,6 @@ export const IntelDetailsItem = ({
   title,
   desc,
   img = undefined,
-  notification,
   isMarker = false,
 }: IIntelItemWithHandler) => {
   const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext)
@@ -115,7 +113,7 @@ export const IntelDetailsItem = ({
                   <LocationOnIcon htmlColor="var(--clr-blue)" />
                 </Button>
               )}
-              <ShareButton id={id} notification={notification} />
+              <ShareButton id={id} />
               <BugReportButton id={id} typeDesc={typeDesc} mapItem={mapItem} />
             </StyledIntelActionContainer>
           </IntelDetails>

@@ -35,15 +35,7 @@ export const IntelList = () => {
         return await db.intelCollected.toArray();
     });
 
-    const snackbarRef = useRef<{
-        handleClick: (msg: string) => void;
-    }>(null);
-
-    const notification = (intelId: string) => {
-        if (snackbarRef.current) {
-            snackbarRef.current.handleClick(`Copied Link To Clipboard`);
-        }
-    };
+    
     if (!currentMapGroup) {
         return null;
     }
@@ -63,8 +55,7 @@ export const IntelList = () => {
     const RenderedIntelList = IntelListToRender.map(intel => {
         return (<IntelDetailsItem
             key={intel.id}
-            {...intel}
-            notification={notification} />)
+            {...intel}/>)
     })
     if (RenderedIntelList.length === 0) {
         return (
@@ -78,7 +69,6 @@ export const IntelList = () => {
             <StyledIntelList id="intel-list" >
                 {RenderedIntelList}
             </StyledIntelList>
-            <NotificationBanner ref={snackbarRef} />
         </>
     )
 }

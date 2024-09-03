@@ -3,7 +3,7 @@ import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassi
 import { MapGroupings } from '../MapControls/types';
 import { Button, Drawer, Menu, MenuItem } from '@mui/material';
 import React from 'react';
-import { UserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
+import { UserContext, useUserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
 import styled from '@emotion/styled';
 
 const StyledHeader = styled.header`
@@ -48,7 +48,7 @@ const MapMenu = styled(Menu)`
 `
 
 const Header = () => {
-  const { isMobile } = useContext(UserContext);
+  const { isMobile } = useUserContext();
   const { currentMapGroup } = useContext(DeclassifiedContext);
   const { setCurrentMapWithValidation: setCurrentMap } = useContext(DeclassifiedContext);
   const [menuAnchorElement, setMenuAnchorElement] = React.useState<null | HTMLElement>(null);

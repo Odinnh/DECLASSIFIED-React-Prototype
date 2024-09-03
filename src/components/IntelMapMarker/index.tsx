@@ -28,14 +28,7 @@ const StyledPopup = styled(Popup)`
 export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img, map }: IntelItem) => {
     const isCollected = useLiveQuery(() => db.intelCollected.get(id ?? ""));
     const markerIcon = renderLeafletIcon(isCollected, faction, typeDesc);
-    const snackbarRef = useRef<{
-        handleClick: (msg: string) => void;
-    }>(null);
-    const notification = (intelId: string) => {
-        if (snackbarRef.current) {
-            snackbarRef.current.handleClick(`Copied Link To Clipboard`);
-        }
-    };
+    
 
     return (
         (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
@@ -53,11 +46,10 @@ export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season
                             title={title}
                             desc={desc ?? ''}
                             img={img}
-                            notification={notification}
                             isMarker={true} />
                     </StyledPopup>
                 </Marker>
-                <NotificationBanner ref={snackbarRef} />
+                
             </>
             )
 

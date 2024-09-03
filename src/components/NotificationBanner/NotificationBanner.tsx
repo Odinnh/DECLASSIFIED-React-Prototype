@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import styled from '@emotion/styled';
@@ -11,28 +11,28 @@ const Notification = styled(Snackbar)`
     .MuiPaper-root {
         background-color: var(--clr-blue) !important;
     }
-`
+`;
 
-const NotificationBanner = React.forwardRef((props, ref) => {
+const NotificationBanner = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState('');
 
     const handleClick = (msg: string) => {
-        setMessage(msg);
-        setOpen(true);
+        // Delay state update to avoid issues with updating during render phase
+        setTimeout(() => {
+            setMessage(msg);
+            setOpen(true);
+        }, 0);
     };
 
-    const handleClose = (
-        event: React.SyntheticEvent | Event,
-        reason?: string
-    ) => {
+    const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
             return;
         }
         setOpen(false);
     };
 
-    React.useImperativeHandle(ref, () => ({
+    useImperativeHandle(ref, () => ({
         handleClick,
     }));
 
