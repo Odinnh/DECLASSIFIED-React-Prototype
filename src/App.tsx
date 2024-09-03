@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import MapProvider from './components/Map';
-import { UserContextProvider, useUserContext } from './contexts/DeclassifiedContext/userContextProvider';
+import { UserContextProvider, useUserContext } from './contexts/UserContext/userContextProvider';
 import { BaseLayout } from './pages/layouts/BaseLayout';
 import { useEffect } from 'react';
 

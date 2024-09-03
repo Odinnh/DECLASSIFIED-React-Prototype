@@ -5,8 +5,9 @@ import Header from '../Header'
 import { MapControls } from '../MapControls'
 import { UserInterface } from '../UserInterface'
 import styled from '@emotion/styled'
-import { useUserContext } from '../../contexts/DeclassifiedContext/userContextProvider'
+import { useUserContext } from '../../contexts/UserContext/userContextProvider'
 import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider'
+import { NotificationProvider } from '../../contexts/NotificationContext/notificationProvider'
 
 const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
     &&&{
@@ -53,12 +54,14 @@ const MapProvider = () => {
             zoomSnap={0}
             maxBoundsViscosity={0.2}
         >
-            <DeclassifiedContextProvider>
-                <Header />
-                <MapControls />
-                <UserInterface />
-                <DrawerMenu />
-            </DeclassifiedContextProvider>
+            <NotificationProvider>
+                <DeclassifiedContextProvider>
+                    <Header />
+                    <MapControls />
+                    <UserInterface />
+                    <DrawerMenu />
+                </DeclassifiedContextProvider>
+            </NotificationProvider>
         </StyledMapContainer>
     )
 }

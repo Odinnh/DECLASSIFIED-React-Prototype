@@ -30,6 +30,4 @@ export interface UserContextProps {
     setIsDebugMode: (state: boolean) => void;
     mapItemId: string | null;
     updateMapItemId: (id: string) => void;
-    triggerNotification: ((msg: string) => void);
-    setNotificationDelegate: (fn: (msg: string) => void) => void;
 }

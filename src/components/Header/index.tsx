@@ -3,7 +3,7 @@ import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassi
 import { MapGroupings } from '../MapControls/types';
 import { Button, Drawer, Menu, MenuItem } from '@mui/material';
 import React from 'react';
-import { UserContext, useUserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
+import { UserContext, useUserContext } from '../../contexts/UserContext/userContextProvider';
 import styled from '@emotion/styled';
 
 const StyledHeader = styled.header`

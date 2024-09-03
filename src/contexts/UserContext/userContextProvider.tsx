@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { UserContextProps } from "./types";
+import { UserContextProps } from "../DeclassifiedContext/types";
 
 const initialContextValues = {
     isMobile: window.innerWidth <= 768,
@@ -8,22 +8,14 @@ const initialContextValues = {
     setIsDebugMode: () => { },
     mapItemId: null,
     updateMapItemId: () => { },
-    triggerNotification: () => { },
-    setNotificationDelegate: () => { }
 };
 
 export const UserContext = createContext<UserContextProps>(initialContextValues);
-
-// Default no-op function
-const defaultNotification = (msg: string) => {
-    console.warn("Notification function not set yet:", msg);
-};
 
 export const UserContextProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(initialContextValues.isMobile);
     const [isDebugMode, setIsDebugMode] = useState(initialContextValues.isMobile);
     const [mapItemId, setMapItemId] = useState<string | null>(null);
-    const [triggerNotification, setNotificationDelegate] = useState<((msg: string) => void) | null>(null);
 
     const updateMapItemId = (id: string | undefined) => {
         if (id) {
@@ -45,9 +37,7 @@ export const UserContextProvider = ({ children }) => {
             isDebugMode,
             setIsDebugMode,
             mapItemId,
-            updateMapItemId,
-            triggerNotification: triggerNotification || defaultNotification,
-            setNotificationDelegate
+            updateMapItemId
         }}>
             {children}
         </UserContext.Provider>

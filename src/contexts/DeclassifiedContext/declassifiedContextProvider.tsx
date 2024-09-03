@@ -8,7 +8,7 @@ import { GetMapById, GetMapByTitle, MapDetails } from "../../data/mapDetails";
 import { DeclassifiedContextProps } from "./types";
 import { DeclassifiedUserPreferences } from "../../data/db";
 import { getSetUserPreferences, updateUserPreferences } from "../../data/dataAccessLayer";
-import { UserContext, useUserContext } from "./userContextProvider";
+import { UserContext, useUserContext } from "../UserContext/userContextProvider";
 import { getIntelById, getMiscMarkerById } from "../../helpers/github";
 
 const initialContextValues = {

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { LayersControl } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { MapMarkers } from '../MapMarkers';
-import { useUserContext } from '../../contexts/DeclassifiedContext/userContextProvider';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 
 export const MapControls = () => {
     const { currentMap, currentMapGroup } = useContext(DeclassifiedContext);
