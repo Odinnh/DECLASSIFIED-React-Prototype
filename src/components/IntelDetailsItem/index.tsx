@@ -30,6 +30,102 @@ export interface IIntelItemWithHandler extends IIntelItem {
   isMarker?: boolean
 }
 
+export const IntelDetailsItem = ({
+  id,
+  faction,
+  season,
+  typeDesc,
+  loc,
+  map,
+  title,
+  desc,
+  img = undefined,
+  notification,
+  isMarker = false,
+}: IIntelItemWithHandler) => {
+  const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext)
+  const mapInstance = useMapEvents({})
+  const [expanded, setExpanded] = useState(false)
+  const IntelHasLocation = loc !== DefaultPOIData.nullLoc
+  const IntelIsOnAnotherMap = map !== currentMap!.id
+  const isCollected = useLiveQuery(() => db.intelCollected.get(id))
+  const mapItem = GetMapById(map!)
+
+  return (
+    <StyledAccordion
+      defaultExpanded={isMarker}
+      onChange={() => setExpanded(!expanded)}
+    >
+      <IntelSummary
+        expandIcon={isMarker ? null : <ExpandMoreIcon />}
+        aria-controls="intel-item"
+        className={`intel-item-header ${isCollected ? 'collected' : ''}`}
+        data-faction={faction}
+        data-type={typeDesc}
+      >
+        <img
+          className="icon"
+          src={`/assets/img/markers/${typeDesc.toLowerCase()}.png`}
+          alt="Icon"
+        />
+        <Typography variant="h2" className="intelTitle">
+          {title}
+        </Typography>
+      </IntelSummary>
+      {isMarker || expanded ? (
+        <StyledAccordionDetails>
+          <CustomImage src={img} altText="Placeholder" />
+          <IntelDetails>
+            <IntelSubheading variant="h3">
+              {mapItem?.title} - {season} - {typeDesc} - {faction}
+            </IntelSubheading>
+            <IntelDescription>{desc}</IntelDescription>
+            <StyledIntelActionContainer>
+              {isCollected ? (
+                <Button
+                  title="collected"
+                  onClick={() => deleteCollectedIntel(id)}
+                >
+                  <CheckBoxIcon htmlColor="var(--clr-blue)" />
+                </Button>
+              ) : (
+                <Button title="collected" onClick={() => addCollectedIntel(id)}>
+                  <CheckBoxOutlineBlankIcon htmlColor="var(--clr-blue)" />
+                </Button>
+              )}
+              {IntelHasLocation && mapItem?.mapCanRender ? (
+                <Button
+                  onClick={async () => {
+                    if (IntelIsOnAnotherMap) {
+                      if (mapItem && mapItem.mapCanRender) {
+                        var mapSetResult = await setCurrentMap(mapItem)
+                        if (mapSetResult) {
+                          mapInstance.flyTo(loc, 4)
+                        }
+                      }
+                    } else {
+                      mapInstance.flyTo(loc, 4)
+                    }
+                  }}
+                >
+                  <LocationOnIcon htmlColor="var(--clr-blue)" />
+                </Button>
+              ) : (
+                <Button disabled>
+                  <LocationOnIcon htmlColor="var(--clr-blue)" />
+                </Button>
+              )}
+              <ShareButton id={id} notification={notification} />
+              <BugReportButton id={id} typeDesc={typeDesc} mapItem={mapItem} />
+            </StyledIntelActionContainer>
+          </IntelDetails>
+        </StyledAccordionDetails>
+      ) : null}
+    </StyledAccordion>
+  )
+}
+
+
 const StyledAccordion = styled(Accordion)`
   background-color: var(--clr-bg-inverted);
 
@@ -141,99 +237,3 @@ const IntelDescription = styled(Typography)`
   text-align: center;
   margin: 0px !important;
 `
-
-export const IntelDetailsItem = ({
-  id,
-  faction,
-  season,
-  typeDesc,
-  loc,
-  map,
-  title,
-  desc,
-  img = undefined,
-  notification,
-  isMarker = false,
-}: IIntelItemWithHandler) => {
-  const { setCurrentMapWithValidation: setCurrentMap, currentMap } =
-    useContext(DeclassifiedContext)
-  const mapInstance = useMapEvents({})
-  const [expanded, setExpanded] = useState(false)
-  const IntelHasLocation = loc !== DefaultPOIData.nullLoc
-  const IntelIsOnAnotherMap = map !== currentMap!.id
-  const isCollected = useLiveQuery(() => db.intelCollected.get(id))
-  const mapItem = GetMapById(map!)
-
-  return (
-    <StyledAccordion
-      defaultExpanded={isMarker}
-      onChange={() => setExpanded(!expanded)}
-    >
-      <IntelSummary
-        expandIcon={isMarker ? null : <ExpandMoreIcon />}
-        aria-controls="intel-item"
-        className={`intel-item-header ${isCollected ? 'collected' : ''}`}
-        data-faction={faction}
-        data-type={typeDesc}
-      >
-        <img
-          className="icon"
-          src={`/assets/img/markers/${typeDesc.toLowerCase()}.png`}
-          alt="Icon"
-        />
-        <Typography variant="h2" className="intelTitle">
-          {title}
-        </Typography>
-      </IntelSummary>
-      {isMarker || expanded ? (
-        <StyledAccordionDetails>
-          <CustomImage src={img} altText="Placeholder" />
-          <IntelDetails>
-            <IntelSubheading variant="h3">
-              {mapItem?.title} - {season} - {typeDesc} - {faction}
-            </IntelSubheading>
-            <IntelDescription>{desc}</IntelDescription>
-            <StyledIntelActionContainer>
-              {isCollected ? (
-                <Button
-                  title="collected"
-                  onClick={() => deleteCollectedIntel(id)}
-                >
-                  <CheckBoxIcon htmlColor="var(--clr-blue)" />
-                </Button>
-              ) : (
-                <Button title="collected" onClick={() => addCollectedIntel(id)}>
-                  <CheckBoxOutlineBlankIcon htmlColor="var(--clr-blue)" />
-                </Button>
-              )}
-              {IntelHasLocation && mapItem?.mapCanRender ? (
-                <Button
-                  onClick={async () => {
-                    if (IntelIsOnAnotherMap) {
-                      if (mapItem && mapItem.mapCanRender) {
-                        var mapSetResult = await setCurrentMap(mapItem)
-                        if (mapSetResult) {
-                          mapInstance.flyTo(loc, 4)
-                        }
-                      }
-                    } else {
-                      mapInstance.flyTo(loc, 4)
-                    }
-                  }}
-                >
-                  <LocationOnIcon htmlColor="var(--clr-blue)" />
-                </Button>
-              ) : (
-                <Button disabled>
-                  <LocationOnIcon htmlColor="var(--clr-blue)" />
-                </Button>
-              )}
-              <ShareButton id={id} notification={notification} />
-              <BugReportButton id={id} typeDesc={typeDesc} mapItem={mapItem} />
-            </StyledIntelActionContainer>
-          </IntelDetails>
-        </StyledAccordionDetails>
-      ) : null}
-    </StyledAccordion>
-  )
-}
