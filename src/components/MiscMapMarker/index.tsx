@@ -98,6 +98,12 @@ const svgIcons = {
   [MiscIconTypes.orb]: true,
   [MiscIconTypes.reactor]: true,
   [MiscIconTypes.power]: true,
+  [MiscIconTypes.ammoCrate]: true,
+  [MiscIconTypes.wallbuy]: true,
+  [MiscIconTypes.trialComputer]: true,
+  [MiscIconTypes.papMachine]: true,
+  [MiscIconTypes.arsenal]: true,
+  [MiscIconTypes.craftingTable]: true,
 }
 const svgIconProperties = { popupAnchor: [5, -20], iconSize: [40, 40] }
 const customMiscIconBounds = {
@@ -124,10 +130,8 @@ const customMiscIconBounds = {
     iconSize: [40, 40],
     popupAnchor: [5, -20],
   },
-  [MiscIconTypes.arsenal]: { iconAnchor: [15, 30] },
-  [MiscIconTypes.craftingTable]: { iconAnchor: [15, 30] },
-  [MiscIconTypes.demented]: svgIconProperties,
 
+  [MiscIconTypes.demented]: svgIconProperties,
   [MiscIconTypes.rampageInducer]: svgIconProperties,
   [MiscIconTypes.portal]: svgIconProperties,
   [MiscIconTypes.zipline]: svgIconProperties,
@@ -141,4 +145,10 @@ const customMiscIconBounds = {
   [MiscIconTypes.landingPad]: svgIconProperties,
   [MiscIconTypes.orb]: svgIconProperties,
   [MiscIconTypes.power]: svgIconProperties,
+  [MiscIconTypes.ammoCrate]: svgIconProperties,
+  [MiscIconTypes.wallbuy]: svgIconProperties,
+  [MiscIconTypes.trialComputer]: svgIconProperties,
+  [MiscIconTypes.papMachine]: svgIconProperties,
+  [MiscIconTypes.arsenal]: svgIconProperties,
+  [MiscIconTypes.craftingTable]: svgIconProperties,
 }

@@ -42,7 +42,7 @@ export enum MiscIconTypes {
   ammoCrate = 'ammo_crate',
   arsenal = 'arsenal',
   craftingTable = 'crafting_table',
-  wallbuy = 'wallbuy',
+  wallbuy = 'wall_buy',
   gumball = 'gumball',
   armorWall = 'armor_wall',
   workbench = 'workbench',
