@@ -24,7 +24,7 @@ interface FilterState {
 
 export const IntelFilterMenu = () => {
 	const theme = useTheme();
-	const { register, setValue } = useFormContext();
+	const { register, setValue, getValues } = useFormContext();
 	const [season, setSeason] = useState<string[]>([]);
 	const [faction, setFaction] = useState<string[]>([]);
 
@@ -49,6 +49,7 @@ export const IntelFilterMenu = () => {
 	const seasons = Object.values(Season);
 	const factions = Object.values(Faction);
 	const intelTypes = Object.keys(IntelType);
+	const intelTypeState = getValues('intelTypes');
 
 	return (
 		<StyledIntelFilterMenu>
@@ -60,7 +61,7 @@ export const IntelFilterMenu = () => {
 					labelId="season-filter-label"
 					id="season-filter"
 					multiple
-					value={season}
+					value={getValues('seasons')}
 					onChange={handleSeasonChange}
 					input={<OutlinedInput id="select-season-filter" label="Chip" />}
 					renderValue={selected => (
@@ -91,7 +92,7 @@ export const IntelFilterMenu = () => {
 					labelId="faction-filter-label"
 					id="faction-filter"
 					multiple
-					value={faction}
+					value={getValues('factions')}
 					onChange={handleFactionChange}
 					input={<OutlinedInput id="select-faction-filter" label="Chip" />}
 					renderValue={selected => (
@@ -118,7 +119,7 @@ export const IntelFilterMenu = () => {
 				<CustomIntelFilterCheckbox
 					key={intelTypeItem}
 					name={intelTypeItem}
-					defaultChecked={false}
+					defaultChecked={(intelTypeState && intelTypeState.includes(IntelType[intelTypeItem])) ? true : false}
 				/>
 			))}
 		</StyledIntelFilterMenu>

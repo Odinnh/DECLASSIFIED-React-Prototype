@@ -13,20 +13,6 @@ import { Faction, IntelType, Season } from '../../data/intel';
 import { MenuFooter } from '../MenuFooter';
 import { IntelFilterMenu } from '../IntelFilterMenu';
 
-const StyledExpandableMenu = styled.form`
-	display: grid;
-	justify-items: center;
-	background-color: var(--clr-grey-d);
-	position: sticky;
-	bottom: 0;
-`;
-
-const StyledAccordion = styled(Accordion)`
-	width: 100%;
-	margin: 0;
-	box-shadow: none;
-`;
-
 export type FormInputs = {
 	searchTerm: string;
 	seasons: Season[];
@@ -105,3 +91,17 @@ export function getIntelFilterDefaults(): FormInputs {
 		collectedIntelFilter: 'all',
 	};
 }
+
+const StyledExpandableMenu = styled.form`
+	display: grid;
+	justify-items: center;
+	background-color: var(--clr-grey-d);
+	position: sticky;
+	bottom: 0;
+`;
+
+const StyledAccordion = styled(Accordion)`
+	width: 100%;
+	margin: 0;
+	box-shadow: none;
+`;
