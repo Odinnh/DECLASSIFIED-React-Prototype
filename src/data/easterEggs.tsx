@@ -1,7 +1,7 @@
 import { Item, MiscMarker } from '../classes';
 import { IconFileNames } from './icons';
 import { MapIds } from './intel';
-import { IMisc } from './misc';
+import { IMisc } from './types';
 
 export const EasterEggStrings = {
 	dieMaschineEE: 'Seal the Deal', //https://callofduty.fandom.com/wiki/Seal_the_Deal
@@ -72,6 +72,10 @@ export const EasterEggTypes = {
 		icon: IconFileNames.reactor,
 	}),
 };
+
+// Used to generate IDs for all of the below misc markers:
+// https://nanoid.jormaechea.com.ar/?alphabet=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz&length=5
+// Please use the existing settings included in the URL and check for duplicate ids when possible (it`s very very unlikely but still possible).
 
 export const EasterEggStore: IMisc = {
 	[MapIds.mauerDerToten]: [

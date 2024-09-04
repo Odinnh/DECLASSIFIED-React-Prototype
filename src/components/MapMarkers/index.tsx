@@ -2,9 +2,12 @@ import { useContext, useState } from 'react';
 import { LayerGroup, LayersControl } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { IntelStore, IntelType } from '../../data/intel';
-import { MiscStore } from '../../data/misc';
 import { IntelMapMarker } from '../IntelMapMarker';
 import { MiscMapMarker } from '../MiscMapMarker';
+import { EasterEggStore } from '../../data/easterEggs';
+import { PerkStore } from '../../data/perks';
+import { MiscStore } from '../../data/misc';
+import { IMisc, MarkerLayerTypes } from '../../data/types';
 
 const renderIntelMapMarkers = (
 	mapId: string,
@@ -21,9 +24,9 @@ const renderIntelMapMarkers = (
 	}
 };
 
-const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
-	if (mapId) {
-		return MiscStore[mapId].map((misc, index) => {
+const renderMiscMapMarkers = (markerStore: IMisc, mapId: string): JSX.Element[] => {
+	if (mapId && markerStore[mapId]) {
+		return markerStore[mapId].map((misc, index) => {
 			return <MiscMapMarker key={index} {...misc} />;
 		});
 	} else {
@@ -59,12 +62,31 @@ export const MapMarkers = () => {
 				</LayerGroup>
 			</LayersControl.Overlay>
 
-			<LayersControl.Overlay
-				name="Misc Markers"
+			({PerkStore[currentMap!.id!] ? (<LayersControl.Overlay
+				name={MarkerLayerTypes.perks.title}
 				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
 			>
-				<LayerGroup>{renderMiscMapMarkers(currentMap!.id!)}</LayerGroup>
-			</LayersControl.Overlay>
+				<LayerGroup>{renderMiscMapMarkers(PerkStore, currentMap!.id!)}</LayerGroup>
+			</LayersControl.Overlay>) : null})
+
+			({MiscStore[currentMap!.id!] ? (
+				<LayersControl.Overlay
+					name={MarkerLayerTypes.misc.title}
+					checked={isChecked /* TODO: SWAP WITH USER PREFS */}
+				>
+					<LayerGroup>{renderMiscMapMarkers(MiscStore, currentMap!.id!)}</LayerGroup>
+				</LayersControl.Overlay>
+			) : null})
+
+
+
+			({EasterEggStore[currentMap!.id!] ? (<LayersControl.Overlay
+				name={MarkerLayerTypes.easterEggs.title}
+				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
+			>
+				<LayerGroup>{renderMiscMapMarkers(EasterEggStore, currentMap!.id!)}</LayerGroup>
+			</LayersControl.Overlay>) : null})
+
 
 			{/* <LayersControl.Overlay checked name="Misc Markers">
                 <LayerGroup>
