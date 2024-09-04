@@ -1,5 +1,8 @@
 import { Item, MiscMarker } from "../classes";
+import { EasterEggStore } from "./easterEggs";
 import { IconFileNames } from "./icons";
+import { MiscStore } from "./misc";
+import { PerkStore } from "./perks";
 
 /////////////////////Misc/////////////////////////
 export const MiscTypes = {

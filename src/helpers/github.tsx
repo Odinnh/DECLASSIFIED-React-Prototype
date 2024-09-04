@@ -1,7 +1,7 @@
 import { MapItem, MiscMarker } from '../classes';
 import { IconFileNames } from '../data/icons';
 import { IntelStore, IntelType, MapIds } from '../data/intel';
-import { MiscStore } from '../data/misc';
+import { AllMiscStores } from '../data/misc';
 import { ContribTemplates, RepoDomain } from './models';
 
 export function redirectToGithub(
@@ -76,7 +76,7 @@ export const getIntelById = (intelId: string) => {
 
 const getMiscMarkerByIdAndMap = (itemId, currentMap: MapItem) => {
 	if (itemId) {
-		let matchedMisc = MiscStore[currentMap.id!].find(
+		let matchedMisc = AllMiscStores()[currentMap.id!].find(
 			item => item.id === itemId
 		);
 		return matchedMisc;
@@ -90,7 +90,7 @@ export const getMiscMarkerById = (
 	if (markerId) {
 		let matchedMiscMarker: MiscMarker | undefined;
 		let foundMap: MapIds | undefined;
-		Object.entries(MiscStore).map(([key, miscMarkersForMap]) => {
+		Object.entries(AllMiscStores()).map(([key, miscMarkersForMap]) => {
 			let matchedMisc = miscMarkersForMap.find(item => item.id === markerId);
 			if (matchedMisc) {
 				matchedMiscMarker = matchedMisc;

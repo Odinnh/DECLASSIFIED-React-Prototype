@@ -1,5 +1,7 @@
 import { MiscMarker } from "../classes";
+import { EasterEggStore } from "./easterEggs";
 import { MapIds } from "./intel";
+import { PerkStore } from "./perks";
 import { IMisc, MiscTypes, OutbreakEE2Steps } from "./types";
 
 // Used to generate IDs for all of the below misc markers:
@@ -747,3 +749,26 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`IYLlb`, MiscTypes.ammoCrate, [284.8147666021498, 292.1398595418589]),
 	],
 };
+
+
+export const AllMiscStores = (): IMisc => {
+	const mergedStore: IMisc = {};
+
+	const stores = [MiscStore, PerkStore, EasterEggStore];
+
+	for (const store of stores) {
+		for (const key in store) {
+			if (store.hasOwnProperty(key)) {
+				if (mergedStore[key]) {
+					// Concatenate arrays if the key already exists in the merged store
+					mergedStore[key] = mergedStore[key].concat(store[key]);
+				} else {
+					// Add the key if it doesn't exist in the merged store
+					mergedStore[key] = store[key];
+				}
+			}
+		}
+	}
+
+	return mergedStore;
+}

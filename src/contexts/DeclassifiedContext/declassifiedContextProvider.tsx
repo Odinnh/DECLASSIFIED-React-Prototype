@@ -1,7 +1,6 @@
 import {
 	createContext,
 	useCallback,
-	useContext,
 	useEffect,
 	useState,
 } from 'react';
@@ -21,7 +20,6 @@ import {
 	updateUserPreferences,
 } from '../../data/dataAccessLayer';
 import {
-	UserContext,
 	useUserContext,
 } from '../UserContext/userContextProvider';
 import { getIntelById, getMiscMarkerById } from '../../helpers/github';
@@ -31,13 +29,13 @@ const initialContextValues = {
 	currentMap: null,
 	setCurrentMapWithValidation: async () => false,
 	currentMapGroup: null,
-	setCurrentMapGroup: () => {},
+	setCurrentMapGroup: () => { },
 	filteredIntelStore: [],
-	setFilteredIntelStore: () => {},
+	setFilteredIntelStore: () => { },
 	currentIntelFilter: getIntelFilterDefaults(),
-	setCurrentIntelFilter: () => {},
+	setCurrentIntelFilter: () => { },
 	drawerState: false,
-	toggleDrawer: () => () => {},
+	toggleDrawer: () => () => { },
 };
 
 async function updateUserPreferencesInDB(
