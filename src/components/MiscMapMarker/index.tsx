@@ -84,6 +84,12 @@ const svgIcons = {
   [MiscIconTypes.craftingTable]: true,
   [MiscIconTypes.workbench]: true,
   [MiscIconTypes.objective]: true,
+  [MiscIconTypes.door]: true,
+  [MiscIconTypes.doorPower]: true,
+  [MiscIconTypes.armorWall]: true,
+  [MiscIconTypes.trialChallenge]: true,
+  [MiscIconTypes.gumball]: true,
+  [MiscIconTypes.meleeMacchiato]: true,
 }
 const svgIconProperties = { popupAnchor: [5, -20], iconSize: [40, 40] }
 const customMiscIconBounds = {
@@ -133,6 +139,12 @@ const customMiscIconBounds = {
   [MiscIconTypes.craftingTable]: svgIconProperties,
   [MiscIconTypes.workbench]: svgIconProperties,
   [MiscIconTypes.objective]: svgIconProperties,
+  [MiscIconTypes.door]: svgIconProperties,
+  [MiscIconTypes.doorPower]: svgIconProperties,
+  [MiscIconTypes.armorWall]: svgIconProperties,
+  [MiscIconTypes.trialChallenge]: svgIconProperties,
+  [MiscIconTypes.gumball]: svgIconProperties,
+  [MiscIconTypes.meleeMacchiato]: svgIconProperties,
 }
 
 const StyledPopup = styled(Popup)`
