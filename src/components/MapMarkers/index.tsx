@@ -6,58 +6,67 @@ import { MiscStore } from '../../data/misc';
 import { IntelMapMarker } from '../IntelMapMarker';
 import { MiscMapMarker } from '../MiscMapMarker';
 
-const renderIntelMapMarkers = (mapId: string, intelType: IntelType): JSX.Element[] => {
-    if (mapId) {
-        return IntelStore
-            .filter(intel => (intel.map === mapId && intel.typeDesc === intelType))
-            .map(intel => {
-                return (<IntelMapMarker key={intel.id} {...intel} />);
-            });
-    } else {
-        return [<></>]
-    }
+const renderIntelMapMarkers = (
+	mapId: string,
+	intelType: IntelType
+): JSX.Element[] => {
+	if (mapId) {
+		return IntelStore.filter(
+			intel => intel.map === mapId && intel.typeDesc === intelType
+		).map(intel => {
+			return <IntelMapMarker key={intel.id} {...intel} />;
+		});
+	} else {
+		return [<></>];
+	}
 };
 
 const renderMiscMapMarkers = (mapId: string): JSX.Element[] => {
-    if (mapId) {
-        return MiscStore[mapId].map((misc, index) => {
-            return (<MiscMapMarker key={index} {...misc} />)
-        });
-
-    } else {
-        return [<></>]
-    }
+	if (mapId) {
+		return MiscStore[mapId].map((misc, index) => {
+			return <MiscMapMarker key={index} {...misc} />;
+		});
+	} else {
+		return [<></>];
+	}
 };
 
 export const MapMarkers = () => {
-    // const center: LatLngExpression = [0, 0]
-    // const rectangle: LatLngBoundsExpression = [
-    //     [0, 0],
-    //     [0, 0],
-    // ]
-    const { currentMap } = useContext(DeclassifiedContext)
-    const [isChecked, setIsChecked] = useState(true);
+	// const center: LatLngExpression = [0, 0]
+	// const rectangle: LatLngBoundsExpression = [
+	//     [0, 0],
+	//     [0, 0],
+	// ]
+	const { currentMap } = useContext(DeclassifiedContext);
+	const [isChecked, setIsChecked] = useState(true);
 
-    return (
-        <>
-            <LayersControl.Overlay name="Intel - Audio Logs" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
-                <LayerGroup>
-                    {renderIntelMapMarkers(currentMap!.id!, IntelType.Audio)}
-                </LayerGroup>
-            </LayersControl.Overlay>
-            <LayersControl.Overlay name="Intel - Artifacts" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
-                <LayerGroup>
-                    {renderIntelMapMarkers(currentMap!.id!, IntelType.Artifact)}
-                </LayerGroup>
-            </LayersControl.Overlay>
+	return (
+		<>
+			<LayersControl.Overlay
+				name="Intel - Audio Logs"
+				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
+			>
+				<LayerGroup>
+					{renderIntelMapMarkers(currentMap!.id!, IntelType.Audio)}
+				</LayerGroup>
+			</LayersControl.Overlay>
+			<LayersControl.Overlay
+				name="Intel - Artifacts"
+				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
+			>
+				<LayerGroup>
+					{renderIntelMapMarkers(currentMap!.id!, IntelType.Artifact)}
+				</LayerGroup>
+			</LayersControl.Overlay>
 
-            <LayersControl.Overlay name="Misc Markers" checked={isChecked /* TODO: SWAP WITH USER PREFS */}>
-                <LayerGroup>
-                    {renderMiscMapMarkers(currentMap!.id!)}
-                </LayerGroup>
-            </LayersControl.Overlay>
+			<LayersControl.Overlay
+				name="Misc Markers"
+				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
+			>
+				<LayerGroup>{renderMiscMapMarkers(currentMap!.id!)}</LayerGroup>
+			</LayersControl.Overlay>
 
-            {/* <LayersControl.Overlay checked name="Misc Markers">
+			{/* <LayersControl.Overlay checked name="Misc Markers">
                 <LayerGroup>
                     <Circle
                         center={center}
@@ -86,6 +95,6 @@ export const MapMarkers = () => {
                     <Rectangle bounds={rectangle} />
                 </FeatureGroup>
             </LayersControl.Overlay> */}
-        </>
-    )
-}
+		</>
+	);
+};

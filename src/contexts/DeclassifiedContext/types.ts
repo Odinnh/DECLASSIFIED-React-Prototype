@@ -1,33 +1,35 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 import { MapItem } from '../../classes';
-import { FormInputs } from "../../components/IntelListMenu";
+import { FormInputs } from '../../components/IntelListMenu';
 import { MapMenuItem } from '../../components/MapControls/types';
 import { IntelItem } from '../../data/intel';
 
 export interface DeclassifiedContextProps {
-    currentMap: MapItem | null;
-    setCurrentMapWithValidation: (newMap :MapItem) => Promise<boolean>;
-    currentMapGroup: MapMenuItem | null;
-    setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem | null>>;
-    filteredIntelStore: IntelItem[];
-    setFilteredIntelStore: Dispatch<SetStateAction<IntelItem[]>>;
-    currentIntelFilter: FormInputs;
-    setCurrentIntelFilter: Dispatch<SetStateAction<FormInputs>>;
-    drawerState: boolean;
-    toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+	currentMap: MapItem | null;
+	setCurrentMapWithValidation: (newMap: MapItem) => Promise<boolean>;
+	currentMapGroup: MapMenuItem | null;
+	setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem | null>>;
+	filteredIntelStore: IntelItem[];
+	setFilteredIntelStore: Dispatch<SetStateAction<IntelItem[]>>;
+	currentIntelFilter: FormInputs;
+	setCurrentIntelFilter: Dispatch<SetStateAction<FormInputs>>;
+	drawerState: boolean;
+	toggleDrawer: (
+		open: boolean
+	) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
 export interface IntelContextProviderProps {
-    children: React.ReactNode
+	children: React.ReactNode;
 }
 
 export type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export interface UserContextProps {
-    isMobile: boolean;
-    setIsMobile: (state: boolean) => void;
-    isDebugMode: boolean;
-    setIsDebugMode: (state: boolean) => void;
-    mapItemId: string | null;
-    updateMapItemId: (id: string) => void;
+	isMobile: boolean;
+	setIsMobile: (state: boolean) => void;
+	isDebugMode: boolean;
+	setIsDebugMode: (state: boolean) => void;
+	mapItemId: string | null;
+	updateMapItemId: (id: string) => void;
 }

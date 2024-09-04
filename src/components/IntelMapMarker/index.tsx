@@ -10,64 +10,74 @@ import styled from '@emotion/styled';
 import NotificationBanner from '../NotificationBanner/NotificationBanner';
 
 const StyledPopup = styled(Popup)`
-    background-color: var(--clr-bg-inverted);
-    border-radius: 12px !important;
-    box-shadow: unset !important;
-    margin: 0 !important;
-    .leaflet-popup-content-wrapper {
-        .leaflet-popup-content {
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-    }
-    .leaflet-popup-close-button {
-        display: none !important;
-    }
-`
+	background-color: var(--clr-bg-inverted);
+	border-radius: 12px !important;
+	box-shadow: unset !important;
+	margin: 0 !important;
+	.leaflet-popup-content-wrapper {
+		.leaflet-popup-content {
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+	}
+	.leaflet-popup-close-button {
+		display: none !important;
+	}
+`;
 
-export const IntelMapMarker = ({ id, title, desc, typeDesc, loc, faction, season, img, map }: IntelItem) => {
-    const isCollected = useLiveQuery(() => db.intelCollected.get(id ?? ""));
-    const markerIcon = renderLeafletIcon(isCollected, faction, typeDesc);
-    
+export const IntelMapMarker = ({
+	id,
+	title,
+	desc,
+	typeDesc,
+	loc,
+	faction,
+	season,
+	img,
+	map,
+}: IntelItem) => {
+	const isCollected = useLiveQuery(() => db.intelCollected.get(id ?? ''));
+	const markerIcon = renderLeafletIcon(isCollected, faction, typeDesc);
 
-    return (
-        (loc !== null && loc.toString() === [0, 0].toString()) ? <></> :
-            (<>
-                <Marker position={loc} icon={markerIcon}>
-                    <StyledPopup>
-                        <IntelDetailsItem
-                            key={id}
-                            id={id!}
-                            faction={faction}
-                            season={season}
-                            typeDesc={typeDesc}
-                            loc={loc}
-                            map={map}
-                            title={title}
-                            desc={desc ?? ''}
-                            img={img}
-                            isMarker={true} />
-                    </StyledPopup>
-                </Marker>
-                
-            </>
-            )
+	return loc !== null && loc.toString() === [0, 0].toString() ? (
+		<></>
+	) : (
+		<>
+			<Marker position={loc} icon={markerIcon}>
+				<StyledPopup>
+					<IntelDetailsItem
+						key={id}
+						id={id!}
+						faction={faction}
+						season={season}
+						typeDesc={typeDesc}
+						loc={loc}
+						map={map}
+						title={title}
+						desc={desc ?? ''}
+						img={img}
+						isMarker={true}
+					/>
+				</StyledPopup>
+			</Marker>
+		</>
+	);
+};
 
-    )
-}
+const renderLeafletIcon = (
+	isCollected: DeclassifiedIntelCollected | undefined,
+	faction: Faction,
+	type: string
+) => {
+	var markerIcons: DivIconOptions = {
+		html: intelIconInit(faction, type),
+		className: `intel-icon ${isCollected ? 'collected-marker' : ''}`,
+		iconSize: [25, 25],
+		iconAnchor: [12.5, 40],
+		shadowSize: [33, 44],
+		shadowAnchor: [33 / 2, 44],
+		popupAnchor: [0, -25],
+	};
 
-const renderLeafletIcon = (isCollected: DeclassifiedIntelCollected | undefined, faction: Faction, type: string) => {
-    var markerIcons: DivIconOptions = {
-        html: intelIconInit(faction, type),
-        className: `intel-icon ${isCollected ? 'collected-marker' : ''}`,
-        iconSize: [25, 25],
-        iconAnchor: [12.5, 40],
-        shadowSize: [33, 44],
-        shadowAnchor: [(33 / 2), 44],
-        popupAnchor: [0, -25]
-    }
-
-    return L.divIcon(
-        markerIcons
-    );
+	return L.divIcon(markerIcons);
 };

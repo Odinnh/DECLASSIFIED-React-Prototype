@@ -6,30 +6,28 @@
     return foundMap;
 } */
 
-
-
 /////////////////////Metadata/////////////////////////
 export const RepoDomain = 'https://github.com/Miss-placed/DECLASSIFIED';
 export const AppDomain = 'https://declassified.netlify.app/';
 
 export const ContribTemplates = {
-    intel: {
-        newId: "newIntel",
-        newTitle: "New Intel",
-        editId: "editIntel",
-        editTitle: "Intel Fix",
-    },
-    misc: {
-        newId: "newMisc",
-        newTitle: "New Misc Marker",
-        editId: "editMisc",
-        editTitle: "Misc Marker Fix",
-    }
-}
+	intel: {
+		newId: 'newIntel',
+		newTitle: 'New Intel',
+		editId: 'editIntel',
+		editTitle: 'Intel Fix',
+	},
+	misc: {
+		newId: 'newMisc',
+		newTitle: 'New Misc Marker',
+		editId: 'editMisc',
+		editTitle: 'Misc Marker Fix',
+	},
+};
 
 export const ModalSet = {
-    intelOverview: ["intel-filters", "intel-list", "intel-stats"],
-    intelDescription: ["intel-list", "intel-detail"],
-    settingsMain: ["settings"],
-    settingsDetail: ["settings", "settings-detail"],
-}
+	intelOverview: ['intel-filters', 'intel-list', 'intel-stats'],
+	intelDescription: ['intel-list', 'intel-detail'],
+	settingsMain: ['settings'],
+	settingsDetail: ['settings', 'settings-detail'],
+};

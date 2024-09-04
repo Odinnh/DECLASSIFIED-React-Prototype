@@ -1,17 +1,17 @@
-import { RepoDomain } from "./models";
+import { RepoDomain } from './models';
 
 const globalMapSettings = {
-    prefix: false,
-    attribution: `Want to help out? <a href="${RepoDomain}">Github</a>. ||  See all <a href="${RepoDomain}#contributors">Contributors</a>`,
-    id: '',
-    tileSize: 0,
-    bounds: [
-        [0, 0],
-        [512, 512]
-    ],
-    padding: [1000, 1000],
-    zoomSnap: 0.1
-}
+	prefix: false,
+	attribution: `Want to help out? <a href="${RepoDomain}">Github</a>. ||  See all <a href="${RepoDomain}#contributors">Contributors</a>`,
+	id: '',
+	tileSize: 0,
+	bounds: [
+		[0, 0],
+		[512, 512],
+	],
+	padding: [1000, 1000],
+	zoomSnap: 0.1,
+};
 
 /* export const MapLayers = generateMapLayers();
 

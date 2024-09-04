@@ -6,38 +6,38 @@ import { IntelList } from '../IntelList';
 import { IntelListMenu } from '../IntelListMenu';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)`
-    .MuiDrawer-paper {
-        @media (max-width: 900px) {
-            height: 75%;
-        }
-        @media (min-width: 900px) {
-            height: 100%;
-            width: 500px;
-        }
-    }
-`
+	.MuiDrawer-paper {
+		@media (max-width: 900px) {
+			height: 75%;
+		}
+		@media (min-width: 900px) {
+			height: 100%;
+			width: 500px;
+		}
+	}
+`;
 const StyledIntelFilter = styled.div`
-    background-color: var(--clr-grey-d);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-`
+	background-color: var(--clr-grey-d);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+`;
 
 export const DrawerMenu = () => {
-    const { drawerState, toggleDrawer } = useContext(DeclassifiedContext);
-    let width = window.innerWidth;
-    return (
-        <StyledSwipeableDrawer
-            anchor={(width > 900) ? 'left' : 'bottom'}
-            open={drawerState}
-            onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(true)}
-        >
-            <StyledIntelFilter id="intel-filter">
-                <IntelList />
-                <IntelListMenu />
-            </StyledIntelFilter>
-        </StyledSwipeableDrawer>
-    )
-}
+	const { drawerState, toggleDrawer } = useContext(DeclassifiedContext);
+	let width = window.innerWidth;
+	return (
+		<StyledSwipeableDrawer
+			anchor={width > 900 ? 'left' : 'bottom'}
+			open={drawerState}
+			onClose={toggleDrawer(false)}
+			onOpen={toggleDrawer(true)}
+		>
+			<StyledIntelFilter id="intel-filter">
+				<IntelList />
+				<IntelListMenu />
+			</StyledIntelFilter>
+		</StyledSwipeableDrawer>
+	);
+};

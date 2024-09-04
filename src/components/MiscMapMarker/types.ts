@@ -1,7 +1,7 @@
-import { PointTuple } from "leaflet";
+import { PointTuple } from 'leaflet';
 
 export interface Bounds {
-    iconSize?: PointTuple;
-    iconAnchor?: PointTuple;
-    popupAnchor?: PointTuple;
+	iconSize?: PointTuple;
+	iconAnchor?: PointTuple;
+	popupAnchor?: PointTuple;
 }
