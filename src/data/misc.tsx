@@ -86,7 +86,8 @@ export const EasterEggTypes = {
     outbreakEE2: "Entrapment", //https://callofduty.fandom.com/wiki/Entrapment
 
     clue: "Visual Clue",
-    secretPassage: "Secret Passage",
+    interactable: "Interactable Object",
+    secretArea: "Secret Area",
     music: "Cassette Tape",
 }
 
@@ -139,7 +140,8 @@ export const MiscTypes = {
     // Easter Egg Markers
     cassetteTape: new Item({ title: EasterEggTypes.music, icon: MiscIconTypes.objective }),
     clue: new Item({ title: EasterEggTypes.clue, icon: MiscIconTypes.objective }),
-    secretPassage: new Item({ title: EasterEggTypes.secretPassage, icon: MiscIconTypes.objective }),
+    secretArea: new Item({ title: EasterEggTypes.secretArea, icon: MiscIconTypes.objective }),
+    interactable: new Item({ title: EasterEggTypes.interactable, icon: MiscIconTypes.objective }),
     essenceHarvester: new Item({ title: EasterEggTypes.mauerDerTotenEssenceHarvester, icon: MiscIconTypes.reactor }),
 }
 
@@ -364,8 +366,15 @@ export const MiscStore: IMisc = {
         new MiscMarker("ROB5S", MiscTypes.power, [283.45675455337124, 206.46866472621429], "2 fuses are required to activate."),
         new MiscMarker("2wAit", MiscTypes.clue, [384.32068891654967, 272.1759937481422], "#0 Blacklight locker"),
         new MiscMarker("G107e", MiscTypes.clue, [181.79736917081456, 459.6975460903231], "#2 Blacklight numbers"),
+        new MiscMarker("h8fAY", MiscTypes.clue, [261.5104831795745, 336.1746978373792], "Klaus Part, Electronic Chips, box with green light, shoot with CRBR-S."),
+        new MiscMarker("GYRE6", MiscTypes.interactable, [359.9483781264314, 284.16977220507744], "Train Line Controls, used to switch train tracks during the main quest."),
+        new MiscMarker("drKer", MiscTypes.interactable, [364.2365012890661, 214.16776152079905], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("eQXff", MiscTypes.interactable, [206.05222014011366, 330.2612687292476], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("v9aLr", MiscTypes.interactable, [168.93078742529096, 137.35493930841415], "Essence Canister Pickup."),
+        new MiscMarker("_n0MB", MiscTypes.interactable, [193.68010197590363, 264.8048544502154], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
         new MiscMarker("jOSoP", MiscTypes.essenceHarvester, [151.62276338235262, 217.9029453522394], "Used in the quest to charge soul canisters."),
-        new MiscMarker("4QpYx", MiscTypes.secretPassage, [168.43591618416733, 160.56583724877993], "Entrance to Valentina's Lab. Klaus can knock the wall down. Then use the CRBR-S beam mod to open the metal door."),
+        new MiscMarker("CWAYy", MiscTypes.secretArea, [328.3739589925339, 296.7995398586364], "Train Carriage, use Klaus to stop the train, contains the Keycard and Warhead needed for the main quest."),
+        new MiscMarker("4QpYx", MiscTypes.secretArea, [168.43591618416733, 160.56583724877993], "Entrance to Valentina's Lab. Klaus can knock the wall down. Then use the CRBR-S beam mod to open the metal door."),
     ],
     [MapIds.mauerDerTotenStreets]: [
         new MiscMarker("WLKGz", MiscTypes.ammoCrate, [226.22815725111633, 104.23454735640928]),
@@ -379,6 +388,7 @@ export const MiscStore: IMisc = {
         new MiscMarker("MvQgd", MiscTypes.craftingTable, [313.73489003353654, 412.75]),
         new MiscMarker("jO42X", MiscTypes.craftingTable, [326.8100280096752, 252.86991700265528], "Inside the grocery store, in the back."),
         new MiscMarker("9tX9l", MiscTypes.workbench, [386.2704971478231, 340.9742540345685], "For Quest Items"),
+        new MiscMarker("kea3N", MiscTypes.workbench, [290.5197263204584, 50.94558539052251], "For Quest Items"),
         new MiscMarker("I998A", MiscTypes.omegaRadio, [378.5471745893419, 327.51062416910804], "On the table inside the tent."),
         new MiscMarker("g7EFo", MiscTypes.arsenal, [412.2201043152804, 386.875]),
         new MiscMarker("d4_OW", MiscTypes.arsenal, [178.86090215115524, 389.5]),
@@ -430,7 +440,22 @@ export const MiscStore: IMisc = {
         new MiscMarker("WzV96", MiscTypes.clue, [144.5504050965535, 289.50012070442347], "Klaus Upgrade Station"),
         new MiscMarker("PwmRS", MiscTypes.clue, [110.80096229476811, 298.4347086625506], "#1 Blacklight numbers"),
         new MiscMarker("muHxa", MiscTypes.clue, [302.33874571909564, 311.0221039512368], "#3 Blacklight numbers"),
-        new MiscMarker("0ZFbr", MiscTypes.secretPassage, [118.31471157271051, 467.80515920170296], "Hotel Room 305, use brain rot zombie to open door and get Klaus hands and the safe for CRBR-S"),
+        new MiscMarker("eOTNC", MiscTypes.clue, [373.50680516628154, 388.36535534693917], "Klaus Part, transistor, shoot radio on the shelf with CRBR-S."),
+        new MiscMarker("DwMIE", MiscTypes.clue, [333.76018343302235, 467.30140318168293], "Klaus Part, antenna, shoot pylon with CRBR-S."),
+        new MiscMarker("5pm__", MiscTypes.interactable, [197.11229814842187, 196.7896920958058], "Klaus Part, microwave dish, dig piles of debris to find."),
+        new MiscMarker("3S1gY", MiscTypes.interactable, [301.6366591960302, 150.97963262432313], "Klaus Part, microwave dish, dig piles of debris to find."),
+        new MiscMarker("RC0It", MiscTypes.interactable, [131.97446059908233, 383.233529816566], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("p0jy0", MiscTypes.interactable, [296.2174019490392, 91.91078506007518], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("1Zm1y", MiscTypes.interactable, [202.13121369227582, 53.47866191858418], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("1TKX2", MiscTypes.interactable, [298.34930940180675, 420.2199816609127], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),
+        new MiscMarker("aqK7n", MiscTypes.interactable, [290.44881000922993, 44.59962748588934], "1 of 2 Computers used during main quest to spawn Megatons, requires keycard from the train."),
+        new MiscMarker("zq5i8", MiscTypes.interactable, [377.5561578030767, 339.7506667046973], "1 of 2 Computers used during main quest to spawn Megatons, requires keycard from the train."),
+        new MiscMarker("pufCN", MiscTypes.interactable, [310.47106934268305, 281.8460771337832], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
+        new MiscMarker("9z8Uu", MiscTypes.interactable, [315.8911862106404, 75.03474289078483], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
+        new MiscMarker("1uxx8", MiscTypes.interactable, [317.22176766835554, 386.3680282265149], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
+        new MiscMarker("IC0Xq", MiscTypes.interactable, [172.9720302577955, 466.15217502439106], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
+        new MiscMarker("r79fA", MiscTypes.interactable, [152.2094092404965, 343.9680542153249], "1 of 6 Mr Peeks pieces used to access the bonus chest room."),
+        new MiscMarker("0ZFbr", MiscTypes.secretArea, [118.31471157271051, 467.80515920170296], "Hotel Room 305, use brain rot zombie to open door and get Klaus hands and the safe for CRBR-S."),
         new MiscMarker("YqN75", MiscTypes.essenceHarvester, [181.1322876506002, 304.5979694369277], "Used in the quest to charge soul canisters."),
         new MiscMarker("vgkPi", MiscTypes.essenceHarvester, [173.4707721095559, 358.04367363412337], "Used in the quest to charge soul canisters."),
     ],
