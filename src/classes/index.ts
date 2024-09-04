@@ -1,6 +1,6 @@
 import { LatLngExpression } from "leaflet";
 import { Faction, IntelType, Season } from "../data/intel";
-import { MiscIconTypes } from "../data/misc";
+import { IconFileNames } from "../data/misc";
 // import { generalIcon, renderIntelMapMarkers, renderMiscMapMarkers } from "../helpers/markers";
 
 /////////////////////Classes/////////////////////////

@@ -1,14 +1,15 @@
 import { MapItem, MiscMarker } from "../classes";
+import { IconFileNames } from "../data/icons";
 import { IntelStore, IntelType, MapIds } from "../data/intel";
-import { MiscIconTypes, MiscStore } from "../data/misc";
+import { MiscStore } from "../data/misc";
 import { ContribTemplates, RepoDomain } from "./models";
 
-export function redirectToGithub( id = "", itemType: IntelType|MiscIconTypes, issueType = "New", currentMap, location = "") {
+export function redirectToGithub( id = "", itemType: IntelType|IconFileNames, issueType = "New", currentMap, location = "") {
     const domain = `${RepoDomain}/issues/new`;
     let assignees = "Odinnh,sol3uk";
 
     const isIntel = Object.values(IntelType).includes(itemType as IntelType);
-    const isMisc = Object.values(MiscIconTypes).includes(itemType as MiscIconTypes);
+    const isMisc = Object.values(IconFileNames).includes(itemType as IconFileNames);
     let label = ""; let issueTemplate = ""; let entityName = ""; let map = currentMap ?? "";
     if (isIntel) {
         if (issueType !== "New") {
