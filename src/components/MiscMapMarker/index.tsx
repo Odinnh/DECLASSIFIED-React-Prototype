@@ -1,5 +1,5 @@
-import L from 'leaflet';
-import { Marker, Popup } from 'react-leaflet';
+import L, { map } from 'leaflet';
+import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
 import { Paper, Typography } from '@mui/material';
 import { getMiscMarkerById } from '../../helpers/github';
@@ -9,6 +9,8 @@ import { DefaultPOIData } from '../../data/intel';
 import { GetMapById } from '../../data/mapDetails';
 import styled from '@emotion/styled';
 import { IconFileNames } from '../../data/icons';
+import { useState, useEffect } from 'react';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 
 export const MiscMapMarker = ({
 	id,
@@ -18,6 +20,9 @@ export const MiscMapMarker = ({
 	typeDesc,
 	loc,
 }: MiscMarker) => {
+	const mapInstance = useMapEvents({});
+	const [markerInstance, setPopupInstance] = useState<L.Marker | null>(null); // State to hold the Popup instance
+	const { sharedMapItemId } = useUserContext();
 	const renderedIcon = miscIconInit(icon);
 	let miscItemResult = getMiscMarkerById(id!);
 	let miscItemMap;
@@ -29,8 +34,15 @@ export const MiscMapMarker = ({
 		}
 	}
 
+	useEffect(() => {
+		if (sharedMapItemId === id && markerInstance) {
+			console.log('popupInstance: ', markerInstance);
+			markerInstance.openPopup();
+		}
+	}, [sharedMapItemId, id, markerInstance, mapInstance]);
+
 	return (
-		<Marker position={loc} icon={renderedIcon}>
+		<Marker position={loc} icon={renderedIcon} ref={setPopupInstance}>
 			<StyledPopup>
 				<MiscDetailItem>
 					<PopupTitle variant="h2">{title}</PopupTitle>
@@ -53,9 +65,7 @@ export const miscIconInit = (id?: string) => {
 	const { iconSize, iconAnchor, popupAnchor } =
 		(id && customMiscIconBounds[id]) ?? {};
 	return L.icon({
-		iconUrl: `assets/img/markers/${(id ?? '').toLowerCase()}.${
-			svgIcons[id ?? ''] ? 'svg' : 'png'
-		}`,
+		iconUrl: `assets/img/markers/${(id ?? '').toLowerCase()}.${svgIcons[id ?? ''] ? 'svg' : 'png'}`,
 		iconSize: iconSize ?? [30, 30],
 		iconAnchor: iconAnchor ?? [15, 15],
 		popupAnchor: popupAnchor ?? [0, -15],
@@ -208,3 +218,4 @@ const ActionContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 `;
+
