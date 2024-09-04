@@ -35,6 +35,8 @@ export enum MiscIconTypes {
   portal = 'portal',
   landingPad = 'landingpad',
   jumpPad = 'jumppad',
+  door = 'doorBuy',
+  doorPower = 'door_power',
 
   //powerup icons
   mysteryBox = 'mystery_box',
@@ -59,6 +61,7 @@ export enum MiscIconTypes {
   tombstoneSoda = 'tombstone_soda',
   deadshotDaiquiri = 'deadshot_daiquiri',
   phdSlider = 'phd_slider',
+  meleeMacchiato = 'melee_macchiato'
 }
 
 export const EasterEggTypes = {
@@ -143,6 +146,12 @@ export const MiscTypes = {
     secretArea: new Item({ title: EasterEggTypes.secretArea, icon: MiscIconTypes.objective }),
     interactable: new Item({ title: EasterEggTypes.interactable, icon: MiscIconTypes.objective }),
     essenceHarvester: new Item({ title: EasterEggTypes.mauerDerTotenEssenceHarvester, icon: MiscIconTypes.reactor }),
+
+    //bo6 new markers
+    wallArmor: new Item({title: "Armor wall buy", icon: MiscIconTypes.armorWall}),
+    door: new Item({title: "door", icon: MiscIconTypes.door}),
+    doorPower: new Item({title: "Power door",desc:"enable power to open this door", icon: MiscIconTypes.doorPower}),
+    gumball: new Item({title: "Gumball machine", icon: MiscIconTypes.gumball}),
 }
 
 export const WorldEventTypes = {
@@ -169,6 +178,8 @@ export const Perks = {
     tomb: new Item({ id: "tombstoneSoda", title: "Tombstone", icon: MiscIconTypes.tombstoneSoda }),
     deadshot: new Item({ id: "deadshotDaiquiri", title: "Deadshot Daiquiri", icon: MiscIconTypes.deadshotDaiquiri }),
     phd: new Item({ id: "phdSlider", title: "PHD Slider", icon: MiscIconTypes.phdSlider }),
+    meleeMacchiato: new Item({id: 'meleeMacchiato', title: "Melee Macchiato", icon: MiscIconTypes.meleeMacchiato}),
+
 }
 
 /////////////////////Markers/////////////////////////
@@ -969,5 +980,26 @@ export const MiscStore: IMisc = {
         new MiscMarker("RlHu9", MiscTypes.papMachine, [190.3367491337941, 261.0625]),
         new MiscMarker("gLRQZ", MiscTypes.redRift, [281.5872778794272, 99.5338716371389]),
     ],
-    [MapIds.libertyFalls]: []
+    [MapIds.libertyFalls]: [ 
+        new MiscMarker("3f0zk", MiscTypes.papMachine, [214.94994510196776, 80.95608183084218]),
+        new MiscMarker("H78fX", MiscTypes.wallArmor, [251.33910903655286, 80.67403768502217]),
+        new MiscMarker("p2HuK", MiscTypes.ammoCrate, [262.6225707216955, 91.95580351782239]),
+        new MiscMarker("fvuiO", MiscTypes.wallbuy, [233.00348379819602, 119.87817395400299]),
+        new MiscMarker("FjQ72", MiscTypes.ammoCrate, [210.71864697003926, 132.00607222426325]),
+        new MiscMarker("mwkhJ", MiscTypes.gumball, [211.2828200542964, 167.54363459758397]),
+        new MiscMarker("nzPPs", MiscTypes.zipline, [248.6913628094859, 172.08941953731676]),
+        new MiscMarker("gN56Y", Perks.meleeMacchiato, [175.78997536968882, 158.01446048746507]),
+        new MiscMarker("Ss0aG", MiscTypes.ammoCrate, [213.31303727027645, 188.49039806705932]),
+        new MiscMarker("LSCGD", MiscTypes.arsenal, [196.65839693949133, 196.53528362673296]),
+        new MiscMarker("HeXRx", Perks.phd, [199.37685764143518, 211.34125795627676]),
+        new MiscMarker("KjVcG", MiscTypes.wallbuy, [260.3911978406195, 198.80150418737742]),
+        new MiscMarker("xvhF0", MiscTypes.craftingTable, [293.01272626394575, 173.8730780202884]),
+        new MiscMarker("CbJIp", MiscTypes.ammoCrate, [157.84481913951518, 239.14023016684877]),
+        new MiscMarker("4zfaY", MiscTypes.wallbuy, [198.92378085777787, 252.7375535307155]),
+        new MiscMarker("LDSqJ", MiscTypes.wallbuy, [226.8714611903116, 252.1371056442005]),
+        new MiscMarker("Xf_Np", MiscTypes.door, [233.66761294517124, 261.20198788677834]),
+        new MiscMarker("GQcBM", MiscTypes.arsenal, [196.65839693949133, 196.53528362673296]),
+        new MiscMarker("JtuLa", MiscTypes.arsenal, [196.65839693949133, 196.53528362673296]),
+        new MiscMarker("S03qI", MiscTypes.arsenal, [196.65839693949133, 196.53528362673296]),
+    ]
 }
