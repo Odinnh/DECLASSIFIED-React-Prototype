@@ -1,17 +1,19 @@
+import styled from '@emotion/styled';
+import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+import {
+	faAdd,
+	faFolderOpen,
+	faGear,
+	faMinus,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import { useMapEvent, useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faAdd,
-	faMinus,
-	faFolderOpen,
-	faGear,
-} from '@fortawesome/free-solid-svg-icons';
-import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
-import styled from '@emotion/styled';
-import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 import { useNotification } from '../../contexts/NotificationContext/notificationContext';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
+import { IntelDrawerContent } from '../DrawerMenu/IntelDrawerContent';
+import { SettingsDrawerContent } from '../DrawerMenu/SettingsDrawerContent';
 
 const StyledUiContainer = styled.div<{ $isMobile?: boolean }>`
 	display: flex;
@@ -28,7 +30,7 @@ const StyledUiContainer = styled.div<{ $isMobile?: boolean }>`
 	> div {
 		display: flex;
 		justify-content: ${props =>
-			props.$isMobile ? 'flex-start' : 'space-between'};
+		props.$isMobile ? 'flex-start' : 'space-between'};
 
 		.zoom-container {
 			visibility: ${props => (props.$isMobile ? 'hidden' : 'visible')};
@@ -79,10 +81,10 @@ export const UserInterface = () => {
 			</div>
 			<div>
 				<div className="bottom-left-ui">
-					<button className="btn ui" onClick={toggleDrawer(true)}>
+					<button className="btn ui" onClick={toggleDrawer(true, IntelDrawerContent)}>
 						<FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
 					</button>
-					<button className="btn ui" onClick={toggleDrawer(true)}>
+					<button className="btn ui" onClick={toggleDrawer(true, SettingsDrawerContent)}>
 						<FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
 					</button>
 					{/* <a className="btn ui" href="./challenge.html"><FontAwesomeIcon icon={faList}></FontAwesomeIcon > </a> */}

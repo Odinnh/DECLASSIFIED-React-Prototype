@@ -1,15 +1,12 @@
+import styled from '@emotion/styled';
 import L from 'leaflet';
 import { MapContainer } from 'react-leaflet';
-import { DrawerMenu } from '../DrawerMenu';
-import Header from '../Header';
-import { MapControls } from '../MapControls';
-import { UserInterface } from '../UserInterface';
-import styled from '@emotion/styled';
-import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 import { DeclassifiedContextProvider } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { NotificationProvider } from '../../contexts/NotificationContext/notificationProvider';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
+import { ApplicationContent } from '../ApplicationContent';
 
-const StyledMapContainer = styled(MapContainer)<{ $isMobile?: boolean }>`
+const StyledMapContainer = styled(MapContainer) <{ $isMobile?: boolean }>`
 	&&& {
 		color: var(--clr-color);
 		width: 100vw;
@@ -38,14 +35,14 @@ const MapProvider = () => {
 			maxBounds={
 				isMobile
 					? [
-							// TODO - figure out the best bounds for mobile and desktop
-							[-256, -256],
-							[768, 768],
-						]
+						// TODO - figure out the best bounds for mobile and desktop
+						[-256, -256],
+						[768, 768],
+					]
 					: [
-							[-256, -256],
-							[768, 768],
-						]
+						[-256, -256],
+						[768, 768],
+					]
 			}
 			zoomControl={false}
 			maxZoom={5}
@@ -61,10 +58,7 @@ const MapProvider = () => {
 		>
 			<NotificationProvider>
 				<DeclassifiedContextProvider>
-					<Header />
-					<MapControls />
-					<UserInterface />
-					<DrawerMenu />
+					<ApplicationContent />
 				</DeclassifiedContextProvider>
 			</NotificationProvider>
 		</StyledMapContainer>

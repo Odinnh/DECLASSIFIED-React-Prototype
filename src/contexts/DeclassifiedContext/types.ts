@@ -13,14 +13,20 @@ export interface DeclassifiedContextProps {
 	setFilteredIntelStore: Dispatch<SetStateAction<IntelItem[]>>;
 	currentIntelFilter: FormInputs;
 	setCurrentIntelFilter: Dispatch<SetStateAction<FormInputs>>;
-	drawerState: boolean;
+	drawerState: DrawerMenuProps;
 	toggleDrawer: (
-		open: boolean
+		isOpen: boolean,
+		content?: JSX.Element
 	) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 }
 
 export interface IntelContextProviderProps {
 	children: React.ReactNode;
+}
+
+export interface DrawerMenuProps {
+	isOpen: boolean,
+	content: JSX.Element
 }
 
 export type Anchor = 'top' | 'left' | 'bottom' | 'right';

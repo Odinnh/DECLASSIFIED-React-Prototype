@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { SwipeableDrawer } from '@mui/material';
 import { useContext } from 'react';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
-import { IntelList } from '../IntelList';
-import { IntelListMenu } from '../IntelListMenu';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)`
 	.MuiDrawer-paper {
@@ -16,28 +14,21 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)`
 		}
 	}
 `;
-const StyledIntelFilter = styled.div`
-	background-color: var(--clr-grey-d);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
-`;
+export interface BaseLayoutProps {
+	children: React.ReactNode;
+}
 
-export const DrawerMenu = () => {
+export const DrawerMenu = ({ children }: BaseLayoutProps) => {
 	const { drawerState, toggleDrawer } = useContext(DeclassifiedContext);
 	let width = window.innerWidth;
 	return (
 		<StyledSwipeableDrawer
 			anchor={width > 900 ? 'left' : 'bottom'}
-			open={drawerState}
+			open={drawerState.isOpen}
 			onClose={toggleDrawer(false)}
 			onOpen={toggleDrawer(true)}
 		>
-			<StyledIntelFilter id="intel-filter">
-				<IntelList />
-				<IntelListMenu />
-			</StyledIntelFilter>
+			{children}
 		</StyledSwipeableDrawer>
 	);
 };

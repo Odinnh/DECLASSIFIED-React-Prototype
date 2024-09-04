@@ -11,18 +11,18 @@ import {
 	getIntelFilterDefaults,
 } from '../../components/IntelListMenu';
 import { MapGroupings, MapMenuItem } from '../../components/MapControls/types';
-import { DefaultPOIData, IntelItem } from '../../data/intel';
-import { GetMapById, GetMapByTitle, MapDetails } from '../../data/mapDetails';
-import { DeclassifiedContextProps } from './types';
-import { DeclassifiedUserPreferences } from '../../data/db';
 import {
 	getSetUserPreferences,
 	updateUserPreferences,
 } from '../../data/dataAccessLayer';
+import { DeclassifiedUserPreferences } from '../../data/db';
+import { DefaultPOIData, IntelItem } from '../../data/intel';
+import { GetMapById, GetMapByTitle, MapDetails } from '../../data/mapDetails';
+import { getIntelById, getMiscMarkerById } from '../../helpers/github';
 import {
 	useUserContext,
 } from '../UserContext/userContextProvider';
-import { getIntelById, getMiscMarkerById } from '../../helpers/github';
+import { DeclassifiedContextProps } from './types';
 
 const initialContextValues = {
 	userPrefs: {},
@@ -34,7 +34,7 @@ const initialContextValues = {
 	setFilteredIntelStore: () => { },
 	currentIntelFilter: getIntelFilterDefaults(),
 	setCurrentIntelFilter: () => { },
-	drawerState: false,
+	drawerState: { isOpen: false, content: <></> },
 	toggleDrawer: () => () => { },
 };
 
@@ -85,7 +85,8 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	};
 
 	const toggleDrawer =
-		(isOpen: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+		(isOpen: boolean, content?: JSX.Element) => (event: React.KeyboardEvent | React.MouseEvent) => {
+			console.log('toggleDrawer: ', isOpen, content);
 			if (
 				event &&
 				event.type === 'keydown' &&
@@ -94,7 +95,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 			) {
 				return;
 			}
-			setDrawerState(isOpen);
+			setDrawerState({ isOpen, content: content ?? <></> });
 		};
 
 	useMapEvent('baselayerchange', props => {
@@ -193,23 +194,20 @@ export const DeclassifiedContextProvider = ({ children }) => {
 		return null;
 	}
 
-	const context = {
-		userPrefs,
-		currentMap,
-		setCurrentMapWithValidation,
-		currentMapGroup,
-		setCurrentMapGroup,
-		filteredIntelStore,
-		setFilteredIntelStore,
-		currentIntelFilter,
-		setCurrentIntelFilter,
-		drawerState,
-		toggleDrawer,
-		isMobile,
-	};
-
 	return (
-		<DeclassifiedContext.Provider value={context}>
+		<DeclassifiedContext.Provider
+			value={{
+				currentMap,
+				setCurrentMapWithValidation,
+				currentMapGroup,
+				setCurrentMapGroup,
+				filteredIntelStore,
+				setFilteredIntelStore,
+				currentIntelFilter,
+				setCurrentIntelFilter,
+				drawerState,
+				toggleDrawer,
+			}}>
 			{children}
 		</DeclassifiedContext.Provider>
 	);

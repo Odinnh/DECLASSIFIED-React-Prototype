@@ -4,7 +4,7 @@ import { UserContextProps } from '../DeclassifiedContext/types';
 const initialContextValues = {
 	isMobile: window.innerWidth <= 768,
 	setIsMobile: () => { },
-	isDebugMode: true,
+	isDebugMode: false,
 	setIsDebugMode: () => { },
 	sharedMapItemId: null,
 	updateMapItemId: () => { },
