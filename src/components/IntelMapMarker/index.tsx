@@ -44,7 +44,6 @@ export const IntelMapMarker = ({
 
 	useEffect(() => {
 		if (sharedMapItemId === id && markerInstance) {
-			console.log('popupInstance: ', markerInstance);
 			markerInstance.openPopup();
 		}
 	}, [sharedMapItemId, id, markerInstance, mapInstance]);
