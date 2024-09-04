@@ -62,30 +62,30 @@ export const MapMarkers = () => {
 				</LayerGroup>
 			</LayersControl.Overlay>
 
-			({PerkStore[currentMap!.id!] ? (<LayersControl.Overlay
+			{PerkStore[currentMap!.id!] ? (<LayersControl.Overlay
 				name={MarkerLayerTypes.perks.title}
 				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
 			>
 				<LayerGroup>{renderMiscMapMarkers(PerkStore, currentMap!.id!)}</LayerGroup>
-			</LayersControl.Overlay>) : null})
+			</LayersControl.Overlay>) : null}
 
-			({MiscStore[currentMap!.id!] ? (
+			{MiscStore[currentMap!.id!] ? (
 				<LayersControl.Overlay
 					name={MarkerLayerTypes.misc.title}
 					checked={isChecked /* TODO: SWAP WITH USER PREFS */}
 				>
 					<LayerGroup>{renderMiscMapMarkers(MiscStore, currentMap!.id!)}</LayerGroup>
 				</LayersControl.Overlay>
-			) : null})
+			) : null}
 
 
 
-			({EasterEggStore[currentMap!.id!] ? (<LayersControl.Overlay
+			{EasterEggStore[currentMap!.id!] ? (<LayersControl.Overlay
 				name={MarkerLayerTypes.easterEggs.title}
 				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
 			>
 				<LayerGroup>{renderMiscMapMarkers(EasterEggStore, currentMap!.id!)}</LayerGroup>
-			</LayersControl.Overlay>) : null})
+			</LayersControl.Overlay>) : null}
 
 
 			{/* <LayersControl.Overlay checked name="Misc Markers">

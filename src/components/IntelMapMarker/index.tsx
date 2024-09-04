@@ -4,10 +4,8 @@ import { Faction, IntelItem } from '../../data/intel';
 import { intelIconInit } from '../../helpers/icons';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, DeclassifiedIntelCollected } from '../../data/db';
-import { useRef } from 'react';
 import { IntelDetailsItem } from '../IntelDetailsItem';
 import styled from '@emotion/styled';
-import NotificationBanner from '../NotificationBanner/NotificationBanner';
 
 const StyledPopup = styled(Popup)`
 	background-color: var(--clr-bg-inverted);
