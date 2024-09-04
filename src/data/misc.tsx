@@ -22,6 +22,13 @@ export enum MiscIconTypes {
   reactor = 'collection_unit',
   power = 'power',
 
+  //easter egg icons
+  cassette = 'cassette_tape',
+  interactable = 'interactable',
+  mainQuest = 'main_quest',
+  secretArea = 'secret_door',
+  clue = 'visual_clue',
+
   //movement icons
   redRift = 'tunnel_red',
   rift = 'tunnel_pink',
@@ -35,7 +42,7 @@ export enum MiscIconTypes {
   portal = 'portal',
   landingPad = 'landingpad',
   jumpPad = 'jumppad',
-  door = 'doorBuy',
+  door = 'door_buy',
   doorPower = 'door_power',
 
   //powerup icons
@@ -88,6 +95,7 @@ export const EasterEggTypes = {
     outbreakEE1: "Ravenov Implications", //https://callofduty.fandom.com/wiki/Ravenov_Implications
     outbreakEE2: "Entrapment", //https://callofduty.fandom.com/wiki/Entrapment
 
+    mainQuest: "Main Quest",
     clue: "Visual Clue",
     interactable: "Interactable Object",
     secretArea: "Secret Area",
@@ -141,10 +149,11 @@ export const MiscTypes = {
     aetherTunnel: new Item({ title: "Aether Tunnel", icon: MiscIconTypes.tunnel }),
     aetherCrystal: new Item({ title: "Aether Crystal" }),
     // Easter Egg Markers
-    cassetteTape: new Item({ title: EasterEggTypes.music, icon: MiscIconTypes.objective }),
-    clue: new Item({ title: EasterEggTypes.clue, icon: MiscIconTypes.objective }),
-    secretArea: new Item({ title: EasterEggTypes.secretArea, icon: MiscIconTypes.objective }),
-    interactable: new Item({ title: EasterEggTypes.interactable, icon: MiscIconTypes.objective }),
+    mainQuest: new Item({ title: EasterEggTypes.mainQuest, icon: MiscIconTypes.mainQuest }),
+    cassetteTape: new Item({ title: EasterEggTypes.music, icon: MiscIconTypes.cassette }),
+    clue: new Item({ title: EasterEggTypes.clue, icon: MiscIconTypes.clue }),
+    secretArea: new Item({ title: EasterEggTypes.secretArea, icon: MiscIconTypes.secretArea }),
+    interactable: new Item({ title: EasterEggTypes.interactable, icon: MiscIconTypes.interactable }),
     essenceHarvester: new Item({ title: EasterEggTypes.mauerDerTotenEssenceHarvester, icon: MiscIconTypes.reactor }),
 
     //bo6 new markers
@@ -449,11 +458,11 @@ export const MiscStore: IMisc = {
         new MiscMarker("ook1f", MiscTypes.cassetteTape, [364.594308702165, 411.59576707869667], "1 of 3 needed for the easter egg song."),
         new MiscMarker("YMZPe", MiscTypes.cassetteTape, [175.42748080394747, 324.57693567676864], "1 of 3 needed for the easter egg song."),
         new MiscMarker("00CEF", MiscTypes.cassetteTape, [185.86657193523203, 70.19853360643957], "1 of 3 needed for the easter egg song."),
-        new MiscMarker("WzV96", MiscTypes.clue, [144.5504050965535, 289.50012070442347], "Klaus Upgrade Station"),
         new MiscMarker("PwmRS", MiscTypes.clue, [110.80096229476811, 298.4347086625506], "#1 Blacklight numbers"),
         new MiscMarker("muHxa", MiscTypes.clue, [302.33874571909564, 311.0221039512368], "#3 Blacklight numbers"),
         new MiscMarker("eOTNC", MiscTypes.clue, [373.50680516628154, 388.36535534693917], "Klaus Part, transistor, shoot radio on the shelf with CRBR-S."),
         new MiscMarker("DwMIE", MiscTypes.clue, [333.76018343302235, 467.30140318168293], "Klaus Part, antenna, shoot pylon with CRBR-S."),
+        new MiscMarker("WzV96", MiscTypes.interactable, [144.5504050965535, 289.50012070442347], "Klaus Upgrade Station"),
         new MiscMarker("5pm__", MiscTypes.interactable, [197.11229814842187, 196.7896920958058], "Klaus Part, microwave dish, dig piles of debris to find."),
         new MiscMarker("3S1gY", MiscTypes.interactable, [301.6366591960302, 150.97963262432313], "Klaus Part, microwave dish, dig piles of debris to find."),
         new MiscMarker("RC0It", MiscTypes.interactable, [131.97446059908233, 383.233529816566], "Klaus Part Box, use blacklight to check if it contains a disk, order Klaus to open if it does."),

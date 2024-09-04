@@ -90,6 +90,11 @@ const svgIcons = {
   [MiscIconTypes.trialChallenge]: true,
   [MiscIconTypes.gumball]: true,
   [MiscIconTypes.meleeMacchiato]: true,
+  [MiscIconTypes.cassette]: true,
+  [MiscIconTypes.interactable]: true,
+  [MiscIconTypes.mainQuest]: true,
+  [MiscIconTypes.secretArea]: true,
+  [MiscIconTypes.clue]: true,
 }
 const svgIconProperties = { popupAnchor: [5, -20], iconSize: [40, 40] }
 const customMiscIconBounds = {
@@ -145,6 +150,11 @@ const customMiscIconBounds = {
   [MiscIconTypes.trialChallenge]: svgIconProperties,
   [MiscIconTypes.gumball]: svgIconProperties,
   [MiscIconTypes.meleeMacchiato]: svgIconProperties,
+  [MiscIconTypes.cassette]: svgIconProperties,
+  [MiscIconTypes.interactable]: svgIconProperties,
+  [MiscIconTypes.mainQuest]: svgIconProperties,
+  [MiscIconTypes.secretArea]: svgIconProperties,
+  [MiscIconTypes.clue]: svgIconProperties,
 }
 
 const StyledPopup = styled(Popup)`
