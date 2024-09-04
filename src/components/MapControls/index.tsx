@@ -13,17 +13,24 @@ export const MapControls = () => {
 			position={isMobile ? 'bottomright' : 'topright'}
 			collapsed={isMobile}
 		>
-			{currentMapGroup!.mapLayers.map(mapLayer => (
-				<LayersControl.BaseLayer
-					key={`layer-${mapLayer.id}`}
-					checked={
-						mapLayer.id === currentMap!.id /* TODO: SWAP WITH USER PREFS */
-					}
-					name={mapLayer.title}
-				>
-					{mapLayer.mapOverlay}
-				</LayersControl.BaseLayer>
-			))}
+			{currentMapGroup ? (
+				currentMapGroup!.mapLayers.length > 1 ? currentMapGroup!.mapLayers.map(mapLayer => (
+					<LayersControl.BaseLayer
+						key={`layer-${mapLayer.id}`}
+						checked={
+							mapLayer.id === currentMap!.id /* TODO: SWAP WITH USER PREFS */
+						}
+						name={mapLayer.title}
+					>
+						{mapLayer.mapOverlay}
+					</LayersControl.BaseLayer>
+				)) : (
+					<>
+						{currentMapGroup!.mapLayers[0].mapOverlay}
+					</>
+				)
+			) : (null)}
+
 			<MapMarkers />
 		</LayersControl>
 	);
