@@ -1,11 +1,13 @@
 import L, { DivIconOptions } from 'leaflet';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { Faction, IntelItem } from '../../data/intel';
 import { intelIconInit } from '../../helpers/icons';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, DeclassifiedIntelCollected } from '../../data/db';
 import { IntelDetailsItem } from '../IntelDetailsItem';
 import styled from '@emotion/styled';
+import { useState, useEffect } from 'react';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 
 const StyledPopup = styled(Popup)`
 	background-color: var(--clr-bg-inverted);
@@ -34,14 +36,24 @@ export const IntelMapMarker = ({
 	img,
 	map,
 }: IntelItem) => {
+	const mapInstance = useMapEvents({});
+	const [markerInstance, setPopupInstance] = useState<L.Marker | null>(null); // State to hold the Popup instance
+	const { sharedMapItemId } = useUserContext();
 	const isCollected = useLiveQuery(() => db.intelCollected.get(id ?? ''));
 	const markerIcon = renderLeafletIcon(isCollected, faction, typeDesc);
+
+	useEffect(() => {
+		if (sharedMapItemId === id && markerInstance) {
+			console.log('popupInstance: ', markerInstance);
+			markerInstance.openPopup();
+		}
+	}, [sharedMapItemId, id, markerInstance, mapInstance]);
 
 	return loc !== null && loc.toString() === [0, 0].toString() ? (
 		<></>
 	) : (
 		<>
-			<Marker position={loc} icon={markerIcon}>
+			<Marker position={loc} icon={markerIcon} ref={setPopupInstance}>
 				<StyledPopup>
 					<IntelDetailsItem
 						key={id}
