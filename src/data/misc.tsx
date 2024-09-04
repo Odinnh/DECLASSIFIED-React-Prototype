@@ -27,8 +27,8 @@ export enum MiscIconTypes {
   rift = 'tunnel_pink',
   wunderFizz = 'wunder_fizz',
   zipline = 'zipline',
-  ziplineUp = 'ziplineUp',
-  ziplineDown = 'ziplineDown',
+  ziplineUp = 'zipline_up',
+  ziplineDown = 'zipline_down',
   tunnel = 'tunnel',
   tunnelRed = 'tunnel_red',
   tunnelPink = 'tunnel_pink',
@@ -61,11 +61,41 @@ export enum MiscIconTypes {
   phdSlider = 'phd_slider',
 }
 
+export const EasterEggTypes = {
+    dieMaschineEE: "Seal the Deal", //https://callofduty.fandom.com/wiki/Seal_the_Deal
+    dieMaschineWW: "D.I.E. Wonder Weapon",
+    dieMaschineBonusChest: "Coffin Dance",
+    dieMaschineRadioAlign: "Radio Alignment",
+    dieMaschineOrdaHand: "Orda Hand",
+
+    firebaseZEE: "Maxis Potential", //https://callofduty.fandom.com/wiki/Maxis_Potential
+    firebaseZWW: "Rai K-84",
+    firebaseZBonusChest: "Bunny Scare",
+    firebaseZSafe: "Sergei's Safe",
+    firebaseZMonkeyUpgrade: "Monkey bomb upgrade",
+    firebaseZFreeJump: "Free Jump pad",
+
+    mauerDerTotenEE: "Tin Man Heart", //https://callofduty.fandom.com/wiki/Tin_Man_Heart
+    mauerDerTotenWW: "CRBR-S",
+    mauerDerTotenBonusChest: "Hasenbau Club",
+    mauerDerTotenTargets: "Target Practice",
+    mauerDerTotenEssenceHarvester: "Essence Harvester",
+    mauerDerTotenKlaus: "Klaus",
+
+    outbreakEE1: "Ravenov Implications", //https://callofduty.fandom.com/wiki/Ravenov_Implications
+    outbreakEE2: "Entrapment", //https://callofduty.fandom.com/wiki/Entrapment
+
+    clue: "Visual Clue",
+    secretPassage: "Secret Passage",
+    music: "Cassette Tape",
+}
+
 export const MiscTypes = {
     dementedEcho: new Item({ title: "Demented Echo", desc: "Destroy it before it touches you to get a reward.", icon: MiscIconTypes.demented }),
     rift: new Item({ title: "Aether Rift", desc: "Jump through to teleport and gain a random powerup.", icon: MiscIconTypes.rift }),
     redRift: new Item({ title: "Red Aether Rift", desc: "Jump through all the rifts to continue the Easter Egg", icon: MiscIconTypes.redRift }),
     radio: new Item({ title: "Radio", icon: MiscIconTypes.radio }),
+    exfillRadio: new Item({ title: "Exfill Radio", icon: MiscIconTypes.radio }),
     //TODO STANDARDISE STRING
     requiemRadio: new Item({ title: "Requiem Radio", icon: MiscIconTypes.radio, layer: "Markers" }),
     omegaRadio: new Item({ title: "Omega Radio", icon: MiscIconTypes.radio }),
@@ -94,6 +124,7 @@ export const MiscTypes = {
     collector: new Item({ title: "Collection Unit", icon: MiscIconTypes.reactor }),
     reactor: new Item({ title: "Aether Reactor", icon: MiscIconTypes.reactor }),
     craftingTable: new Item({ title: "Crafting Table", icon: MiscIconTypes.craftingTable }),
+    workbench: new Item({ title: "Workbench", icon: MiscIconTypes.workbench }),
     arsenal: new Item({ title: "Arsenal", icon: MiscIconTypes.arsenal }),
     ammoCrate: new Item({ title: "Ammo Crate", icon: MiscIconTypes.ammoCrate }),
     trap: new Item({ title: "Trap", icon:MiscIconTypes.trap }),
@@ -102,9 +133,14 @@ export const MiscTypes = {
     ziplineDown: new Item({ title: "Zipline", icon: MiscIconTypes.ziplineDown }),
     rampageInducer: new Item({ title: "Rampage Inducer", icon: MiscIconTypes.rampageInducer }),
 
-    klausRadio: new Item({ title: "Klaus recall radio", icon: MiscIconTypes.radio }),
+    klausRadio: new Item({ title: "Klaus recall radio", icon: MiscIconTypes.trap }),
     aetherTunnel: new Item({ title: "Aether Tunnel", icon: MiscIconTypes.tunnel }),
     aetherCrystal: new Item({ title: "Aether Crystal" }),
+    // Easter Egg Markers
+    cassetteTape: new Item({ title: EasterEggTypes.music, icon: MiscIconTypes.objective }),
+    clue: new Item({ title: EasterEggTypes.clue, icon: MiscIconTypes.objective }),
+    secretPassage: new Item({ title: EasterEggTypes.secretPassage, icon: MiscIconTypes.objective }),
+    essenceHarvester: new Item({ title: EasterEggTypes.mauerDerTotenEssenceHarvester, icon: MiscIconTypes.reactor }),
 }
 
 export const WorldEventTypes = {
@@ -141,39 +177,12 @@ export const MarkerTypes = {
     easterEggs: new Item({ id: "easterEggs", title: "Easter Eggs" }),
 }
 
-
-
-
 //TODO: Decide the structure for how we store and retrieve EE steps (maybe new datastore)
 /*  
     These are just the initial labels for the easter eggs.
     We will need to break these down further and make step-by-step markers 
 */
-export const EasterEggTypes = {
-    dieMaschineEE: "Seal the Deal", //https://callofduty.fandom.com/wiki/Seal_the_Deal
-    dieMaschineWW: "D.I.E. Wonder Weapon",
-    dieMaschineBonusChest: "Coffin Dance",
-    dieMaschineRadioAlign: "Radio Alignment",
-    dieMaschineOrdaHand: "Orda Hand",
 
-    firebaseZEE: "Maxis Potential", //https://callofduty.fandom.com/wiki/Maxis_Potential
-    firebaseZWW: "Rai K-84",
-    firebaseZBonusChest: "Bunny Scare",
-    firebaseZSafe: "Sergei's Safe",
-    firebaseZMonkeyUpgrade: "Monkey bomb upgrade",
-    firebaseZFreeJump: "Free Jump pad",
-
-    mauerDerTotenEE: "Tin Man Heart", //https://callofduty.fandom.com/wiki/Tin_Man_Heart
-    mauerDerTotenWW: "CRBR-S",
-    mauerDerTotenBonusChest: "Hasenbau Club",
-    mauerDerTotenTargets: "Target Practice",
-    mauerDerTotenKlaus: "Klaus",
-
-    outbreakEE1: "Ravenov Implications", //https://callofduty.fandom.com/wiki/Ravenov_Implications
-    outbreakEE2: "Entrapment", //https://callofduty.fandom.com/wiki/Entrapment
-
-    music: "Cassette Tapes",
-}
 
 // Gonna have to add a way to bring through the full description along with the unique description from the misc markers
 export const OutbreakEE2Steps = {
@@ -199,7 +208,7 @@ export const MiscStore: IMisc = {
         new MiscMarker("FcRRV", MiscTypes.rampageInducer, [187.22527858413707, 297.96712471202267]),
         new MiscMarker("RNg0j", MiscTypes.ammoCrate, [173.22590130162, 293.5]),
         new MiscMarker("r1v1U", MiscTypes.mysteryBox, [206.4640696694447, 344]),
-        new MiscMarker("2y3Cc", MiscTypes.radio, [242.55058174922743, 337.5], "Exfill Radio"),
+        new MiscMarker("2y3Cc", MiscTypes.exfillRadio, [242.55058174922743, 337.5]),
         new MiscMarker("nZA19", MiscTypes.requiemRadio, [189.18283195992137, 256.25]),
         new MiscMarker("68O2O", MiscTypes.wallbuy, [261.1077465118457, 355], "1911"),
         new MiscMarker("lmW4Q", MiscTypes.wallbuy, [276.7037503511565, 255.75], "MP5"),
@@ -270,8 +279,8 @@ export const MiscStore: IMisc = {
         new MiscMarker("8ZbjF", MiscTypes.wallbuy, [432.8419561756719, 283.75], "1911"),
         new MiscMarker("STzNi", MiscTypes.wallbuy, [239.21495926584885, 261.75], "AUG"),
         new MiscMarker("TChc2", MiscTypes.wallbuy, [278.60534460155446, 153.125], "DMR 14"),
-        new MiscMarker("Oc61M", MiscTypes.wallbuy, [268.34635967787244, 216.5], "QBZ"),
-        new MiscMarker("T2xi0", MiscTypes.wallbuy, [359.83813091113404, 212], "Hauer"),
+        new MiscMarker("Oc61M", MiscTypes.wallbuy, [268.34635967787244, 216.5], "QBZ-83"),
+        new MiscMarker("T2xi0", MiscTypes.wallbuy, [359.83813091113404, 212], "Hauer 77"),
         new MiscMarker("OSfjR", MiscTypes.wallbuy, [430.4222586384493, 350.75], "FFAR 1"),
         new MiscMarker("n4iky", MiscTypes.wallbuy, [382.9138074726098, 385.5], "M82"),
         new MiscMarker("TBoB4", MiscTypes.wallbuy, [284.8504518213316, 361.875], "Type 63"),
@@ -312,7 +321,7 @@ export const MiscStore: IMisc = {
         new MiscMarker("bQdiD", MiscTypes.landingPad, [141.2155819833318, 309.75]),
         new MiscMarker("jRbkg", MiscTypes.requiemRadio, [200.87166869557075, 374.375], "On top of a cart on the left wall of the upstairs room."),
         new MiscMarker("ro5Lp", MiscTypes.maxisRadio, [143.38939430434863, 346.5], "On an ammo crate right behind a ledge in the tank tracks."),
-        new MiscMarker("4oMQK", MiscTypes.radio, [270.60312061054407, 239.375], "Exfill Radio"),
+        new MiscMarker("4oMQK", MiscTypes.exfillRadio, [270.60312061054407, 239.375]),
         new MiscMarker("6t6Ot", MiscTypes.airSupport, [268.2128242344789, 140.75], "Cruise Missile"),
         new MiscMarker("4wv87", MiscTypes.airSupport, [393.9098932484315, 375.5], "Napalm Strike"),
         new MiscMarker("eLtJ6", MiscTypes.airSupport, [149.72083060211628, 349.75], "Artillery"),
@@ -329,24 +338,34 @@ export const MiscStore: IMisc = {
         new MiscMarker("d1zVX", MiscTypes.arsenal, [364.850318381871, 169.25]),
         new MiscMarker("PN5cS", MiscTypes.rampageInducer, [256.4956901395262, 188.375]),
         new MiscMarker("zQK69", MiscTypes.wallbuy, [115.12184661485156, 215.125], "Gallo"),
-        new MiscMarker("il15s", MiscTypes.wallbuy, [314.4659378218934, 149.25], "Stoner 83"),
+        new MiscMarker("il15s", MiscTypes.wallbuy, [314.4659378218934, 149.25], "Stoner-63"),
         new MiscMarker("ZQwBM", MiscTypes.teleporter, [220.20935480850267, 349.25], "To Main Base"),
     ],
     [MapIds.mauerDerToten]: [
+        new MiscMarker("qVjRy", MiscTypes.exfillRadio, [276.7438548447102, 192.62948494393575]),
         new MiscMarker("Vz7PI", MiscTypes.ammoCrate, [360.6779752089085, 166.75]),
         new MiscMarker("lgFlW", MiscTypes.ammoCrate, [313.43651220099684, 307.7578472555278]),
         new MiscMarker("028Bw", MiscTypes.ammoCrate, [207.98264577272982, 224.85949360808374]),
+        new MiscMarker("lyE4a", MiscTypes.ammoCrate, [182.8381938034719, 330.2883500965944]),
+        new MiscMarker("12omS", MiscTypes.ammoCrate, [188.41788459268184, 144.79835354493784]),
         new MiscMarker("qXZCX", MiscTypes.craftingTable, [307.4422328657983, 199.5]),
         new MiscMarker("2Z69d", MiscTypes.arsenal, [189.36420253469458, 208.85605371524963]),
         new MiscMarker("rvI3J", MiscTypes.mysteryBox, [378.6772711270868, 219]),
         new MiscMarker("lUa4E", Perks.mule, [308.7001537862926, 268.75]),
         new MiscMarker("mYtJL", Perks.elemental, [254.115302662541, 212.98081184778474]),
+        new MiscMarker("vu9tj", Perks.deadshot, [196.36891402801726, 392.7378280560345]),
         new MiscMarker("htMzr", MiscTypes.zipline, [146.61019806933353, 174.85745117171348]),
         new MiscMarker("qUsdq", MiscTypes.wallbuy, [333.1876563339571, 200.75], "Krig 6"),
         new MiscMarker("_MhF2", MiscTypes.wallbuy, [287.957458635193, 312], "M16"),
         new MiscMarker("9iDLM", MiscTypes.wallbuy, [264.4634433306776, 206.21861097788877], "Milano 821"),
         new MiscMarker("6n4vD", MiscTypes.wallbuy, [159.12485177224806, 196.85347379562404], "XM4"),
+        new MiscMarker("v08K4", MiscTypes.wallbuy, [150.48213221909987, 80.55439072511358], "DMR 14"),
+        new MiscMarker("xRomg", MiscTypes.wallbuy, [157.85840261969585, 417.3706776955915], "RPD"),
         new MiscMarker("ROB5S", MiscTypes.power, [283.45675455337124, 206.46866472621429], "2 fuses are required to activate."),
+        new MiscMarker("2wAit", MiscTypes.clue, [384.32068891654967, 272.1759937481422], "#0 Blacklight locker"),
+        new MiscMarker("G107e", MiscTypes.clue, [181.79736917081456, 459.6975460903231], "#2 Blacklight numbers"),
+        new MiscMarker("jOSoP", MiscTypes.essenceHarvester, [151.62276338235262, 217.9029453522394], "Used in the quest to charge soul canisters."),
+        new MiscMarker("4QpYx", MiscTypes.secretPassage, [168.43591618416733, 160.56583724877993], "Entrance to Valentina's Lab. Klaus can knock the wall down. Then use the CRBR-S beam mod to open the metal door."),
     ],
     [MapIds.mauerDerTotenStreets]: [
         new MiscMarker("WLKGz", MiscTypes.ammoCrate, [226.22815725111633, 104.23454735640928]),
@@ -356,30 +375,64 @@ export const MiscStore: IMisc = {
         new MiscMarker("8NpKm", MiscTypes.ammoCrate, [115.48491782624001, 287.75]),
         new MiscMarker("lS2oV", MiscTypes.ammoCrate, [124.50577625020844, 443]),
         new MiscMarker("fEYzo", MiscTypes.ammoCrate, [339.6007809749681, 444.125]),
+        new MiscMarker("qop_T", MiscTypes.ammoCrate, [319.96859425101854, 264.9739921141247]),
         new MiscMarker("MvQgd", MiscTypes.craftingTable, [313.73489003353654, 412.75]),
+        new MiscMarker("jO42X", MiscTypes.craftingTable, [326.8100280096752, 252.86991700265528], "Inside the grocery store, in the back."),
+        new MiscMarker("9tX9l", MiscTypes.workbench, [386.2704971478231, 340.9742540345685], "For Quest Items"),
+        new MiscMarker("I998A", MiscTypes.omegaRadio, [378.5471745893419, 327.51062416910804], "On the table inside the tent."),
         new MiscMarker("g7EFo", MiscTypes.arsenal, [412.2201043152804, 386.875]),
         new MiscMarker("d4_OW", MiscTypes.arsenal, [178.86090215115524, 389.5]),
+        new MiscMarker("frIgP", MiscTypes.arsenal, [178.80175339341875, 214.62665344155863]),
         new MiscMarker("X3VOB", MiscTypes.mysteryBox, [116.75850456726766, 413.75]),
         new MiscMarker("ePWVb", MiscTypes.mysteryBox, [98.74219488243688, 271.125]),
         new MiscMarker("N8ZNs", MiscTypes.mysteryBox, [276.9905226881103, 269.25]),
+        new MiscMarker("IX8sm", MiscTypes.mysteryBox, [378.910177402522, 245.23908704107671]),
+        new MiscMarker("LEd_i", MiscTypes.mysteryBox, [343.4854752213171, 385.6801376596718]),
         new MiscMarker("5Jio9", Perks.jugg, [328.1014850567898, 386.125]),
         new MiscMarker("npHck", Perks.speed, [154.97101221026105, 300]),
         new MiscMarker("YWNji", Perks.staminup, [119.88167256489595, 364.5]),
         new MiscMarker("kU1ty", Perks.tomb, [290.1182070000556, 384.25]),
-        new MiscMarker("7_Xve", MiscTypes.zipline, [185.22849307961684, 103.70872128599069]),
+        new MiscMarker("KMuzB", Perks.quick, [349.96564996205154, 243.66029463523287]),
         new MiscMarker("iSOF5", MiscTypes.zipline, [158.71969205684536, 338.25]),
         new MiscMarker("PYHwG", MiscTypes.zipline, [200.9548183283615, 306]),
         new MiscMarker("enALO", MiscTypes.zipline, [287.44821756128295, 426.5]),
         new MiscMarker("99LL2", MiscTypes.zipline, [209.47567675232995, 424]),
+        new MiscMarker("jAKky", MiscTypes.zipline, [218.36798261974315, 62.52416596377261]),
+        new MiscMarker("Pnm7G", MiscTypes.zipline, [297.2230874546504, 66.49025111819103]),
+        new MiscMarker("GlZ4L", MiscTypes.zipline, [351.8449252558993, 406.6482451443249]),
+        new MiscMarker("ZUMOe", MiscTypes.zipline, [366.5220960898484, 387.1877036353398]),
+        new MiscMarker("9K2aA", MiscTypes.zipline, [351.807574435536, 309.44331154539293]),
+        new MiscMarker("1ZEfz", MiscTypes.zipline, [319.1791980480966, 244.71282290579543]),
+        new MiscMarker("2FWVD", MiscTypes.zipline, [293.12912335167323, 295.76044402807963]),
+        new MiscMarker("7_Xve", MiscTypes.zipline, [185.22849307961684, 103.70872128599069], "To Subway"),
+        new MiscMarker("CFOPW", MiscTypes.zipline, [350.1803292993851, 106.50645960257796], "To Subway"),
+        new MiscMarker("X9Qx7", MiscTypes.ziplineDown, [311.4543341852104, 91.91985593181492], "To No Man's Land"),
+        new MiscMarker("GKvzw", MiscTypes.trap, [302.8222664961821, 180.10692583594192], "Auto Turret"),
+        new MiscMarker("FZ9wR", MiscTypes.trap, [197.9487619590601, 167.00775711246345], "Auto Turret"),
+        new MiscMarker("jiSKu", MiscTypes.klausRadio, [248.69686909470747, 86.08737776355258]),
+        new MiscMarker("ju6UD", MiscTypes.klausRadio, [390.1321584270637, 329.59800864437324]),
+        new MiscMarker("UM_zY", MiscTypes.klausRadio, [181.4866273933248, 286.50529186955015]),
+        new MiscMarker("hELxf", MiscTypes.wallbuy, [286.69157898902415, 102.51138061773712], "Stoner-63"),
+        new MiscMarker("Bv7or", MiscTypes.wallbuy, [199.4014593131159, 175.9347523985546], "QBZ-83"),
         new MiscMarker("0NXak", MiscTypes.wallbuy, [399.8494608215523, 326], "Type 63"),
         new MiscMarker("8kTWI", MiscTypes.wallbuy, [286.72101221026105, 380.25], "AK-74u"),
         new MiscMarker("X4lhW", MiscTypes.wallbuy, [140.47611680346853, 340], "MP5"),
         new MiscMarker("jQOwR", MiscTypes.wallbuy, [186.48321783920994, 404.375], "Gallo SA12"),
         new MiscMarker("ZEXRC", MiscTypes.wallbuy, [340.85034092382944, 413.75], "Diamatti"),
+        new MiscMarker("vdYgv", MiscTypes.wallbuy, [323.38931113034687, 313.6534246276432], "Hauer 77"),
+        new MiscMarker("ZUMvb", MiscTypes.wallbuy, [307.8645191395491, 294.70791575751707], "KSP 45"),
         new MiscMarker("Awvc5", MiscTypes.wunderFizz, [316.19672138741174, 57.20469016157574]),
         new MiscMarker("7EMcB", MiscTypes.papMachine, [251.9594828704304, 196.73887409661467]),
         new MiscMarker("slGlH", MiscTypes.trialComputer, [252.96874015675087, 39.595653414259026]),
         new MiscMarker("UvjK8", MiscTypes.rampageInducer, [337.9763530414482, 384.75]),
+        new MiscMarker("ook1f", MiscTypes.cassetteTape, [364.594308702165, 411.59576707869667]),
+        new MiscMarker("YMZPe", MiscTypes.cassetteTape, [175.42748080394747, 324.57693567676864]),
+        new MiscMarker("WzV96", MiscTypes.clue, [144.5504050965535, 289.50012070442347], "Klaus Upgrade Station"),
+        new MiscMarker("PwmRS", MiscTypes.clue, [110.80096229476811, 298.4347086625506], "#1 Blacklight numbers"),
+        new MiscMarker("muHxa", MiscTypes.clue, [302.33874571909564, 311.0221039512368], "#3 Blacklight numbers"),
+        new MiscMarker("0ZFbr", MiscTypes.secretPassage, [118.31471157271051, 467.80515920170296], "Hotel Room 305, use brain rot zombie to open door and get Klaus hands and the safe for CRBR-S"),
+        new MiscMarker("YqN75", MiscTypes.essenceHarvester, [181.1322876506002, 304.5979694369277], "Used in the quest to charge soul canisters."),
+        new MiscMarker("vgkPi", MiscTypes.essenceHarvester, [173.4707721095559, 358.04367363412337], "Used in the quest to charge soul canisters."),
     ],
     [MapIds.forsaken]: [
         new MiscMarker("uhk5c", MiscTypes.teleporter, [312.4317773199738, 82.75], "To Main Street"),
@@ -403,7 +456,7 @@ export const MiscStore: IMisc = {
         new MiscMarker("KTf9e", MiscTypes.rampageInducer, [269.94129600149824, 123.5]),
         new MiscMarker("dNZrb", Perks.death, [296.9316883603334, 127.75]),
         new MiscMarker("DkPDk", MiscTypes.wallbuy, [285.1908512032962, 57.25], "Diamatti"),
-        new MiscMarker("hPvQY", MiscTypes.wallbuy, [381.70090364266315, 78.25], "Hauer"),
+        new MiscMarker("hPvQY", MiscTypes.wallbuy, [381.70090364266315, 78.25], "Hauer 77"),
         new MiscMarker("ftW_1", MiscTypes.wallbuy, [236.37046539938197, 307.5], "Pellington"),
         new MiscMarker("xbmnw", MiscTypes.wallbuy, [320.9730698099073, 182.9375], "DMR 14"),
         new MiscMarker("5Bzt4", MiscTypes.wallbuy, [365.2261190186347, 203.5], "Bullfrog"),
