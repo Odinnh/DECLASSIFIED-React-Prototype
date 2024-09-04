@@ -3,11 +3,11 @@ import { UserContextProps } from '../DeclassifiedContext/types';
 
 const initialContextValues = {
 	isMobile: window.innerWidth <= 768,
-	setIsMobile: () => {},
+	setIsMobile: () => { },
 	isDebugMode: true,
-	setIsDebugMode: () => {},
-	mapItemId: null,
-	updateMapItemId: () => {},
+	setIsDebugMode: () => { },
+	sharedMapItemId: null,
+	updateMapItemId: () => { },
 };
 
 export const UserContext =
@@ -18,7 +18,7 @@ export const UserContextProvider = ({ children }) => {
 	const [isDebugMode, setIsDebugMode] = useState(
 		initialContextValues.isDebugMode
 	);
-	const [mapItemId, setMapItemId] = useState<string | null>(null);
+	const [sharedMapItemId, setMapItemId] = useState<string | null>(null);
 
 	const updateMapItemId = (id: string | undefined) => {
 		if (id) {
@@ -40,7 +40,7 @@ export const UserContextProvider = ({ children }) => {
 				setIsMobile,
 				isDebugMode,
 				setIsDebugMode,
-				mapItemId,
+				sharedMapItemId,
 				updateMapItemId,
 			}}
 		>

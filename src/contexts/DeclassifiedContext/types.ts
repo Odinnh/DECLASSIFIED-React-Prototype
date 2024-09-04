@@ -30,6 +30,6 @@ export interface UserContextProps {
 	setIsMobile: (state: boolean) => void;
 	isDebugMode: boolean;
 	setIsDebugMode: (state: boolean) => void;
-	mapItemId: string | null;
+	sharedMapItemId: string | null;
 	updateMapItemId: (id: string) => void;
 }

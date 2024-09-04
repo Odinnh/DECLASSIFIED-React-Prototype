@@ -63,7 +63,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	const [drawerState, setDrawerState] = useState(
 		initialContextValues.drawerState
 	);
-	const { isMobile, mapItemId } = useUserContext();
+	const { isMobile, sharedMapItemId } = useUserContext();
 	const [isMapLoaded, setIsMapLoaded] = useState(false);
 
 	const setCurrentMapWithValidation = async (newMap: MapItem) => {
@@ -111,9 +111,9 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	const focusOnSharedItem = useCallback(async () => {
 		// TODO - Debug race condition with map loading and share link to avoid refreshing the page
 		if (isMapLoaded) {
-			if (mapItemId) {
-				console.log('Focus on shared item: ', mapItemId);
-				let intelItem = getIntelById(mapItemId);
+			if (sharedMapItemId) {
+				console.log('Focus on shared item: ', sharedMapItemId);
+				let intelItem = getIntelById(sharedMapItemId);
 				if (intelItem && intelItem.map) {
 					const IntelHasLocation = intelItem.loc !== DefaultPOIData.nullLoc;
 					if (IntelHasLocation) {
@@ -127,7 +127,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 
 					return;
 				} else {
-					let miscItemResult = getMiscMarkerById(mapItemId);
+					let miscItemResult = getMiscMarkerById(sharedMapItemId);
 					if (miscItemResult) {
 						const [miscMapId, miscItem] = miscItemResult;
 						if (miscItem && miscMapId) {
@@ -149,7 +149,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 				}
 			}
 		}
-	}, [isMapLoaded, mapInstance, mapItemId]);
+	}, [isMapLoaded, mapInstance, sharedMapItemId]);
 
 	useEffect(() => {
 		const fetchPreferences = async () => {
@@ -158,7 +158,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 				setUserPreferences(data!);
 
 				const userPrefsCurrentMap = GetMapById(data!.currentMap);
-				if (userPrefsCurrentMap) {
+				if (!sharedMapItemId && userPrefsCurrentMap) {
 					console.log(
 						'Setting current map from user preferences: ',
 						userPrefsCurrentMap
