@@ -45,10 +45,9 @@ export const UserInterface = () => {
 	const mapInstance = useMapEvents({});
 
 	useMapEvent('click', props => {
-		let location = '[' + props.latlng.lat + ', ' + props.latlng.lng + ']';
-		console.log(location);
-
 		if (isDebugMode) {
+			let location = '[' + props.latlng.lat + ', ' + props.latlng.lng + ']';
+			console.log(location);
 			navigator.clipboard.writeText(location);
 			triggerNotification('Location Copied to Clipboard');
 		}
@@ -84,7 +83,7 @@ export const UserInterface = () => {
 					<button className="btn ui" onClick={toggleDrawer(true, IntelDrawerContent)}>
 						<FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
 					</button>
-					<button className="btn ui" onClick={toggleDrawer(true, SettingsDrawerContent)}>
+					<button className="btn ui" onClick={toggleDrawer(true, <SettingsDrawerContent />)}>
 						<FontAwesomeIcon icon={faGear}></FontAwesomeIcon>
 					</button>
 					{/* <a className="btn ui" href="./challenge.html"><FontAwesomeIcon icon={faList}></FontAwesomeIcon > </a> */}
