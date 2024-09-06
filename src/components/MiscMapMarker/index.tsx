@@ -1,16 +1,16 @@
-import L, { map } from 'leaflet';
+import styled from '@emotion/styled';
+import { Paper, Typography } from '@mui/material';
+import L from 'leaflet';
+import { useEffect, useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
-import { Paper, Typography } from '@mui/material';
+import { useUserContext } from '../../contexts/UserContext/userContextProvider';
+import { IconFileNames } from '../../data/icons';
+import { DefaultPOIData } from '../../data/intel';
+import { GetMapById } from '../../data/mapDetails';
 import { getMiscMarkerById } from '../../helpers/github';
 import { BugReportButton } from '../ActionButtons/BugReportButton';
 import { ShareButton } from '../ActionButtons/ShareButton';
-import { DefaultPOIData } from '../../data/intel';
-import { GetMapById } from '../../data/mapDetails';
-import styled from '@emotion/styled';
-import { IconFileNames } from '../../data/icons';
-import { useState, useEffect } from 'react';
-import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 
 export const MiscMapMarker = ({
 	id,
@@ -208,6 +208,7 @@ const MiscDescription = styled(Typography)`
 	text-align: center;
 	margin: 0px !important;
 	font-size: 0.7rem;
+	white-space: pre-wrap;
 `;
 
 const ActionContainer = styled.div`
