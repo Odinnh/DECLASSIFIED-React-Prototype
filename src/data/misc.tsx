@@ -12,7 +12,6 @@ import { IMisc, MiscTypes, OutbreakEE2Steps } from "./types";
 /////////////////////Round Based Misc Items/////////////////////////
 export const MiscStore: IMisc = {
 	[MapIds.dieMaschine]: [
-		new MiscMarker(`9ySyg`, MiscTypes.nova5, [315.29654358848376, 295.69795800010473]),
 		new MiscMarker(`qnnn7`, MiscTypes.craftingTable, [238.9533945125948, 313.2529307427267]),
 		new MiscMarker(`FcRRV`, MiscTypes.rampageInducer, [187.22527858413707, 297.96712471202267]),
 		new MiscMarker(`2y3Cc`, MiscTypes.exfillRadio, [242.55058174922743, 337.5]),
@@ -37,9 +36,6 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`zczWT`, MiscTypes.aetherTunnel, [312.95656000863335, 345.5]),
 	],
 	[MapIds.dieMaschineUnderground]: [
-		new MiscMarker(`VpIJu`, MiscTypes.cryoemitter, [297.2665148522491, 349.81279151873895]),
-		new MiscMarker(`w_xnt`, MiscTypes.thermophasic, [211.50810943751497, 233.52599646325353]),
-		new MiscMarker(`VNWWl`, MiscTypes.electrobolt, [113.39539786187888, 353.078013760189]),
 		new MiscMarker(`azfbH`, MiscTypes.workbench, [181.80822246607428, 350.9882946484989]),
 		new MiscMarker(`cTakX`, MiscTypes.craftingTable, [302.9450323063958, 199.5]),
 		new MiscMarker(`GdJqJ`, MiscTypes.wallbuy, [325.4370259387583, 188.25], `XM4`),
@@ -409,7 +405,6 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`QU4JZ`, MiscTypes.trialComputer, [240.0005248924028, 315.2523023747949]),
 		new MiscMarker(`kHQFd`, MiscTypes.trialComputer, [222.46786422999594, 251.42072927638944]),
 		new MiscMarker(`ORM0f`, MiscTypes.redRift, [391.40929445880636, 252.02191837378084]),
-		new MiscMarker(`6IA1p`, MiscTypes.electrobolt, [218.94657303732083, 383.23711642835906]),
 	],
 	[MapIds.ruka]: [
 		new MiscMarker(`18A2Y`, MiscTypes.dementedEcho, [332.61885317644305, 225.16827101672993]),
@@ -460,7 +455,6 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`FqjzW`, MiscTypes.monkey, [366.728066736379, 131], `Leaning against the broken down car.`),
 		new MiscMarker(`SGa0I`, MiscTypes.monkey, [238.30978121120768, 448.3125], `At the end of the railroad, under rafters.`),
 		// new MiscMarker(`fDb0E`, MiscTypes.projector, [0, 0]), // Dont think this exists
-		new MiscMarker(`YeH4n`, MiscTypes.thermophasic, [94.0042121017423, 334.3317226785948]),
 	],
 	[MapIds.alpine]: [
 		new MiscMarker(`yfDA4`, MiscTypes.dementedEcho, [335.2545905360252, 70.87629629055847]),
@@ -510,7 +504,6 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`K7ay6`, MiscTypes.wallbuy, [378.35148690180966, 214.6089341851221]),
 		new MiscMarker(`UzNkV`, MiscTypes.wallbuy, [216.07746476812133, 139.11181913168872]),
 		new MiscMarker(`rYPHj`, MiscTypes.projector, [199.38751401269195, 138.7419183294555]),
-		new MiscMarker(`KfCN7`, MiscTypes.cryoemitter, [106.2932488669672, 313.34003330490333]),
 	],
 	[MapIds.golova]: [
 		new MiscMarker(`_9qob`, MiscTypes.dementedEcho, [167.02309933760583, 326.8300791718768]),
@@ -575,7 +568,6 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`xsRN7`, MiscTypes.monkey, [106.49109327895019, 339.5], `On a pillar at the top of the scaffolding.`),
 		new MiscMarker(`8xhDt`, MiscTypes.monkey, [185.48268753325056, 416.75], `On the top shelf.`),
 		new MiscMarker(`iMHwr`, MiscTypes.projector, [177.0071341819346, 347.625]),
-		new MiscMarker(`jxkej`, MiscTypes.nova5, [197.8850734145944, 146.29544698855156]),
 	],
 	[MapIds.sanatorium]: [
 		new MiscMarker(`ijcwV`, MiscTypes.dementedEcho, [121.50275687461007, 277.77812593764446]),
