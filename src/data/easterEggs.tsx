@@ -151,7 +151,6 @@ export const EasterEggStore: IMisc = {
 		new MiscMarker(`dMdFW`, EETypes.mainQuest, [389.48725462947607, 253.659943176447], `Computer\n Used after placing all 3 Crystals in the reactors. Will display a world map to realign a satellite, each will have a flag in the bottom right corner. When you see a location with a question mark, align with that one to activate the OPC and allow you to begin the boss fight.`),
 	],
 	[MapIds.mauerDerToten]: [
-		// TODO: Go back over these to mark the correct steps as "questCollectible" where they're part of the main quest
 		new MiscMarker(`_n0MB`, EETypes.bonus, [193.68010197590363, 264.8048544502154], `1 of 6 Mr Peeks pieces used to access the bonus chest room.`),
 		new MiscMarker(`2wAit`, EETypes.clue, [384.32068891654967, 272.1759937481422], `#0 Blacklight locker`),
 		new MiscMarker(`G107e`, EETypes.clue, [181.79736917081456, 459.6975460903231], `#2 Blacklight numbers`),
@@ -173,7 +172,6 @@ export const EasterEggStore: IMisc = {
 		new MiscMarker(`BcQMe`, EETypes.mainQuest, [167.82182159774044, 39.754294782294636], `Klaus escort location.\nKlaus will still need to be escorted whilst carrying the warhead in order to successfully finish the bossfight.`),
 	],
 	[MapIds.mauerDerTotenStreets]: [
-		// TODO: Go back over these to mark the correct steps as "questCollectible" where they're part of the main quest
 		new MiscMarker(`ook1f`, EETypes.cassetteTape, [364.594308702165, 411.59576707869667], `1 of 3 needed for the easter egg song.`),
 		new MiscMarker(`YMZPe`, EETypes.cassetteTape, [175.42748080394747, 324.57693567676864], `1 of 3 needed for the easter egg song.`),
 		new MiscMarker(`00CEF`, EETypes.cassetteTape, [185.86657193523203, 70.19853360643957], `1 of 3 needed for the easter egg song.`),
@@ -207,6 +205,12 @@ export const EasterEggStore: IMisc = {
 		new MiscMarker(`guuWl`, EETypes.mainQuest, [251.03046990519945, 172.27978216881027], `Spawn location for the first HVT Megaton which drops the 2 pieces of uranium needed to craft the uranium devices. Can be taken to any workbench to craft.`),
 		new MiscMarker(`pOuZZ`, EETypes.mainQuest, [327.83864123291437, 440.6007233273124], `Spawn location for the second HVT Megaton which drops the 2 pieces of uranium needed to craft the uranium devices. Can be taken to any workbench to craft.`),
 		new MiscMarker(`yg8rq`, EETypes.mainQuest, [244.90656540916956, 296.09692296650684], `1 of 2 Cleansed Rocks\nUsed in the main quest to arm the warhead placed in the lab. They both require the same steps, with different Megaton spawn locations.`),
+	],
+	[MapIds.forsaken]: [
+
+	],
+	[MapIds.forsakenUnderground]: [
+
 	],
 	[MapIds.duga]: [
 		new MiscMarker(`6IA1p`, EETypes.electrobolt, [218.94657303732083, 383.23711642835906]),
