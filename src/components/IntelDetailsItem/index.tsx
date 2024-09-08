@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {
@@ -10,20 +10,20 @@ import {
 	Button,
 	Typography,
 } from '@mui/material';
-import { useContext, useState } from 'react';
-import { DefaultPOIData, IIntelItem } from '../../data/intel';
-import { CustomImage } from '../CustomImage';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../data/db';
-import {
-	deleteCollectedIntel,
-	addCollectedIntel,
-} from '../../data/dataAccessLayer';
+import { useContext, useState } from 'react';
 import { useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import {
+	addCollectedIntel,
+	deleteCollectedIntel,
+} from '../../data/dataAccessLayer';
+import { db } from '../../data/db';
+import { DefaultPOIData, IIntelItem } from '../../data/intel';
 import { GetMapById } from '../../data/mapDetails';
-import { ShareButton } from '../ActionButtons/ShareButton';
 import { BugReportButton } from '../ActionButtons/BugReportButton';
+import { ShareButton } from '../ActionButtons/ShareButton';
+import { CustomImage } from '../CustomImage';
 
 export interface IIntelItemWithHandler extends IIntelItem {
 	isMarker?: boolean;
@@ -88,7 +88,7 @@ export const IntelDetailsItem = ({
 									<CheckBoxIcon htmlColor="var(--clr-blue)" />
 								</Button>
 							) : (
-								<Button title="collected" onClick={() => addCollectedIntel(id)}>
+								<Button title="collected" onClick={() => addCollectedIntel([id])}>
 									<CheckBoxOutlineBlankIcon htmlColor="var(--clr-blue)" />
 								</Button>
 							)}

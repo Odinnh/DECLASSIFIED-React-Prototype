@@ -3464,7 +3464,7 @@ const staticIntelStore: IIntelItem[] = [
 		loc: [242.10603552472378, 250.03564086943598],
 		map: MapIds.dieMaschine,
 		title: 'Game Changer',
-		desc: 'Drop the crate for the Cryo WW upgrade. The log will be near the destroyed crate and flask.',
+		desc: 'Drops from the crate used in the D.I.E Cryo upgrade. The log will be near the destroyed crate and vial.',
 		img: 'lEbpEFo',
 	},
 	{
@@ -6196,6 +6196,6 @@ export const IntelStore: IntelItem[] = getIntelStore(staticIntelStore);
 let intelFiltered = IntelCache.slice(); */
 
 /* intelCache.map((item) => {
-    item.loc = JSON.parse(item.loc)
-    return item;
+	item.loc = JSON.parse(item.loc)
+	return item;
 }) */

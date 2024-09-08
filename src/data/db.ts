@@ -1,19 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie';
 
-// TODO - Use this interface to map old user preferences to new user preferences
-interface OldDeclassifiedUserPreferences {
-	challengeTrackerState: string;
-	collectedIntel: string[];
-	completedChallenges: string[];
-	darkMode: boolean;
-	hideBugRepButton: boolean;
-	hideIntel: boolean;
-	hideMisc: boolean;
-	lastSelectedMap: string;
-	pinnedChallenges: string[];
-	useSystemTheme: boolean;
-}
-
 interface DeclassifiedUserPreferences {
 	username: string; // TODO - Use this as a feature to allow multiple users to have their own preferences
 	currentMap: string;
@@ -32,14 +18,16 @@ interface DeclassifiedIntelCollected {
 
 interface DeclassifiedChallenges {
 	challengeId: string;
+	isCompleted: boolean;
 	isPinned: boolean;
-	dateCompleted: Date;
+	dateCompleted: Date | null;
+	datePinned: Date | null;
 }
 
 const db = new Dexie('DeclassifiedV1') as Dexie & {
 	userPrefs: EntityTable<DeclassifiedUserPreferences, 'username'>;
 	intelCollected: EntityTable<DeclassifiedIntelCollected, 'intelId'>;
-	completedChallenges: EntityTable<DeclassifiedChallenges, 'challengeId'>;
+	challenges: EntityTable<DeclassifiedChallenges, 'challengeId'>;
 };
 
 // Schema declaration:
@@ -47,12 +35,11 @@ db.version(1).stores({
 	userPrefs:
 		'&username, currentMap, challengeTrackerState, darkMode, hideBugRepButton, hideIntel, hideMisc, useSystemTheme',
 	intelCollected: '&intelId, dateCollected',
-	completedChallenges: '&challengeId, isPinned, dateCompleted',
+	challenges: '&challengeId, isCompleted, isPinned, dateCompleted, datePinned',
 });
 
-export type {
-	DeclassifiedUserPreferences,
-	DeclassifiedIntelCollected,
-	DeclassifiedChallenges,
-};
 export { db };
+export type {
+	DeclassifiedChallenges, DeclassifiedIntelCollected, DeclassifiedUserPreferences
+};
+

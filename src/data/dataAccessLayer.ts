@@ -57,15 +57,16 @@ export async function updateUserPreferences(
 	}
 }
 
-export async function addCollectedIntel(intelId: string) {
+export async function addCollectedIntel(intelIds: string[]) {
 	try {
-		if (intelId) {
-			return await db.intelCollected.put({
-				intelId: intelId,
-				dateCollected: new Date(),
-			});
+		for (const intelId of intelIds) {
+			if (intelId) {
+				await db.intelCollected.put({
+					intelId: intelId,
+					dateCollected: new Date(),
+				});
+			}
 		}
-		return;
 	} catch (error) {
 		console.log('ERROR - addCollectedIntel: ', error);
 	}
@@ -79,5 +80,63 @@ export async function deleteCollectedIntel(intelId: string) {
 		return;
 	} catch (error) {
 		console.log('ERROR - deleteCollectedIntel: ', error);
+	}
+}
+
+export async function addCompletedChallenges(challengeIds: string[]) {
+	try {
+		for (const challengeId of challengeIds) {
+			if (challengeId) {
+				var existingChallenge = await db.challenges.get(challengeId);
+				if (existingChallenge) {
+					await db.challenges.put({
+						challengeId: challengeId,
+						isCompleted: true,
+						isPinned: false,
+						dateCompleted: new Date(),
+						datePinned: existingChallenge?.datePinned ?? null,
+					});
+				} else {
+					await db.challenges.put({
+						challengeId: challengeId,
+						isCompleted: true,
+						isPinned: false,
+						dateCompleted: new Date(),
+						datePinned: null,
+					});
+				}
+			}
+		}
+	} catch (error) {
+		console.log('ERROR - addCompletedChallenges: ', error);
+	}
+}
+
+export async function addPinnedChallenges(challengeIds: string[]) {
+	try {
+		for (const challengeId of challengeIds) {
+			if (challengeId) {
+				var existingChallenge = await db.challenges.get(challengeId);
+				if (existingChallenge) {
+					await db.challenges.put({
+						challengeId: challengeId,
+						isCompleted: false,
+						isPinned: true,
+						dateCompleted: existingChallenge.dateCompleted ?? null,
+						datePinned: new Date(),
+					});
+				} else {
+					await db.challenges.put({
+						challengeId: challengeId,
+						isCompleted: false,
+						isPinned: true,
+						dateCompleted: null,
+						datePinned: new Date(),
+					});
+				}
+			}
+		}
+	} catch (error) {
+		console.log('ERROR - addPinnedChallenges: ', error);
 	}
 }
