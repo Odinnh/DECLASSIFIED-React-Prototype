@@ -12,7 +12,7 @@ import { useMapEvent, useMapEvents } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { useNotification } from '../../contexts/NotificationContext/notificationContext';
 import { useUserContext } from '../../contexts/UserContext/userContextProvider';
-import { IntelDrawerContent } from '../DrawerMenu/IntelDrawerContent';
+import { IntelAndEasterEggDrawerContent } from '../DrawerMenu/IntelDrawerContent';
 import { SettingsDrawerContent } from '../DrawerMenu/SettingsDrawerContent';
 
 const StyledUiContainer = styled.div<{ $isMobile?: boolean }>`
@@ -80,7 +80,7 @@ export const UserInterface = () => {
 			</div>
 			<div>
 				<div className="bottom-left-ui">
-					<button className="btn ui" onClick={toggleDrawer(true, IntelDrawerContent)}>
+					<button className="btn ui" onClick={toggleDrawer(true, <IntelAndEasterEggDrawerContent />)}>
 						<FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
 					</button>
 					<button className="btn ui" onClick={toggleDrawer(true, <SettingsDrawerContent />)}>
