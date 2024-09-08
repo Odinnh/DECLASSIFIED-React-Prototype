@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
-import { Paper, Typography } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Button, Paper, Typography } from '@mui/material';
 import L from 'leaflet';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { MiscMarker } from '../../classes';
+import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 import { IconFileNames } from '../../data/icons';
 import { DefaultPOIData } from '../../data/intel';
@@ -20,19 +22,22 @@ export const MiscMapMarker = ({
 	typeDesc,
 	loc,
 }: MiscMarker) => {
+	const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext);
 	const mapInstance = useMapEvents({});
 	const [markerInstance, setPopupInstance] = useState<L.Marker | null>(null); // State to hold the Popup instance
 	const { sharedMapItemId } = useUserContext();
 	const renderedIcon = miscIconInit(icon);
 	let miscItemResult = getMiscMarkerById(id!);
-	let miscItemMap;
+	let miscItemMap, miscMapId, miscItem;
 	if (miscItemResult) {
-		const [miscMapId, miscItem] = miscItemResult;
+		[miscMapId, miscItem] = miscItemResult;
 		const MiscHasLocation = miscItem.loc !== DefaultPOIData.nullLoc;
 		if (MiscHasLocation) {
 			miscItemMap = GetMapById(miscMapId)!;
 		}
 	}
+	const ItemHasLocation = loc !== DefaultPOIData.nullLoc;
+	const ItemIsOnAnotherMap = miscMapId !== currentMap!.id;
 
 	useEffect(() => {
 		if (sharedMapItemId === id && markerInstance) {
@@ -47,6 +52,28 @@ export const MiscMapMarker = ({
 					<PopupTitle variant="h2">{title}</PopupTitle>
 					<MiscDescription>{desc}</MiscDescription>
 					<ActionContainer>
+						{ItemHasLocation && miscItemMap?.mapCanRender ? (
+							<Button
+								onClick={async () => {
+									if (ItemIsOnAnotherMap) {
+										if (miscItemMap && miscItemMap.mapCanRender) {
+											var mapSetResult = await setCurrentMap(miscItemMap);
+											if (mapSetResult) {
+												mapInstance.flyTo(loc, 4);
+											}
+										}
+									} else {
+										mapInstance.flyTo(loc, 4);
+									}
+								}}
+							>
+								<LocationOnIcon htmlColor="var(--clr-blue)" />
+							</Button>
+						) : (
+							<Button disabled>
+								<LocationOnIcon htmlColor="var(--clr-blue)" />
+							</Button>
+						)}
 						<ShareButton id={id} />
 						<BugReportButton
 							id={id}
@@ -209,6 +236,7 @@ const MiscDescription = styled(Typography)`
 	margin: 0px !important;
 	font-size: 0.7rem;
 	white-space: pre-wrap;
+	width: 10rem;
 `;
 
 const ActionContainer = styled.div`
