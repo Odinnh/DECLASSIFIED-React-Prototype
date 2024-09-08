@@ -123,6 +123,7 @@ export const EasterEggStore: IMisc = {
 	[MapIds.firebaseZSpawn]: [
 		new MiscMarker(`Xst99`, EETypes.cassetteTape, [361.3527921527954, 188.83980649518872], `1 of 3 needed for the easter egg song\nUp the stairs on the book shelf.`),
 		new MiscMarker(`ALMtJ`, EETypes.cassetteTape, [158.88932890084, 205.2850129398853], `1 of 3 needed for the easter egg song\nInside a pigeon hole next to the locker containing one of the compounds for the main quest.`),
+		new MiscMarker(`tdq5M`, EETypes.bonus, [324.0469269977337, 242.0591502874637], `Mr Peeks\nStare at the bunny in outside of the map bounds in order to be teleported to the Dark Aether and obtain a bonus chest.`),
 		new MiscMarker(`sDGIO`, EETypes.bonus, [370.180211499256, 197.93612737161737], `Dart Board / Aetherium Converter\nUsing a code found in the weapon lab PC, it can be shot in order (then the bullseye) to drop 1 of 3 parts used to create a free RAI K-84.`),
 		new MiscMarker(`sdUX5`, EETypes.mainQuest, [382.9324256232408, 267.11524328413856], `Sergei Ravenov\nMust be interacted with to start the main quest.`),
 		new MiscMarker(`xkABv`, EETypes.questCollectible, [164.40213154389374, 204.72718267730167], `Compound S16\n1 of 3 compounds required as part of the truth serum in the main quest.`),
