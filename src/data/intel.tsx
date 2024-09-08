@@ -363,7 +363,7 @@ const staticIntelStore: IIntelItem[] = [
 		loc: [319.01055069265954, 351.936179716442],
 		map: MapIds.dieMaschine,
 		title: 'Decontamination Agent',
-		desc: 'In a cabinet in the med bay. Obtained during the main quest.',
+		desc: 'Dropped from a tree after the broken tank step of the main quest. Needs to be taken back to the cabinet in the med bay.',
 		img: 'ci5KPI7',
 	},
 	{
