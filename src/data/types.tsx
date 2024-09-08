@@ -43,10 +43,10 @@ export const MiscTypes = {
     aetherCrystal: new Item({ title: 'Aether Crystal' }),
 
     //bo6 new markers
-    wallArmor: new Item({ title: 'Armor wall buy', icon: IconFileNames.armorWall, }),
-    door: new Item({ title: 'door', icon: IconFileNames.door }),
-    doorPower: new Item({ title: 'Power door', desc: 'enable power to open this door', icon: IconFileNames.doorPower, }),
-    gumball: new Item({ title: 'Gobblegum machine', icon: IconFileNames.gumball }),
+    wallArmor: new Item({ title: 'Armour Wall Buy', icon: IconFileNames.armourWall, }),
+    door: new Item({ title: 'Door Buy', icon: IconFileNames.door }),
+    doorPower: new Item({ title: 'Power Door', desc: 'enable power to open this door', icon: IconFileNames.doorPower, }),
+    gumball: new Item({ title: 'Gobblegum Machine', icon: IconFileNames.gobblegum }),
 };
 
 /////////////////////Markers/////////////////////////

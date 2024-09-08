@@ -735,7 +735,7 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`q5VtS`, MiscTypes.arsenal, [343.8110712025486, 345.92850114965506]),
 		new MiscMarker(`Nl1gJ`, MiscTypes.ammoCrate, [338.8324800970297, 334.22449117018084]),
 		new MiscMarker(`4qnBp`, MiscTypes.wallArmor, [324.3945658910249, 325.0106960799565]),
-		new MiscMarker(`GjGRM`, MiscTypes.trap, [316.17989056691874, 316.0459224786572]),
+		new MiscMarker(`GjGRM`, MiscTypes.trap, [320.1978721464099, 311.77385159299655], `Aetherella\nCost: 1500`),
 		new MiscMarker(`XrBoV`, MiscTypes.gumball, [282.32547104939033, 267.7357536272106]),
 		new MiscMarker(`S9oX1`, MiscTypes.zipline, [270.376852396145, 270.7240114943104]),
 		new MiscMarker(`eznoZ`, MiscTypes.door, [241.00316487358356, 281.4319355180847]),

@@ -47,8 +47,8 @@ export enum IconFileNames {
 	arsenal = 'arsenal',
 	craftingTable = 'crafting_table',
 	wallbuy = 'wall_buy',
-	gumball = 'gumball',
-	armorWall = 'armor_wall',
+	gobblegum = 'gumball',
+	armourWall = 'armor_wall',
 	workbench = 'workbench',
 	upgrade = 'upgrade',
 
