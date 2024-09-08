@@ -2,6 +2,10 @@ import { createContext, useContext } from 'react';
 
 interface NotificationContextProps {
 	triggerNotification: (message: string) => void;
+	triggerDialog: (message: string, buttonText: {
+		trueText: string;
+		falseText: string;
+	} | undefined, callback: (result: boolean) => void) => void
 }
 
 export const NotificationContext = createContext<

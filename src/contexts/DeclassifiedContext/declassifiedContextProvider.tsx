@@ -18,7 +18,9 @@ import {
 import { DeclassifiedUserPreferences } from '../../data/db';
 import { DefaultPOIData, IntelItem } from '../../data/intel';
 import { GetMapById, GetMapByTitle, MapDetails } from '../../data/mapDetails';
+import { checkUserHasUnmigratedPreferences, markAsMigrated, migrateOldUserPreferences } from '../../data/migration';
 import { getIntelById, getMiscMarkerById } from '../../helpers/github';
+import { useNotification } from '../NotificationContext/notificationContext';
 import {
 	useUserContext,
 } from '../UserContext/userContextProvider';
@@ -64,6 +66,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 		initialContextValues.drawerState
 	);
 	const { isMobile, sharedMapItemId } = useUserContext();
+	const { triggerDialog } = useNotification();
 	const [isMapLoaded, setIsMapLoaded] = useState(false);
 
 	const setCurrentMapWithValidation = async (newMap: MapItem) => {
@@ -110,7 +113,6 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	});
 
 	const focusOnSharedItem = useCallback(async () => {
-		// TODO - Debug race condition with map loading and share link to avoid refreshing the page
 		if (isMapLoaded) {
 			if (sharedMapItemId) {
 				console.log('Focus on shared item: ', sharedMapItemId);
@@ -157,6 +159,17 @@ export const DeclassifiedContextProvider = ({ children }) => {
 			try {
 				const data = await getSetUserPreferences();
 				setUserPreferences(data!);
+
+				if (checkUserHasUnmigratedPreferences()) {
+					var dialogMessage = `Looks like you're a returning user! Would you like us to migrate your old settings & progress?`;
+					triggerDialog(dialogMessage, { trueText: 'Yes', falseText: 'No (I want to start fresh)' },
+						(result) => {
+							if (result) {
+								migrateOldUserPreferences();
+							}
+							markAsMigrated();
+						});
+				}
 
 				const userPrefsCurrentMap = GetMapById(data!.currentMap);
 				if (!sharedMapItemId && userPrefsCurrentMap) {
