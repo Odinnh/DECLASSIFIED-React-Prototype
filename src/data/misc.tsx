@@ -93,6 +93,7 @@ export const MiscStore: IMisc = {
 		new MiscMarker(`rQkF_`, MiscTypes.craftingTable, [309.8493398258264, 286.875]),
 		new MiscMarker(`8OaeH`, MiscTypes.craftingTable, [294.8495622249274, 153.625]),
 		new MiscMarker(`hFCmp`, MiscTypes.craftingTable, [175.95490682648187, 307.5]),
+		new MiscMarker(``, MiscTypes.workbench, [158.51146179487426, 291.112396180971], `Used to craft the free RAI K-84.`),
 		new MiscMarker(`245Uw`, MiscTypes.trialComputer, [295.8543215656897, 221.75]),
 		new MiscMarker(`VM2_4`, MiscTypes.collector, [415.08265989324843, 327.75]),
 		new MiscMarker(`itaev`, MiscTypes.collector, [240.46451446764678, 180.5]),
