@@ -85,7 +85,7 @@ export const EasterEggStore: IMisc = {
 	[MapIds.dieMaschine]: [
 		new MiscMarker(`w_xnt`, EETypes.thermophasic, [223.35366309316512, 223.1585943917737], `Unlocked after following the steps with the fuse in the Dark Aether.`),
 		new MiscMarker(`9ySyg`, EETypes.nova5, [315.29654358848376, 295.69795800010473], `Unlocked after following the steps with the cannister in the Dark Aether.`),
-		new MiscMarker(`XW3JZ`, EETypes.interactable, [174.74870507815817, 257.415635207116], `Crack in the wall where you can remotely activate the D.I.E Wonder Weapon after acquiring the D.I.E remote.`),
+		new MiscMarker(`XW3JZ`, EETypes.bonus, [174.74870507815817, 257.415635207116], `Crack in the wall where you can remotely activate the D.I.E Wonder Weapon after acquiring the D.I.E remote.`),
 		new MiscMarker(`wgKEY`, EETypes.questCollectible, [196.29722988085663, 307.495182630813], `1 of 3 Aetherscope Parts, one will spawn randomly when entering the Dark Aether, dogs spawn after picking it up.`),
 		new MiscMarker(`N29aN`, EETypes.questCollectible, [356.6938648779643, 343.9768501463755], `1 of 3 Aetherscope Parts, one will spawn randomly when entering the Dark Aether, dogs spawn after picking it up.`),
 		new MiscMarker(`yLQtN`, EETypes.questCollectible, [133.03685434894203, 282.6545483161539], `Cannister used in nova 5 steps, can only be retrieved with the alt fire of the D.I.E.`),
@@ -97,7 +97,6 @@ export const EasterEggStore: IMisc = {
 		new MiscMarker(`nhHde`, EETypes.questCollectible, [258.5949702531161, 173.9165165178388], `1 of 3 Crystals used in the Electrobolt upgrade steps, use the alt fire of the D.I.E to collect the energy, then run down to the upgrade box and shoot it to progress.`),
 		new MiscMarker(`pfJ2L`, EETypes.mainQuest, [160.42537161357052, 375.00631403381794], `Broken tank that needs to be interacted with 3 times whilst holding the wrench\nShoot the zombie that pops out, then throw a lethal explosive into the now open hatch. This causes the gun to fire, dropping the Decontamination Agent from the tree it shoots.`),
 		new MiscMarker(`TbPJZ`, EETypes.mainQuest, [257.59332755993654, 349.50282422284494], `Final ghostly dialogue anomaly before the boss fight\nInteract with it and the family portrait will spawn\nPicking up the photo will start the ending boss fight.`),
-
 	],
 	[MapIds.dieMaschineUnderground]: [
 		new MiscMarker(`1m5tF`, EETypes.bonus, [147.39538299834174, 388.52809723485626], `Downstairs, hidden behind the top left of the zombie spawn window\n1 of 5 blue orbs that you can shoot for a bonus chest.`),
