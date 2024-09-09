@@ -2,25 +2,26 @@ import styled from '@emotion/styled';
 import React, { useContext, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
-import { IntelType } from '../../data/intel';
+import { IntelStore, IntelType } from '../../data/intel';
 
 export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
 	const { register, getValues, setValue } = useFormContext();
-	const { filteredIntelStore } = useContext(DeclassifiedContext);
+	const { collectedIntel } = useContext(DeclassifiedContext);
 	const imgSrc = name.toLowerCase();
-	const value = IntelType[name];
+	const checkboxValue = IntelType[name];
 	let [checked, setChecked] = React.useState(defaultChecked || false);
 	const checkbox = useRef<HTMLInputElement | null>(null);
 	const { ref, ...rest } = register('intelTypes');
-	console.log("CHECKBOX filteredIntelStore : ", filteredIntelStore)
+	const totalIntelOfType = IntelStore.filter(intel => intel.typeDesc === checkboxValue).length;
+	const totalIntelCollectedOfType = IntelStore.filter(intel => intel.typeDesc === checkboxValue && collectedIntel && collectedIntel.find(({ intelId }) => intelId === intel.id)).length;
 
 	return (
 		<>
 			<input
 				style={{ display: 'none' }}
-				key={value}
+				key={checkboxValue}
 				type="checkbox"
-				value={value}
+				value={checkboxValue}
 				{...rest}
 				ref={e => {
 					ref(e);
@@ -36,10 +37,10 @@ export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
 					const currentArray = getValues('intelTypes');
 
 					if (isChecked) {
-						currentArray.push(value);
+						currentArray.push(checkboxValue);
 						setValue('intelTypes', currentArray);
 					} else {
-						const index = currentArray.indexOf(value);
+						const index = currentArray.indexOf(checkboxValue);
 						if (index > -1) {
 							currentArray.splice(index, 1);
 						}
@@ -55,7 +56,7 @@ export const CustomIntelFilterCheckbox = ({ name, defaultChecked }) => {
 						alt="Placeholder"
 						loading="lazy"
 					/>
-					<div className="intel-count">10 /105</div>
+					<div className="intel-count">{totalIntelCollectedOfType} /{totalIntelOfType}</div>
 				</div>
 			</StyledCustomIntelFilterCheckbox>
 		</>

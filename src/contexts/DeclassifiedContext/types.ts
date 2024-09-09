@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { MapItem } from '../../classes';
 import { FormInputs } from '../../components/IntelListMenu';
 import { MapMenuItem } from '../../components/MapControls/types';
+import { DeclassifiedIntelCollected } from '../../data/db';
 import { IntelItem } from '../../data/intel';
 
 export interface DeclassifiedContextProps {
@@ -18,6 +19,7 @@ export interface DeclassifiedContextProps {
 		isOpen: boolean,
 		content?: JSX.Element
 	) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+	collectedIntel: DeclassifiedIntelCollected[] | undefined;
 }
 
 export interface IntelContextProviderProps {

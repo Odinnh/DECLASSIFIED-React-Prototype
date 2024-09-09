@@ -8,10 +8,6 @@ import * as React from 'react';
 import { IntelList } from "../IntelList";
 import { IntelListMenu } from "../IntelListMenu";
 
-
-
-
-
 interface TabPanelProps {
     children?: React.ReactNode;
     dir?: string;
@@ -56,7 +52,7 @@ export const IntelAndEasterEggDrawerContent = () => {
 
 
     return (<>
-        <Box sx={{ bgcolor: 'background.paper' }}>
+        <Box sx={{ bgcolor: 'background.paper', height: 'inherit' }}>
             <AppBar position="static">
                 <Tabs
                     value={value}
@@ -93,7 +89,9 @@ const StyledIntelFilter = styled.div`
         height: 100%;
     `;
 const StyledTabPanel = styled(TabPanel)`
+height: inherit;
 .MuiBox-root{
     padding: unset;
+    height: inherit;
 }
 `

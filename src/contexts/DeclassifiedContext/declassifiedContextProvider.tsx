@@ -40,6 +40,7 @@ const initialContextValues = {
 	setCurrentIntelFilter: () => { },
 	drawerState: { isOpen: false, content: <></> },
 	toggleDrawer: () => () => { },
+	collectedIntel: undefined
 };
 
 async function updateUserPreferencesInDB(
@@ -67,7 +68,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	const [drawerState, setDrawerState] = useState(
 		initialContextValues.drawerState
 	);
-	const { isMobile, sharedMapItemId } = useUserContext();
+	const { sharedMapItemId } = useUserContext();
 	const { triggerDialog } = useNotification();
 	const [isMapLoaded, setIsMapLoaded] = useState(false);
 
@@ -243,6 +244,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 				setCurrentIntelFilter,
 				drawerState,
 				toggleDrawer,
+				collectedIntel
 			}}>
 			{children}
 		</DeclassifiedContext.Provider>
