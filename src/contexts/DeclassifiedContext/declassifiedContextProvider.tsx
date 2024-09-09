@@ -1,3 +1,4 @@
+import { useLiveQuery } from 'dexie-react-hooks';
 import {
 	createContext,
 	useCallback,
@@ -15,8 +16,9 @@ import {
 	getSetUserPreferences,
 	updateUserPreferences,
 } from '../../data/dataAccessLayer';
-import { DeclassifiedUserPreferences } from '../../data/db';
-import { DefaultPOIData, IntelItem } from '../../data/intel';
+import { db, DeclassifiedUserPreferences } from '../../data/db';
+import { DefaultPOIData, IntelItem, IntelStore } from '../../data/intel';
+import { filterIntel } from '../../data/listFiltering';
 import { GetMapById, GetMapByTitle, MapDetails } from '../../data/mapDetails';
 import { checkUserHasUnmigratedPreferences, markAsMigrated, migrateOldUserPreferences } from '../../data/migration';
 import { getIntelById, getMiscMarkerById } from '../../helpers/github';
@@ -154,6 +156,27 @@ export const DeclassifiedContextProvider = ({ children }) => {
 		}
 	}, [isMapLoaded, mapInstance, sharedMapItemId]);
 
+	const collectedIntel = useLiveQuery(async () => {
+		return await db.intelCollected.toArray();
+	});
+
+	useEffect(() => {
+		if (currentMapGroup) {
+			var filteredIntel = filterIntel(
+				collectedIntel,
+				currentMapGroup,
+				IntelStore,
+				currentIntelFilter.searchTerm,
+				currentIntelFilter.factions,
+				currentIntelFilter.seasons,
+				currentIntelFilter.intelTypes,
+				currentIntelFilter.currentMapOnly,
+				currentIntelFilter.collectedIntelFilter
+			);
+			setFilteredIntelStore(filteredIntel);
+		}
+	}, [collectedIntel, currentIntelFilter, currentMapGroup])
+
 	useEffect(() => {
 		const fetchPreferences = async () => {
 			try {
@@ -201,7 +224,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 		if (isMapLoaded) {
 			focusOnSharedItem();
 		}
-	}, [focusOnSharedItem, isMapLoaded]);
+	}, [focusOnSharedItem, isMapLoaded, sharedMapItemId, triggerDialog]);
 
 	if (isLoading) {
 		return null;
