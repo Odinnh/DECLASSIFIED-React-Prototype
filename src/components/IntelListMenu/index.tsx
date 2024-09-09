@@ -44,7 +44,7 @@ export const IntelListMenu = () => {
 	const onSubmit: SubmitHandler<IntelFormInputs> = data => {
 		// TODO: set filter value in context
 		setCurrentIntelFilter(data);
-		console.log('FORM SUBMIT: ', data);
+		console.log('INTEL FORM SUBMIT: ', data);
 	};
 	const totalIntelOfType = filteredIntelStore.length;
 	const totalIntelCollectedOfType = filteredIntelStore.filter(intel => collectedIntel && collectedIntel.find(({ intelId }) => intelId === intel.id)).length;

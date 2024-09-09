@@ -198,7 +198,7 @@ export const DeclassifiedContextProvider = ({ children }) => {
 			);
 			setFilteredEggStore(filteredMisc);
 		}
-	}, [collectedIntel, currentIntelFilter, currentMapGroup])
+	}, [collectedIntel, currentEggFilter.easterEggTypes, currentEggFilter.searchTerm, currentIntelFilter, currentMapGroup])
 
 	useEffect(() => {
 		const fetchPreferences = async () => {

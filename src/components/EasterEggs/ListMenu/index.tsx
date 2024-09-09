@@ -34,7 +34,7 @@ export const EggListMenu = () => {
     const onSubmit: SubmitHandler<EggFormInputs> = data => {
         // TODO: set filter value in context
         setCurrentEggFilter(data);
-        console.log('FORM SUBMIT: ', data);
+        console.log('EGG FORM SUBMIT: ', data);
     };
     const totalEggOfType = filteredEggStore.length;
 
