@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { MapItem, MiscMarker } from '../../classes';
 import { EggFormInputs } from '../../components/EasterEggs/ListMenu';
-import { IntelFormInputs } from '../../components/IntelListMenu';
+import { IntelFormInputs } from '../../components/Intel/IntelListMenu';
 import { MapGroupItem } from '../../components/MapControls/types';
 import { DeclassifiedIntelCollected } from '../../data/db';
 import { IntelItem } from '../../data/intel';

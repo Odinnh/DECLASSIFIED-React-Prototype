@@ -11,7 +11,7 @@ import { EggFormInputs, getEggFilterDefaults } from '../../components/EasterEggs
 import {
 	getIntelFilterDefaults,
 	IntelFormInputs,
-} from '../../components/IntelListMenu';
+} from '../../components/Intel/IntelListMenu';
 import { MapGroupings, MapGroupItem } from '../../components/MapControls/types';
 import {
 	getSetUserPreferences,

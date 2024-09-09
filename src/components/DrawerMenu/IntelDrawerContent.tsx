@@ -7,8 +7,8 @@ import Tabs from '@mui/material/Tabs';
 import * as React from 'react';
 import { EggList } from "../EasterEggs/List";
 import { EggListMenu } from "../EasterEggs/ListMenu";
-import { IntelList } from "../IntelList";
-import { IntelListMenu } from "../IntelListMenu";
+import { IntelList } from "../Intel/IntelList";
+import { IntelListMenu } from "../Intel/IntelListMenu";
 
 interface TabPanelProps {
     children?: React.ReactNode;

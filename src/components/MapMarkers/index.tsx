@@ -6,7 +6,7 @@ import { IntelStore, IntelType } from '../../data/intel';
 import { MiscStore } from '../../data/misc';
 import { PerkStore } from '../../data/perks';
 import { IMisc, MarkerLayerTypes } from '../../data/types';
-import { IntelMapMarker } from '../IntelMapMarker';
+import { IntelMapMarker } from '../Intel/IntelMapMarker';
 import { MiscMapMarker } from '../MiscMapMarker';
 
 const renderIntelMapMarkers = (

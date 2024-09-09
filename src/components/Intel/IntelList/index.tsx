@@ -1,7 +1,7 @@
 import { Paper, Typography } from '@mui/material';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { DeclassifiedContext } from '../../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { IntelDetailsItem } from '../IntelDetailsItem';
 
 const StyledIntelList = styled.div`

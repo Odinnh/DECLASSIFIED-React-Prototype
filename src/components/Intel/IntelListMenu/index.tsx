@@ -8,10 +8,10 @@ import {
 } from '@mui/material';
 import { useContext, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
-import { Faction, IntelType, Season } from '../../data/intel';
+import { DeclassifiedContext } from '../../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { Faction, IntelType, Season } from '../../../data/intel';
+import { MenuFooter } from '../../MenuFooter';
 import { IntelFilterMenu } from '../IntelFilterMenu';
-import { MenuFooter } from '../MenuFooter';
 
 export type IntelFormInputs = {
 	searchTerm: string;

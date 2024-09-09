@@ -1,13 +1,13 @@
-import L, { DivIconOptions } from 'leaflet';
-import { Marker, Popup, useMapEvents } from 'react-leaflet';
-import { Faction, IntelItem } from '../../data/intel';
-import { intelIconInit } from '../../helpers/icons';
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db, DeclassifiedIntelCollected } from '../../data/db';
-import { IntelDetailsItem } from '../IntelDetailsItem';
 import styled from '@emotion/styled';
-import { useState, useEffect } from 'react';
-import { useUserContext } from '../../contexts/UserContext/userContextProvider';
+import { useLiveQuery } from 'dexie-react-hooks';
+import L, { DivIconOptions } from 'leaflet';
+import { useEffect, useState } from 'react';
+import { Marker, Popup, useMapEvents } from 'react-leaflet';
+import { useUserContext } from '../../../contexts/UserContext/userContextProvider';
+import { db, DeclassifiedIntelCollected } from '../../../data/db';
+import { Faction, IntelItem } from '../../../data/intel';
+import { intelIconInit } from '../../../helpers/icons';
+import { IntelDetailsItem } from '../IntelDetailsItem';
 
 const StyledPopup = styled(Popup)`
 	background-color: var(--clr-bg-inverted);
