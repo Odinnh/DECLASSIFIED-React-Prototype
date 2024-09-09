@@ -10,8 +10,8 @@ import { useContext, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { Faction, IntelType, Season } from '../../data/intel';
-import { MenuFooter } from '../MenuFooter';
 import { IntelFilterMenu } from '../IntelFilterMenu';
+import { MenuFooter } from '../MenuFooter';
 
 export type FormInputs = {
 	searchTerm: string;
@@ -23,7 +23,7 @@ export type FormInputs = {
 };
 
 export const IntelListMenu = () => {
-	const { currentIntelFilter, setCurrentIntelFilter } =
+	const { currentIntelFilter, setCurrentIntelFilter, collectedIntel, filteredIntelStore } =
 		useContext(DeclassifiedContext);
 	const [expand, setExpand] = useState(false);
 	const toggleAcordion = () => {
@@ -46,6 +46,8 @@ export const IntelListMenu = () => {
 		setCurrentIntelFilter(data);
 		console.log('FORM SUBMIT: ', data);
 	};
+	const totalIntelOfType = filteredIntelStore.length;
+	const totalIntelCollectedOfType = filteredIntelStore.filter(intel => collectedIntel && collectedIntel.find(({ intelId }) => intelId === intel.id)).length;
 
 	watch((data, { name, type }) => handleSubmit(onSubmit)());
 
@@ -60,7 +62,7 @@ export const IntelListMenu = () => {
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<StyledAccordion expanded={expand}>
-					<AccordionSummary
+					<StyledAccordionSummary
 						expandIcon={<FilterAltIcon onClick={toggleAcordion} />}
 						aria-controls="intel-filter"
 						id="intel-filter-header"
@@ -71,7 +73,8 @@ export const IntelListMenu = () => {
 							variant="outlined"
 							{...register('searchTerm')}
 						/>
-					</AccordionSummary>
+						{totalIntelCollectedOfType}/{totalIntelOfType}
+					</StyledAccordionSummary>
 					<AccordionDetails>
 						<IntelFilterMenu />
 					</AccordionDetails>
@@ -99,6 +102,14 @@ const StyledExpandableMenu = styled.form`
 	position: sticky;
 	bottom: 0;
 `;
+
+const StyledAccordionSummary = styled(AccordionSummary)`
+.MuiAccordionSummary-content {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+`
 
 const StyledAccordion = styled(Accordion)`
 	width: 100%;
