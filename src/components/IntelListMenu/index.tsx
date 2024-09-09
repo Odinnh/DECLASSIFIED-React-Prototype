@@ -13,7 +13,7 @@ import { Faction, IntelType, Season } from '../../data/intel';
 import { IntelFilterMenu } from '../IntelFilterMenu';
 import { MenuFooter } from '../MenuFooter';
 
-export type FormInputs = {
+export type IntelFormInputs = {
 	searchTerm: string;
 	seasons: Season[];
 	factions: Faction[];
@@ -29,7 +29,7 @@ export const IntelListMenu = () => {
 	const toggleAcordion = () => {
 		setExpand(prev => !prev);
 	};
-	const methods = useForm<FormInputs>({
+	const methods = useForm<IntelFormInputs>({
 		defaultValues: currentIntelFilter,
 		shouldUnregister: false,
 	});
@@ -41,7 +41,7 @@ export const IntelListMenu = () => {
 		formState,
 		formState: { isValidating },
 	} = methods;
-	const onSubmit: SubmitHandler<FormInputs> = data => {
+	const onSubmit: SubmitHandler<IntelFormInputs> = data => {
 		// TODO: set filter value in context
 		setCurrentIntelFilter(data);
 		console.log('FORM SUBMIT: ', data);
@@ -84,7 +84,8 @@ export const IntelListMenu = () => {
 		</FormProvider>
 	);
 };
-export function getIntelFilterDefaults(): FormInputs {
+
+export function getIntelFilterDefaults(): IntelFormInputs {
 	return {
 		searchTerm: '',
 		seasons: [],

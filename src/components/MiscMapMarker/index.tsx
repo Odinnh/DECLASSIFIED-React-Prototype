@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { Button, Paper, Typography } from '@mui/material';
 import L from 'leaflet';
 import { useContext, useEffect, useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
@@ -8,11 +6,7 @@ import { MiscMarker } from '../../classes';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
 import { useUserContext } from '../../contexts/UserContext/userContextProvider';
 import { IconFileNames } from '../../data/icons';
-import { DefaultPOIData } from '../../data/intel';
-import { GetMapById } from '../../data/mapDetails';
-import { getMiscMarkerById } from '../../helpers/github';
-import { BugReportButton } from '../ActionButtons/BugReportButton';
-import { ShareButton } from '../ActionButtons/ShareButton';
+import { MiscDetailItem } from '../MiscDetailsItem';
 
 export const MiscMapMarker = ({
 	id,
@@ -24,20 +18,9 @@ export const MiscMapMarker = ({
 }: MiscMarker) => {
 	const { setCurrentMapWithValidation: setCurrentMap, currentMap } = useContext(DeclassifiedContext);
 	const mapInstance = useMapEvents({});
+	const renderedIcon = miscIconInit(icon);
 	const [markerInstance, setPopupInstance] = useState<L.Marker | null>(null); // State to hold the Popup instance
 	const { sharedMapItemId } = useUserContext();
-	const renderedIcon = miscIconInit(icon);
-	let miscItemResult = getMiscMarkerById(id!);
-	let miscItemMap, miscMapId, miscItem;
-	if (miscItemResult) {
-		[miscMapId, miscItem] = miscItemResult;
-		const MiscHasLocation = miscItem.loc !== DefaultPOIData.nullLoc;
-		if (MiscHasLocation) {
-			miscItemMap = GetMapById(miscMapId)!;
-		}
-	}
-	const ItemHasLocation = loc !== DefaultPOIData.nullLoc;
-	const ItemIsOnAnotherMap = miscMapId !== currentMap!.id;
 
 	useEffect(() => {
 		if (sharedMapItemId === id && markerInstance) {
@@ -48,40 +31,12 @@ export const MiscMapMarker = ({
 	return (
 		<Marker position={loc} icon={renderedIcon} ref={setPopupInstance}>
 			<StyledPopup>
-				<MiscDetailItem>
-					<PopupTitle variant="h2">{title}</PopupTitle>
-					<MiscDescription>{desc}</MiscDescription>
-					<ActionContainer>
-						{ItemHasLocation && miscItemMap?.mapCanRender ? (
-							<Button
-								onClick={async () => {
-									if (ItemIsOnAnotherMap) {
-										if (miscItemMap && miscItemMap.mapCanRender) {
-											var mapSetResult = await setCurrentMap(miscItemMap);
-											if (mapSetResult) {
-												mapInstance.flyTo(loc, 4);
-											}
-										}
-									} else {
-										mapInstance.flyTo(loc, 4);
-									}
-								}}
-							>
-								<LocationOnIcon htmlColor="var(--clr-blue)" />
-							</Button>
-						) : (
-							<Button disabled>
-								<LocationOnIcon htmlColor="var(--clr-blue)" />
-							</Button>
-						)}
-						<ShareButton id={id} />
-						<BugReportButton
-							id={id}
-							typeDesc={typeDesc}
-							mapItem={miscItemMap}
-						/>
-					</ActionContainer>
-				</MiscDetailItem>
+				<MiscDetailItem
+					id={id}
+					title={title}
+					desc={desc}
+					typeDesc={typeDesc}
+					loc={loc} />
 			</StyledPopup>
 		</Marker>
 	);
@@ -213,37 +168,3 @@ const StyledPopup = styled(Popup)`
 		display: none !important;
 	}
 `;
-
-const MiscDetailItem = styled(Paper)`
-	background-color: unset;
-	border-radius: unset;
-	padding: 8px;
-	/* width:300px; */
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-`;
-const PopupTitle = styled(Typography)`
-	font-size: 1.1rem;
-	margin: 0 auto;
-	white-space: nowrap;
-	overflow: hidden;
-	text-align: center;
-`;
-
-const MiscDescription = styled(Typography)`
-	text-align: center;
-	margin: 0px !important;
-	font-size: 0.7rem;
-	white-space: pre-wrap;
-	width: 10rem;
-`;
-
-const ActionContainer = styled.div`
-	svg {
-		font-size: 1.2rem;
-	}
-	display: flex;
-	justify-content: space-evenly;
-`;
-

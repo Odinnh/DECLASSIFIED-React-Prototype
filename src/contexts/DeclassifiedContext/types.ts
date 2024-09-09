@@ -1,25 +1,34 @@
 import { Dispatch, SetStateAction } from 'react';
-import { MapItem } from '../../classes';
-import { FormInputs } from '../../components/IntelListMenu';
-import { MapMenuItem } from '../../components/MapControls/types';
+import { MapItem, MiscMarker } from '../../classes';
+import { EggFormInputs } from '../../components/EasterEggs/ListMenu';
+import { IntelFormInputs } from '../../components/IntelListMenu';
+import { MapGroupItem } from '../../components/MapControls/types';
 import { DeclassifiedIntelCollected } from '../../data/db';
 import { IntelItem } from '../../data/intel';
 
 export interface DeclassifiedContextProps {
 	currentMap: MapItem | null;
 	setCurrentMapWithValidation: (newMap: MapItem) => Promise<boolean>;
-	currentMapGroup: MapMenuItem | null;
-	setCurrentMapGroup: Dispatch<SetStateAction<MapMenuItem | null>>;
+
+	currentMapGroup: MapGroupItem | null;
+	setCurrentMapGroup: Dispatch<SetStateAction<MapGroupItem | null>>;
+
 	filteredIntelStore: IntelItem[];
-	setFilteredIntelStore: Dispatch<SetStateAction<IntelItem[]>>;
-	currentIntelFilter: FormInputs;
-	setCurrentIntelFilter: Dispatch<SetStateAction<FormInputs>>;
+
+	currentIntelFilter: IntelFormInputs;
+	setCurrentIntelFilter: Dispatch<SetStateAction<IntelFormInputs>>;
+
 	drawerState: DrawerMenuProps;
 	toggleDrawer: (
 		isOpen: boolean,
 		content?: JSX.Element
 	) => (event: React.KeyboardEvent | React.MouseEvent) => void;
 	collectedIntel: DeclassifiedIntelCollected[] | undefined;
+
+	currentEggFilter: EggFormInputs
+	setCurrentEggFilter: Dispatch<SetStateAction<EggFormInputs>>;
+
+	filteredEggStore: MiscMarker[],
 }
 
 export interface IntelContextProviderProps {

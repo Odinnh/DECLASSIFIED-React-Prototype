@@ -6,19 +6,21 @@ import {
 	useState,
 } from 'react';
 import { useMapEvent, useMapEvents } from 'react-leaflet';
-import { MapItem } from '../../classes';
+import { MapItem, MiscMarker } from '../../classes';
+import { EggFormInputs, getEggFilterDefaults } from '../../components/EasterEggs/ListMenu';
 import {
-	FormInputs,
 	getIntelFilterDefaults,
+	IntelFormInputs,
 } from '../../components/IntelListMenu';
-import { MapGroupings, MapMenuItem } from '../../components/MapControls/types';
+import { MapGroupings, MapGroupItem } from '../../components/MapControls/types';
 import {
 	getSetUserPreferences,
 	updateUserPreferences,
 } from '../../data/dataAccessLayer';
 import { db, DeclassifiedUserPreferences } from '../../data/db';
+import { StaticEggStore } from '../../data/easterEggs';
 import { DefaultPOIData, IntelItem, IntelStore } from '../../data/intel';
-import { filterIntel } from '../../data/listFiltering';
+import { filterIntel, filterMisc } from '../../data/listFiltering';
 import { GetMapById, GetMapByTitle, MapDetails } from '../../data/mapDetails';
 import { checkUserHasUnmigratedPreferences, markAsMigrated, migrateOldUserPreferences } from '../../data/migration';
 import { getIntelById, getMiscMarkerById } from '../../helpers/github';
@@ -40,7 +42,11 @@ const initialContextValues = {
 	setCurrentIntelFilter: () => { },
 	drawerState: { isOpen: false, content: <></> },
 	toggleDrawer: () => () => { },
-	collectedIntel: undefined
+	collectedIntel: undefined,
+
+	currentEggFilter: getEggFilterDefaults(),
+	setCurrentEggFilter: () => { },
+	filteredEggStore: [],
 };
 
 async function updateUserPreferencesInDB(
@@ -57,14 +63,18 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	const [userPrefs, setUserPreferences] =
 		useState<DeclassifiedUserPreferences | null>(null);
 	const [currentMap, setCurrentMap] = useState<MapItem | null>(null);
-	const [currentMapGroup, setCurrentMapGroup] = useState<MapMenuItem | null>(
+	const [currentMapGroup, setCurrentMapGroup] = useState<MapGroupItem | null>(
 		null
 	);
 	const [isLoading, setIsLoading] = useState(true); // Add loading state
 	const [filteredIntelStore, setFilteredIntelStore] = useState<IntelItem[]>([]);
-	const [currentIntelFilter, setCurrentIntelFilter] = useState<FormInputs>(
+	const [currentIntelFilter, setCurrentIntelFilter] = useState<IntelFormInputs>(
 		getIntelFilterDefaults()
 	);
+	const [currentEggFilter, setCurrentEggFilter] = useState<EggFormInputs>(
+		getEggFilterDefaults()
+	);
+	const [filteredEggStore, setFilteredEggStore] = useState<MiscMarker[]>([]);
 	const [drawerState, setDrawerState] = useState(
 		initialContextValues.drawerState
 	);
@@ -179,6 +189,18 @@ export const DeclassifiedContextProvider = ({ children }) => {
 	}, [collectedIntel, currentIntelFilter, currentMapGroup])
 
 	useEffect(() => {
+		if (currentMapGroup && StaticEggStore) {
+			var filteredMisc = filterMisc(
+				currentMapGroup,
+				StaticEggStore,
+				currentEggFilter.searchTerm,
+				currentEggFilter.easterEggTypes,
+			);
+			setFilteredEggStore(filteredMisc);
+		}
+	}, [collectedIntel, currentIntelFilter, currentMapGroup])
+
+	useEffect(() => {
 		const fetchPreferences = async () => {
 			try {
 				const data = await getSetUserPreferences();
@@ -236,15 +258,23 @@ export const DeclassifiedContextProvider = ({ children }) => {
 			value={{
 				currentMap,
 				setCurrentMapWithValidation,
+
 				currentMapGroup,
 				setCurrentMapGroup,
+
 				filteredIntelStore,
-				setFilteredIntelStore,
+
 				currentIntelFilter,
 				setCurrentIntelFilter,
+
 				drawerState,
 				toggleDrawer,
-				collectedIntel
+				collectedIntel,
+
+				currentEggFilter,
+				setCurrentEggFilter,
+
+				filteredEggStore,
 			}}>
 			{children}
 		</DeclassifiedContext.Provider>

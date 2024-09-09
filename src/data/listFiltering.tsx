@@ -1,9 +1,12 @@
-import { MapMenuItem } from "../components/MapControls/types";
+import { MiscMarker } from "../classes";
+import { MapGroupItem } from "../components/MapControls/types";
+import { EggType } from "./easterEggs";
 import { Faction, IntelItem, IntelType, Season } from "./intel";
+import { IMisc } from "./types";
 
 export function filterIntel(
     collectedIntel,
-    currentMapGroup: MapMenuItem,
+    currentMapGroup: MapGroupItem,
     intelCache: IntelItem[],
     searchTermDirty: string,
     factionsArr: Faction[] = [],
@@ -74,5 +77,29 @@ export function filterIntel(
     }
     // console.log({ seasonsArr, intelTypeArr, results });
     // console.log("INTEL FILTERED END: ", results);
+    return results;
+}
+
+export function filterMisc(
+    currentMapGroup: MapGroupItem,
+    miscStore: IMisc,
+    searchTermDirty: string,
+    eggTypeArr: EggType[] = [],
+) {
+    let results: MiscMarker[] = [];
+
+    currentMapGroup.mapLayers.forEach(map => {
+        if (map.id && miscStore[map.id]) {
+            results.push(...miscStore[map.id]);
+        };
+    });
+
+    let searchTerm = searchTermDirty.trim().toLowerCase();
+    results = results.filter(intel => {
+        return (
+            intel.title.toLowerCase().indexOf(searchTerm.trim().toLowerCase()) !== -1
+        );
+    });
+
     return results;
 }

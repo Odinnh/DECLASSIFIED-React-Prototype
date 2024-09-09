@@ -1,5 +1,5 @@
 import { MiscMarker } from "../classes";
-import { EasterEggStore } from "./easterEggs";
+import { StaticEggStore } from "./easterEggs";
 import { MapIds } from "./intel";
 import { PerkStore } from "./perks";
 import { IMisc, MiscTypes, OutbreakEE2Steps } from "./types";
@@ -747,11 +747,10 @@ export const MiscStore: IMisc = {
 	],
 };
 
-
 export const AllMiscStores = (): IMisc => {
 	const mergedStore: IMisc = {};
 
-	const stores = [MiscStore, PerkStore, EasterEggStore];
+	const stores = [MiscStore, PerkStore, StaticEggStore];
 
 	for (const store of stores) {
 		for (const key in store) {

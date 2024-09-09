@@ -3,35 +3,36 @@ import { IconFileNames } from './icons';
 import { MapIds } from './intel';
 import { IMisc } from './types';
 
-export const EasterEggStrings = {
-	dieMaschineEE: `Seal the Deal`, //https://callofduty.fandom.com/wiki/Seal_the_Deal
-	dieMaschineWW: `D.I.E. Wonder Weapon`,
-	dieMaschineBonusChest: `Coffin Dance`,
-	dieMaschineRadioAlign: `Radio Alignment`,
-	dieMaschineOrdaHand: `Orda Hand`,
+export enum EggType {
+	dieMaschineEE = `Seal the Deal`, //https://callofduty.fandom.com/wiki/Seal_the_Deal
+	dieMaschineWW = `D.I.E. Wonder Weapon`,
+	dieMaschineBonusChest = `Coffin Dance`,
+	dieMaschineRadioAlign = `Radio Alignment`,
+	dieMaschineOrdaHand = `Orda Hand`,
 
-	firebaseZEE: `Maxis Potential`, //https://callofduty.fandom.com/wiki/Maxis_Potential
-	firebaseZWW: `Rai K-84`,
-	firebaseZBonusChest: `Bunny Scare`,
-	firebaseZSafe: "Sergei`s Safe",
-	firebaseZMonkeyUpgrade: `Monkey bomb upgrade`,
-	firebaseZFreeJump: `Free Jump pad`,
+	firebaseZEE = `Maxis Potential`, //https://callofduty.fandom.com/wiki/Maxis_Potential
+	firebaseZWW = `Rai K-84`,
+	firebaseZBonusChest = `Bunny Scare`,
+	firebaseZSafe = `Sergei's Safe`,
+	firebaseZMonkeyUpgrade = `Monkey bomb upgrade`,
+	firebaseZFreeJump = `Free Jump pad`,
 
-	mauerDerTotenEE: `Tin Man Heart`, //https://callofduty.fandom.com/wiki/Tin_Man_Heart
-	mauerDerTotenWW: `CRBR-S`,
-	mauerDerTotenBonusChest: `Hasenbau Club`,
-	mauerDerTotenTargets: `Target Practice`,
-	mauerDerTotenEssenceHarvester: `Essence Harvester`,
-	mauerDerTotenKlaus: `Klaus`,
+	mauerDerTotenEE = `Tin Man Heart`, //https://callofduty.fandom.com/wiki/Tin_Man_Heart
+	mauerDerTotenWW = `CRBR-S`,
+	mauerDerTotenBonusChest = `Hasenbau Club`,
+	mauerDerTotenTargets = `Target Practice`,
+	mauerDerTotenEssenceHarvester = `Essence Harvester`,
+	mauerDerTotenKlaus = `Klaus`,
 
-	outbreakEE1: `Ravenov Implications`, //https://callofduty.fandom.com/wiki/Ravenov_Implications
-	outbreakEE2: `Entrapment`, //https://callofduty.fandom.com/wiki/Entrapment
+	outbreakEE1 = `Ravenov Implications`, //https://callofduty.fandom.com/wiki/Ravenov_Implications
+	outbreakEE2 = `Entrapment`, //https://callofduty.fandom.com/wiki/Entrapment
 
-	mainQuest: `Main Quest`,
-	clue: `Visual Clue`,
-	interactable: `Interactable Object`,
-	secretArea: `Secret Area`,
-	music: `Cassette Tape`,
+	mainQuest = `Main Quest`,
+	questCollectible = `Quest Collectible`,
+	clue = `Visual Clue`,
+	interactable = `Interactable Object`,
+	secretArea = `Secret Area`,
+	music = `Cassette Tape`,
 };
 
 export const WorldEventTypes = {
@@ -48,28 +49,28 @@ export const WorldEventTypes = {
 	musicRadio: new Item({ title: `Music radio` }),
 };
 
-export const EETypes = {
+const EETypes = {
 	mainQuest: new Item({
-		title: EasterEggStrings.mainQuest, icon: IconFileNames.mainQuest,
+		title: EggType.mainQuest, icon: IconFileNames.mainQuest,
 	}),
 	cassetteTape: new Item({
-		title: EasterEggStrings.music, icon: IconFileNames.cassette,
+		title: EggType.music, icon: IconFileNames.cassette,
 	}),
-	clue: new Item({ title: EasterEggStrings.clue, icon: IconFileNames.clue }),
+	clue: new Item({ title: EggType.clue, icon: IconFileNames.clue }),
 	secretArea: new Item({
-		title: EasterEggStrings.secretArea, icon: IconFileNames.secretArea,
+		title: EggType.secretArea, icon: IconFileNames.secretArea,
 	}),
 	interactable: new Item({
-		title: EasterEggStrings.interactable, icon: IconFileNames.interactable,
+		title: EggType.interactable, icon: IconFileNames.interactable,
 	}),
 	questCollectible: new Item({
-		title: EasterEggStrings.mainQuest, icon: IconFileNames.mainQuest,
+		title: EggType.questCollectible, icon: IconFileNames.mainQuest,
 	}),
 	essenceHarvester: new Item({
-		title: EasterEggStrings.mauerDerTotenEssenceHarvester, icon: IconFileNames.reactor,
+		title: EggType.mauerDerTotenEssenceHarvester, icon: IconFileNames.reactor,
 	}),
 	bonus: new Item({
-		title: EasterEggStrings.interactable, icon: IconFileNames.interactable,
+		title: EggType.interactable, icon: IconFileNames.interactable,
 	}),
 	thermophasic: new Item({ title: `D.I.E. Thermophasic Upgrade`, icon: IconFileNames.upgrade, }),
 	nova5: new Item({ title: `D.I.E. Nova-5 Upgrade`, icon: IconFileNames.upgrade, }),
@@ -81,7 +82,7 @@ export const EETypes = {
 // https://nanoid.jormaechea.com.ar/?alphabet=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz&length=5
 // Please use the existing settings included in the URL and check for duplicate ids when possible (it`s very very unlikely but still possible).
 
-export const EasterEggStore: IMisc = {
+export const StaticEggStore: IMisc = {
 	[MapIds.dieMaschine]: [
 		new MiscMarker(`w_xnt`, EETypes.thermophasic, [223.35366309316512, 223.1585943917737], `Unlocked after following the steps with the fuse in the Dark Aether.`),
 		new MiscMarker(`9ySyg`, EETypes.nova5, [315.29654358848376, 295.69795800010473], `Unlocked after following the steps with the cannister in the Dark Aether.`),

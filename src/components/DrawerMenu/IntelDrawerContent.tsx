@@ -5,6 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import * as React from 'react';
+import { EggList } from "../EasterEggs/List";
+import { EggListMenu } from "../EasterEggs/ListMenu";
 import { IntelList } from "../IntelList";
 import { IntelListMenu } from "../IntelListMenu";
 
@@ -66,13 +68,16 @@ export const IntelAndEasterEggDrawerContent = () => {
                 </Tabs>
             </AppBar>
             <StyledTabPanel value={value} index={0} dir={theme.direction}>
-                <StyledIntelFilter id="intel-filter">
+                <TabContentContainer id="intel-filter">
                     <IntelList />
                     <IntelListMenu />
-                </StyledIntelFilter>
+                </TabContentContainer>
             </StyledTabPanel>
             <StyledTabPanel value={value} index={1} dir={theme.direction}>
-                Easter Eggs Ennit
+                <TabContentContainer id="eggs-filter">
+                    <EggList />
+                    <EggListMenu />
+                </TabContentContainer>
             </StyledTabPanel>
         </Box>
 
@@ -81,7 +86,7 @@ export const IntelAndEasterEggDrawerContent = () => {
 }
 
 
-const StyledIntelFilter = styled.div`
+const TabContentContainer = styled.div`
         background-color: var(--clr-grey-d);
         display: flex;
         flex-direction: column;

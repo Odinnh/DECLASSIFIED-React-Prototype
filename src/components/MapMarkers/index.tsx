@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
 import { LayerGroup, LayersControl } from 'react-leaflet';
 import { DeclassifiedContext } from '../../contexts/DeclassifiedContext/declassifiedContextProvider';
+import { StaticEggStore } from '../../data/easterEggs';
 import { IntelStore, IntelType } from '../../data/intel';
+import { MiscStore } from '../../data/misc';
+import { PerkStore } from '../../data/perks';
+import { IMisc, MarkerLayerTypes } from '../../data/types';
 import { IntelMapMarker } from '../IntelMapMarker';
 import { MiscMapMarker } from '../MiscMapMarker';
-import { EasterEggStore } from '../../data/easterEggs';
-import { PerkStore } from '../../data/perks';
-import { MiscStore } from '../../data/misc';
-import { IMisc, MarkerLayerTypes } from '../../data/types';
 
 const renderIntelMapMarkers = (
 	mapId: string,
@@ -80,11 +80,11 @@ export const MapMarkers = () => {
 
 
 
-			{EasterEggStore[currentMap!.id!] ? (<LayersControl.Overlay
+			{StaticEggStore[currentMap!.id!] ? (<LayersControl.Overlay
 				name={MarkerLayerTypes.easterEggs.title}
 				checked={isChecked /* TODO: SWAP WITH USER PREFS */}
 			>
-				<LayerGroup>{renderMiscMapMarkers(EasterEggStore, currentMap!.id!)}</LayerGroup>
+				<LayerGroup>{renderMiscMapMarkers(StaticEggStore, currentMap!.id!)}</LayerGroup>
 			</LayersControl.Overlay>) : null}
 
 

@@ -1,12 +1,12 @@
 import { MapItem } from '../../classes';
 import { MapDetails } from '../../data/mapDetails';
 
-export interface MapMenuItem {
+export interface MapGroupItem {
 	mapName: string;
 	mapLayers: MapItem[];
 }
 
-export type MapGroupDictionary = Record<string, MapMenuItem>;
+export type MapGroupDictionary = Record<string, MapGroupItem>;
 
 export const MapGroupings: MapGroupDictionary = {
 	dieMachine_Group: {
